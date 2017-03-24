@@ -1,0 +1,13 @@
+name: package-template
+
+channels:
+    - astropy
+
+dependencies:
+    - astropy
+    - Cython
+    - matplotlib
+    - numpy
+    - scipy
+#   - pip:
+#       - dependency_from_pip
