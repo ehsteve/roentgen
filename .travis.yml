@@ -75,14 +75,12 @@ matrix:
         # Check for sphinx doc build warnings - we do this first because it
         # may run for a long time
         - os: linux
-          env: SETUP_CMD='build_docs -w'
+          env: SETUP_CMD='build_docs'
 
         # Now try Astropy dev and LTS versions with the latest 3.x and 2.7.
         - os: linux
           env: ASTROPY_VERSION=development
                EVENT_TYPE='pull_request push cron'
-        - os: linux
-          env: ASTROPY_VERSION=lts
 
         # Try all python versions and Numpy versions. Since we can assume that
         # the Numpy developers have taken care of testing Numpy with different
@@ -110,6 +108,13 @@ matrix:
         # (allow to fail unless your code completely compliant)
         - os: linux
           env: MAIN_CMD='pycodestyle packagename --count' SETUP_CMD=''
+
+        # Check for sphinx doc build warnings - we do this first because it
+        # may run for a long time
+        - os: linux
+          env: SETUP_CMD='build_docs -w'
+        - os: linux
+          env: ASTROPY_VERSION=lts
 
 install:
 
