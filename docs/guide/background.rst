@@ -18,7 +18,7 @@ has units of :math:`cm_{-1}`.
 This value captures the sum of the probabilities of individual processes which might remove an individual photon
 from the impinging beam. Those interactions most relevant to the x-ray and gamma-ray range are the photoelectric
 interaction and Compton scattering. In a photoelectric interaction, the entire incident energy of the interacting photon
- absorbed by the material while in Compton scattering, only a portion of the incident energy is absorbed. These
+absorbed by the material while in Compton scattering, only a portion of the incident energy is absorbed. These
  interactions are energy dependent which means that the linear attenuation coefficient is also.
 
 Another more popular way to represent the linear attenuation coefficient is through the mass attenuation coefficient or

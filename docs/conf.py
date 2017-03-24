@@ -124,7 +124,7 @@ html_theme_options = {
 
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.
-#html_logo = ''
+html_logo = 'logo/roentgen_logo.jpg'
 
 # The name of an image file (within the static path) to use as favicon of the
 # docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32
@@ -142,6 +142,9 @@ html_title = '{0} v{1}'.format(project, release)
 # Output file base name for HTML help builder.
 htmlhelp_basename = project + 'doc'
 
+# Static files to copy after template files
+html_static_path = ['_static']
+html_style = 'roentgen.css'
 
 # -- Options for LaTeX output -------------------------------------------------
 

@@ -4,7 +4,7 @@ Example 1
 .. plot::
     :include-source:
 
-    from rontgen.absorption import MassAttenuationCoefficient
+    from roentgen.absorption import MassAttenuationCoefficient
     import numpy as np
     import astropy.units as u
     import matplotlib.pyplot as plt

@@ -18,7 +18,7 @@ Overview
     :target: https://readthedocs.org/projects/roentgen/
     :alt: Documentation Status
 
-.. |build| image:: https://travis-ci.org/NASA-GSFC-Heliophysics/roentgen.svg?branch=master
+.. |build| image:: https://travis-ci.org/ehsteve/roentgen.svg?branch=master
     :target: https://travis-ci.org/ehsteve/roentgen
     :alt: Build Status
 

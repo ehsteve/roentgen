@@ -4,7 +4,7 @@ Example 2
 .. plot::
     :include-source:
 
-    from rontgen.absorption import Material
+    from roentgen.absorption import Material
     import numpy as np
     import astropy.units as u
     import matplotlib.pyplot as plt
@@ -16,7 +16,7 @@ Example 2
 
     for material in material_list:
         mat = Material(material, thickness)
-        plt.plot(energy, mat.absorption(energy), label=mat.long_name)
+        plt.plot(energy, mat.absorption(energy), label=mat.name)
 
     plt.xlabel('Energy [' + str(energy.unit) + ']')
     plt.ylabel('Efficiency')
