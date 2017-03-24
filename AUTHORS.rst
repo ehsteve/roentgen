@@ -1,4 +1,4 @@
 Authors
 =======
 
-* Steven Christe
+* `Steven D. Christe <https://github.com/ehsteve>`
