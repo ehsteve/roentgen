@@ -44,9 +44,8 @@ Overview
 
 .. end-badges
 
-A Python package for the quantitative analysis of the interaction of energetic photons with matter (x-rays and gamma-rays). This package is named after one of the discoverers
-of X-rays, [Wilhelm Röntgen](https://en.wikipedia.org/wiki/Wilhelm_Röntgen), who also
-gave these energetic photons their name.
+A Python package for the quantitative analysis of the interaction of energetic x-rays with matter.
+This package is named after one of the discoverers of X-rays, Wilhelm Rontgen.
 
 Installation
 ============
@@ -58,4 +57,4 @@ Installation
 Documentation
 =============
 
-https://readthedocs.org/projects/roentgen/
+http://roentgen.readthedocs.io/en/latest/
