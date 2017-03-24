@@ -45,7 +45,10 @@ class Material(object):
             if is_an_element(material_str):
                 self.density = roentgen.elemental_densities[get_atomic_number(material_str)-1]['density']
             else:
-                self.density = roentgen.compounds.loc[material_str]['density']
+                # not using loc because table indexing is not yet stable
+                # self.density = roentgen.compounds.loc[material_str]['density']
+                index = list(roentgen.compounds['symbol']).index(material_str)
+                self.density = roentgen.compounds[index]['density']
         else:
             self.density = density
 

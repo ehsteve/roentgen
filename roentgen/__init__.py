@@ -22,11 +22,11 @@ if not _ASTROPY_SETUP_:
 
     elemental_densities = QTable(ascii.read(os.path.join(_data_directory, 'elements_densities.csv')))
     elemental_densities['density'] = elemental_densities['density'] * u.g / (u.cm ** 3)
-    elemental_densities.add_index('symbol')
+    #elemental_densities.add_index('symbol')
 
     compounds = QTable(ascii.read(os.path.join(_data_directory, 'compounds_mixtures.csv'), format='csv', fast_reader=False))
     compounds['density'] = compounds['density'] * u.g / (u.cm ** 3)
-    compounds.add_index('symbol')
+    #compounds.add_index('symbol')
 
 
     emission_energies = QTable(ascii.read(os.path.join(_data_directory, 'emission_energies.csv')))
