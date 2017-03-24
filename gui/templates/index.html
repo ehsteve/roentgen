@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv='content-type' content='text/html; charset=utf-8' />
+
+    <title>Roentgen Browser</title>
+
+    <link
+        href="http://cdn.pydata.org/bokeh/release/bokeh-0.12.0.min.css"
+        rel="stylesheet" type="text/css">
+    <link
+        href="http://cdn.pydata.org/bokeh/release/bokeh-widgets-0.12.0.min.css"
+        rel="stylesheet" type="text/css">
+
+    <script src="http://cdn.pydata.org/bokeh/release/bokeh-0.12.0.min.js"></script>
+    <script src="http://cdn.pydata.org/bokeh/release/bokeh-widgets-0.12.0.min.js"></script>
+    {{ js_resources|indent(4)|safe }}
+    {{ css_resources|indent(4)|safe }}
+    {{ plot_script|indent(4)|safe }}
+
+  </head>
+  <body>
+      <table border=0>
+        <tr>
+            <td valign=top width=210>
+                <p>Roentgen Browser</p><br>
+            <!-- A simple form for changing the graph -->
+            <form name="select" method='GET'>
+                Material:
+                <select name="option">
+                    {% for material in material_list %}
+                        <option value="{{ material }}" SELECTED>{{ material }}</option>
+                    {% endfor %}
+                </select><br>
+                Material:
+                <input type="text" name="_input_material" value="{{ _input_material }}" /><br>
+                Thickness (microns):
+                <input type="text" name="_input_thickness" value="{{ _input_thickness }}" />
+                <br>
+                <button type="submit">Submit</button><br>
+            </form>
+            <td>
+                {{ plot_div|indent(4)|safe }}
+            </td>
+        </tr>
+    </table>
+  </body>
+</html>
+
