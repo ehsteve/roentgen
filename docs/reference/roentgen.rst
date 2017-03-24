@@ -1,5 +1,5 @@
 Material
 ========
 
-.. automodapi:: roentgen.material
+.. automodapi:: roentgen.absorption
     :members:
