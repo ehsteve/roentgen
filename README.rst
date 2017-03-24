@@ -10,9 +10,9 @@ Overview
     * - docs
       - |docs|
     * - build status
-      - |build|
+      - |build| |coverage|
     * - package
-      - |version| |downloads| |wheel| |supported-versions| |supported-implementations|
+      - |version| |downloads| |wheel|
 
 .. |docs| image:: https://readthedocs.org/projects/rontgen/badge/?style=flat
     :target: https://readthedocs.org/projects/roentgen/
@@ -21,6 +21,10 @@ Overview
 .. |build| image:: https://travis-ci.org/ehsteve/roentgen.svg?branch=master
     :target: https://travis-ci.org/ehsteve/roentgen
     :alt: Build Status
+
+.. |coverage| image:: https://coveralls.io/repos/github/ehsteve/roentgen/badge.svg?branch=master
+    :target: https://coveralls.io/github/ehsteve/roentgen?branch=master
+    :alt: Coverage Status
 
 .. |version| image:: https://img.shields.io/pypi/v/roentgen.svg?style=flat
     :alt: PyPI Package latest release
@@ -32,14 +36,6 @@ Overview
 
 .. |wheel| image:: https://img.shields.io/pypi/wheel/roentgen.svg?style=flat
     :alt: PyPI Wheel
-    :target: https://pypi.python.org/pypi/roentgen
-
-.. |supported-versions| image:: https://img.shields.io/pypi/pyversions/rontgen.svg?style=flat
-    :alt: Supported versions
-    :target: https://pypi.python.org/pypi/roentgen
-
-.. |supported-implementations| image:: https://img.shields.io/pypi/implementation/rontgen.svg?style=flat
-    :alt: Supported implementations
     :target: https://pypi.python.org/pypi/roentgen
 
 .. end-badges
