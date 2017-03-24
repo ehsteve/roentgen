@@ -107,8 +107,7 @@ matrix:
         # Do a PEP8 test with pycodestyle
         # (allow to fail unless your code completely compliant)
         - os: linux
-          env: MAIN_CMD='pycodestyle packagename --count' SETUP_CMD=''
-
+          env: MAIN_CMD='pycodestyle roentgen --count' SETUP_CMD=''
         # Check for sphinx doc build warnings - we do this first because it
         # may run for a long time
         - os: linux
