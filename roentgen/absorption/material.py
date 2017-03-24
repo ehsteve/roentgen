@@ -161,12 +161,13 @@ class MassAttenuationCoefficient(object):
         if is_an_element(material):
             atomic_number = get_atomic_number(material)
             datafile_path = os.path.join(_data_directory, 'elements', 'z' + str(atomic_number).zfill(2) + '.csv')
-            symbol = roentgen.elements['symbol']
-            name = roentgen.elements['name']
+            symbol = roentgen.elements[atomic_number-1]['symbol']
+            name = roentgen.elements[atomic_number-1]['name']
         else:
             datafile_path = os.path.join(_data_directory, 'compounds_mixtures', material.lower().replace(' ', '_') + '.csv')
-            symbol = roentgen.compounds['symbol']
-            name = roentgen.compounds['name']
+            index = list(roentgen.compounds['symbol']).index(material)
+            symbol = roentgen.compounds[index]['symbol']
+            name = roentgen.compounds[index]['name']
 
         data = np.loadtxt(datafile_path, delimiter=',')
         # find the material in our list
