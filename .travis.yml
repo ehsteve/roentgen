@@ -38,7 +38,8 @@ env:
         # For this package-template, we include examples of Cython modules,
         # so Cython is required for testing. If your package does not include
         # Cython code, you can set CONDA_DEPENDENCIES=''
-
+        - CONDA_DEPENDENCIES='scipy matplotlib'
+        - PIP_DEPENDENCIES='sphinx-gallery pytest-sugar'
         # Conda packages for affiliated packages are hosted in channel
         # "astropy" while builds for astropy LTS with recent numpy versions
         # are in astropy-ci-extras. If your package uses either of these,
