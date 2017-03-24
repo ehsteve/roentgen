@@ -15,24 +15,24 @@ Overview
       - |version| |downloads| |wheel| |supported-versions| |supported-implementations|
 
 .. |docs| image:: https://readthedocs.org/projects/rontgen/badge/?style=flat
-    :target: https://readthedocs.org/projects/rontgen/
+    :target: https://readthedocs.org/projects/roentgen/
     :alt: Documentation Status
 
 .. |build| image:: https://travis-ci.org/NASA-GSFC-Heliophysics/roentgen.svg?branch=master
-    :target: https://travis-ci.org/NASA-GSFC-Heliophysics/rontgen
+    :target: https://travis-ci.org/ehsteve/roentgen
     :alt: Build Status
 
 .. |version| image:: https://img.shields.io/pypi/v/roentgen.svg?style=flat
     :alt: PyPI Package latest release
-    :target: https://pypi.python.org/pypi/rontgen
+    :target: https://pypi.python.org/pypi/roentgen
 
 .. |downloads| image:: https://img.shields.io/pypi/dm/roentgen.svg?style=flat
     :alt: PyPI Package monthly downloads
-    :target: https://pypi.python.org/pypi/rontgen
+    :target: https://pypi.python.org/pypi/roentgen
 
 .. |wheel| image:: https://img.shields.io/pypi/wheel/roentgen.svg?style=flat
     :alt: PyPI Wheel
-    :target: https://pypi.python.org/pypi/rontgen
+    :target: https://pypi.python.org/pypi/roentgen
 
 .. |supported-versions| image:: https://img.shields.io/pypi/pyversions/rontgen.svg?style=flat
     :alt: Supported versions
