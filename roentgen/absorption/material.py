@@ -20,8 +20,9 @@ class Material(object):
 
     Parameters
     ----------
-    material_str : str or int
-        A representation of the material which includes  (e.g. cdte, be, mylar, si)
+    material_str : str
+        A string representation of the material which includes an element symbol (e.g. Si), an element name 
+        (e.g. Silicon), or the name of a compound (e.g. cdte, mylar). Cap-sensitive.
     thickness : `astropy.units.Quantity`
         The thickness of the material in the optical path.
     density : `astropy.units.Quantity`
