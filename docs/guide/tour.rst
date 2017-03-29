@@ -7,7 +7,7 @@ Absorption
 ----------
 The purpose of this module is to provide straight-forward analysis of x-ray absorption and transmission. The primary
 component that mediates the x-ray attenuation through a material is its mass attenuation coefficient. These tabulated
-values can be inspected using the `MassAttenuationCoefficient` object. To create one::
+values can be inspected using the :ref:`MassAttenuationCoefficient` object. To create one::
 
     from roentgen.absorption import MassAttenuationCoefficient
     si_matten = MassAttenuationCoefficient('Si')
@@ -39,7 +39,7 @@ For compounds all letters are lower case. Here is the mass attenuation coefficie
     plt.ylabel('Mass Attenuation Coefficient [' + str(si_matten.data[0].unit) + ']')
     plt.title(si_matten.name)
 
-In order to determine the x-ray attenuation by a material the `Material` object is provided. This object can easily be
+In order to determine the x-ray attenuation by a material the :ref:`Material` object is provided. This object can easily be
 created by providing the thickness of the material through which the x-rays are interacting. For example, a 500 micron
 thick layer of Aluminum can be created by::
 
@@ -50,7 +50,7 @@ An optional density can also be provided. A default density is assumed if none i
     al.density
 
 The assumed densities are stored in `roentgen.elemental_densities` and in `roentgen.compounds`. Once this object is
-created it is now possible to get the absorption and transmision::
+created it is now possible to get the absorption and transmission::
 
     energy = u.Quantity(np.arange(1,30), 'keV')
     al.transmission(energy)
@@ -121,7 +121,7 @@ One final plot which shows the transmission of x-rays through 10 meters of air.
 
 This plot shows that air, though not a dense material, can absorb low energy x-rays over long distances.
 Materials can be added together to form more complex optical paths. If two materials are added together they form
-a new object, a `Compound`. A simple example might be to consider the transmission through air and then through a
+a new object, a :ref:`Compound`. A simple example might be to consider the transmission through air and then through a
 thermal blanket composed of a thin layer of mylar and Aluminum::
 
     optical_path = Material('air', 2 * u.m) + Material('mylar', 5 * u.micron) + Material('Al', 5 * u.micron)
