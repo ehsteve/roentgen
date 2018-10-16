@@ -9,7 +9,9 @@ import astropy.units as u
 from scipy import interpolate
 import roentgen
 
-__all__ = ['Material', 'MassAttenuationCoefficient', 'Compound', 'is_an_element', 'get_atomic_number']
+__all__ = ['Material', 'MassAttenuationCoefficient', 'Compound',
+           'is_an_element', 'get_atomic_number', 'is_in_known_compounds',
+           'get_compound_index']
 
 _package_directory = roentgen._package_directory
 _data_directory = roentgen._data_directory
@@ -164,12 +166,13 @@ class MassAttenuationCoefficient(object):
             datafile_path = os.path.join(_data_directory, 'elements', 'z' + str(atomic_number).zfill(2) + '.csv')
             symbol = roentgen.elements[atomic_number-1]['symbol']
             name = roentgen.elements[atomic_number-1]['name']
+        elif is_in_known_compounds(material):
+            compound_index = get_compound_index(material)
+            symbol = roentgen.compounds[compound_index]['symbol']
+            name = roentgen.compounds[compound_index]['name']
+            datafile_path = os.path.join(_data_directory, 'compounds_mixtures', symbol.replace(' ', '_') + '.csv')
         else:
-            datafile_path = os.path.join(_data_directory, 'compounds_mixtures', material.lower().replace(' ', '_') + '.csv')
-            index = list(roentgen.compounds['symbol']).index(material)
-            symbol = roentgen.compounds[index]['symbol']
-            name = roentgen.compounds[index]['name']
-
+            return NameError('Element or compound not found.')
         data = np.loadtxt(datafile_path, delimiter=',')
         # find the material in our list
         self.symbol = symbol
@@ -192,10 +195,12 @@ class MassAttenuationCoefficient(object):
 def is_an_element(element_str):
     """Returns True is the string represents an element"""
     result = False
-    if (len(element_str) <= 2) and (element_str in list(roentgen.elements['symbol'])):
+    lower_case_list = list([s.lower() for s in roentgen.elements['symbol']])
+    if (len(element_str) <= 2) and (element_str.lower() in lower_case_list):
             result = True
     else:
-        if element_str in list(roentgen.elements['name']):
+        lower_case_list = list([s.lower() for s in roentgen.elements['name']])
+        if element_str.lower() in lower_case_list:
             result = True
     return result
 
@@ -205,9 +210,33 @@ def get_atomic_number(element_str):
     # check to see if element_str is symbol
     if is_an_element(element_str):
         if len(element_str) <= 2:
-            atomic_number = list(roentgen.elements['symbol']).index(element_str) + 1
+            lower_case_list = list([s.lower() for s in roentgen.elements['symbol']])
+            atomic_number = roentgen.elements[lower_case_list.index(element_str.lower())]['z']
         else:
-            atomic_number = list(roentgen.elements['name']).index(element_str) + 1
+            lower_case_list = list([s.lower() for s in roentgen.elements['name']])
+            atomic_number = roentgen.elements[lower_case_list.index(element_str.lower())]['z']
     else:
         atomic_number = None
     return atomic_number
+
+
+def is_in_known_compounds(compound_str):
+    """Returns True is the compound is in the list of known compounds"""
+    lower_case_symbols_list = list([s.lower() for s in roentgen.compounds['symbol']])
+    lower_case_name_list = list([s.lower() for s in roentgen.compounds['name']])
+    case1 = (compound_str.lower() in lower_case_symbols_list)
+    case2 = (compound_str.lower() in lower_case_name_list)
+    return case1 or case2
+
+
+def get_compound_index(compound_str):
+    """Return the index of the compound in the compound table"""
+    if is_in_known_compounds(compound_str):
+        lower_case_symbols_list = list([s.lower() for s in roentgen.compounds['symbol']])
+        if compound_str.lower() in lower_case_symbols_list:
+            return lower_case_symbols_list.index(compound_str.lower())
+        lower_case_name_list = list([s.lower() for s in roentgen.compounds['name']])
+        if compound_str.lower() in lower_case_name_list:
+            return lower_case_name_list.index(compound_str.lower())
+    else:
+        return None

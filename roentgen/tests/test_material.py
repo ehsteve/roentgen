@@ -13,13 +13,31 @@ def mass_atten(request):
 
 
 def test_is_an_element_symbol():
+    """Test that function is okay with all known elements symbols"""
     for el in roentgen.elements['symbol']:
         assert(is_an_element(el))
 
 
+def test_is_an_element_caseinsensitive_symbol():
+    """Test that searching for an element symbol is not case sensitive"""
+    for el in roentgen.elements['symbol']:
+        assert is_an_element(el.upper())
+        assert is_an_element(el.lower())
+        assert is_an_element(el.capitalize())
+
+
 def test_is_an_element_name():
+    """Test that function is okay with all known elements names"""
     for el in roentgen.elements['name']:
         assert(is_an_element(el))
+
+
+def test_is_an_element_caseinsensitive_name():
+    """Test that searching for an element name is not case sensitive"""
+    for el in roentgen.elements['name']:
+        assert is_an_element(el.upper())
+        assert is_an_element(el.lower())
+        assert is_an_element(el.capitalize())
 
 
 def test_mass_atten(mass_atten):
