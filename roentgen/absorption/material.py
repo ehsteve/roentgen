@@ -29,6 +29,9 @@ class Material(object):
         The thickness of the material in the optical path.
     density : `astropy.units.Quantity`
         The density of the material. If None use default values.
+    is_detector : bool
+        A property to hold information on whether absorption or transmission
+        is important. Used for compounds.
 
     Examples
     --------
@@ -39,11 +42,12 @@ class Material(object):
     """
 
     @u.quantity_input
-    def __init__(self, material_str, thickness: u.m, density=None):
+    def __init__(self, material_str, thickness: u.m, density=None, is_detector=False):
         self.name = material_str
         self.thickness = thickness
         self.mass_attenuation_coefficient = MassAttenuationCoefficient(material_str)
         self.name = self.mass_attenuation_coefficient.name
+        self.is_detector = is_detector
         if density is None:
             if is_an_element(material_str):
                 self.density = roentgen.elemental_densities[get_atomic_number(material_str)-1]['density']
