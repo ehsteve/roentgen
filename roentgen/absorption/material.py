@@ -114,6 +114,7 @@ class Compound(object):
 
     def __init__(self, materials):
         self.materials = materials
+        self.name = ''.join([m.name + ' ' + str(m.thickness) + ' ' for m in materials]).rstrip()
 
     def __add__(self, other):
         if isinstance(other, Material):
