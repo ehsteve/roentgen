@@ -6,6 +6,7 @@ import numpy as np
 import astropy.units as u
 
 all_materials = list(roentgen.elements['symbol']) + list(roentgen.compounds['symbol'])
+energy_array = u.Quantity(np.arange(1, 100, 1), 'keV')
 
 @pytest.fixture(params=all_materials)
 def mass_atten(request):
@@ -81,9 +82,18 @@ def test_twomaterials_to_compound(material):
 
 def test_threematerials_to_compound(material):
     # check that adding three materials returns a compound
-    assert isinstance(Material('Si', 500 * u.micron) +
+    assert isinstance(material +
                       Material('Ge', 500 * u.micron) +
                       Material('cdte', 100 * u.micron), Compound)
+
+def test_compound_calculations(material):
+    comp = Material('Ge', 500 * u.micron) + Material('cdte', 100 * u.micron)
+    # test that it returns a quantity
+    assert isinstance(comp.absorption(energy_array), u.Quantity)
+    assert isinstance(comp.transmission(energy_array), u.Quantity)
+    # test that it returns the same number of elements as energy array
+    assert len(comp.absorption(energy_array)) == len(energy_array)
+    assert len(comp.transmission(energy_array)) == len(energy_array)
 
 
 @pytest.fixture(params=all_materials)
@@ -93,7 +103,7 @@ def thick_material(request):
 
 def test_opaque(thick_material):
     # check that extremely large amounts of material mean no transmission
-    assert thick_material.transmission(1 * u.keV).value < 1e-6
+    assert thick_material.transmission(1 * u.keV) / (100 * u.percent) < 1e-6
 
 
 @pytest.fixture(params=all_materials)
@@ -103,4 +113,4 @@ def thin_material(request):
 
 def test_transparent(thin_material):
     # check that extremely large amounts of material mean no transmission
-    assert thin_material.transmission(1 * u.keV) > 0.9
+    assert thin_material.transmission(1 * u.keV) > 90 * u.percent
