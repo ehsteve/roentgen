@@ -73,8 +73,9 @@ class Material(object):
         else:
             raise ValueError("Can't add <Material> and " + str(other))
 
+    @u.quantity_input(energy=u.keV)
     def transmission(self, energy):
-        """Provide the transmission fraction (0 to 1).
+        """Provide the transmission fraction.
 
         Parameters
         ----------
@@ -82,18 +83,19 @@ class Material(object):
             An array of energies in keV
         """
         coefficients = self.mass_attenuation_coefficient.func(energy)
-        transmission = np.exp(- coefficients * self.density * self.thickness)
+        transmission = np.exp(- coefficients * self.density * self.thickness) * 100 * u.percent
         return transmission
 
+    @u.quantity_input(energy=u.keV)
     def absorption(self, energy):
-        """Provides the absorption fraction (0 to 1).
+        """Provides the absorption fraction.
 
         Parameters
         ----------
         energy : `astropy.units.Quantity`
             An array of energies in keV.
         """
-        return 1 - self.transmission(energy)
+        return 100 * u.percent - self.transmission(energy)
 
 
 class Compound(object):
@@ -132,7 +134,7 @@ class Compound(object):
         return txt + '>'
 
     def transmission(self, energy):
-        """Provide the transmission fraction (0 to 1).
+        """Provide the transmission fraction.
 
         Parameters
         ----------
@@ -141,9 +143,9 @@ class Compound(object):
         """
         transmission = np.ones(len(energy), dtype=np.float)
         for material in self.materials:
-            coefficients = material.mass_attenuation_coefficient.func(energy)
-            transmission *= np.exp(- coefficients * material.density * material.thickness)
-        return transmission
+            this_transmission = material.transmission(energy).to('percent').value / 100.0
+            transmission *= this_transmission
+        return transmission * 100 * u.percent
 
     def absorption(self, energy):
         """Provides the absorption fraction (0 to 1).
@@ -153,7 +155,7 @@ class Compound(object):
         energy : `astropy.units.Quantity`
             An array of energies in keV.
         """
-        return 1 - self.transmission(energy)
+        return 100 * u.percent - self.transmission(energy)
 
 
 class MassAttenuationCoefficient(object):
