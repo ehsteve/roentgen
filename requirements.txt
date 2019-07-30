@@ -3,3 +3,4 @@
 numpy>1.7.1
 astropy>=1.0.0
 scipy
+bokeh
