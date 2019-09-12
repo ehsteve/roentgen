@@ -56,15 +56,15 @@ material_list = []
 energy = u.Quantity(np.arange(DEFAULT_ENERGY_LOW, DEFAULT_ENERGY_HIGH, 1), "keV")
 
 this_material = Material(DEFAULT_MATERIAL[0], DEFAULT_THICKNESS[0])
-y = this_material.transmission(energy).value / 100.0
+y = this_material.transmission(energy)
 air_density = get_air_density(DEFAULT_AIR_PRESSURE, DEFAULT_AIR_TEMPERATURE)
 air = Material('air', DEFAULT_AIR_THICKNESS, density=air_density)
-y *= air.transmission(energy).value / 100.0
+y *= air.transmission(energy)
 this_detector = Material(DEFAULT_DETECTOR_MATERIAL, DEFAULT_DETECTOR_THICKNESS)
-y *= this_detector.absorption(energy).value / 100.0
+y *= this_detector.absorption(energy)
 
 x = energy.value
-source = ColumnDataSource(data={"x": x, "y": y * 100})
+source = ColumnDataSource(data={"x": x, "y": y})
 
 all_materials = list(roentgen.elements["symbol"]) + \
                 list(roentgen.compounds["symbol"])
@@ -78,9 +78,9 @@ plot = figure(
     title=DEFAULT_TYPE,
     tools=TOOLS,
     x_range=[DEFAULT_ENERGY_LOW, DEFAULT_ENERGY_HIGH],
-    y_range=[0, 100],
+    y_range=[0, 1],
 )
-plot.yaxis.axis_label = "%"
+plot.yaxis.axis_label = "fraction"
 plot.xaxis.axis_label = "Energy [keV]"
 plot.line("x", "y", source=source, line_width=3, line_alpha=0.6)
 
@@ -96,12 +96,12 @@ energy_step = Slider(title="energy steps", value=1, start=0.1, end=2, step=0.1)
 
 # materials in the path
 material_input = TextInput(title="Material", value=DEFAULT_MATERIAL[0])
-thickness_input = TextInput(title="thickness", value=f"{DEFAULT_THICKNESS[0]}")
-density_input = TextInput(title="density", value=f"{this_material.density}")
+thickness_input = TextInput(title="thickness", value=str(DEFAULT_THICKNESS[0]))
+density_input = TextInput(title="density", value=str(this_material.density))
 
-air_thickness_input = TextInput(title="air path length", value=f"{DEFAULT_AIR_THICKNESS}")
-air_pressure_input = TextInput(title='air pressure', value=f"{DEFAULT_AIR_PRESSURE}")
-air_temperature_input = TextInput(title='air temperature', value=f"{DEFAULT_AIR_TEMPERATURE}")
+air_thickness_input = TextInput(title="air path length", value=str(DEFAULT_AIR_THICKNESS))
+air_pressure_input = TextInput(title='air pressure', value=str(DEFAULT_AIR_PRESSURE))
+air_temperature_input = TextInput(title='air temperature', value=str(DEFAULT_AIR_TEMPERATURE))
 
 detector_material_input = TextInput(title='Detector', value=DEFAULT_DETECTOR_MATERIAL)
 detector_thickness_input = TextInput(title='thickness', value=str(DEFAULT_DETECTOR_THICKNESS))
@@ -139,9 +139,9 @@ def update_data(attrname, old, new):
                                  u.Quantity(thickness_input.value).to("micron"),
                                  density=u.Quantity(density_input.value).to("g / cm ** 3"))
         if i == 0:
-            y = this_material.transmission(energy).value / 100.0
+            y = this_material.transmission(energy)
         else:
-            y *= this_material.transmission(energy).value / 100.0
+            y *= this_material.transmission(energy)
         i += 0
         plot_title += f"{this_material.name} {this_material.thickness}"
 
@@ -154,15 +154,15 @@ def update_data(attrname, old, new):
                                   u.Quantity(air_temperature_input.value))
     air = Material('air', u.Quantity(air_thickness_input.value).to("meter"),
                    density=air_density)
-    y *= air.transmission(energy).value / 100.0
+    y *= air.transmission(energy)
     plot_title += f" {air.name} {air.density.to('g / cm**3'):.2E} {air.thickness:.2f}"
 
     this_detector = Material(detector_material_input.value, u.Quantity(detector_thickness_input.value),
                              density=u.Quantity(detector_density_input.value))
-    y *= this_detector.absorption(energy).value / 100.0
+    y *= this_detector.absorption(energy)
     plot_title += f" {this_detector.name} {this_detector.thickness:.2f}"
     plot.title.text = plot_title
-    source.data = dict(x=x, y=y * 100)
+    source.data = dict(x=x, y=y)
 
 
 def update_detector_density_and_data(attrname, old, new):
