@@ -85,10 +85,8 @@ class Material(object):
             An array of energies in keV
         """
         coefficients = self.mass_attenuation_coefficient.func(energy)
-        transmission = (
-            np.exp(-coefficients * self.density * self.thickness)
-        )
-        return transmission
+        transmission = np.exp(-coefficients * self.density * self.thickness)
+        return transmission.value  # remove the dimensionless unit
 
     @u.quantity_input(energy=u.keV)
     def absorption(self, energy):
@@ -140,7 +138,7 @@ class Compound(object):
         return txt + ">"
 
     def transmission(self, energy):
-        """Provide the transmission fraction.
+        """Provide the transmission fraction (0 to 1).
 
         Parameters
         ----------
@@ -212,7 +210,7 @@ class MassAttenuationCoefficient(object):
     def get_filename(material_str):
         if len(material_str) <= 2:
             # likely a symbol of an element
-            if material_str in list(elements["symbol"]):
+            if material_str in list(roentgen.elements["symbol"]):
                 return
 
 
