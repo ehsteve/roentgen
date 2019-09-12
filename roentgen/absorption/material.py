@@ -86,7 +86,7 @@ class Material(object):
         """
         coefficients = self.mass_attenuation_coefficient.func(energy)
         transmission = (
-            np.exp(-coefficients * self.density * self.thickness) * 100 * u.percent
+            np.exp(-coefficients * self.density * self.thickness)
         )
         return transmission
 
@@ -99,7 +99,7 @@ class Material(object):
         energy : `astropy.units.Quantity`
             An array of energies in keV.
         """
-        return 100 * u.percent - self.transmission(energy)
+        return 1.0 - self.transmission(energy)
 
 
 class Compound(object):
@@ -150,10 +150,10 @@ class Compound(object):
         transmission = np.ones(len(energy), dtype=np.float)
         for material in self.materials:
             this_transmission = (
-                material.transmission(energy).to("percent").value / 100.0
+                material.transmission(energy)
             )
             transmission *= this_transmission
-        return transmission * 100 * u.percent
+        return transmission
 
     def absorption(self, energy):
         """Provides the absorption fraction (0 to 1).
@@ -163,7 +163,7 @@ class Compound(object):
         energy : `astropy.units.Quantity`
             An array of energies in keV.
         """
-        return 100 * u.percent - self.transmission(energy)
+        return 1.0 - self.transmission(energy)
 
 
 class MassAttenuationCoefficient(object):
