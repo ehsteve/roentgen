@@ -1,16 +1,14 @@
 """
 Use the ``bokeh serve`` command to run the example by executing:
-    bokeh serve --show app.py
+    bokeh serve --show gui
 in your browser.
 """
 import numpy as np
-from roentgen.absorption import Material, get_density
-import astropy.units as u
-import roentgen
+from os.path import dirname, join
 
 from bokeh.io import curdoc
 from bokeh.layouts import layout
-from bokeh.models import ColumnDataSource
+from bokeh.models import ColumnDataSource, CustomJS
 from bokeh.models import HoverTool
 from bokeh.models.widgets import (
     Slider,
@@ -21,11 +19,17 @@ from bokeh.models.widgets import (
     CheckboxGroup,
     TableColumn,
     DataTable,
+    Button
 )
 from bokeh.plotting import figure
 
-R = 287.058 * u.J / u.kg / u.Kelvin
+import astropy.units as u
 from astropy import constants as const
+
+from roentgen.absorption import Material, get_density
+import roentgen
+
+R = 287.058 * u.J / u.kg / u.Kelvin
 
 
 def get_air_density(pressure, temperature):
@@ -107,7 +111,7 @@ detector_material_input = TextInput(title='Detector', value=DEFAULT_DETECTOR_MAT
 detector_thickness_input = TextInput(title='thickness', value=str(DEFAULT_DETECTOR_THICKNESS))
 detector_density_input = TextInput(title='density', value=str(DEFAULT_DETECTOR_DENSITY))
 
-p = Paragraph(text="Nothing to see here", width=200)
+p = Paragraph(text="Nothing to see here", width=500)
 p.text = "All available materials: " + ", ".join(all_materials)
 
 columns = [
@@ -116,13 +120,13 @@ columns = [
 ]
 data_table = DataTable(source=source, columns=columns, width=400, height=700)
 
+# the download button
+download_button = Button(label="Download", button_type="success")
+download_button.callback = CustomJS(args=dict(source=source),
+                                    code=open(join(dirname(__file__), "download.js")).read())
+
 
 def update_data(attrname, old, new):
-
-    # if ylog_checkbox.active:
-    #    plot.y_axis_type = "log"
-    # else:
-    #    plot.y_axis_type = "auto"
 
     energy = u.Quantity(
         np.arange(float(energy_low.value), float(energy_high.value),
@@ -196,7 +200,8 @@ curdoc().add_root(
             # [material_input_list[3], thickness_input_list[3], density_input_list[3]],
             # [material_input_list[4], thickness_input_list[4], density_input_list[4]],
             [energy_low, energy_high, energy_step],
-            [plot, data_table, p],
+            [plot],
+            [download_button, p]
         ],
         sizing_mode="fixed",
     )
