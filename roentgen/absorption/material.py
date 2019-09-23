@@ -85,10 +85,8 @@ class Material(object):
             An array of energies in keV
         """
         coefficients = self.mass_attenuation_coefficient.func(energy)
-        transmission = (
-            np.exp(-coefficients * self.density * self.thickness) * 100 * u.percent
-        )
-        return transmission
+        transmission = np.exp(-coefficients * self.density * self.thickness)
+        return transmission.value  # remove the dimensionless unit
 
     @u.quantity_input(energy=u.keV)
     def absorption(self, energy):
@@ -99,7 +97,7 @@ class Material(object):
         energy : `astropy.units.Quantity`
             An array of energies in keV.
         """
-        return 100 * u.percent - self.transmission(energy)
+        return 1.0 - self.transmission(energy)
 
 
 class Compound(object):
@@ -140,7 +138,7 @@ class Compound(object):
         return txt + ">"
 
     def transmission(self, energy):
-        """Provide the transmission fraction.
+        """Provide the transmission fraction (0 to 1).
 
         Parameters
         ----------
@@ -150,10 +148,10 @@ class Compound(object):
         transmission = np.ones(len(energy), dtype=np.float)
         for material in self.materials:
             this_transmission = (
-                material.transmission(energy).to("percent").value / 100.0
+                material.transmission(energy)
             )
             transmission *= this_transmission
-        return transmission * 100 * u.percent
+        return transmission
 
     def absorption(self, energy):
         """Provides the absorption fraction (0 to 1).
@@ -163,7 +161,7 @@ class Compound(object):
         energy : `astropy.units.Quantity`
             An array of energies in keV.
         """
-        return 100 * u.percent - self.transmission(energy)
+        return 1.0 - self.transmission(energy)
 
 
 class MassAttenuationCoefficient(object):
@@ -212,7 +210,7 @@ class MassAttenuationCoefficient(object):
     def get_filename(material_str):
         if len(material_str) <= 2:
             # likely a symbol of an element
-            if material_str in list(elements["symbol"]):
+            if material_str in list(roentgen.elements["symbol"]):
                 return
 
 
