@@ -4,7 +4,7 @@ Data directory
 The data used in this package come from the following sources.
 
 * Tables of X-Ray Mass Attenuation Coefficients and Mass Energy-Absorption Coefficients from 1 keV to 20 MeV for Elements Z = 1 to 92 and 48 Additional Substances of Dosimetric Interest](http://www.nist.gov/pml/data/xraycoef/index.cfm) | J. H. Hubbell, S. M. Seltzer | NIST |
-
+* Center for X-Ray Optics and Advanced Light Source, X-ray Data Booklet (October 2009)
 
 elements.csv
 ------------
