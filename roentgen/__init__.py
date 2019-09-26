@@ -28,8 +28,7 @@ if not _ASTROPY_SETUP_:
     compounds['density'] = compounds['density'] * u.g / (u.cm ** 3)
     #compounds.add_index('symbol')
 
-
-    emission_energies = QTable(ascii.read(os.path.join(_data_directory, 'emission_energies.csv')))
+    emission_energies = QTable.read(os.path.join(_data_directory, 'emission_energies.csv'))
     for colname in emission_energies.colnames[2:]:
-        emission_energies[colname] = emission_energies[colname] * u.eV
+        emission_energies[colname].unit = u.eV
 
