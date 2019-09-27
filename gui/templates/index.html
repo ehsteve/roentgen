@@ -1,0 +1,31 @@
+{% extends base %}
+
+{% block title %}Roentgen X-ray Transmission{% endblock %}
+
+{% block postamble %}
+  <style>
+    {% include 'styles.css' %}
+  </style>
+{% endblock %}
+
+{% block contents %}
+  <div class="content">
+    <h1>Roentgen X-ray Transmission</h1>
+
+    <p>Calculate the transmission of x-rays through various materials.</p>
+
+    {{ super() }}
+
+ </div>
+
+<hr>
+<footer class="footer">
+  <center>
+    <p>
+      Powered by <a href="https://bokeh.pydata.org/en/latest/">Bokeh</a> /
+      Edit this app on <a href="https://github.com/ehsteve/roentgen/tree/master/gui">Github</a>
+    </p>
+    </center>
+</footer>
+
+{% endblock %}

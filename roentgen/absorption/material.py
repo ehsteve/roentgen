@@ -30,8 +30,9 @@ class Material(object):
     Parameters
     ----------
     material_str : str
-        A string representation of the material which includes an element symbol (e.g. Si), an element name
-        (e.g. Silicon), or the name of a compound (e.g. cdte, mylar). Cap-sensitive.
+        A string representation of the material which includes an element symbol
+        (e.g. Si), an element name (e.g. Silicon), or the name of a compound
+        (e.g. cdte, mylar). Cap-sensitive.
     thickness : `astropy.units.Quantity`
         The thickness of the material in the optical path.
     density : `astropy.units.Quantity`
@@ -49,7 +50,8 @@ class Material(object):
     """
 
     @u.quantity_input
-    def __init__(self, material_str, thickness: u.m, density=None, is_detector=False):
+    def __init__(self, material_str, thickness: u.m, density=None,
+                 is_detector=False):
         self.name = material_str
         self.thickness = thickness
         self.mass_attenuation_coefficient = MassAttenuationCoefficient(material_str)
@@ -201,7 +203,8 @@ class MassAttenuationCoefficient(object):
         data_energy_kev = np.log10(self.energy.value)
         data_attenuation_coeff = np.log10(self.data.value)
         self._f = interpolate.interp1d(
-            data_energy_kev, data_attenuation_coeff, bounds_error=False, fill_value=0.0
+            data_energy_kev, data_attenuation_coeff, bounds_error=False,
+            fill_value=0.0
         )
         self.func = lambda x: u.Quantity(
             10 ** self._f(np.log10(x.to("keV").value)), "cm^2/g"
@@ -248,10 +251,10 @@ def get_atomic_number(element_str):
 
 def is_in_known_compounds(compound_str):
     """Returns True is the compound is in the list of known compounds"""
-    lower_case_symbols_list = list([s.lower() for s in roentgen.compounds["symbol"]])
-    lower_case_name_list = list([s.lower() for s in roentgen.compounds["name"]])
-    case1 = compound_str.lower() in lower_case_symbols_list
-    case2 = compound_str.lower() in lower_case_name_list
+    lcase_symbols_list = list([s.lower() for s in roentgen.compounds["symbol"]])
+    lcase_name_list = list([s.lower() for s in roentgen.compounds["name"]])
+    case1 = compound_str.lower() in lcase_symbols_list
+    case2 = compound_str.lower() in lcase_name_list
     return case1 or case2
 
 
@@ -263,18 +266,17 @@ def get_compound_index(compound_str):
         )
         if compound_str.lower() in lower_case_symbols_list:
             return lower_case_symbols_list.index(compound_str.lower())
-        lower_case_name_list = list([s.lower() for s in roentgen.compounds["name"]])
-        if compound_str.lower() in lower_case_name_list:
-            return lower_case_name_list.index(compound_str.lower())
+        lcase_name_list = list([s.lower() for s in roentgen.compounds["name"]])
+        if compound_str.lower() in lcase_name_list:
+            return lcase_name_list.index(compound_str.lower())
     else:
         return None
 
 
 def get_density(material_str):
     if is_an_element(material_str):
-        density = roentgen.elemental_densities[get_atomic_number(material_str) - 1][
-            "density"
-        ]
+        ind = get_atomic_number(material_str)-1
+        density = roentgen.elemental_densities[ind]["density"]
     else:
         # not using loc because table indexing is not yet stable
         # self.density = roentgen.compounds.loc[material_str]['density']
