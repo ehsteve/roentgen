@@ -65,6 +65,13 @@ matrix:
           env: SETUP_CMD='build_docs'
                PIP_DEPENDENCIES='scipy matplotlib sphinx-astropy sphinx-automodapi'
 
+        # Check for sphinx doc warnings - we do this first because it
+        # may run for a long time
+        - stage: Initial tests
+          os: linux
+          env: SETUP_CMD='build_docs -W'
+               PIP_DEPENDENCIES='scipy matplotlib sphinx-astropy sphinx-automodapi'
+
         # Do a PEP8 test with pycodestyle
         - stage: Initial tests
           os: linux
