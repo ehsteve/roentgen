@@ -1,22 +1,80 @@
+from astropy.table import QTable
+import astropy.units as u
 
 import roentgen
 from roentgen.absorption import get_atomic_number, is_an_element
-import pandas as pd
-import os
 
 _package_directory = roentgen._package_directory
 _data_directory = roentgen._data_directory
 
 
-def load_lines_for_element(element):
-    if is_an_element(element):
-        datafile_path = os.path.join(
-            _data_directory, "emission_energies.csv")
-        data = pd.read_csv(datafile_path, index_col=1)
-    return data.loc[element]
+def get_lines_for_element(element_str):
+    """
+    Retrieve all emission lines for an element.
+
+    Parameters
+    ----------
+    element_str : str
+        The name of the element (e.g. Zn, silicon)
+
+    Returns
+    -------
+    line_list : `astropy.table.QTable`
+    """
+    if is_an_element(element_str):
+        row = roentgen.emission_energies[get_atomic_number(element_str)]
+        cols = list(roentgen.emission_energies[1].columns[2:])
+        line_table = QTable()
+        energies = []
+        for this_col in cols:
+            energies.append(row[this_col])
+        energies = u.Quantity(energies)
+        line_table['line'] = cols
+        line_table['energy'] = u.Quantity(energies)
+        mask = energies.value == 0
+        line_table['energy'].mask = mask
+        return line_table
+    else:
+        ValueError(f"Element not recognized.")
 
 
+def get_lines(energy_low, energy_high):
+    """
+    Retrieve all emission lines in a energy range.
 
+    Parameters
+    ----------
+    energy_low : `astropy.units.Quantity`
+        The low end of the energy range
 
-data = load_lines_for_element('Si')
-print(data)
+    energy_high : `astropy.units.Quantity`
+        The high end of the energy range
+
+    Returns
+    -------
+    line_list : `astropy.table.QTable`
+    """
+    line_cols = list(roentgen.emission_energies[0].columns[2:])
+
+    line_energy = []
+    element_name = []
+    line_type = []
+
+    for z in roentgen.emission_energies:
+        this_element = z['symbol']
+        energies = []
+        for this_col in line_cols:
+            if (z[this_col] > energy_low) and (z[this_col] < energy_high):
+                line_energy.append(z[this_col])
+                element_name.append(this_element)
+                line_type.append(this_col)
+
+    if len(line_energy) > 0:
+        result = QTable()
+        result['energy'] = u.Quantity(line_energy)
+        result['element'] = element_name
+        result['type'] = line_type
+    else:
+        result = None
+
+    return result
