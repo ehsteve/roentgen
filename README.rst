@@ -14,8 +14,8 @@ Overview
     * - package
       - |version| |downloads| |wheel|
 
-.. |docs| image:: https://roentgen.readthedocs.io/en/latest/?badge=latest
-    :target: https://readthedocs.org/projects/roentgen/badge/?version=latest
+.. |docs| image:: https://readthedocs.org/projects/roentgen/badge/?version=latest
+    :target: https://roentgen.readthedocs.io/en/latest/?badge=latest
     :alt: Documentation Status
 
 .. |build| image:: https://travis-ci.org/ehsteve/roentgen.svg?branch=master
