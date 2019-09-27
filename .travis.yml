@@ -66,7 +66,7 @@ matrix:
         # Do a PEP8 test with pycodestyle
         - stage: Initial tests
           os: linux
-          env: MAIN_CMD='pycodestyle specutils --count'
+          env: MAIN_CMD='pycodestyle roentgen --count'
                SETUP_CMD=''
 
 install:
