@@ -36,7 +36,7 @@ if not _ASTROPY_SETUP_:
 
     emission_energies_file = os.path.join(_data_directory,
                                           'emission_energies.csv')
-    emission_energies = QTable(ascii.read())
+    emission_energies = QTable(ascii.read(emission_energies_file))
     for colname in emission_energies.colnames[2:]:
         emission_energies[colname].unit = u.eV
 
