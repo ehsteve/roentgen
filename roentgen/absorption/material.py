@@ -218,7 +218,7 @@ class MassAttenuationCoefficient(object):
 
 
 def is_an_element(element_str):
-    """Returns True is the string represents an element"""
+    """Returns True if the string represents an element"""
     result = False
     lower_case_list = list([s.lower() for s in roentgen.elements["symbol"]])
     if (len(element_str) <= 2) and (element_str.lower() in lower_case_list):
@@ -228,6 +228,17 @@ def is_an_element(element_str):
         if element_str.lower() in lower_case_list:
             result = True
     return result
+
+
+def get_element_symbol(element_str):
+    """Return the element abbreviation"""
+    lower_case_list = list([s.lower() for s in roentgen.elements["name"]])
+    if is_an_element(element_str):
+        return roentgen.elements[
+                lower_case_list.index(element_str.lower())
+            ]["symbol"]
+    else:
+        return None
 
 
 def get_atomic_number(element_str):
