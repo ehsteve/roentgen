@@ -13,5 +13,5 @@ dependencies:
     - sphinx-astropy
     - sphinx-automodapi>=0.12
     - sphinx-gallery
-#   - pip:
-#       - dependency_from_pip
+    - pip:
+       - sphinx-automodapi>=0.12
