@@ -4,4 +4,5 @@ Reference
 .. toctree::
     :glob:
 
-    roentgen*
+    material*
+    lines*
