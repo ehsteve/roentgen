@@ -1,62 +1,13 @@
 language: python
-group: travis_latest
 dist: xenial
 os: linux
 sudo: false
+python:
+  - "3.6"
+  - "3.7"
 
-env:
-    global:
-        - CONDA_DEPENDENCIES="setuptools sphinx-astropy numpy pytest-cov"
-        - PIP_DEPENDENCIES="codecov"
-        - EVENT_TYPE='push pull_request'
-        - DEBUG=True
-        - TOX_ARG=''
-
-    matrix:
-      - PYTHON_VERSION=3.6
-      - PYTHON_VERSION=3.7 SETUPTOOLS_VERSION=dev DEBUG=True
-        CONDA_DEPENDENCIES="numpy pytest-cov sphinx-astropy'
-        EVENT_TYPE='push pull_request cron'
-
-matrix:
-
-    # Don't wait for allowed failures
-    fast_finish: true
-
-    include:
-        # Do a coverage test.
-        - os: linux
-          env: SETUP_CMD='test --coverage'
-
-        # Check for sphinx doc build warnings - we do this first because it
-        # may run for a long time
-        - os: linux
-          env: SETUP_CMD='build_docs'
-
-        - os: linux
-          env: NUMPY_VERSION=1.11
-
-    allow_failures:
-        # Do a PEP8 test with pycodestyle
-        # (allow to fail unless your code completely compliant)
-        - os: linux
-          env: MAIN_CMD='pycodestyle roentgen --count' SETUP_CMD=''
-        # Check for sphinx doc build warnings - we do this first because it
-        # may run for a long time
-        - os: linux
-          env: SETUP_CMD='build_docs -w'
-
-before_install:
-  - git clone --depth 1 git://github.com/astropy/ci-helpers.git
-  # We do not want to create the test env
-  - echo "" > ci-helpers/travis/setup_dependencies_common.sh
-  - source ci-helpers/travis/setup_conda.sh
-  - pip install tox
-  - if [[ $TOX_ENV == *figure* ]]; then pip install tox-conda; fi
-
+install:
+  - pip install -r requirements.txt
+# command to run tests
 script:
-    - tox -e $TOX_ENV $TOX_ARG
-    - pip install --upgrade codecov
-
-after_success:
-    - codecov
+  - pytest
