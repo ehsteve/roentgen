@@ -1,5 +1,4 @@
 # Licensed under a 3-clause BSD style license - see LICENSE.rst
-
 """
 A Python package for the quantitative analysis of the interaction of energetic
 photons with matter (x-rays and gamma-rays).
@@ -32,11 +31,10 @@ if not _ASTROPY_SETUP_:
     compounds = QTable(ascii.read(compounds_file,
                                   format='csv', fast_reader=False))
     compounds['density'].unit = u.g / (u.cm ** 3)
-    #compounds.add_index('symbol')
+    # compounds.add_index('symbol')
 
     emission_energies_file = os.path.join(_data_directory,
                                           'emission_energies.csv')
     emission_energies = QTable(ascii.read(emission_energies_file))
     for colname in emission_energies.colnames[2:]:
         emission_energies[colname].unit = u.eV
-

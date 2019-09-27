@@ -1,11 +1,13 @@
 import pytest
-from roentgen.absorption.material import MassAttenuationCoefficient, Material, Compound, is_an_element
+from roentgen.absorption.material import MassAttenuationCoefficient, Material, \
+    Compound, is_an_element
 import roentgen.absorption as abs
 import roentgen
 import numpy as np
 import astropy.units as u
 
-all_materials = list(roentgen.elements['symbol']) + list(roentgen.compounds['symbol'])
+all_materials = list(roentgen.elements['symbol']) + \
+                list(roentgen.compounds['symbol'])
 energy_array = u.Quantity(np.arange(1, 100, 1), 'keV')
 
 
