@@ -63,7 +63,7 @@ matrix:
         - stage: Initial tests
           os: linux
           env: SETUP_CMD='build_docs -w'
-               PIP_DEPENDENCIES='scipy matplotlib sphinx-astropy'
+               PIP_DEPENDENCIES='scipy matplotlib sphinx-astropy sphinx-automodapi'
 
         # Do a PEP8 test with pycodestyle
         - stage: Initial tests

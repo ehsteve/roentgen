@@ -43,6 +43,12 @@ conf = ConfigParser()
 conf.read([os.path.join(os.path.dirname(__file__), '..', 'setup.cfg')])
 setup_cfg = dict(conf.items('metadata'))
 
+needs_sphinx = '2.0'
+
+# To perform a Sphinx version check that needs to be more specific than
+# major.minor, call `check_sphinx_version("x.y.z")` here.
+check_sphinx_version(needs_sphinx)
+
 # -- General configuration ----------------------------------------------------
 
 # By default, highlight as Python 3.
