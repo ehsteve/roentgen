@@ -54,12 +54,14 @@ matrix:
           env: PYTHON_VERSION=3.7
 
         # Do a coverage test.
-        - os: linux
+        - stage: Initial tests
+          os: linux
           env: SETUP_CMD='test --coverage'
 
         # Check for sphinx doc build warnings - we do this first because it
         # may run for a long time
-        - os: linux
+        - stage: Initial tests
+          os: linux
           env: SETUP_CMD='build_docs -w'
                PIP_DEPENDENCIES='scipy matplotlib sphinx-astropy'
 
