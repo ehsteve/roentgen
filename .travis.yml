@@ -1,13 +1,80 @@
-language: python
-dist: xenial
-os: linux
-sudo: false
-python:
-  - "3.6"
-  - "3.7"
+# We set the language to c because python isn't supported on the MacOS X nodes
+# on Travis. However, the language ends up being irrelevant anyway, since we
+# install Python ourselves using conda.
+language: c
+
+os:
+    - linux
+
+stage: Comprehensive tests
+
+
+addons:
+    apt:
+        packages:
+            - graphviz
+
+env:
+    global:
+
+        # The following versions are the 'default' for tests, unless
+        # overridden underneath. They are defined here in order to save having
+        # to repeat them for all configurations.
+        - PYTHON_VERSION=3.6
+        - NUMPY_VERSION=stable
+        - ASTROPY_VERSION=stable
+        - MAIN_CMD='python setup.py'
+        - SETUP_CMD='test'
+        - PIP_DEPENDENCIES='scipy matplotlib'
+        - EVENT_TYPE='pull_request push'
+        - CONDA_DEPENDENCIES='bokeh'
+
+
+stages:
+   # Do the style check and a single test job, don't proceed if it fails
+   - name: Initial tests
+   # Test docs, astropy dev, and without optional dependencies
+   - name: Comprehensive tests
+   # These will only run when cron is opted in
+   - name: Cron tests
+     if: type = cron
+
+matrix:
+
+    # Don't wait for allowed failures
+    fast_finish: true
+
+    include:
+        # Make sure that egg_info works without dependencies
+        - stage: Initial tests
+          env: PYTHON_VERSION=3.7 SETUP_CMD='egg_info'
+
+        - stage: Initial tests
+          os: linux
+          env: PYTHON_VERSION=3.7
+
+        # Do a coverage test.
+        - os: linux
+          env: SETUP_CMD='test --coverage'
+
+        # Check for sphinx doc build warnings - we do this first because it
+        # may run for a long time
+        - os: linux
+          env: SETUP_CMD='build_docs -w'
+               PIP_DEPENDENCIES='scipy matplotlib sphinx-astropy'
+
+        # Do a PEP8 test with pycodestyle
+        - stage: Initial tests
+          os: linux
+          env: MAIN_CMD='pycodestyle specutils --count'
+               SETUP_CMD=''
 
 install:
-  - pip install -r requirements.txt
-# command to run tests
+    - git clone git://github.com/astropy/ci-helpers.git
+    - source ci-helpers/travis/setup_conda.sh
+
 script:
-  - pytest
+   - $MAIN_CMD $SETUP_CMD
+
+after_success:
+    - if [[ $SETUP_CMD == *coverage* ]]; then coveralls --rcfile='specutils/tests/coveragerc'; fi
