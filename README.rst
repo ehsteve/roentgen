@@ -14,9 +14,6 @@ Overview
     * - package
       - |version| |downloads| |wheel|
 
-[![Documentation Status](https://readthedocs.org/projects/roentgen/badge/?version=latest)](https://roentgen.readthedocs.io/en/latest/?badge=latest)
-
-
 .. |docs| image:: https://roentgen.readthedocs.io/en/latest/?badge=latest
     :target: https://readthedocs.org/projects/roentgen/badge/?version=latest
     :alt: Documentation Status
