@@ -18,6 +18,7 @@ __all__ = [
     "is_in_known_compounds",
     "get_compound_index",
     "get_density",
+    "get_element_symbol"
 ]
 
 _package_directory = roentgen._package_directory
@@ -232,11 +233,14 @@ def is_an_element(element_str):
 
 def get_element_symbol(element_str):
     """Return the element abbreviation"""
-    lower_case_list = list([s.lower() for s in roentgen.elements["name"]])
-    if is_an_element(element_str):
+    lower_case_symbol_list = list([s.lower() for s in roentgen.elements["symbol"]])
+    if element_str.lower() in lower_case_symbol_list:  # already a symbol
+        return element_str.capitalize()
+    elif is_an_element(element_str):
+        lower_case_list = list([s.lower() for s in roentgen.elements["name"]])
         return roentgen.elements[
                 lower_case_list.index(element_str.lower())
-            ]["symbol"]
+            ]["symbol"].capitalize()
     else:
         return None
 
