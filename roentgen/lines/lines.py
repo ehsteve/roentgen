@@ -2,7 +2,7 @@ from astropy.table import QTable
 import astropy.units as u
 
 import roentgen
-from roentgen.absorption import get_atomic_number, is_an_element
+from roentgen.absorption import get_element_symbol, is_an_element
 
 _package_directory = roentgen._package_directory
 _data_directory = roentgen._data_directory
@@ -22,7 +22,9 @@ def get_lines_for_element(element_str):
     line_list : `astropy.table.QTable`
     """
     if is_an_element(element_str):
-        row = roentgen.emission_energies[get_atomic_number(element_str)]
+        symbol_str = get_element_symbol(element_str)
+        index = list(roentgen.emission_energies['symbol']).index(symbol_str)
+        row = roentgen.emission_energies[index]
         cols = list(roentgen.emission_energies[1].columns[2:])
         line_table = QTable()
         energies = []
