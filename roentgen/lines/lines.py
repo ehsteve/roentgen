@@ -64,7 +64,6 @@ def get_lines(energy_low, energy_high):
 
     for z in roentgen.emission_energies:
         this_element = z['symbol']
-        energies = []
         for this_col in line_cols:
             if (z[this_col] > energy_low) and (z[this_col] < energy_high):
                 line_energy.append(z[this_col])
@@ -79,4 +78,4 @@ def get_lines(energy_low, energy_high):
     else:
         result = None
 
-    return result
+    return result.sort('energy')
