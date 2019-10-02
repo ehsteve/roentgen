@@ -54,3 +54,9 @@ Documentation
 =============
 
 http://roentgen.readthedocs.io/en/latest/
+
+GUI
+===
+A working version of the GUI can be found installed on heroku.
+
+https://roentgen-gui.herokuapp.com/gui
