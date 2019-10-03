@@ -19,7 +19,10 @@ from bokeh.models.widgets import (
     CheckboxGroup,
     TableColumn,
     DataTable,
-    Button
+    Button,
+    CheckboxGroup,
+    Toggle,
+    Div
 )
 from bokeh.plotting import figure
 
@@ -125,6 +128,7 @@ download_button = Button(label="Download", button_type="success")
 download_button.callback = CustomJS(args=dict(source=source),
                                     code=open(join(dirname(__file__), "download.js")).read())
 
+log_axis_enabled = False
 
 def update_data(attrname, old, new):
 
@@ -135,36 +139,54 @@ def update_data(attrname, old, new):
     i = 0
 
     material_list = material_input.value.split(',')
-    print(material_list)
     plot_title = ""
 
-    for this_material_str in material_list:
-        this_material = Material(str(this_material_str),
-                                 u.Quantity(thickness_input.value).to("micron"),
-                                 density=u.Quantity(density_input.value).to("g / cm ** 3"))
-        if i == 0:
-            y = this_material.transmission(energy)
+    y = np.ones_like(x)
+
+    if not material_input.disabled:
+        for this_material_str in material_list:
+            this_material = Material(str(this_material_str),
+                                     u.Quantity(thickness_input.value).to("micron"),
+                                     density=u.Quantity(density_input.value).to("g / cm ** 3"))
+            if i == 0:
+                y *= this_material.transmission(energy)
+            else:
+                y *= this_material.transmission(energy)
+            i += 0
+            plot_title += f"{this_material.name} {this_material.thickness}"
+
+    if not air_pressure_input.disabled:
+        # parse atm input
+        if air_pressure_input.value.count('atm') > 0:
+            air_pressure = air_pressure_input.value.split('atm')[0] * const.atm
         else:
-            y *= this_material.transmission(energy)
-        i += 0
-        plot_title += f"{this_material.name} {this_material.thickness}"
+            air_pressure = u.Quantity(air_pressure_input.value)
+        air_density = get_air_density(air_pressure,
+                                      u.Quantity(air_temperature_input.value))
+        air = Material('air', u.Quantity(air_thickness_input.value).to("meter"),
+                       density=air_density)
+        y *= air.transmission(energy)
+        plot_title += f" {air.name} {air.density.to('g / cm**3'):.2E} {air.thickness:.2f}"
 
-    # parse atm input
-    if air_pressure_input.value.count('atm') > 0:
-        air_pressure = air_pressure_input.value.split('atm')[0] * const.atm
+    if not detector_material_input.disabled:
+        this_detector = Material(detector_material_input.value, u.Quantity(detector_thickness_input.value),
+                                 density=u.Quantity(detector_density_input.value))
+        y *= this_detector.absorption(energy)
+        plot_title += f" {this_detector.name} {this_detector.thickness:.2f}"
+
+    if attrname is "log" and new:
+        y = np.log10(y)
+        plot.y_range.start = -4
+        plot.y_range.end = 0
+        plot.yaxis.axis_label = 'log(fraction)'
     else:
-        air_pressure = u.Quantity(air_pressure_input.value)
-    air_density = get_air_density(air_pressure,
-                                  u.Quantity(air_temperature_input.value))
-    air = Material('air', u.Quantity(air_thickness_input.value).to("meter"),
-                   density=air_density)
-    y *= air.transmission(energy)
-    plot_title += f" {air.name} {air.density.to('g / cm**3'):.2E} {air.thickness:.2f}"
+        plot.y_range.start = 0
+        plot.y_range.end = 1
+        plot.yaxis.axis_label = 'fraction'
 
-    this_detector = Material(detector_material_input.value, u.Quantity(detector_thickness_input.value),
-                             density=u.Quantity(detector_density_input.value))
-    y *= this_detector.absorption(energy)
-    plot_title += f" {this_detector.name} {this_detector.thickness:.2f}"
+    plot.x_range.start = energy_low.value
+    plot.x_range.end = energy_high.value
+
     plot.title.text = plot_title
     source.data = dict(x=x, y=y)
 
@@ -191,9 +213,57 @@ detector_material_input.on_change("value", update_detector_density_and_data)
 density_input.disabled = True
 detector_density_input.disabled = True
 
+
+def toggle_active_air(new):
+    air_pressure_input.disabled = not air_pressure_input.disabled
+    air_thickness_input.disabled = not air_density.disabled
+    air_temperature_input.disabled = not air_temperature_input.disabled
+    return new
+
+
+def toggle_active(new):
+    if 0 in new:
+        material_input.disabled = False
+        thickness_input.disabled = False
+    if 0 not in new:
+        material_input.disabled = True
+        thickness_input.disabled = True
+    if 1 in new:
+        air_pressure_input.disabled = False
+        air_thickness_input.disabled = False
+        air_temperature_input.disabled = False
+    if 1 not in new:
+        air_pressure_input.disabled = True
+        air_thickness_input.disabled = True
+        air_temperature_input.disabled = True
+    if 2 in new:
+        detector_material_input.disabled = False
+        detector_thickness_input.disabled = False
+        detector_density_input.disabled = False
+    if 2 not in new:
+        detector_material_input.disabled = True
+        detector_thickness_input.disabled = True
+        detector_density_input.disabled = True
+    update_data("toggle", 0, 0)
+    return new
+
+checkbox_group = CheckboxGroup(labels=["Material", "Air", "Detector"], active=[0, 1, 2])
+checkbox_group.on_click(toggle_active)
+
+def toggle_log(new):
+    if 0 in new:
+        log_axis_enabled = True
+    else:
+        log_axis_enabled = False
+    update_data("log", 0, log_axis_enabled)
+
+plot_checkbox_group = CheckboxGroup(labels=["ylog"], active=[])
+plot_checkbox_group.on_click(toggle_log)
+
 curdoc().add_root(
     layout(
         [
+            [checkbox_group, plot_checkbox_group],
             [material_input, thickness_input, density_input],
             [air_pressure_input, air_thickness_input, air_temperature_input],
             [detector_material_input, detector_thickness_input, detector_density_input],
