@@ -1,3 +1,5 @@
+import numpy as np
+
 from astropy.table import QTable
 import astropy.units as u
 
@@ -28,13 +30,14 @@ def get_lines_for_element(element_str):
         cols = list(roentgen.emission_energies[1].columns[2:])
         line_table = QTable()
         energies = []
+        line_names = []
         for this_col in cols:
-            energies.append(row[this_col])
-        energies = u.Quantity(energies)
-        line_table['line'] = cols
-        line_table['energy'] = u.Quantity(energies)
-        mask = energies.value == 0
-        line_table['energy'].mask = mask
+            if row[this_col] > 0:
+                energies.append(row[this_col])
+                line_names.append(this_col)
+        energies = u.Quantity(energies).to('keV')
+        line_table['line'] = line_names
+        line_table['energy'] = energies
         return line_table
     else:
         ValueError(f"Element not recognized.")
@@ -42,7 +45,7 @@ def get_lines_for_element(element_str):
 
 def get_lines(energy_low, energy_high):
     """
-    Retrieve all emission lines in a energy range.
+    Retrieve all emission lines in an energy range.
 
     Parameters
     ----------
