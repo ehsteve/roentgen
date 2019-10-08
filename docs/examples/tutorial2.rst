@@ -1,5 +1,5 @@
-Example 2
-=========
+Finding the x-ray transmission of different materials
+=====================================================
 
 .. plot::
     :include-source:

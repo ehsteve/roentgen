@@ -1,5 +1,5 @@
-Example 1
-=========
+Getting and plotting the Mass Attenuation Coefficient
+=====================================================
 
 .. plot::
     :include-source:
