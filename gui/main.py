@@ -41,7 +41,7 @@ def get_air_density(pressure, temperature):
 DEFAULT_MATERIAL = ["Si", "Si", "Si", "Si", "Si"]
 DEFAULT_THICKNESS = [100.0, 0, 0, 0, 0] * u.micron
 DEFAULT_ENERGY_LOW = 1.0
-DEFAULT_ENERGY_HIGH = 50.0
+DEFAULT_ENERGY_HIGH = 200.0
 DEFAULT_DENSITY = [2.33, 2.33, 2.33, 2.33, 2.33]
 DEFAULT_TYPE = "Transmission"
 NUMBER_OF_MATERIALS = len(DEFAULT_MATERIAL)
@@ -49,6 +49,8 @@ NUMBER_OF_MATERIALS = len(DEFAULT_MATERIAL)
 DEFAULT_DETECTOR_MATERIAL = 'cdte'
 DEFAULT_DETECTOR_THICKNESS = 1 * u.mm
 DEFAULT_DETECTOR_DENSITY = get_density(DEFAULT_DETECTOR_MATERIAL)
+
+DEFAULT_ENERGY_RESOLUTION = 0.25
 
 DEFAULT_AIR_THICKNESS = 1 * u.m
 DEFAULT_AIR_PRESSURE = 1 * const.atm
@@ -60,7 +62,8 @@ TOOLS = "pan,box_zoom,box_select,crosshair,undo,redo,save,reset,hover"
 
 # defaults
 material_list = []
-energy = u.Quantity(np.arange(DEFAULT_ENERGY_LOW, DEFAULT_ENERGY_HIGH, 1), "keV")
+energy = u.Quantity(np.arange(DEFAULT_ENERGY_LOW, DEFAULT_ENERGY_HIGH,
+                              DEFAULT_ENERGY_RESOLUTION), "keV")
 
 this_material = Material(DEFAULT_MATERIAL[0], DEFAULT_THICKNESS[0])
 y = this_material.transmission(energy)
@@ -84,22 +87,25 @@ plot = figure(
     plot_width=PLOT_WIDTH,
     title=DEFAULT_TYPE,
     tools=TOOLS,
-    x_range=[DEFAULT_ENERGY_LOW, DEFAULT_ENERGY_HIGH],
+    x_range=[1, 50],
     y_range=[0, 1],
 )
 plot.yaxis.axis_label = "fraction"
 plot.xaxis.axis_label = "Energy [keV]"
 plot.line("x", "y", source=source, line_width=3, line_alpha=0.6)
-
-plot.title.text = "boo"
+plot.title.text = ""
 
 # Set up the inputs
 ylog_checkbox = CheckboxGroup(labels=["y-log"], active=[0])
 
 # Set plot widgets
-energy_low = Slider(title="energy (low)", value=3, start=1, end=5.0, step=0.1)
-energy_high = Slider(title="energy (high)", value=50, start=10, end=100, step=1)
-energy_step = Slider(title="energy steps", value=1, start=0.1, end=2, step=0.1)
+#energy_low = Slider(title="energy (low) [keV]", value=DEFAULT_ENERGY_LOW,
+#                    start=1, end=5.0, step=0.1)
+#energy_high = Slider(title="energy (high) [keV]", value=DEFAULT_ENERGY_HIGH,
+#                        start=10, end=100, step=1)
+#energy_step = Slider(title="energy resolution [keV]",
+#                        value=DEFAULT_ENERGY_RESOLUTION, start=0.1, end=2,
+#                        step=0.1)
 
 # materials in the path
 material_input = TextInput(title="Material", value=DEFAULT_MATERIAL[0])
@@ -129,6 +135,7 @@ download_button.callback = CustomJS(args=dict(source=source),
                                     code=open(join(dirname(__file__), "download.js")).read())
 
 log_axis_enabled = False
+
 
 def update_data(attrname, old, new):
 
@@ -201,8 +208,9 @@ def update_detector_density_and_data(attrname, old, new):
 
 update_input_list = [material_input, thickness_input, density_input, air_thickness_input,
                      air_pressure_input, air_temperature_input, detector_density_input,
-                     detector_thickness_input, detector_material_input, energy_low,
-                     energy_step, energy_high]
+                     detector_thickness_input, detector_material_input,
+                     #energy_low, energy_step, energy_high
+                     ]
 
 for w in update_input_list:
     w.on_change("value", update_data)
@@ -247,8 +255,16 @@ def toggle_active(new):
     update_data("toggle", 0, 0)
     return new
 
-checkbox_group = CheckboxGroup(labels=["Material", "Air", "Detector"], active=[0, 1, 2])
+checkbox_group = CheckboxGroup(labels=["Material", "Air", "Detector"],
+                               active=[0, 1, 2])
 checkbox_group.on_click(toggle_active)
+
+def update_plot():
+    update_data("update", 0, 0)
+
+update_plot_button = Button(label="Update", button_type="success")
+update_plot_button.on_click(update_plot)
+
 
 def toggle_log(new):
     if 0 in new:
@@ -267,9 +283,8 @@ curdoc().add_root(
             [material_input, thickness_input, density_input],
             [air_pressure_input, air_thickness_input, air_temperature_input],
             [detector_material_input, detector_thickness_input, detector_density_input],
-            # [material_input_list[3], thickness_input_list[3], density_input_list[3]],
-            # [material_input_list[4], thickness_input_list[4], density_input_list[4]],
-            [energy_low, energy_high, energy_step],
+            #[energy_low, energy_high, energy_step],
+            [update_plot_button],
             [plot],
             [download_button, p]
         ],
