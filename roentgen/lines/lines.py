@@ -1,5 +1,3 @@
-import numpy as np
-
 from astropy.table import QTable
 import astropy.units as u
 
@@ -23,7 +21,9 @@ def get_lines_for_element(element_str):
     -------
     line_list : `astropy.table.QTable`
     """
-    if is_an_element(element_str):
+    if not is_an_element(element_str):
+        ValueError(f"Element {element_str} not recognized.")
+    else:
         symbol_str = get_element_symbol(element_str)
         index = list(roentgen.emission_energies['symbol']).index(symbol_str)
         row = roentgen.emission_energies[index]
@@ -35,12 +35,10 @@ def get_lines_for_element(element_str):
             if row[this_col] > 0:
                 energies.append(row[this_col])
                 line_names.append(this_col)
-        energies = u.Quantity(energies).to('keV')
-        line_table['line'] = line_names
+        energies = u.Quantity(energies)
+        line_table['transition'] = line_names
         line_table['energy'] = energies
         return line_table
-    else:
-        ValueError(f"Element not recognized.")
 
 
 def get_lines(energy_low, energy_high):
@@ -77,8 +75,9 @@ def get_lines(energy_low, energy_high):
         result = QTable()
         result['energy'] = u.Quantity(line_energy)
         result['element'] = element_name
-        result['type'] = line_type
+        result['transition'] = line_type
+        result.sort('energy')
     else:
         result = None
 
-    return result.sort('energy')
+    return result
