@@ -1,5 +1,5 @@
-Finding the x-ray in an energy range
-====================================
+Finding all x-ray lines in an energy range
+==========================================
 
 .. plot::
     :include-source:
