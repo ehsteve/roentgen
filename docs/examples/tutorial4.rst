@@ -14,6 +14,8 @@ Finding all x-ray lines in an energy range
 
     ax = plt.subplot(111)
     ax.set_xlim(energy_range[0], energy_range[1])
+    ax.set_ylim(0, 1)
+    ax.plot(energy_range, [0, 0])
 
     for this_element, line_name, this_e in zip(lines['element'], lines['transition'], lines['energy']):
         ax.axvline(this_e, label=f'{this_element} {line_name} {this_line}')
