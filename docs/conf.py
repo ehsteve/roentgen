@@ -77,6 +77,7 @@ project = setup_cfg['name']
 author = setup_cfg['author']
 copyright = '{0}, {1}'.format(
     datetime.datetime.now().year, setup_cfg['author'])
+copyright = ''
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -114,7 +115,8 @@ release = package.__version__
 html_theme_options = {
     'logotext1': 'roentgen',  # white,  semi-bold
     'logotext2': '',  # orange, light
-    'logotext3': ':docs'   # white,  light
+    'logotext3': ':docs',   # white,  light
+    'astropy_project_menubar': False
     }
 
 
