@@ -12,7 +12,12 @@
   <div class="content">
     <h1>Roentgen X-ray Transmission</h1>
 
-    <p>Calculate the transmission of x-rays through various materials.</p>
+    <p>Calculate the transmission of x-rays through various materials. Use the following
+      links to get a list of all available <a href="https://github.com/ehsteve/roentgen/blob/master/roentgen/data/elements.csv">elements</a>
+      their default <a href="https://github.com/ehsteve/roentgen/blob/master/roentgen/data/elements_densities.csv">densities</a>
+      and <a href="https://github.com/ehsteve/roentgen/blob/master/roentgen/data/compounds_mixtures.csv">materials</a>.
+    </p>
+
 
     {{ super() }}
 
@@ -22,6 +27,7 @@
 <footer class="footer">
   <center>
     <p>
+      Data provided by <a href="https://www.nist.gov/pml/x-ray-mass-attenuation-coefficients">NIST Standard Reference Database 126</a><br>
       Powered by <a href="https://bokeh.pydata.org/en/latest/">Bokeh</a> /
       Edit this app on <a href="https://github.com/ehsteve/roentgen/tree/master/gui">Github</a>
     </p>
