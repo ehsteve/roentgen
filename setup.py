@@ -1,33 +1,52 @@
 #!/usr/bin/env python
+import sys
 
-# Licensed under a 3-clause BSD style license - see LICENSE.rst
+################################################################################
+# Raise helpful messages for test and build_docs commands
+################################################################################
+test_help = """\
+Running tests is no longer done using 'python setup.py test'.
+Instead you will need to run:
+    tox -e offline
+if you don't already have tox installed, you can install it with:
+    pip install tox
+if you only want to run part of the test suite, you can also use pytest directly with:
+    pip install -e .[dev]
+    pytest
+"""
 
-import builtins
+if 'test' in sys.argv:
+    print(test_help)
+    sys.exit(1)
 
-# Ensure that astropy-helpers is available
-import ah_bootstrap  # noqa
+docs_help = """\
+Building the documentation is no longer done using 'python setup.py build_docs'.
+Instead you will need to run:
+    tox -e build_docs
+if you don't already have tox installed, you can install it with:
+    pip install tox
+"""
 
+if 'build_docs' in sys.argv or 'build_sphinx' in sys.argv:
+    print(docs_help)
+    sys.exit(1)
+
+from itertools import chain
 from setuptools import setup
 from setuptools.config import read_configuration
 
-from astropy_helpers.setup_helpers import register_commands, get_package_info
-from astropy_helpers.version_helpers import generate_version_py
+################################################################################
+# Programmatically generate some extras combos.
+################################################################################
+extras = read_configuration("setup.cfg")['options']['extras_require']
 
-# Store the package name in a built-in variable so it's easy
-# to get from other parts of the setup infrastructure
-builtins._ASTROPY_PACKAGE_NAME_ = read_configuration('setup.cfg')['metadata']['name']
+# Dev is everything
+extras['dev'] = list(chain(*extras.values()))
 
-# Create a dictionary with setup command overrides. Note that this gets
-# information about the package (name and version) from the setup.cfg file.
-cmdclass = register_commands()
+# All is everything but tests and docs
+exclude_keys = ("tests", "docs", "dev")
+ex_extras = dict(filter(lambda i: i[0] not in exclude_keys, extras.items()))
+# Concatenate all the values together for 'all'
+extras['all'] = list(chain.from_iterable(ex_extras.values()))
 
-# Freeze build information in version.py. Note that this gets information
-# about the package (name and version) from the setup.cfg file.
-version = generate_version_py()
-
-# Get configuration information from all of the various subpackages.
-# See the docstring for setup_helpers.update_package_files for more
-# details.
-package_info = get_package_info()
-
-setup(version=version, cmdclass=cmdclass, **package_info)
+setup(extras_require=extras, use_scm_version=True)
