@@ -291,7 +291,7 @@ def get_compound_index(compound_str):
 def get_density(material_str):
     if is_an_element(material_str):
         ind = get_atomic_number(material_str)-1
-        density = roentgen.elemental_densities[ind]["density"]
+        density = roentgen.elements[ind]["density"]
     else:
         # not using loc because table indexing is not yet stable
         # self.density = roentgen.compounds.loc[material_str]['density']

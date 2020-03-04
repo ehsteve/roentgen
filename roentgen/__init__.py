@@ -18,14 +18,14 @@ if not _ASTROPY_SETUP_:
     _package_directory = os.path.dirname(os.path.abspath(__file__))
     _data_directory = os.path.abspath(os.path.join(_package_directory, 'data'))
 
-    elements = ascii.read(os.path.join(_data_directory, 'elements.csv'),
-                          format='csv', fast_reader=False)
+    elements_file = os.path.join(_data_directory, 'elements.csv')
+    elements = QTable(ascii.read(elements_file, format='csv'))
 
-    elemental_densities_file = os.path.join(_data_directory,
-                                            'elements_densities.csv')
-    elemental_densities = QTable(ascii.read(elemental_densities_file))
-    elemental_densities['density'].unit = u.g / (u.cm ** 3)
-    # elemental_densities.add_index('symbol')
+    elements['density'].unit = u.g / (u.cm ** 3)
+    elements['i'].unit = u.eV
+    elements['ionization energy'].unit = u.eV
+    elements['atomic mass'] =  elements['z'] / elements['zovera'] * u.u
+    elements.add_index('symbol')
 
     compounds_file = os.path.join(_data_directory, 'compounds_mixtures.csv')
     compounds = QTable(ascii.read(compounds_file,
