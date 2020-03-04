@@ -143,6 +143,7 @@ columns = [
 ]
 data_table = DataTable(source=source, columns=columns, width=400, height=700)
 
+
 # the download button
 download_button = Button(label="Download", button_type="success")
 download_button.callback = CustomJS(args=dict(source=source),
@@ -170,7 +171,10 @@ def update_data(attrname, old, new):
     i = 0
     plot_title = ""
     p.text = 'Messages: '
-    y = np.ones_like(x)
+
+    energy = u.Quantity(np.arange(plot.x_range.start, plot.x_range.end,
+                                  DEFAULT_ENERGY_RESOLUTION), "keV")
+    y = np.ones_like(energy)
 
     if not material_input.disabled:
         this_material_str = material_input.value
@@ -233,7 +237,7 @@ def update_data(attrname, old, new):
         plot.yaxis.axis_label = 'Transmission fraction'
 
     plot.title.text = plot_title
-    source.data = dict(x=x, y=y)
+    source.data = dict(x=energy, y=y)
 
 
 def toggle_active(new):
@@ -273,6 +277,10 @@ def update_plot():
 
 update_plot_button = Button(label="Update Plot", button_type="success")
 update_plot_button.on_click(update_plot)
+
+plot.x_range.on_change('start', update_data)
+plot.x_range.on_change('end', update_data)
+
 
 plot_checkbox_group = CheckboxGroup(labels=["ylog"], active=[])
 
