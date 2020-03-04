@@ -174,7 +174,7 @@ def update_data(attrname, old, new):
 
     energy = u.Quantity(np.arange(plot.x_range.start, plot.x_range.end,
                                   DEFAULT_ENERGY_RESOLUTION), "keV")
-    y = np.ones_like(energy)
+    y = np.ones_like(energy.value)
 
     if not material_input.disabled:
         this_material_str = material_input.value
