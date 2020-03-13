@@ -13,6 +13,7 @@ __all__ = [
     "Material",
     "MassAttenuationCoefficient",
     "Compound",
+    "Response",
     "is_an_element",
     "get_atomic_number",
     "is_in_known_compounds",
@@ -104,7 +105,8 @@ class Material(object):
 
 
 class Compound(object):
-    """An object which provides the x-ray properties of a compound (i.e.
+    """
+    An object which provides the x-ray properties of a compound (i.e.
      many materials).
 
     Parameters
@@ -165,6 +167,59 @@ class Compound(object):
             An array of energies in keV.
         """
         return 1.0 - self.transmission(energy)
+
+
+class Response(object):
+    """
+    An object to handle the response of a detector material which includes
+    an optical path or filter through which x-rays must first traverse before
+    reaching the detector.
+
+    Parameters
+    ----------
+    materials : list
+        A list of Material objects which make up the optical path
+
+    detector : Material or None
+        A Material which represents the detector material where the x-rays
+        are absorbed. If provided with None, than assume a perfectly absorbing
+        detector material is assumed.
+
+    Examples
+    --------
+    >>> from roentgen.absorption.material import Material, Response
+    >>> import astropy.units as u
+    >>> optical_path = [Material('air', 1 * u.m), Material('Al', 500 * u.mm)]
+    >>> resp = Response(optical_path, detector=Material('cdte', 500 * u.um))
+    """
+    def __init__(self, materials, detector):
+        # make sure the materials are a list since we iterate over them
+        # to calculate the transmission
+        if type(materials) is not list:
+            self.materials = [materials]
+        else:
+            self.materials = materials
+        if type(detector) is Material or type(detector) is None:
+            self.detector = detector
+        else:
+            return TypeError('Detector must be a Material or None')
+
+    def response(self, energy):
+        """Returns the response as a function of energy"""
+        # calculate the transmission
+        transmission = np.ones(len(energy), dtype=np.float)
+        detector_absorption = np.ones(len(energy), dtype=np.float)
+        for material in self.materials:
+            this_transmission = (
+                material.transmission(energy)
+            )
+            transmission *= this_transmission
+        if self.detector is None:
+            detector_absorption = np.ones(len(energy), dtype=np.float)
+        else:
+            detector_absorption = self.detector.absorption(energy)
+
+        return transmission * detector_absorption
 
 
 class MassAttenuationCoefficient(object):
