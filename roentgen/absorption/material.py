@@ -105,9 +105,8 @@ class Material(object):
 
 
 class Compound(object):
-    """
-    An object which provides the x-ray properties of a compound (i.e.
-     many materials).
+    """An object which provides the x-ray properties of a compound (i.e.
+    many materials).
 
     Parameters
     ----------
@@ -177,13 +176,13 @@ class Response(object):
 
     Parameters
     ----------
-    materials : list
-        A list of Material objects which make up the optical path
+    optical_path : list
+        A list of Material objects which make up the optical path.
 
     detector : Material or None
         A Material which represents the detector material where the x-rays
         are absorbed. If provided with None, than assume a perfectly absorbing
-        detector material is assumed.
+        detector material.
 
     Examples
     --------
@@ -192,24 +191,34 @@ class Response(object):
     >>> optical_path = [Material('air', 1 * u.m), Material('Al', 500 * u.mm)]
     >>> resp = Response(optical_path, detector=Material('cdte', 500 * u.um))
     """
-    def __init__(self, materials, detector):
+    def __init__(self, optical_path, detector):
         # make sure the materials are a list since we iterate over them
         # to calculate the transmission
-        if type(materials) is not list:
-            self.materials = [materials]
+        if isinstance(optical_path, Material):
+            self.optical_path = [optical_path]
+        elif isinstance(optical_path, list):
+            self.optical_path = optical_path
         else:
-            self.materials = materials
-        if type(detector) is Material or type(detector) is None:
+            raise TypeError("optical_path must be Material or list of Materials")
+        if (type(detector) is Material) or (detector is None):
             self.detector = detector
         else:
-            return TypeError('Detector must be a Material or None')
+            raise TypeError('Detector must be a Material or None')
+
+    def __repr__(self):
+        """Returns a human-readable representation."""
+        txt = "<Response optical path="
+        for material in self.optical_path:
+            txt += str(material)
+        txt += " detector=" + str(self.detector)
+        return txt + ">"
 
     def response(self, energy):
         """Returns the response as a function of energy"""
         # calculate the transmission
         transmission = np.ones(len(energy), dtype=np.float)
         detector_absorption = np.ones(len(energy), dtype=np.float)
-        for material in self.materials:
+        for material in self.optical_path:
             this_transmission = (
                 material.transmission(energy)
             )
