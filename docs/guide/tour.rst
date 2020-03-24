@@ -150,6 +150,8 @@ Here is a plot of that transmission over energy
 
 Frequently, it is useful to consider the response function of a particular detector which includes absorption through materials in front of the detector.
 This can be calculated by multiplying the transmission of the materials before the detector with the absorption of the detector material.
+
+To simplify this process, the `roentgen.absorption.Response` class is provided.
 The following example uses the same optical path as defined above and assumes a Silicon detector.
 
 .. plot::
@@ -161,10 +163,11 @@ The following example uses the same optical path as defined above and assumes a 
     import numpy as np
 
     optical_path = Material('air', 2 * u.m) + Material('mylar', 5 * u.micron) + Material('Al', 5 * u.micron)
-    si = Material('Si', 500 * u.micron)
+    detector = Material('Si', 500 * u.micron)
+    resp = Response(optical_path=optical_path, detector=detector)
     energy = u.Quantity(np.arange(1,30), 'keV')
 
-    plt.plot(energy, optical_path.transmission(energy) * si.absorption(energy))
+    plt.plot(energy, resp.response(energy))
     plt.xlabel('Energy [' + str(energy.unit) + ']')
     plt.ylabel('Response')
 
