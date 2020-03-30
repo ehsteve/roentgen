@@ -15,10 +15,9 @@ from astropy.config.configuration import (
      ConfigurationDefaultMissingWarning)
 
 try:
-     __version__ = get_distribution(__name__).version
- except DistributionNotFound:
-     # package is not installed
-     __version__ = "unknown"
+    __version__ = get_distribution(__name__).version
+ except DistributionNotFound:  # package is not installed
+    __version__ = "unknown"
 
 # add these here so we only need to cleanup the namespace at the end
 config_dir = None
