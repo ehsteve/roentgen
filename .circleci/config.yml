@@ -28,7 +28,7 @@ jobs:
     steps:
       - checkout
       - run: sudo pip install pycodestyle
-      - run: pycodestyle dkist --count
+      - run: pycodestyle --count
 
   tests:
     docker:
@@ -38,7 +38,7 @@ jobs:
       - run: *skip-check
       - run: *apt-install
       - run: *tox-install
-      - run: tox -e py37-offline
+      - run: tox -e py37
       - run: codecov
 
   html-docs:
@@ -67,10 +67,6 @@ workflows:
   pycodestyle:
     jobs:
       - pycodestyle
-
-  figure-tests:
-    jobs:
-      - tests
 
   test-documentation:
     jobs:
