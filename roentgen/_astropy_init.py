@@ -1,4 +1,5 @@
 # Licensed under a 3-clause BSD style license - see LICENSE.rst
+# probably don't need this anymore!
 
 __all__ = ['__version__', '__githash__']
 
