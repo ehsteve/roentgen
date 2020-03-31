@@ -8,11 +8,11 @@ from warnings import warn
 
 from pkg_resources import get_distribution, DistributionNotFound
 
-from astropy.tests.helper import TestRunner
-from astropy.config.configuration import (
-     update_default_config,
-     ConfigurationDefaultMissingError,
-     ConfigurationDefaultMissingWarning)
+#from astropy.tests.helper import TestRunner
+#from astropy.config.configuration import (
+#     update_default_config,
+#     ConfigurationDefaultMissingError,
+#     ConfigurationDefaultMissingWarning)
 
 try:
     __version__ = get_distribution(__name__).version
@@ -41,7 +41,7 @@ if not os.environ.get('ASTROPY_SKIP_CONFIG_UPDATE', False):
             except Exception:
                 raise orig_error
 
-test = TestRunner.make_test_runner_in(os.path.dirname(__file__))
+#test = TestRunner.make_test_runner_in(os.path.dirname(__file__))
 
 # roentgen specific configuration
 # load some data files on import

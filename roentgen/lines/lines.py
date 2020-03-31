@@ -7,6 +7,10 @@ from roentgen.absorption import get_element_symbol, is_an_element
 _package_directory = roentgen._package_directory
 _data_directory = roentgen._data_directory
 
+__all__ = [
+    "get_lines_for_element",
+    "get_lines"
+]
 
 def get_lines_for_element(element_str):
     """
