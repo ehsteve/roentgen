@@ -71,3 +71,7 @@ workflows:
   test-documentation:
     jobs:
       - html-docs
+
+  tests:
+    jobs:
+      - tests 
