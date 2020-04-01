@@ -1,5 +1,5 @@
-Finding the x-ray transmission of different materials
-=====================================================
+Finding the x-ray absorption of different detector materials
+============================================================
 
 .. plot::
     :include-source:
@@ -19,6 +19,6 @@ Finding the x-ray transmission of different materials
         plt.plot(energy, mat.absorption(energy), label=mat.name)
 
     plt.xlabel('Energy [' + str(energy.unit) + ']')
-    plt.ylabel('Efficiency')
+    plt.ylabel('Absorption')
     plt.legend(loc='lower left')
     plt.show()

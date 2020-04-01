@@ -12,7 +12,7 @@ Finding the x-ray emission lines for a particular element
     this_element = 'Ni'
 
     plt.plot([0, 10], [0, 0])
-    plt.xlim(0, 10)
+    plt.xlim(0, 10000)
     plt.ylim(0, 1)
 
     lines = get_lines_for_element(this_element)

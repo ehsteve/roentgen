@@ -13,9 +13,12 @@ Finding the response of an x-ray detector
     detector = Material('Si', 500 * u.micron)
 
     resp = Response(optical_path=optical_path, detector=detector)
-    energy = u.Quantity(np.arange(1,30), 'keV')
+    energy = u.Quantity(np.linspace(1, 100, 300), 'keV')
 
-    plt.plot(energy, resp.response(energy))
+    plt.plot(energy, resp.response(energy), label='detector with optical path')
+    plt.plot(energy, detector.absorption(energy), label='detector without optical path')
     plt.xlabel('Energy [' + str(energy.unit) + ']')
     plt.ylabel('Response')
+    plt.ylim(0, 1)
+    plt.legend()
     plt.show()
