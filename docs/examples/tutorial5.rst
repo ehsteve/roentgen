@@ -9,7 +9,7 @@ Finding the response of an x-ray detector
     import astropy.units as u
     import matplotlib.pyplot as plt
 
-    optical_path = Material('air', 2 * u.m) + Material('mylar', 5 * u.micron) + Material('Al', 5 * u.micron)
+    optical_path = [Material('air', 2 * u.m), Material('mylar', 5 * u.micron), Material('Al', 5 * u.micron)]
     detector = Material('Si', 500 * u.micron)
 
     resp = Response(optical_path=optical_path, detector=detector)
