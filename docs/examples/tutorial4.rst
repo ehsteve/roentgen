@@ -6,6 +6,7 @@ Finding all x-ray lines in an energy range
 
     from roentgen.lines import get_lines
     import matplotlib.pyplot as plt
+    import astropy.units as u
     from astropy.visualization import quantity_support
     quantity_support()
 
@@ -18,6 +19,6 @@ Finding all x-ray lines in an energy range
     plt.ylim(0, 1)
 
     for this_element, line_name, this_e in zip(lines['element'], lines['transition'], lines['energy']):
-        plt.axvline(this_e, label=f'{this_element} {line_name} {this_line}')
+        plt.axvline(this_e, label=f'{this_element} {line_name} {line_name}')
     plt.xlabel('Energy [keV]')
     plt.show()
