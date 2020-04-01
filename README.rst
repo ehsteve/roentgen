@@ -18,8 +18,8 @@ Overview
     :target: https://roentgen.readthedocs.io/en/latest/?badge=latest
     :alt: Documentation Status
 
-.. |build| image:: https://travis-ci.org/ehsteve/roentgen.svg?branch=master
-    :target: https://travis-ci.org/ehsteve/roentgen
+.. |build| image:: https://circleci.com/gh/ehsteve/roentgen.svg?style=svg
+    :target: https://circleci.com/gh/ehsteve/roentgen
     :alt: Build Status
 
 .. |coverage| image:: https://coveralls.io/repos/github/ehsteve/roentgen/badge.svg?branch=master

@@ -16,7 +16,7 @@ Finding the x-ray emission lines for a particular element
     plt.ylim(0, 1)
 
     lines = get_lines_for_element(this_element)
-    for line_name, this_trans in zip(lines['transition'], lines['energy']):
-        plt.axvline(this_line, label=f'{this_element} {line_name} {this_trans}', color=this_color)
+    for this_trans, this_energy in zip(lines['transition'], lines['energy']):
+        plt.axvline(this_energy, label=f'{this_element} {this_energy} {this_trans}')
     plt.legend()
     plt.show()
