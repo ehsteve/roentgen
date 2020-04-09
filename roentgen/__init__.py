@@ -47,7 +47,7 @@ if not os.environ.get('ASTROPY_SKIP_CONFIG_UPDATE', False):
 # load some data files on import
 
 from astropy.io import ascii
-from astropy.table import QTable
+from astropy.table import QTable, Table
 import astropy.units as u
 
 _package_directory = os.path.dirname(os.path.abspath(__file__))
@@ -60,14 +60,33 @@ elements['density'].unit = u.g / (u.cm ** 3)
 elements['i'].unit = u.eV
 elements['ionization energy'].unit = u.eV
 elements['atomic mass'] = elements['z'] / elements['zovera'] * u.u
-elements.add_index('symbol')
+elements.add_index('z')
 
 compounds_file = os.path.join(_data_directory, 'compounds_mixtures.csv')
 compounds = QTable(ascii.read(compounds_file, format='csv', fast_reader=False))
 compounds['density'].unit = u.g / (u.cm ** 3)
 # compounds.add_index('symbol')
 
+notation_translation = Table(ascii.read(os.path.join(_data_directory, 'siegbahn_to_iupac.csv'),
+                                        format='csv', fast_reader=False))
+
 emission_energies_file = os.path.join(_data_directory, 'emission_energies.csv')
-emission_energies = QTable(ascii.read(emission_energies_file))
-for colname in emission_energies.colnames[2:]:
+emission_energies = QTable(ascii.read(emission_energies_file, fill_values=('', '-1')))
+for colname in emission_energies.colnames[1:]:
     emission_energies[colname].unit = u.eV
+emission_energies.meta = {"source": "Center for X-ray Optics and Advanced Light Source, X-Ray Data Booklet Table 1-2",
+                          "publication date": "2009 October",
+                          "url": "https://xdb.lbl.gov/Section1/Sec_1-2.html"}
+emission_energies.add_index('z')
+
+# TODO: add masking of quantity columns once this is made possible in astropy
+
+emission_intensities = QTable(ascii.read(os.path.join(_data_directory, 'emission_intensities.csv'), format='csv', fast_reader=False))
+# not sure why i need to fix this otherwise it is \ufenergy
+emission_intensities.rename_column(emission_intensities.colnames[0], 'energy')
+emission_intensities[emission_intensities.colnames[0]].unit = u.eV
+emission_intensities.add_index(emission_intensities.colnames[0])
+emission_intensities.add_index(emission_intensities.colnames[1])
+emission_intensities.meta = {"source": "Center for X-ray Optics and Advanced Light Source, X-Ray Data Booklet Table 1-2",
+                             "publication date": "2009 October",
+                             "url": "https://xdb.lbl.gov/Section1/Table_1-3.pdf"}
