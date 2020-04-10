@@ -1,22 +1,36 @@
-Finding the x-ray emission lines for a particular element
-=========================================================
+Plotting the x-ray spectrum from a particular element
+=====================================================
 
 .. plot::
     :include-source:
 
-    from roentgen.lines import get_lines_for_element
     import matplotlib.pyplot as plt
     from astropy.visualization import quantity_support
+    import astropy.units as u
+    import numpy as np
+    from astropy.modeling.models import Lorentz1D
     quantity_support()
 
-    this_element = 'Ni'
+    from roentgen.lines import get_lines
 
-    plt.plot([0, 10], [0, 0])
-    plt.xlim(0, 10000)
-    plt.ylim(0, 1)
+    energy_range = u.Quantity([7000, 9000], 'eV')
 
-    lines = get_lines_for_element(this_element)
-    for this_trans, this_energy in zip(lines['transition'], lines['energy']):
-        plt.axvline(this_energy, label=f'{this_element} {this_energy} {this_trans}')
-    plt.legend()
+    lines = get_lines(energy_range[0], energy_range[1], element='Ni')
+    spectrum = Lorentz1D(0, x_0=0)
+    for row in lines:
+        spectrum += Lorentz1D(amplitude=row['intensity'], x_0=row['energy'].value,
+                              fwhm=100)
+
+    plt.title('Ni')
+    for row in lines:
+        plt.vlines([row['energy'].value], [0], row['intensity'],
+                   label=f'{row["z"]} {row["transition"]}')
+
+    energy_axis = np.linspace(energy_range[0].value, energy_range[1].value, 1000)
+    plt.plot(energy_axis, spectrum(energy_axis))
+
+    plt.xlim(energy_range[0].value, energy_range[1].value)
+    plt.ylabel('intensity')
+    plt.xlabel('eV')
+    plt.legend(loc='upper right')
     plt.show()
