@@ -81,12 +81,12 @@ emission_energies.add_index('z')
 
 # TODO: add masking of quantity columns once this is made possible in astropy
 
-emission_intensities = QTable(ascii.read(os.path.join(_data_directory, 'emission_intensities.csv'), format='csv', fast_reader=False))
+emission_lines = QTable(ascii.read(os.path.join(_data_directory, 'emission_lines.csv'), format='csv', fast_reader=False))
 # not sure why i need to fix this otherwise it is \ufenergy
-emission_intensities.rename_column(emission_intensities.colnames[0], 'energy')
-emission_intensities[emission_intensities.colnames[0]].unit = u.eV
-emission_intensities.add_index(emission_intensities.colnames[0])
-emission_intensities.add_index(emission_intensities.colnames[1])
-emission_intensities.meta = {"source": "Center for X-ray Optics and Advanced Light Source, X-Ray Data Booklet Table 1-2",
-                             "publication date": "2009 October",
-                             "url": "https://xdb.lbl.gov/Section1/Table_1-3.pdf"}
+emission_lines.rename_column(emission_lines.colnames[0], 'energy')
+emission_lines[emission_lines.colnames[0]].unit = u.eV
+emission_lines.add_index(emission_lines.colnames[0])
+emission_lines.add_index(emission_lines.colnames[1])
+emission_lines.meta = {"source": "Center for X-ray Optics and Advanced Light Source, X-Ray Data Booklet Table 1-2",
+                       "publication date": "2009 October",
+                       "url": "https://xdb.lbl.gov/Section1/Table_1-3.pdf"}
