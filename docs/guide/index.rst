@@ -6,3 +6,5 @@ Guide
 
     background*
     tour*
+    transmission*
+    lines*
