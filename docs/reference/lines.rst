@@ -1,4 +1,4 @@
-Material
-========
+Emmision Lines
+==============
 
 .. automodapi:: roentgen.lines
