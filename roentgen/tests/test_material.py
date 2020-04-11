@@ -1,10 +1,11 @@
-import pytest
-from roentgen.absorption.material import MassAttenuationCoefficient, Material, \
-    Compound, is_an_element
-import roentgen.absorption as abs
-import roentgen
 import numpy as np
+import pytest
+
 import astropy.units as u
+
+import roentgen
+from roentgen.absorption.material import MassAttenuationCoefficient, Material, Compound
+from roentgen.util import is_an_element
 
 all_materials = list(roentgen.elements['symbol']) + \
                 list(roentgen.compounds['symbol'])
