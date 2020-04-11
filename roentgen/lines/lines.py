@@ -1,19 +1,18 @@
 import numpy as np
 
-from astropy.table import QTable, Table
+from astropy.table import Table
 import astropy.units as u
 
 import roentgen
-from roentgen.absorption import get_atomic_number
-
-_package_directory = roentgen._package_directory
-_data_directory = roentgen._data_directory
+from roentgen.util import get_atomic_number
 
 __all__ = [
     "get_lines"
 ]
 
 
+@u.quantity_input(energy_low=u.keV, energy_high=u.keV,
+                  equivalencies=u.spectral())
 def get_lines(energy_low, energy_high, element=None):
     """
     Retrieve all emission lines in an energy range.
@@ -33,18 +32,17 @@ def get_lines(energy_low, energy_high, element=None):
     -------
     line_list : `astropy.table.QTable`
     """
-    result = Table()
+    result = Table()  # this is the default result
 
-    em = roentgen.emission_intensities
+    em = roentgen.emission_lines
     energies = em[em.colnames[0]]
     bool_array = (energies < energy_high) * (energies > energy_low)
-    if np.sum(bool_array) > 0:
-        ind = np.where(bool_array)[0]
-        result = em.iloc[ind.min():ind.max()]
+    if np.any(bool_array):
+        result = em.loc[energy_low.to('eV').value:energy_high.to('eV').value]
 
     if len(result) > 1 and element is not None:
         # check to see if any lines from selected element exist in energy range
-        if np.sum(result['z'] == get_atomic_number(element)) > 0:
+        if np.any(result['z'] == get_atomic_number(element)):
             result = result.loc['z', get_atomic_number(element)]
 
     return result
