@@ -34,4 +34,3 @@ def test_get_right_number_of_lines():
     assert len(get_lines(74900 * u.eV, 81000 * u.eV)) == 11
     assert len(get_lines(6000 * u.eV, 8000 * u.eV, element='Fe')) == 3
     assert len(get_lines(8000 * u.eV, 8100 * u.eV, element='Cu')) == 2
-

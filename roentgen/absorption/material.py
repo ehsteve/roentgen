@@ -275,5 +275,3 @@ class MassAttenuationCoefficient(object):
             # likely a symbol of an element
             if material_str in list(roentgen.elements["symbol"]):
                 return
-
-
