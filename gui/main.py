@@ -26,20 +26,16 @@ from bokeh.models.widgets import (
     Div
 )
 from bokeh.plotting import figure
+from bokeh.events import ButtonClick
 
 import astropy.units as u
 from astropy import constants as const
 from astropy.units.imperial import deg_F, inch, foot, mil
 u.imperial.enable()
 
-from roentgen.absorption import Material, get_density, Response
+from roentgen.absorption import Material, Response
+from roentgen.util import get_density, ideal_gas_law
 import roentgen
-
-R = 287.058 * u.J / u.kg / u.Kelvin
-
-
-def get_air_density(pressure, temperature):
-    return pressure / (R * temperature.to('K', equivalencies=u.temperature()))
 
 DEFAULT_MATERIAL = ["silicon"]
 DEFAULT_THICKNESS = [100.0]
@@ -75,13 +71,13 @@ custom_hover = HoverTool(
 material_list = []
 
 this_material = Material(DEFAULT_MATERIAL[0], DEFAULT_THICKNESS[0] * u.micron)
-air_density = get_air_density(DEFAULT_AIR_PRESSURE * const.atm,
+air_density = ideal_gas_law(DEFAULT_AIR_PRESSURE * const.atm,
                               DEFAULT_AIR_TEMPERATURE * u.Celsius)
 air = Material('air', DEFAULT_AIR_THICKNESS * u.m, density=air_density)
 this_detector = Material(DEFAULT_DETECTOR_MATERIAL,
                          DEFAULT_DETECTOR_THICKNESS * u.mm)
 
-response = Response(materials=[this_material, air], detector=this_detector)
+response = Response(optical_path=[this_material, air], detector=this_detector)
 
 energy = u.Quantity(np.arange(DEFAULT_ENERGY_LOW, DEFAULT_ENERGY_HIGH,
                               DEFAULT_ENERGY_RESOLUTION), "keV")
@@ -147,8 +143,8 @@ data_table = DataTable(source=source, columns=columns, width=400, height=700)
 
 # the download button
 download_button = Button(label="Download", button_type="success")
-download_button.callback = CustomJS(args=dict(source=source),
-                                    code=open(join(dirname(__file__), "download.js")).read())
+download_button.js_on_event(ButtonClick, CustomJS(args=dict(source=source),
+                                                  code=open(join(dirname(__file__), "download.js")).read()))
 
 
 def convert_air_pressure(value, current_unit, new_unit):
@@ -197,7 +193,7 @@ def update_response(attrname, old, new):
         air_temperature = u.Quantity(air_temperature_input.value,
                                      air_temp_unit.value).to("Celsius",
                                                              equivalencies=u.temperature())
-        air_density = get_air_density(air_pressure, air_temperature)
+        air_density = ideal_gas_law(air_pressure, air_temperature)
         air = Material('air', air_path_length, density=air_density)
     else:
         air = Material('air', 0 * u.mm, density=0 * u.g / u.cm**3)
