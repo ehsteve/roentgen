@@ -1,3 +1,5 @@
+import astropy.units as u
+
 import roentgen
 
 __all__ = ["is_an_element",
@@ -5,7 +7,8 @@ __all__ = ["is_an_element",
            "is_in_known_compounds",
            "get_compound_index",
            "get_density",
-           "get_element_symbol"]
+           "get_element_symbol",
+           "ideal_gas_law"]
 
 
 def is_an_element(element_str):
@@ -79,6 +82,7 @@ def get_compound_index(compound_str):
 
 
 def get_density(material_str):
+    """Given a material name return the default density"""
     if is_an_element(material_str):
         ind = get_atomic_number(material_str)-1
         density = roentgen.elements[ind]["density"]
@@ -88,3 +92,10 @@ def get_density(material_str):
         index = list(roentgen.compounds["symbol"]).index(material_str)
         density = roentgen.compounds[index]["density"]
     return density
+
+
+u.quantity_input
+def ideal_gas_law(pressure : u.pascal, temperature):
+    """Given pressure and temperature, return a density using the ideal gas law"""
+    R = 287.058 * u.J / u.kg / u.Kelvin
+    return pressure / (R * temperature.to('K', equivalencies=u.temperature()))
