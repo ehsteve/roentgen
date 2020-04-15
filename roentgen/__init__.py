@@ -5,8 +5,11 @@ photons with matter (x-rays and gamma-rays).
 """
 import os
 from warnings import warn
-
 from pkg_resources import get_distribution, DistributionNotFound
+
+from astropy.io import ascii
+from astropy.table import QTable, Table
+import astropy.units as u
 
 #from astropy.tests.helper import TestRunner
 #from astropy.config.configuration import (
@@ -45,10 +48,6 @@ if not os.environ.get('ASTROPY_SKIP_CONFIG_UPDATE', False):
 
 # roentgen specific configuration
 # load some data files on import
-
-from astropy.io import ascii
-from astropy.table import QTable, Table
-import astropy.units as u
 
 _package_directory = os.path.dirname(os.path.abspath(__file__))
 _data_directory = os.path.abspath(os.path.join(_package_directory, 'data'))
