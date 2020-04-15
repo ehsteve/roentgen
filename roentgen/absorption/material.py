@@ -22,7 +22,8 @@ _data_directory = roentgen._data_directory
 
 
 class Material(object):
-    """An object which provides the properties of a material in x-rays
+    """An object which enables the calculation of the x-ray transmission and
+    absorption of a material (e.g. an element or a compound/mixture).
 
     Parameters
     ----------
@@ -100,8 +101,11 @@ class Material(object):
 
 
 class Compound(object):
-    """An object which provides the x-ray properties of a compound (i.e.
-    many materials).
+    """
+    An object which enables the calculation of the x-ray transmission and
+    absorption of a compound material (i.e.
+    many materials). This object is usually created automatically when
+    `Material` objects are added together.
 
     Parameters
     ----------
