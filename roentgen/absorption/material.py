@@ -8,17 +8,13 @@ import os
 import astropy.units as u
 from scipy import interpolate
 import roentgen
+from roentgen.util import get_atomic_number, get_density, get_compound_index, get_element_symbol, is_an_element, is_in_known_compounds
 
 __all__ = [
     "Material",
     "MassAttenuationCoefficient",
     "Compound",
-    "is_an_element",
-    "get_atomic_number",
-    "is_in_known_compounds",
-    "get_compound_index",
-    "get_density",
-    "get_element_symbol"
+    "Response"
 ]
 
 _package_directory = roentgen._package_directory
@@ -26,7 +22,8 @@ _data_directory = roentgen._data_directory
 
 
 class Material(object):
-    """An object which provides the properties of a material in x-rays
+    """An object which enables the calculation of the x-ray transmission and
+    absorption of a material (e.g. an element or a compound/mixture).
 
     Parameters
     ----------
@@ -104,8 +101,11 @@ class Material(object):
 
 
 class Compound(object):
-    """An object which provides the x-ray properties of a compound (i.e.
-     many materials).
+    """
+    An object which enables the calculation of the x-ray transmission and
+    absorption of a compound material (i.e.
+    many materials). This object is usually created automatically when
+    `Material` objects are added together.
 
     Parameters
     ----------
@@ -167,6 +167,69 @@ class Compound(object):
         return 1.0 - self.transmission(energy)
 
 
+class Response(object):
+    """
+    An object to handle the response of a detector material which includes
+    an optical path or filter through which x-rays must first traverse before
+    reaching the detector.
+
+    Parameters
+    ----------
+    optical_path : list
+        A list of Material objects which make up the optical path.
+
+    detector : Material or None
+        A Material which represents the detector material where the x-rays
+        are absorbed. If provided with None, than assume a perfectly absorbing
+        detector material.
+
+    Examples
+    --------
+    >>> from roentgen.absorption.material import Material, Response
+    >>> import astropy.units as u
+    >>> optical_path = [Material('air', 1 * u.m), Material('Al', 500 * u.mm)]
+    >>> resp = Response(optical_path, detector=Material('cdte', 500 * u.um))
+    """
+    def __init__(self, optical_path, detector):
+        # make sure the materials are a list since we iterate over them
+        # to calculate the transmission
+        if isinstance(optical_path, Material):
+            self.optical_path = [optical_path]
+        elif isinstance(optical_path, list):
+            self.optical_path = optical_path
+        else:
+            raise TypeError("optical_path must be Material or list of Materials")
+        if (type(detector) is Material) or (detector is None):
+            self.detector = detector
+        else:
+            raise TypeError('Detector must be a Material or None')
+
+    def __repr__(self):
+        """Returns a human-readable representation."""
+        txt = "<Response optical path="
+        for material in self.optical_path:
+            txt += str(material)
+        txt += " detector=" + str(self.detector)
+        return txt + ">"
+
+    def response(self, energy):
+        """Returns the response as a function of energy"""
+        # calculate the transmission
+        transmission = np.ones(len(energy), dtype=np.float)
+        detector_absorption = np.ones(len(energy), dtype=np.float)
+        for material in self.optical_path:
+            this_transmission = (
+                material.transmission(energy)
+            )
+            transmission *= this_transmission
+        if self.detector is None:
+            detector_absorption = np.ones(len(energy), dtype=np.float)
+        else:
+            detector_absorption = self.detector.absorption(energy)
+
+        return transmission * detector_absorption
+
+
 class MassAttenuationCoefficient(object):
     """
     The mass attenuation coefficient
@@ -216,85 +279,3 @@ class MassAttenuationCoefficient(object):
             # likely a symbol of an element
             if material_str in list(roentgen.elements["symbol"]):
                 return
-
-
-def is_an_element(element_str):
-    """Returns True if the string represents an element"""
-    result = False
-    lower_case_list = list([s.lower() for s in roentgen.elements["symbol"]])
-    if (len(element_str) <= 2) and (element_str.lower() in lower_case_list):
-        result = True
-    else:
-        lower_case_list = list([s.lower() for s in roentgen.elements["name"]])
-        if element_str.lower() in lower_case_list:
-            result = True
-    return result
-
-
-def get_element_symbol(element_str):
-    """Return the element abbreviation"""
-    lower_case_symbol_list = list([s.lower() for s in roentgen.elements["symbol"]])
-    if element_str.lower() in lower_case_symbol_list:  # already a symbol
-        return element_str.capitalize()
-    elif is_an_element(element_str):
-        lower_case_list = list([s.lower() for s in roentgen.elements["name"]])
-        return roentgen.elements[
-                lower_case_list.index(element_str.lower())
-            ]["symbol"].capitalize()
-    else:
-        return None
-
-
-def get_atomic_number(element_str):
-    """Return the atomic number of the element"""
-    # check to see if element_str is symbol
-    if is_an_element(element_str):
-        if len(element_str) <= 2:
-            lower_case_list = list([s.lower() for s in roentgen.elements["symbol"]])
-            atomic_number = roentgen.elements[
-                lower_case_list.index(element_str.lower())
-            ]["z"]
-        else:
-            lower_case_list = list([s.lower() for s in roentgen.elements["name"]])
-            atomic_number = roentgen.elements[
-                lower_case_list.index(element_str.lower())
-            ]["z"]
-    else:
-        atomic_number = None
-    return atomic_number
-
-
-def is_in_known_compounds(compound_str):
-    """Returns True is the compound is in the list of known compounds"""
-    lcase_symbols_list = list([s.lower() for s in roentgen.compounds["symbol"]])
-    lcase_name_list = list([s.lower() for s in roentgen.compounds["name"]])
-    case1 = compound_str.lower() in lcase_symbols_list
-    case2 = compound_str.lower() in lcase_name_list
-    return case1 or case2
-
-
-def get_compound_index(compound_str):
-    """Return the index of the compound in the compound table"""
-    if is_in_known_compounds(compound_str):
-        lower_case_symbols_list = list(
-            [s.lower() for s in roentgen.compounds["symbol"]]
-        )
-        if compound_str.lower() in lower_case_symbols_list:
-            return lower_case_symbols_list.index(compound_str.lower())
-        lcase_name_list = list([s.lower() for s in roentgen.compounds["name"]])
-        if compound_str.lower() in lcase_name_list:
-            return lcase_name_list.index(compound_str.lower())
-    else:
-        return None
-
-
-def get_density(material_str):
-    if is_an_element(material_str):
-        ind = get_atomic_number(material_str)-1
-        density = roentgen.elemental_densities[ind]["density"]
-    else:
-        # not using loc because table indexing is not yet stable
-        # self.density = roentgen.compounds.loc[material_str]['density']
-        index = list(roentgen.compounds["symbol"]).index(material_str)
-        density = roentgen.compounds[index]["density"]
-    return density

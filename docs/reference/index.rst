@@ -6,3 +6,4 @@ Reference
 
     material*
     lines*
+    util*

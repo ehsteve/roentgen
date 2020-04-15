@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 24.1.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 viewBox="0 0 335.85 420.08" style="enable-background:new 0 0 335.85 420.08;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#FFFFFF;stroke:#000000;stroke-miterlimit:10;}
+	.st1{fill:#FFFFFF;}
+	.st2{fill:none;stroke:#FF0000;stroke-miterlimit:10;}
+	.st3{fill:#FF0000;}
+	.st4{fill:none;}
+	.st5{font-family:'MyriadPro-Regular';}
+	.st6{font-size:20px;}
+	.st7{font-size:14px;}
+	.st8{fill:#00B000;}
+	.st9{font-family:'Symbol';}
+	.st10{fill:#0000FF;}
+</style>
+<line class="st0" x1="70.55" y1="44.66" x2="281.55" y2="44.66"/>
+<line class="st0" x1="70.55" y1="59.66" x2="281.55" y2="59.66"/>
+<line class="st0" x1="70.55" y1="87.66" x2="281.55" y2="87.66"/>
+<line class="st0" x1="70.55" y1="115.66" x2="281.55" y2="115.66"/>
+<line class="st0" x1="70.55" y1="214.66" x2="281.55" y2="214.66"/>
+<line class="st0" x1="70.55" y1="229.49" x2="281.55" y2="229.49"/>
+<line class="st0" x1="70.55" y1="272.4" x2="281.55" y2="272.4"/>
+<line class="st0" x1="70.55" y1="413.92" x2="281.55" y2="413.92"/>
+<g>
+	<line class="st1" x1="155.07" y1="220.66" x2="155.07" y2="413.92"/>
+	<g>
+		<line class="st2" x1="155.07" y1="227.81" x2="155.07" y2="399.57"/>
+		<g>
+			<path class="st3" d="M147.55,228.18c0-4.15,3.37-7.52,7.52-7.52s7.52,3.37,7.52,7.52c0,4.15-3.37,7.52-7.52,7.52
+				S147.55,232.34,147.55,228.18z"/>
+		</g>
+		<g>
+			<polygon class="st3" points="145.1,396.65 155.07,413.92 165.05,396.65 			"/>
+		</g>
+	</g>
+</g>
+<g>
+	<line class="st1" x1="112.81" y1="206.97" x2="112.81" y2="412.7"/>
+	<g>
+		<line class="st2" x1="112.81" y1="214.11" x2="112.81" y2="398.35"/>
+		<g>
+			<path class="st3" d="M105.29,214.49c0-4.15,3.37-7.52,7.52-7.52s7.52,3.37,7.52,7.52c0,4.15-3.37,7.52-7.52,7.52
+				S105.29,218.64,105.29,214.49z"/>
+		</g>
+		<g>
+			<polygon class="st3" points="102.84,395.43 112.81,412.7 122.78,395.43 			"/>
+		</g>
+	</g>
+</g>
+<g>
+	<line class="st1" x1="239.98" y1="78.84" x2="239.98" y2="413.92"/>
+	<g>
+		<line class="st2" x1="239.98" y1="85.98" x2="239.98" y2="399.57"/>
+		<g>
+			<path class="st3" d="M232.46,86.36c0-4.15,3.37-7.52,7.52-7.52s7.52,3.37,7.52,7.52c0,4.15-3.37,7.52-7.52,7.52
+				S232.46,90.51,232.46,86.36z"/>
+		</g>
+		<g>
+			<polygon class="st3" points="230.01,396.65 239.98,413.92 249.96,396.65 			"/>
+		</g>
+	</g>
+</g>
+<rect x="264.2" y="8.52" class="st4" width="56.57" height="23.75"/>
+<text transform="matrix(1 0 0 1 264.195 22.7209)" class="st5 st6">E</text>
+<text transform="matrix(0.583 0 0 0.583 274.0349 29.381)" class="st5 st6">b</text>
+<text transform="matrix(1 0 0 1 280.6696 22.7209)" class="st5 st6"> (eV)</text>
+<rect x="283.42" y="38.23" class="st4" width="35.47" height="12.32"/>
+<text transform="matrix(1 0 0 1 311.7118 48.1702)" class="st5 st7">0</text>
+<rect x="289.03" y="81.5" class="st4" width="31.73" height="12.32"/>
+<text transform="matrix(1 0 0 1 306.3998 91.4416)" class="st5 st7">76</text>
+<rect x="289.03" y="109.5" class="st4" width="31.73" height="12.32"/>
+<text transform="matrix(1 0 0 1 299.2182 119.4416)" class="st5 st7">122</text>
+<rect x="289.03" y="208.5" class="st4" width="31.73" height="12.32"/>
+<text transform="matrix(1 0 0 1 299.2182 218.4416)" class="st5 st7">933</text>
+<rect x="289.03" y="223.33" class="st4" width="31.73" height="12.32"/>
+<text transform="matrix(1 0 0 1 299.2182 233.2664)" class="st5 st7">952</text>
+<rect x="289.03" y="266.24" class="st4" width="31.73" height="12.32"/>
+<text transform="matrix(1 0 0 1 292.0356 276.1787)" class="st5 st7">1097</text>
+<rect x="289.03" y="407.76" class="st4" width="31.73" height="12.32"/>
+<text transform="matrix(1 0 0 1 292.0356 417.6982)" class="st5 st7">8979</text>
+<rect x="6.87" y="406.51" class="st4" width="43.89" height="12.32"/>
+<text transform="matrix(1 0 0 1 6.8656 416.4524)" class="st5 st7">K  (1s)</text>
+<rect x="6.87" y="266.24" class="st4" width="43.89" height="12.32"/>
+<text transform="matrix(1 0 0 1 6.8656 276.1792)" class="st5 st7">L</text>
+<text transform="matrix(0.583 0 0 0.583 13.4731 280.8413)" class="st5 st7">1</text>
+<text transform="matrix(1 0 0 1 17.6596 276.1792)" class="st5 st7"> (2s)</text>
+<rect x="6.87" y="223.33" class="st4" width="65.94" height="12.32"/>
+<text transform="matrix(1 0 0 1 6.866 233.2659)" class="st5 st7">L</text>
+<text transform="matrix(0.583 0 0 0.583 13.4734 237.928)" class="st5 st7">2</text>
+<text transform="matrix(1 0 0 1 17.6599 233.2659)" class="st5 st7">  (2p</text>
+<text transform="matrix(0.583 0 0 0.583 42.7185 237.928)" class="st5 st7">1/2</text>
+<text transform="matrix(1 0 0 1 53.8914 233.2659)" class="st5 st7">)</text>
+<rect x="6.87" y="207.88" class="st4" width="61.96" height="12.32"/>
+<text transform="matrix(1 0 0 1 6.8653 217.8185)" class="st5 st7">L3 (2p</text>
+<text transform="matrix(0.583 0 0 0.583 39.8331 222.4806)" class="st5 st7">3/2</text>
+<text transform="matrix(1 0 0 1 51.0059 217.8185)" class="st5 st7">)</text>
+<rect x="7.1" y="108.88" class="st4" width="43.89" height="12.32"/>
+<text transform="matrix(1 0 0 1 7.1014 118.819)" class="st5 st7">M1 (3s)</text>
+<rect x="6.87" y="80.88" class="st4" width="57.21" height="12.32"/>
+<text transform="matrix(1 0 0 1 6.8652 90.8185)" class="st5 st7">M</text>
+<text transform="matrix(0.583 0 0 0.583 18.1211 95.4806)" class="st5 st7">2,3</text>
+<text transform="matrix(1 0 0 1 28.1836 90.8185)" class="st5 st7"> (3p)</text>
+<rect x="6.87" y="53.5" class="st4" width="57.21" height="12.32"/>
+<text transform="matrix(1 0 0 1 6.8652 63.4416)" class="st5 st7">M</text>
+<text transform="matrix(0.583 0 0 0.583 18.1211 68.1037)" class="st5 st7">4,5</text>
+<text transform="matrix(1 0 0 1 28.1836 63.4416)" class="st5 st7"> (3d)</text>
+<rect x="214.58" y="302.73" class="st4" width="24.6" height="25.12"/>
+<text transform="matrix(1 0 0 1 214.5841 316.9304)" class="st8 st5 st6">K</text>
+<text transform="matrix(0.583 0 0 0.583 225.424 323.5905)" class="st8 st9 st6">b</text>
+<rect x="127.67" y="302.6" class="st4" width="36.2" height="23.39"/>
+<text transform="matrix(1 0 0 1 127.6733 316.7968)" class="st8 st5 st6">K</text>
+<text transform="matrix(0.583 0 0 0.583 138.5132 323.457)" class="st8 st9 st6">a2</text>
+<rect x="83.11" y="302.68" class="st4" width="28.48" height="23.22"/>
+<text transform="matrix(1 0 0 1 83.1118 316.8798)" class="st8 st5 st6">K</text>
+<text transform="matrix(0.583 0 0 0.583 93.9517 323.5399)" class="st8 st9 st6">a1</text>
+<rect x="76.02" y="335.21" class="st4" width="35.57" height="16.02"/>
+<text transform="matrix(1 0 0 1 76.0181 349.4066)" class="st10 st5 st6">K-L</text>
+<text transform="matrix(0.583 0 0 0.583 102.437 356.0667)" class="st10 st5 st6">3</text>
+<rect x="117.89" y="335.21" class="st4" width="33.52" height="23.22"/>
+<text transform="matrix(1 0 0 1 117.8926 349.4066)" class="st10 st5 st6">K-L</text>
+<text transform="matrix(0.583 0 0 0.583 144.3116 356.0667)" class="st10 st5 st6">2</text>
+<rect x="190.35" y="335.21" class="st4" width="48.48" height="23.22"/>
+<text transform="matrix(1 0 0 1 190.3459 349.4066)" class="st10 st5 st6">K-M</text>
+<text transform="matrix(0.583 0 0 0.583 223.4054 356.0668)" class="st10 st5 st6">2,3</text>
+<rect x="251.89" y="302.73" class="st4" width="83.96" height="25.12"/>
+<text transform="matrix(1 0 0 1 251.8945 316.9299)" class="st8 st5 st6">Siegbahn</text>
+<rect x="251.89" y="334.26" class="st4" width="83.96" height="25.12"/>
+<text transform="matrix(1 0 0 1 251.8945 348.4562)" class="st10 st5 st6">IUPAC</text>
+</svg>

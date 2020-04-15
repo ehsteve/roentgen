@@ -1,9 +1,5 @@
-Background
-==========
-The purpose of this module is to provide access to basic data to calculate the penetration and energy position of
-photons (primarily in x-rays and gamma-rays) in materials. These materials may be biological, shieldings, or detector
-materials. This information is derived from two measured quantities, the mass attenuation coefficient and the
-mass energy-absorption coefficient.
+Theory of Transmission and Absorption
+=====================================
 
 Mass Attenuation Coefficient
 ----------------------------
@@ -34,11 +30,6 @@ This equation can be re-written in the following form
   \frac{\mu}{\rho} = \frac{1}{x} \ln(\frac{I_0}{I})
 
 which suggests a method for measuring the mass attenuation coefficient.
-
-Data Source
------------
-Many sources provides measured values for the mass attenuation coefficient. This module uses data compiled by NIST
-and made available through their publication `Tables of X-Ray Mass Attenuation Coefficients and Mass Energy-Absorption Coefficients from 1 keV to 20 MeV for Elements Z = 1 to 92 and 48 Additional Substances of Dosimetric Interest <http://www.nist.gov/pml/data/xraycoef/index.cfm>`_.
 
 Transmission and Absorption
 ---------------------------
