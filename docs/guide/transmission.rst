@@ -1,74 +1,181 @@
-Transmission and Absorption
-===========================
-
-This information is derived from two measured quantities, the
-mass attenuation coefficient and the
-mass energy-absorption coefficient.
+Transmission and Absorption of X-rays in matter
+===============================================
+The purpose of this guide is to present an overview of the `roentgen.absorption` module which provides for the calculation of the transmission and absorption of X-rays through and by various materials.
 
 Mass Attenuation Coefficient
 ----------------------------
-If a narrow beam of monoenergetic photons with intensity, :math:`I_0`, are impinged on a material of thickness
-:math:`x`,the intensity is attenuated exponentially,
+The primary component that mediates the x-ray attenuation through a material is its mass attenuation coefficient.
+These tabulated values can be inspected using the `roentgen.absorption.MassAttenuationCoefficient` object.
+To create one::
 
-.. math::
-  I(x) = I_0 \exp(-\mu x)
+    from roentgen.absorption import MassAttenuationCoefficient
+    si_matten = MassAttenuationCoefficient('Si')
 
-The parameter :math:`\mu` is called the linear attenuation coefficient and measures the absorptivity of the material. It
-has units of :math:`cm_{-1}`. This value captures the sum of the probabilities of individual processes which might
-remove an individual photon from the impinging beam. Those interactions most relevant to the x-ray and gamma-ray range
-are the photoelectric interaction and Compton scattering. In a photoelectric interaction, the entire incident energy of
-the interacting photon absorbed by the material while in Compton scattering, only a portion of the incident energy is
-absorbed. These interactions are energy dependent which means that the linear attenuation coefficient is also.
+Tabulated values for all elements are provided as well as additional specialized materials.
+Elements can be specificied by their symbol name or by their full name (e.g. Si, Silicon).
+A list of all of the elements is provided by::
 
-Another more popular way to represent the linear attenuation coefficient is through the mass attenuation coefficient or
+    roentgen.elements
 
-.. math::
-  \mu_m = \frac{\mu}{\rho}
+Specialized materials, referred to as compounds, are also available. A complete list is provided by::
 
-where :math:`\rho` is the density of the medium. It has units of :math:`cm^2 g^{-1}`. This is the measure used by this
-module.
+    roentgen.compounds
 
-This equation can be re-written in the following form
+Here is the mass attenuation coefficient for Silicon.
 
-.. math::
-  \frac{\mu}{\rho} = \frac{1}{x} \ln(\frac{I_0}{I})
+.. plot::
+    :include-source:
 
-which suggests a method for measuring the mass attenuation coefficient.
+    import astropy.units as u
+    import matplotlib.pyplot as plt
+    from roentgen.absorption import MassAttenuationCoefficient
 
-Data Source
------------
-Many sources provides measured values for the mass attenuation coefficient. This module uses data compiled by NIST
-and made available through their publication `Tables of X-Ray Mass Attenuation Coefficients and Mass Energy-Absorption Coefficients from 1 keV to 20 MeV for Elements Z = 1 to 92 and 48 Additional Substances of Dosimetric Interest <http://www.nist.gov/pml/data/xraycoef/index.cfm>`_.
+    si_matten = MassAttenuationCoefficient('Si')
+    plt.plot(si_matten.energy, si_matten.data)
+    plt.yscale('log')
+    plt.xscale('log')
+    plt.xlabel('Energy [' + str(si_matten.energy[0].unit) + ']')
+    plt.ylabel('Mass Attenuation Coefficient [' + str(si_matten.data[0].unit) + ']')
+    plt.title(si_matten.name)
 
-Transmission and Absorption
----------------------------
-As described above the probability of transmission through a material is given by
+Material
+--------
+In order to determine the x-ray attenuation through a material the `roentgen.absorption.Material` object is provided.
+This object can be created by providing the thickness of the material through which the x-rays are interacting.
+The thickness must be given by a `~astropy.units.Quantity`.
+For example, a 500 micron thick layer of Aluminum can be created like so::
 
-.. math::
-  I_{trans} = I_0 \exp(- \frac{\mu}{\rho} x)
+    al = Material('Al', 500 * u.micron)
 
-therefore the absorption is given by
+An optional density can also be provided.
+A default density is assumed if none is provided.
+To inspect the density::
 
-.. math::
-  I_{trans} = I_0 (1 - \exp(- \frac{\mu}{\rho} x))
+    al.density
+
+Using this object it is possible to get the absorption and transmission as a function of energy::
+
+    energy = u.Quantity(np.arange(1,30), 'keV')
+    al.transmission(energy)
+    al.absoprtion(energy)
+
+Here is a plot of the transmission of x-rays through 500 micron of Aluminum, a standard thickness for electronics boxes.
+The transmission and absorption is given on a scale from 0 (no absorption or
+no transmission) to 1 (complete absorption or complete transmission).
+
+.. plot::
+    :include-source:
+
+    import numpy as np
+    import matplotlib.pyplot as plt
+    import astropy.units as u
+
+    from roentgen.absorption import Material
+
+    al = Material('Al', 500 * u.micron)
+    energy = u.Quantity(np.arange(1, 30), 'keV')
+
+    plt.plot(energy, al.transmission(energy))
+    plt.ylabel('Transmission')
+    plt.xlabel('Energy [' + str(energy.unit) + ']')
+    plt.title(al.name)
 
 
-Multiple Materials
-------------------
-Since we are dealing with probabilities of interactions if there are multiple materials present the probabilities
-must be multiplied. For example, if we are interested in the amount of flux which passes through two materials, a
-and b, it would be given by the following equation
+From the above plot, one can see that the this thickness of Aluminum blocks almost all x-rays below about 7 keV.
+The relationship between transmission and absorption can be seen in the following plot for 500 microns of Silicon, a standard thickness for an x-ray detector.
 
-.. math::
-  I_{trans} = \exp(- \frac{\mu_a}{\rho_a} x) * \exp(- \frac{\mu_b}{\rho_b} x)
+.. plot::
+    :include-source:
 
-If we are interested in the amount of flux deposited in a detector after going traveling through a thin window
+    import numpy as np
+    import matplotlib.pyplot as plt
+    import astropy.units as u
 
-.. math::
-  I_{trans} = \exp(- \frac{\mu_a}{\rho_a} x) * (1-\exp(- \frac{\mu_b}{\rho_b} x)
+    from roentgen.absorption import Material
+
+    si = Material('Si', 500 * u.micron)
+    energy = u.Quantity(np.arange(1, 50), 'keV')
+
+    plt.plot(energy, si.absorption(energy), label='Absorption')
+    plt.plot(energy, si.transmission(energy), label='Transmission')
+    plt.xlabel('Energy [' + str(energy.unit) + ']')
+    plt.title(si.name)
+    plt.legend(loc='lower left')
 
 
-Reference
+Besides elements, a number of compounds and mixtures are also available.
+As a simple example, here is the transmission of x-rays through 10 meters of air.
+
+.. plot::
+    :include-source:
+
+    import numpy as np
+    import matplotlib.pyplot as plt
+    import astropy.units as u
+
+    from roentgen.absorption import Material
+
+    thickness = 10 * u.m
+    air = Material('air', thickness)
+    energy = u.Quantity(np.arange(1, 30), 'keV')
+
+    plt.plot(energy, air.transmission(energy))
+    plt.ylabel('Transmission')
+    plt.xlabel('Energy [' + str(energy.unit) + ']')
+    plt.title("{0} {1}".format(str(thickness), air.name))
+
+This plot shows that air, though not a dense material, does block low energy x-rays over long distances.
+
+Compounds
 ---------
+Materials can be added together to form more complex optical paths.
+If two or more materials are added together they form a `roentgen.absorption.Compound`.
+A simple example is the transmission through air and then through a thermal blanket composed of a thin layer of mylar and Aluminum::
 
-* `Mass attenuation coefficient Wikipedia <https://en.wikipedia.org/wiki/Mass_attenuation_coefficient>`_
+    optical_path = Material('air', 2 * u.m) + Material('mylar', 5 * u.micron) + Material('Al', 5 * u.micron)
+
+This new object also provides transmission and absorption of the combination of these materials.
+Here is a plot of that transmission over energy
+
+.. plot::
+    :include-source:
+
+    import numpy as np
+    import matplotlib.pyplot as plt
+    import astropy.units as u
+
+    from roentgen.absorption import Material
+
+    optical_path = Material('air', 2 * u.m) + Material('mylar', 5 * u.micron) + Material('Al', 5 * u.micron)
+    energy = u.Quantity(np.arange(1, 30), 'keV')
+
+    plt.plot(energy, optical_path.transmission(energy), label='Transmission')
+    plt.ylabel('Efficiency')
+    plt.xlabel('Energy [' + str(energy.unit) + ']')
+    plt.legend(loc='upper left')
+
+
+Frequently, it is useful to consider the response function of a particular detector which includes absorption through materials in front of the detector.
+This can be calculated by multiplying the transmission of the materials before the detector with the absorption of the detector material.
+
+To simplify this process, the `roentgen.absorption.Response` class is provided.
+The following example uses the same optical path as defined above and assumes a Silicon detector.
+
+.. plot::
+    :include-source:
+
+    import astropy.units as u
+    import matplotlib.pyplot as plt
+    from roentgen.absorption import Material, Response
+    import numpy as np
+
+    optical_path = [Material('air', 2 * u.m), Material('mylar', 5 * u.micron), Material('Al', 5 * u.micron)]
+    detector = Material('Si', 500 * u.micron)
+    resp = Response(optical_path=optical_path, detector=detector)
+    energy = u.Quantity(np.arange(1,30), 'keV')
+
+    plt.plot(energy, resp.response(energy))
+    plt.xlabel('Energy [' + str(energy.unit) + ']')
+    plt.ylabel('Response')
+
+This plot shows that the peak efficiency is less than 50% and lies around 15 keV.
