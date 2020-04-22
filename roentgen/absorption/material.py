@@ -30,14 +30,11 @@ class Material(object):
     material_str : str
         A string representation of the material which includes an element symbol
         (e.g. Si), an element name (e.g. Silicon), or the name of a compound
-        (e.g. cdte, mylar). Cap-sensitive.
+        (e.g. cdte, mylar).
     thickness : `astropy.units.Quantity`
-        The thickness of the material in the optical path.
+        The thickness of the material
     density : `astropy.units.Quantity`
-        The density of the material. If None use default values.
-    is_detector : bool
-        A property to hold information on whether absorption or transmission
-        is important. Used for compounds.
+        The density of the material. If not provided uses default values
 
     Examples
     --------
@@ -48,13 +45,11 @@ class Material(object):
     """
 
     @u.quantity_input
-    def __init__(self, material_str, thickness: u.m, density=None,
-                 is_detector=False):
+    def __init__(self, material_str, thickness: u.m, density=None):
         self.name = material_str
         self.thickness = thickness
         self.mass_attenuation_coefficient = MassAttenuationCoefficient(material_str)
         self.name = self.mass_attenuation_coefficient.name
-        self.is_detector = is_detector
 
         if density is None:
             self.density = get_density(material_str)
@@ -63,8 +58,12 @@ class Material(object):
 
     def __repr__(self):
         """Returns a human-readable representation."""
-        txt = "<Material " + str(self.name) + " (" + str(self.name) + ") "
-        txt += str(self.thickness) + " " + str(self.density) + ">"
+        txt = f"Material({self.name}) {self.thickness} {self.density.to('kg/m**3'):2.1f})"
+        return txt
+
+    def __str__(self):
+        """Returns a human-readable representation."""
+        txt = f"{self.name} {self.thickness} {self.density.to('kg/m**3'):2.1f}"
         return txt
 
     def __add__(self, other):
@@ -73,11 +72,11 @@ class Material(object):
         elif isinstance(other, Compound):
             return Compound([self] + other.materials)
         else:
-            raise ValueError("Can't add <Material> and " + str(other))
+            raise ValueError(f"Cannot add {self} and {other}")
 
     @u.quantity_input(energy=u.keV)
     def transmission(self, energy):
-        """Provide the transmission fraction.
+        """Provide the transmission fraction (0 to 1).
 
         Parameters
         ----------
@@ -90,7 +89,7 @@ class Material(object):
 
     @u.quantity_input(energy=u.keV)
     def absorption(self, energy):
-        """Provides the absorption fraction.
+        """Provides the absorption fraction (0 to 1).
 
         Parameters
         ----------
@@ -103,14 +102,14 @@ class Material(object):
 class Compound(object):
     """
     An object which enables the calculation of the x-ray transmission and
-    absorption of a compound material (i.e.
-    many materials). This object is usually created automatically when
+    absorption of a compound material (i.e. many materials).
+    This object is usually created automatically when
     `Material` objects are added together.
 
     Parameters
     ----------
     materials : list
-        A list of Material objects
+        A list of `Material` objects
 
     Examples
     --------
@@ -121,9 +120,6 @@ class Compound(object):
 
     def __init__(self, materials):
         self.materials = materials
-        self.name = "".join(
-            [m.name + " " + str(m.thickness) + " " for m in materials]
-        ).rstrip()
 
     def __add__(self, other):
         if isinstance(other, Material):
@@ -131,14 +127,14 @@ class Compound(object):
         elif isinstance(other, Compound):
             return Compound(self.materials + other.materials)
         else:
-            raise ValueError("Can't add <Compound> and " + str(other))
+            raise ValueError(f"Cannot add {self} and {other}")
 
     def __repr__(self):
         """Returns a human-readable representation."""
-        txt = "<Compound "
+        txt = "Compound("
         for material in self.materials:
             txt += str(material)
-        return txt + ">"
+        return txt + ")"
 
     def transmission(self, energy):
         """Provide the transmission fraction (0 to 1).
@@ -206,11 +202,19 @@ class Response(object):
 
     def __repr__(self):
         """Returns a human-readable representation."""
-        txt = "<Response optical path="
+        txt = "Response(path="
         for material in self.optical_path:
             txt += str(material)
         txt += " detector=" + str(self.detector)
-        return txt + ">"
+        return txt + ")"
+
+    def __str__(self):
+        """Returns a human-readable representation."""
+        txt = "path="
+        for material in self.optical_path:
+            txt += str(material) + ' '
+        txt += " detector=" + str(self.detector)
+        return txt
 
     def response(self, energy):
         """Returns the response as a function of energy"""
