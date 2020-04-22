@@ -40,8 +40,12 @@ Overview
 
 .. end-badges
 
+.. image:: docs/logo/roentgen_logo.svg
+    :height: 100
+    :width: 100
+
 A Python package for the quantitative analysis of the interaction of energetic x-rays with matter.
-This package is named after one of the discoverers of X-rays, Wilhelm Rontgen.
+This package is named after one of the discoverers of X-rays, `Wilhelm Röntgen <https://en.wikipedia.org/wiki/Wilhelm_Röntgen>`_.
 
 Installation
 ============
