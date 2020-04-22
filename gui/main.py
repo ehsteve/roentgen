@@ -41,7 +41,7 @@ DEFAULT_MATERIAL = ["silicon"]
 DEFAULT_THICKNESS = [100.0]
 DEFAULT_ENERGY_LOW = 1.0
 DEFAULT_ENERGY_HIGH = 200.0
-DEFAULT_DENSITY = [2.33]
+DEFAULT_DENSITY = [get_density(DEFAULT_MATERIAL[0]).value]
 NUMBER_OF_MATERIALS = len(DEFAULT_MATERIAL)
 
 DEFAULT_DETECTOR_MATERIAL = 'cdte'
@@ -54,14 +54,14 @@ DEFAULT_AIR_THICKNESS = 1
 DEFAULT_AIR_PRESSURE = 1
 DEFAULT_AIR_TEMPERATURE = 25
 
-PLOT_HEIGHT = 300
+PLOT_HEIGHT = 400
 PLOT_WIDTH = 900
 TOOLS = "pan,wheel_zoom,box_zoom,box_select,undo,redo,save,reset"
 
 custom_hover = HoverTool(
     tooltips=[
         ('energy [keV]',   '@{x}{0.2f}'),
-        ('transmission',  '@{y}{0.2f}'),  # use @{ } for field names with spaces
+        ('transmission',  '@{y}{0.3f}'),  # use @{ } for field names with spaces
     ],
     # display a tooltip whenever the cursor is vertically in line with a glyph
     mode='vline'
@@ -102,7 +102,7 @@ plot = figure(
 plot.yaxis.axis_label = "Transmission fraction"
 plot.xaxis.axis_label = "Energy [keV]"
 plot.line("x", "y", source=source, line_width=3, line_alpha=0.6)
-plot.title.text = "Plot Title"
+plot.title.text = f"{response}"
 plot.add_tools(custom_hover)
 # Set up the inputs
 ylog_checkbox = CheckboxGroup(labels=["y-log"], active=[0])
@@ -132,7 +132,7 @@ detector_thickness_input = TextInput(title='thickness', value=str(DEFAULT_DETECT
 detector_density_input = TextInput(title='density', value=str(DEFAULT_DETECTOR_DENSITY))
 
 p = Paragraph(text="", width=500)
-p.text = "Messages: "
+p.text = f"Running roentgen version {roentgen.__version__}"
 
 columns = [
     TableColumn(field="x", title="energy [keV]"),
@@ -140,12 +140,9 @@ columns = [
 ]
 data_table = DataTable(source=source, columns=columns, width=400, height=700)
 
-
-# the download button
 download_button = Button(label="Download", button_type="success")
 download_button.js_on_event(ButtonClick, CustomJS(args=dict(source=source),
                                                   code=open(join(dirname(__file__), "download.js")).read()))
-
 
 def convert_air_pressure(value, current_unit, new_unit):
     if current_unit == "atm":
@@ -165,17 +162,18 @@ def convert_air_pressure(value, current_unit, new_unit):
 
 def update_response(attrname, old, new):
     # check whether the input variables have changed and update the response
-    # accordingly
+    global response
+
     if not material_input.disabled:
-        this_material_str = material_input.value
-        if str(this_material_str.lower()) in all_materials:
+        if str(material_input.value).lower() in all_materials:
             this_thickness = u.Quantity(material_thickness_input.value,
                                         material_thick_unit.value)
             this_density = u.Quantity(material_density_input.value,
                                       material_density_unit.value)
-            this_material = Material(this_material_str, this_thickness,
+            this_material = Material(str(material_input.value).lower(), this_thickness,
                                      density=this_density)
     else:
+        # if material not selected, just make a bogus material with no thickness
         this_material = Material('Al', 0 * u.mm)
 
     if not air_pressure_input.disabled:
@@ -196,38 +194,34 @@ def update_response(attrname, old, new):
         air_density = ideal_gas_law(air_pressure, air_temperature)
         air = Material('air', air_path_length, density=air_density)
     else:
+        # if air is not selected than just add bogus air with no thickness
         air = Material('air', 0 * u.mm, density=0 * u.g / u.cm**3)
 
     if not detector_material_input.disabled:
-        this_detector_material_str = detector_material_input.value
-        if this_detector_material_str.lower() in all_materials:
+        if str(detector_material_input.value).lower() in all_materials:
             this_thickness = u.Quantity(detector_thickness_input.value,
                                         detector_thick_unit.value)
             this_density = u.Quantity(detector_density_input.value,
                                       detector_density_unit.value)
-            this_detector = Material(this_detector_material_str, this_thickness,
+            this_detector = Material(str(detector_material_input.value).lower(), this_thickness,
                                      density=this_density)
     else:
         this_detector = None
-    response = Response(materials=[this_material, air], detector=this_detector)
+    response = Response(optical_path=[this_material, air], detector=this_detector)
 
 
 def update_data(attrname, old, new):
-    i = 0
-    plot_title = ""
-    p.text = 'Messages: '
 
-    energy = u.Quantity(np.arange(plot.x_range.start, plot.x_range.end,
+    if plot.x_range.start < DEFAULT_ENERGY_LOW:
+        energy = u.Quantity(np.arange(DEFAULT_ENERGY_LOW, plot.x_range.end,
                                   DEFAULT_ENERGY_RESOLUTION), "keV")
+    else:
+        energy = u.Quantity(np.arange(plot.x_range.start, plot.x_range.end,
+                                  DEFAULT_ENERGY_RESOLUTION), "keV")
+
     y = response.response(energy)
 
-    #plot_title += f"{this_material.name} {this_material.thickness}"
-    #p.text += f'material {this_material_str} not recognized'
-
-    #plot_title += f" {air.name} {air.density.to('g / cm**3'):.2E} {air.thickness:.2f}"
-
-    #plot_title += f" {this_detector.name} {this_detector.thickness:.2f}"
-    #p.text += f'detector {this_detector_material_str} not recognized'
+    plot.title.text = f"{response}"
 
     if plot_checkbox_group.active:
         y = np.log10(response.response(energy))
@@ -235,22 +229,11 @@ def update_data(attrname, old, new):
         plot.y_range.end = 0
         plot.yaxis.axis_label = 'log(Transmission fraction)'
 
-        custom_hover = HoverTool(
-            tooltips=[
-                ('energy [keV]', '@{x}{0.2f}'),
-                ('transmission', '@{10**y}{0.2f}'),
-                # use @{ } for field names with spaces
-            ],
-            # display a tooltip whenever the cursor is vertically in line with a glyph
-            mode='vline'
-        )
-
     else:
         plot.y_range.start = 0
         plot.y_range.end = 1
         plot.yaxis.axis_label = 'Transmission fraction'
 
-    # plot.title.text = plot_title
     source.data = dict(x=energy, y=y)
 
 
@@ -337,12 +320,20 @@ def update_air_pressure_units(attr, old, new):
     air_pressure_input.value = str(air_pressure)
 air_pressure_unit.on_change('value', update_air_pressure_units)
 
-
 air_temp_unit = Select(title="unit", value=temperature_units[1], options=temperature_units)
 def update_air_temp_units(attr, old, new):
     air_temperature_input.value = str(u.Quantity(air_temperature_input.value, old).to(new, equivalencies=u.temperature()).value)
 air_temp_unit.on_change('value', update_air_temp_units)
 
+def update_material_density(attr, old, new):
+    # if the material is changed then update the density
+    material_density_input.value = str(get_density(material_input.value).value)
+material_input.on_change('value', update_material_density)
+
+def update_detector_density(attr, old, new):
+    # if the material is changed then update the density
+    detector_density_input.value = str(get_density(detector_material_input.value).value)
+detector_material_input.on_change('value', update_detector_density)
 
 curdoc().add_root(
     layout(

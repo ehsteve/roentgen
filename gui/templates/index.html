@@ -1,23 +1,32 @@
 {% extends base %}
 
-{% block title %}Roentgen X-ray Transmission{% endblock %}
+{% block title %}Roentgen X-ray Interaction with Matter{% endblock %}
 
 {% block postamble %}
   <style>
     {% include 'styles.css' %}
   </style>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-149262170-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-149262170-1');
+  </script>
 {% endblock %}
 
 {% block contents %}
   <div class="content">
-    <h1>Roentgen X-ray Transmission</h1>
-
-    <p>Calculate the transmission of x-rays through various materials. Use the following
-      links to get a list of all available <a href="https://github.com/ehsteve/roentgen/blob/master/roentgen/data/elements.csv">elements</a>
-      their default <a href="https://github.com/ehsteve/roentgen/blob/master/roentgen/data/elements_densities.csv">densities</a>
-      and <a href="https://github.com/ehsteve/roentgen/blob/master/roentgen/data/compounds_mixtures.csv">materials</a>.
+    <div id="header" style="border-radius: 10px; background-color: darkgray; padding: 1%;">
+          <img src="https://raw.githubusercontent.com/ehsteve/roentgen/master/docs/logo/roentgen_logo.jpg" height="100" width="100" style="border-radius: 50%; display: inline-block"/>
+          <h1 style="display: inline-block">Roentgen X-ray Interaction with Matter</h1>
+    </div>
+    <p>Calculates the transmission of x-rays through various materials. The
+      following links provide a list of all available <a href="https://github.com/ehsteve/roentgen/blob/master/roentgen/data/elements.csv">elements and their default densities</a>
+      as well as <a href="https://github.com/ehsteve/roentgen/blob/master/roentgen/data/compounds_mixtures.csv">advanced materials</a>.
     </p>
-
 
     {{ super() }}
 
@@ -25,12 +34,10 @@
 
 <hr>
 <footer class="footer">
-    <p align="center">
-      Data provided by <a href="https://www.nist.gov/pml/x-ray-mass-attenuation-coefficients">NIST Standard Reference Database 126</a><br>
-      Powered by <a href="https://bokeh.pydata.org/en/latest/">Bokeh</a>, <a href="https://www.astropy.org">Astropy, and <a href="https://github.com/ehsteve/roentgen">Roentgen</a> /
-      Edit this app on <a href="https://github.com/ehsteve/roentgen/tree/master/gui">Github</a> /
-      A comparison between the results of this tool and those provided by the Center for X-ray Optics (CXRO) can be found <a href="https://roentgen.readthedocs.io/en/latest/guide/cxro_compare.html">here</a>
+    <p style="text-align: center">
+      Data provided by <a href="https://www.nist.gov/pml/x-ray-mass-attenuation-coefficients">NIST</a> | Powered by <a href="https://github.com/ehsteve/roentgen">Roentgen</a>, <a href="https://bokeh.pydata.org/en/latest/">Bokeh</a>, and <a href="https://www.astropy.org">Astropy</a><br>
+      A comparison with the <a href="http://henke.lbl.gov/optical_constants/">CXRO</a> can be found <a href="https://roentgen.readthedocs.io/en/latest/guide/cxro_compare.html">here</a> |  Edit this app on <a href="https://github.com/ehsteve/roentgen/tree/master/gui">Github</a><br>
     </p>
 </footer>
-
+<br>
 {% endblock %}

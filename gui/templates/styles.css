@@ -11,6 +11,38 @@ body {
     margin: 2em;
 }
 h1 {
+    margin: 0 0 0 0;
+    font-family: 'Julius Sans One', sans-serif;
+    font-size: 1.8em;
+    text-transform: uppercase;
+}
+
+.header {
+    border-radius: 10px;
+    background-color: darkgray;
+    padding: 1%;
+}
+
+.header img {
+  float: left;
+  width: 100px;
+  height: 100px;
+  background: #555;
+}
+
+.header h1 {
+    position: left;
+    top: 18px;
+    left: 10px;
+    color: #2e484c;
+    font-family: 'Julius Sans One', sans-serif;
+    text-transform: uppercase;
+    font-size: 1.8em;
+    display: inline;
+    vertical-align: top;
+}
+
+p.title {
     margin: 2em 0 0 0;
     color: #2e484c;
     font-family: 'Julius Sans One', sans-serif;
