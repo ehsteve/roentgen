@@ -1,166 +1,103 @@
 # -*- coding: utf-8 -*-
-import os
-import sys
-import pathlib
-import datetime
+#
+# Configuration file for the Sphinx documentation builder.
+#
+# This file does only contain a selection of the most common options. For a
+# full list see the documentation:
+# http://www.sphinx-doc.org/en/master/config
 
-from pkg_resources import get_distribution
 
-try:
-    from sphinx_astropy.conf.v1 import *  # noqa
-except ImportError:
-    print('ERROR: the documentation requires the sphinx-astropy package to be installed')
-    sys.exit(1)
+# -- Project information -----------------------------------------------------
 
-# Get configuration information from setup.cfg
-from configparser import ConfigParser
-conf = ConfigParser()
+project = 'roentgen'
+copyright = '2020, '
+author = ''
 
-conf.read([os.path.join(os.path.dirname(__file__), '..', 'setup.cfg')])
-setup_cfg = dict(conf.items('metadata'))
+# The full version, including alpha/beta/rc tags
+from roentgen import __version__
+release = __version__
+is_development = '.dev' in __version__
 
-# -- General configuration ----------------------------------------------------
+# -- General configuration ---------------------------------------------------
 
-# By default, highlight as Python 3.
-highlight_language = 'python3'
+# Add any Sphinx extension module names here, as strings. They can be
+# extensions coming with Sphinx (named 'sphinx.ext.*') or your custom
+# ones.
+extensions = [
+    'sphinx.ext.autodoc',
+    'sphinx.ext.intersphinx',
+    'sphinx.ext.todo',
+    'sphinx.ext.coverage',
+    'sphinx.ext.inheritance_diagram',
+    'sphinx.ext.viewcode',
+    'sphinx.ext.napoleon',
+    'sphinx.ext.doctest',
+    'sphinx.ext.mathjax',
+    'sphinx_automodapi.automodapi',
+    'sphinx_automodapi.smart_resolver',
+    'matplotlib.sphinxext.plot_directive'
+]
+
+# Add any paths that contain templates here, relative to this directory.
+# templates_path = ['_templates']
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
-exclude_patterns.append('_templates')
+# This pattern also affects html_static_path and html_extra_path.
+exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store']
 
-# This is added to the end of RST files - a good place to put substitutions to
-# be used globally.
-rst_epilog += """
-"""
+# The suffix(es) of source filenames.
+# You can specify multiple suffix as a list of string:
+source_suffix = '.rst'
 
-# -- Project information ------------------------------------------------------
+# The master toctree document.
+master_doc = 'index'
 
-# This does not *have* to match the package name, but typically does
-project = setup_cfg['name']
-author = setup_cfg['author']
-copyright = '{0}, {1}'.format(
-    datetime.datetime.now().year, setup_cfg['author'])
-copyright = ''
+# The reST default role (used for this markup: `text`) to use for all
+# documents. Set to the "smart" one.
+default_role = 'obj'
 
-release = get_distribution(setup_cfg['name']).version
-version = '.'.join(release.split('.')[:3])
+# -- Options for intersphinx extension ---------------------------------------
 
+# Example configuration for intersphinx: refer to the Python standard library.
+intersphinx_mapping = {
+    'python': ('https://docs.python.org/3/',
+               (None, 'http://data.astropy.org/intersphinx/python3.inv')),
+    'numpy': ('https://docs.scipy.org/doc/numpy/',
+              (None, 'http://data.astropy.org/intersphinx/numpy.inv')),
+    'scipy': ('https://docs.scipy.org/doc/scipy/reference/',
+              (None, 'http://data.astropy.org/intersphinx/scipy.inv')),
+    'matplotlib': ('https://matplotlib.org/',
+                   (None, 'http://data.astropy.org/intersphinx/matplotlib.inv')),
+    'astropy': ('http://docs.astropy.org/en/stable/', None),
+    'sunpy': ('https://docs.sunpy.org/en/stable/', None)}
 
-# -- Options for HTML output --------------------------------------------------
-
-# A NOTE ON HTML THEMES
-# The global astropy configuration uses a custom theme, 'bootstrap-astropy',
-# which is installed along with astropy. A different theme can be used or
-# the options for this theme can be modified by overriding some of the
-# variables set in the global configuration. The variables set in the
-# global configuration are listed below, commented out.
-
-
-# Add any paths that contain custom themes here, relative to this directory.
-# To use a different custom theme, add the directory containing the theme.
-#html_theme_path = []
+# -- Options for HTML output -------------------------------------------------
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
-# a list of builtin themes. To override the custom theme, set this to the
-# name of a builtin theme or the name of a custom theme in html_theme_path.
-#html_theme = None
+# a list of builtin themes.
+
+html_logo = 'logo/roentgen.svg'
+
+try:
+    from sunpy_sphinx_theme.conf import *
+except ImportError:
+    html_theme = 'default'
 
 
-html_theme_options = {
-    'logotext1': 'roentgen',  # white,  semi-bold
-    'logotext2': '',  # orange, light
-    'logotext3': ':docs',   # white,  light
-    'astropy_project_menubar': False
-    }
+# Add any paths that contain custom static files (such as style sheets) here,
+# relative to this directory. They are copied after the builtin static files,
+# so a file named "default.css" will overwrite the builtin "default.css".
+# html_static_path = ['_static']
 
+# Render inheritance diagrams in SVG
+graphviz_output_format = "svg"
 
-# Custom sidebar templates, maps document names to template names.
-#html_sidebars = {}
-
-# The name of an image file (relative to this directory) to place at the top
-# of the sidebar.
-html_logo = 'logo/roentgen_logo.jpg'
-
-# The name of an image file (within the static path) to use as favicon of the
-# docs.  This file should be a Windows icon file (.ico) being 16x16 or 32x32
-# pixels large.
-#html_favicon = ''
-
-# If not '', a 'Last updated on:' timestamp is inserted at every page bottom,
-# using the given strftime format.
-#html_last_updated_fmt = ''
-
-# The name for this set of Sphinx documents.  If None, it defaults to
-# "<project> v<release> documentation".
-html_title = '{0} v{1}'.format(project, release)
-
-# Output file base name for HTML help builder.
-htmlhelp_basename = project + 'doc'
-
-# Remove numpydoc
-extensions.remove('numpydoc')
-extensions.append('sphinx.ext.napoleon')
-
-# Disable having a separate return type row
-napoleon_use_rtype = False
-# Disable google style docstrings
-napoleon_google_docstring = False
-
-# -- Options for LaTeX output -------------------------------------------------
-
-# Grouping the document tree into LaTeX files. List of tuples
-# (source start file, target name, title, author, documentclass [howto/manual]).
-latex_documents = [('index', project + '.tex', project + u' Documentation',
-                    author, 'manual')]
-
-
-# -- Options for manual page output -------------------------------------------
-
-# One entry per manual page. List of tuples
-# (source start file, name, description, authors, manual section).
-man_pages = [('index', project.lower(), project + u' Documentation',
-              [author], 1)]
-
-
-# -- Options for the edit_on_github extension ---------------------------------
-
-if str(setup_cfg.get('edit_on_github')).lower() == "true":
-    extensions += ['sphinx_astropy.ext.edit_on_github']
-
-    edit_on_github_project = setup_cfg['github_project']
-    if release == version:
-        edit_on_github_branch = "v" + release
-    else:
-        edit_on_github_branch = "master"
-
-    edit_on_github_source_root = ""
-    edit_on_github_doc_root = "docs"
-
-# -- Resolving issue number to links in changelog -----------------------------
-github_issues_url = 'https://github.com/{0}/issues/'.format(setup_cfg['github_project'])
-
-# -- Turn on nitpicky mode for sphinx (to warn about references not found) ----
-#
-# nitpicky = True
-# nitpick_ignore = []
-#
-# Some warnings are impossible to suppress, and you can list specific references
-# that should be ignored in a nitpick-exceptions file which should be inside
-# the docs/ directory. The format of the file should be:
-#
-# <type> <class>
-#
-# for example:
-#
-# py:class astropy.io.votable.tree.Element
-# py:class astropy.io.votable.tree.SimpleElement
-# py:class astropy.io.votable.tree.SimpleElementWithContent
-#
-# Uncomment the following lines to enable the exceptions:
-#
-# for line in open('nitpick-exceptions'):
-#     if line.strip() == "" or line.startswith("#"):
-#         continue
-#     dtype, target = line.split(None, 1)
-#     target = target.strip()
-#     nitpick_ignore.append((dtype, six.u(target)))
+graphviz_dot_args = [
+    '-Nfontsize=10',
+    '-Nfontname=Helvetica Neue, Helvetica, Arial, sans-serif',
+    '-Efontsize=10',
+    '-Efontname=Helvetica Neue, Helvetica, Arial, sans-serif',
+    '-Gfontsize=10',
+    '-Gfontname=Helvetica Neue, Helvetica, Arial, sans-serif'
+]
