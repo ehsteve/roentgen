@@ -25,7 +25,7 @@ The comparison here shows that the results agree with each other.
 
     import roentgen
     from roentgen.absorption import Material
-    from roentgen.util import ideal_gas_law
+    from roentgen.util import density_ideal_gas
 
     cxro_filenames = ('be_100micron.dat', 'al_1mm.dat', 'si_500micron.dat',
                       'water_1000micron.dat', 'ge_500micron.dat',

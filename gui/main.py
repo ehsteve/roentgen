@@ -34,7 +34,7 @@ from astropy.units.imperial import deg_F, inch, foot, mil
 u.imperial.enable()
 
 from roentgen.absorption import Material, Response
-from roentgen.util import get_density, ideal_gas_law
+from roentgen.util import get_density, density_ideal_gas
 import roentgen
 
 DEFAULT_MATERIAL = ["silicon"]
@@ -71,7 +71,7 @@ custom_hover = HoverTool(
 material_list = []
 
 this_material = Material(DEFAULT_MATERIAL[0], DEFAULT_THICKNESS[0] * u.micron)
-air_density = ideal_gas_law(DEFAULT_AIR_PRESSURE * const.atm,
+air_density = density_ideal_gas(DEFAULT_AIR_PRESSURE * const.atm,
                               DEFAULT_AIR_TEMPERATURE * u.Celsius)
 air = Material('air', DEFAULT_AIR_THICKNESS * u.m, density=air_density)
 this_detector = Material(DEFAULT_DETECTOR_MATERIAL,
@@ -191,7 +191,7 @@ def update_response(attrname, old, new):
         air_temperature = u.Quantity(air_temperature_input.value,
                                      air_temp_unit.value).to("Celsius",
                                                              equivalencies=u.temperature())
-        air_density = ideal_gas_law(air_pressure, air_temperature)
+        air_density = density_ideal_gas(air_pressure, air_temperature)
         air = Material('air', air_path_length, density=air_density)
     else:
         # if air is not selected than just add bogus air with no thickness

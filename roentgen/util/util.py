@@ -8,7 +8,7 @@ __all__ = ["is_an_element",
            "get_compound_index",
            "get_density",
            "get_element_symbol",
-           "ideal_gas_law"]
+           "density_ideal_gas"]
 
 
 def is_an_element(element_str):
@@ -95,7 +95,8 @@ def get_density(material_str):
 
 
 u.quantity_input
-def ideal_gas_law(pressure : u.pascal, temperature):
-    """Given pressure and temperature, return a density using the ideal gas law"""
+def density_ideal_gas(pressure : u.pascal, temperature):
+    """Given pressure and temperature, return the density using the ideal gas
+    law"""
     R = 287.058 * u.J / u.kg / u.Kelvin
     return pressure / (R * temperature.to('K', equivalencies=u.temperature()))
