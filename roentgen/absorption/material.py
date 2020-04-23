@@ -1,8 +1,5 @@
 """
 """
-
-from __future__ import absolute_import
-
 import numpy as np
 import os
 import astropy.units as u
@@ -277,9 +274,3 @@ class MassAttenuationCoefficient(object):
         self.func = lambda x: u.Quantity(
             10 ** self._f(np.log10(x.to("keV").value)), "cm^2/g"
         )
-
-    def get_filename(material_str):
-        if len(material_str) <= 2:
-            # likely a symbol of an element
-            if material_str in list(roentgen.elements["symbol"]):
-                return
