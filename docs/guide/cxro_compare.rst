@@ -53,7 +53,7 @@ The comparison here shows that the results agree with each other.
 
         cxro_data = Table(ascii.read(this_file, data_start=2, delimiter=' ', names=['energy', 'transmission']))
         if this_material == 'air':
-            density = ideal_gas_law(atm, 295 * u.Kelvin)
+            density = density_ideal_gas(atm, 295 * u.Kelvin)
             mat = Material(this_material, thickness=this_thickness, density=density)
         else:
             mat = Material(this_material, thickness=this_thickness)
