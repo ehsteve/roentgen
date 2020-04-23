@@ -27,14 +27,15 @@ The comparison here shows that the results agree with each other.
     from roentgen.absorption import Material
     from roentgen.util import ideal_gas_law
 
-    cxro_filenames = ('be_100microns.dat', 'al_1mm.dat', 'si_500micron.dat',
-                      'water_1000micron.dat', 'air_1m_1atm_295kelvin.dat')
+    cxro_filenames = ('be_100micron.dat', 'al_1mm.dat', 'si_500micron.dat',
+                      'water_1000micron.dat', 'ge_500micron.dat',
+                      'air_1m_1atm_295kelvin.dat')
 
     cxro_files = [os.path.join(roentgen._data_directory, 'cxro', f) for f in
                   cxro_filenames]
 
-    material_list = ['Be', 'Al', 'Si', 'water', 'air']
-    thick_list = [100 * u.micron, 1 * u.mm, 500 * u.micron, 1000 * u.micron, 1 * u.m]
+    material_list = ['Be', 'Al', 'Si', 'water', 'ge', 'air']
+    thick_list = [100 * u.micron, 1 * u.mm, 500 * u.micron, 1000 * u.micron, 500 * u.micron, 1 * u.m]
 
     def trans_plot(ax, x, a, b):
         ax.plot(x, a, label='cxro', linewidth=5)
