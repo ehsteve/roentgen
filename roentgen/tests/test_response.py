@@ -4,10 +4,9 @@ import pytest
 import astropy.units as u
 
 import roentgen
-from roentgen.absorption import MassAttenuationCoefficient, Material, Compound, Response
+from roentgen.absorption import Material, Response
 
-all_materials = list(roentgen.elements['symbol']) + \
-                list(roentgen.compounds['symbol'])
+all_materials = list(roentgen.elements['symbol']) + list(roentgen.compounds['symbol'])
 energy_array = u.Quantity(np.arange(1, 100, 1), 'keV')
 
 thin_material = Material("air", thickness=1e-30 * u.um)
@@ -16,7 +15,6 @@ thin_material = Material("air", thickness=1e-30 * u.um)
 def test_response_detector_is_none():
     # check that the response class accepts None for detector
     assert isinstance(Response(thin_material, detector=None), Response)
-
     # detector is none should assume perfectly absorbing material
     # make sure that response for a thin material and detector is None
     resp = Response(optical_path=thin_material, detector=None)
