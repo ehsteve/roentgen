@@ -95,7 +95,7 @@ def get_density(material_str):
 
 
 u.quantity_input
-def density_ideal_gas(pressure : u.pascal, temperature):
+def density_ideal_gas(pressure: u.pascal, temperature):
     """Given pressure and temperature of a dry gas, return the density using
     the ideal gas law"""
     R = 287.058 * u.J / u.kg / u.Kelvin
