@@ -9,14 +9,13 @@ If a narrow beam of monoenergetic photons with intensity, :math:`I_0`, are impin
 .. math::
   I(x) = I_0 \exp(-\mu x)
 
-The parameter :math:`\mu` is called the linear attenuation coefficient and measures the absorptivity of the material. It
-has units of :math:`cm_{-1}`. This value captures the sum of the probabilities of individual processes which might
-remove an individual photon from the impinging beam. Those interactions most relevant to the x-ray and gamma-ray range
-are the photoelectric interaction and Compton scattering. In a photoelectric interaction, the entire incident energy of
-the interacting photon absorbed by the material while in Compton scattering, only a portion of the incident energy is
-absorbed. These interactions are energy dependent which means that the linear attenuation coefficient is also.
-
-Another more popular way to represent the linear attenuation coefficient is through the mass attenuation coefficient or
+The parameter :math:`\mu` is called the linear attenuation coefficient and measures the absorptivity of the material.
+It has units of :math:`cm^{-1}`.
+This value captures the sum of the probabilities of individual processes which might remove an individual photon from the impinging beam.
+Those interactions most relevant to the x-ray and gamma-ray range are the photoelectric interaction and Compton scattering.
+In a photoelectric interaction, the entire incident energy of the interacting photon is absorbed by the material while in Compton scattering, only a portion of the incident energy is absorbed.
+These interactions are energy dependent which means that the linear attenuation coefficient is also.
+Another way to represent the linear attenuation coefficient is through the mass attenuation coefficient or
 
 .. math::
   \mu_m = \frac{\mu}{\rho}
@@ -27,7 +26,7 @@ module.
 This equation can be re-written in the following form
 
 .. math::
-  \frac{\mu}{\rho} = \frac{1}{x} \ln(\frac{I_0}{I})
+  \frac{\mu}{\rho} = \frac{1}{x} \ln\left (\frac{I_0}{I}\right)
 
 which suggests a method for measuring the mass attenuation coefficient.
 
@@ -36,27 +35,32 @@ Transmission and Absorption
 As described above the probability of transmission through a material is given by
 
 .. math::
-  I_{trans} = I_0 \exp(- \frac{\mu}{\rho} x)
+  I_{trans} = I_0 \exp\left (- \frac{\mu}{\rho} x\right)
 
 therefore the absorption is given by
 
 .. math::
-  I_{trans} = I_0 (1 - \exp(- \frac{\mu}{\rho} x))
+  I_{trans} = I_0 \left(1 - \exp\left(- \frac{\mu}{\rho} x\right)\right)
 
 
 Multiple Materials
 ------------------
 Since we are dealing with probabilities of interactions if there are multiple materials present the probabilities
-must be multiplied. For example, if we are interested in the amount of flux which passes through two materials, a
-and b, it would be given by the following equation
+must be multiplied.
+For example, if we are interested in the amount of flux which passes through two materials, a and b, both with thickness x, it is given by the following equation
 
 .. math::
-  I_{trans} = \exp(- \frac{\mu_a}{\rho_a} x) * \exp(- \frac{\mu_b}{\rho_b} x)
+  I_{trans} = I_0 \exp\left(- \frac{\mu_a}{\rho_a} x\right) \exp\left(- \frac{\mu_b}{\rho_b} x\right)
 
-If we are interested in the amount of flux deposited in a detector after going traveling through a thin window
+which can be simplified to
 
 .. math::
-  I_{trans} = \exp(- \frac{\mu_a}{\rho_a} x) * (1-\exp(- \frac{\mu_b}{\rho_b} x)
+  I_{trans} = I_0 \exp\left(- \left(\frac{\mu_a}{\rho_a} + \frac{\mu_b}{\rho_b} \right) x \right)
+
+If we are interested in the amount of flux deposited in a detector of thickness, t made of material b after traveling through material a with thickness T
+
+.. math::
+  F = I_0 \exp\left(- \frac{\mu_a}{\rho_a} T\right) \left(1-\exp\left(- \frac{\mu_b}{\rho_b} t\right)\right)
 
 
 Reference

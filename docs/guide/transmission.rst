@@ -5,7 +5,7 @@ The purpose of this guide is to present an overview of the `roentgen.absorption`
 Mass Attenuation Coefficient
 ----------------------------
 The primary component that mediates the x-ray attenuation through a material is its mass attenuation coefficient.
-These tabulated values can be inspected using the `roentgen.absorption.MassAttenuationCoefficient` object.
+These tabulated values can be inspected using `roentgen.absorption.MassAttenuationCoefficient`.
 To create one::
 
     from roentgen.absorption import MassAttenuationCoefficient
@@ -49,6 +49,7 @@ For example, a 500 micron thick layer of Aluminum can be created like so::
 
 An optional density can also be provided.
 A default density is assumed if none is provided.
+Default values can be found in :download:`elements.csv <../../roentgen/data/elements.csv>` for elements or in :download:`compounds_mixtures.csv <../../roentgen/data/compounds_mixtures.csv>` for compounds.
 To inspect the density::
 
     al.density
@@ -73,7 +74,7 @@ no transmission) to 1 (complete absorption or complete transmission).
     from roentgen.absorption import Material
 
     al = Material('Al', 500 * u.micron)
-    energy = u.Quantity(np.arange(1, 30), 'keV')
+    energy = u.Quantity(np.arange(1, 30, 0.2), 'keV')
 
     plt.plot(energy, al.transmission(energy))
     plt.ylabel('Transmission')
@@ -82,7 +83,7 @@ no transmission) to 1 (complete absorption or complete transmission).
 
 
 From the above plot, one can see that the this thickness of Aluminum blocks almost all x-rays below about 7 keV.
-The relationship between transmission and absorption can be seen in the following plot for 500 microns of Silicon, a standard thickness for an x-ray detector.
+The relationship between transmission and absorption can be seen in the following plot for 500 microns of Silicon, a standard thickness for a soft x-ray detector.
 
 .. plot::
     :include-source:
@@ -117,7 +118,7 @@ As a simple example, here is the transmission of x-rays through 10 meters of air
 
     thickness = 10 * u.m
     air = Material('air', thickness)
-    energy = u.Quantity(np.arange(1, 30), 'keV')
+    energy = u.Quantity(np.arange(1, 30, 0.2), 'keV')
 
     plt.plot(energy, air.transmission(energy))
     plt.ylabel('Transmission')
@@ -125,6 +126,7 @@ As a simple example, here is the transmission of x-rays through 10 meters of air
     plt.title("{0} {1}".format(str(thickness), air.name))
 
 This plot shows that air, though not a dense material, does block low energy x-rays over long distances.
+For convenience, the function `~roentgen.util.density_ideal_gas` is provided which can calculate the density of a gas given a pressure and temperature.
 
 Compounds
 ---------
@@ -147,7 +149,7 @@ Here is a plot of that transmission over energy
     from roentgen.absorption import Material
 
     optical_path = Material('air', 2 * u.m) + Material('mylar', 5 * u.micron) + Material('Al', 5 * u.micron)
-    energy = u.Quantity(np.arange(1, 30), 'keV')
+    energy = u.Quantity(np.arange(1, 30, 0.2), 'keV')
 
     plt.plot(energy, optical_path.transmission(energy), label='Transmission')
     plt.ylabel('Efficiency')
@@ -155,7 +157,7 @@ Here is a plot of that transmission over energy
     plt.legend(loc='upper left')
 
 
-Frequently, it is useful to consider the response function of a particular detector which includes absorption through materials in front of the detector.
+Frequently, it is useful to consider the response function of a particular detector which includes absorption through materials in front of a detector.
 This can be calculated by multiplying the transmission of the materials before the detector with the absorption of the detector material.
 
 To simplify this process, the `roentgen.absorption.Response` class is provided.
@@ -172,10 +174,10 @@ The following example uses the same optical path as defined above and assumes a 
     optical_path = [Material('air', 2 * u.m), Material('mylar', 5 * u.micron), Material('Al', 5 * u.micron)]
     detector = Material('Si', 500 * u.micron)
     resp = Response(optical_path=optical_path, detector=detector)
-    energy = u.Quantity(np.arange(1,30), 'keV')
+    energy = u.Quantity(np.arange(1, 30, 0.2), 'keV')
 
     plt.plot(energy, resp.response(energy))
     plt.xlabel('Energy [' + str(energy.unit) + ']')
     plt.ylabel('Response')
 
-This plot shows that the peak efficiency is less than 50% and lies around 15 keV.
+This plot shows that the peak efficiency for this detector system is less than 50% and lies around 15 keV.

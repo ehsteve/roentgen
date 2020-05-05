@@ -3,12 +3,13 @@ Comparison with CXRO
 
 The `Center for X-ray Optics (CXRO) at LBL <http://www.cxro.lbl.gov/>`_ provides an online tool to calculate the X-ray transmission through materials called the `X-ray Interactions with Matter <http://henke.lbl.gov/optical_constants/>`_.
 This section compares the results of this package with those of CXRO.
-The primary difference between results from this package and those from CXRO are that we make use of the NIST-provided Mass Attenuation coefficients while the CXRO makes use of optical constants from the following
+The primary difference between results from this package and those from CXRO are that we make use of the `NIST-provided Mass Attenuation coefficients <https://www.nist.gov/pml/x-ray-mass-attenuation-coefficients>`_ while the CXRO makes use of optical constants from the following
 
   * `B.L. Henke, E.M. Gullikson, and J.C. Davis. X-ray interactions: photoabsorption, scattering, transmission, and reflection at E=50-30000 eV, Z=1-92, Atomic Data and Nuclear Data Tables Vol. 54 (no.2), 181-342 (July 1993) <https://ned.ipac.caltech.edu/level5/Sept16/Henke/Henke.pdf>`_
 
 These data only extend up to 30 keV while the NIST-provided data extend to 20 MeV.
-The comparison here shows that the results agree with each other.
+For more information on data sources see the README in the data directory.
+The comparison here shows that the results generally agree with each other.
 
 
 .. plot::

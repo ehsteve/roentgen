@@ -8,11 +8,14 @@ The data used in this package comes from the following data providers.
 
 We would like to extend our thanks to these groups for making their data public.
 
-The CXRO publish primarily make their data available through the `X-ray Data Booklet <https://xdb.lbl.gov`>_.
+The CXRO publish primarily make their data available through the `X-ray Data Booklet <https://xdb.lbl.gov`_.
 
 The following list the data files contained in this data directory
 along with their source and other relevant information to properly
 interpret the data therein.
+
+The elements and compounds_mixtures folders contains mass attenuation coefficients from the `NIST <https://www.nist.gov/pml/x-ray-mass-attenuation-coefficients>`_.
+More specifically, elements are from `here <https://physics.nist.gov/PhysRefData/XrayMassCoef/tab3.html>`_ while compounds and mixtures are from `here <https://physics.nist.gov/PhysRefData/XrayMassCoef/tab4.html>`_.
 
 elements.csv
 ------------
