@@ -8,7 +8,7 @@ __all__ = ["is_an_element",
            "get_compound_index",
            "get_density",
            "get_element_symbol",
-           "ideal_gas_law"]
+           "density_ideal_gas"]
 
 
 def is_an_element(element_str):
@@ -31,9 +31,7 @@ def get_element_symbol(element_str):
         return element_str.capitalize()
     elif is_an_element(element_str):
         lower_case_list = list([s.lower() for s in roentgen.elements["name"]])
-        return roentgen.elements[
-                lower_case_list.index(element_str.lower())
-            ]["symbol"].capitalize()
+        return roentgen.elements[lower_case_list.index(element_str.lower())]["symbol"].capitalize()
     else:
         return None
 
@@ -84,7 +82,7 @@ def get_compound_index(compound_str):
 def get_density(material_str):
     """Given a material name return the default density"""
     if is_an_element(material_str):
-        ind = get_atomic_number(material_str)-1
+        ind = get_atomic_number(material_str) - 1
         density = roentgen.elements[ind]["density"]
     else:
         # not using loc because table indexing is not yet stable
@@ -94,8 +92,9 @@ def get_density(material_str):
     return density
 
 
-u.quantity_input
-def ideal_gas_law(pressure : u.pascal, temperature):
-    """Given pressure and temperature, return a density using the ideal gas law"""
+u.quantity_input(pressure=u.pascal)
+def density_ideal_gas(pressure, temperature):  # noqa
+    """Given pressure and temperature of a dry gas, return the density using
+    the ideal gas law"""
     R = 287.058 * u.J / u.kg / u.Kelvin
     return pressure / (R * temperature.to('K', equivalencies=u.temperature()))

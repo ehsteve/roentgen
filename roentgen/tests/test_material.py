@@ -1,14 +1,18 @@
-import numpy as np
+import os
 import pytest
 
+import numpy as np
+
 import astropy.units as u
+from astropy.table import Table
+from astropy.io import ascii
 
 import roentgen
-from roentgen.absorption.material import MassAttenuationCoefficient, Material, Compound
+from roentgen.absorption.material import (MassAttenuationCoefficient, Material,
+                                          Compound)
 from roentgen.util import is_an_element
 
-all_materials = list(roentgen.elements['symbol']) + \
-                list(roentgen.compounds['symbol'])
+all_materials = list(roentgen.elements['symbol']) + list(roentgen.compounds['symbol'])
 energy_array = u.Quantity(np.arange(1, 100, 1), 'keV')
 
 
@@ -65,16 +69,6 @@ def material(request):
     return Material(request.param, 500 * u.micron)
 
 
-#  @pytest.fixture(params=roentgen.material_list.keys())
-#  def material_dict(request):
-#    return roentgen.material_list[request.param]
-
-
-#  def test_has_default_density(material_dict):
-    # test if materials have a default density provided
-#    assert material_dict.get('density', 'None') != None
-
-
 def test_material(material):
     assert isinstance(material, Material)
 
@@ -86,9 +80,7 @@ def test_twomaterials_to_compound(material):
 
 def test_threematerials_to_compound(material):
     # check that adding three materials returns a compound
-    assert isinstance(material +
-                      Material('Ge', 500 * u.micron) +
-                      Material('cdte', 100 * u.micron), Compound)
+    assert isinstance(material + Material('Ge', 500 * u.micron) + Material('cdte', 100 * u.micron), Compound)
 
 
 def test_compound_calculations(material):

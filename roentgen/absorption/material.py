@@ -1,14 +1,12 @@
 """
 """
-
-from __future__ import absolute_import
-
 import numpy as np
 import os
 import astropy.units as u
 from scipy import interpolate
 import roentgen
-from roentgen.util import get_atomic_number, get_density, get_compound_index, get_element_symbol, is_an_element, is_in_known_compounds
+from roentgen.util import (get_atomic_number, get_density, get_compound_index,
+                           is_an_element, is_in_known_compounds)
 
 __all__ = [
     "Material",
@@ -30,11 +28,22 @@ class Material(object):
     material_str : str
         A string representation of the material which includes an element symbol
         (e.g. Si), an element name (e.g. Silicon), or the name of a compound
-        (e.g. cdte, mylar).
+        (e.g. cdte, mylar). For all supported elements see :download:`elements.csv <../../roentgen/data/elements.csv>` and for compounds see :download:`compounds_mixtures.csv <../../roentgen/data/compounds_mixtures.csv>`.
     thickness : `astropy.units.Quantity`
         The thickness of the material
     density : `astropy.units.Quantity`
-        The density of the material. If not provided uses default values
+        The density of the material.
+        If not provided uses default values which can be found in :download:`elements.csv <../../roentgen/data/elements.csv>` for elements or
+        in :download:`compounds_mixtures.csv <../../roentgen/data/compounds_mixtures.csv>` for compounds.
+
+    Attributes
+    ----------
+    symbol : `str`
+        The material symbol
+    name : `str`
+        The material name
+    mass_attenuation_coefficient : `MassAttenuationCoefficient`
+        The mass attenuation coefficient for the material.
 
     Examples
     --------
@@ -103,8 +112,7 @@ class Compound(object):
     """
     An object which enables the calculation of the x-ray transmission and
     absorption of a compound material (i.e. many materials).
-    This object is usually created automatically when
-    `Material` objects are added together.
+    This object is usually created automatically when `Material` objects are added together.
 
     Parameters
     ----------
@@ -217,7 +225,15 @@ class Response(object):
         return txt
 
     def response(self, energy):
-        """Returns the response as a function of energy"""
+        """Returns the response as a function of energy which corresponds to the
+        transmission through the optical path multiplied by the absorption in
+        the detector.
+
+        Parameters
+        ----------
+        energy : `astropy.units.Quantity`
+            An array of energies in keV.
+        """
         # calculate the transmission
         transmission = np.ones(len(energy), dtype=np.float)
         detector_absorption = np.ones(len(energy), dtype=np.float)
@@ -236,15 +252,40 @@ class Response(object):
 
 class MassAttenuationCoefficient(object):
     """
-    The mass attenuation coefficient
+    The mass attenuation coefficient.
 
     Parameters
     ----------
-    material : str
-        A string representing a material (e.g. cdte, be, mylar, si)
+    material_str : str
+        A string representation of the material which includes an element symbol
+        (e.g. Si), an element name (e.g. Silicon), or the name of a compound
+        (e.g. cdte, mylar).
+
+    Attributes
+    ----------
+    data : `astropy.units.Quantity` array
+        The mass attenuation data values.
+    energy : `astropy.units.Quantity`
+        The energy values of the mass attenuation values.
+    symbol : `str`
+        The material symbol
+    name : `str`
+        The material name
+    func : `lambda func`
+        A function which returns the interpolated mass attenuation value at
+        any given energy. Energies must be given by an `astropy.units.Quantity`.
+
     """
 
     def __init__(self, material):
+        """
+        Parameters
+        ----------
+        material_str : str
+            A string representation of the material which includes an element symbol
+            (e.g. Si), an element name (e.g. Silicon), or the name of a compound
+            (e.g. cdte, mylar).
+        """
         if is_an_element(material):
             atomic_number = get_atomic_number(material)
             datafile_path = os.path.join(
@@ -277,9 +318,3 @@ class MassAttenuationCoefficient(object):
         self.func = lambda x: u.Quantity(
             10 ** self._f(np.log10(x.to("keV").value)), "cm^2/g"
         )
-
-    def get_filename(material_str):
-        if len(material_str) <= 2:
-            # likely a symbol of an element
-            if material_str in list(roentgen.elements["symbol"]):
-                return
