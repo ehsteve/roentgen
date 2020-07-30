@@ -12,3 +12,7 @@ Changelog
 * added data and support for emission lines
 * Added Response class
 * Major update to documentation and moved to sunpy doc theme
+
+Latest Changes
+--------------
+* Added attenuator section to guide.
