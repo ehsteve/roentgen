@@ -313,7 +313,7 @@ class MassAttenuationCoefficient(object):
         data_attenuation_coeff = np.log10(self.data.value)
         self._f = interpolate.interp1d(
             data_energy_kev, data_attenuation_coeff, bounds_error=False,
-            fill_value=0.0
+            fill_value=0.0, assume_sorted=True
         )
         self.func = lambda x: u.Quantity(
             10 ** self._f(np.log10(x.to("keV").value)), "cm^2/g"
