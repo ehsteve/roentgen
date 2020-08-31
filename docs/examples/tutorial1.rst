@@ -4,10 +4,13 @@ Getting and plotting the Mass Attenuation Coefficient
 .. plot::
     :include-source:
 
-    from roentgen.absorption import MassAttenuationCoefficient
     import numpy as np
-    import astropy.units as u
     import matplotlib.pyplot as plt
+
+    import astropy.units as u
+    from astropy.visualization import quantity_support
+    quantity_support()
+    from roentgen.absorption import MassAttenuationCoefficient
 
     cdte_atten = MassAttenuationCoefficient('cdte')
 
