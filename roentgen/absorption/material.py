@@ -309,6 +309,8 @@ class MassAttenuationCoefficient(object):
         self.energy = u.Quantity(data[:, 0] * 1000, "keV")
         self.data = u.Quantity(data[:, 1], "cm^2/g")
 
+        self._remove_double_vals_from_data()
+
         data_energy_kev = np.log10(self.energy.value)
         data_attenuation_coeff = np.log10(self.data.value)
         self._f = interpolate.interp1d(
@@ -318,3 +320,14 @@ class MassAttenuationCoefficient(object):
         self.func = lambda x: u.Quantity(
             10 ** self._f(np.log10(x.to("keV").value)), "cm^2/g"
         )
+
+    def _remove_double_vals_from_data(self):
+        """Remove double-values energy values. Edges are represented with
+        the same energy index and at the bottom and top value of the edge. This
+        must be removed to enable correct interpolation."""
+        uniq, count = np.unique(self.energy, return_counts=True)
+        duplicates = uniq[count > 1]
+        for this_dup in duplicates:
+            ind = (self.energy == this_dup).nonzero()
+            # shift the first instance of the energy, the bottom of the edge
+            self.energy[ind[0][0]] -= 1e-3 * u.eV
