@@ -8,6 +8,9 @@ Finding the x-ray absorption of different detector materials
     import matplotlib.pyplot as plt
 
     import astropy.units as u
+    from astropy.visualization import quantity_support
+    quantity_support()
+
     from roentgen.absorption import Material
 
     thickness = 500 * u.micron
