@@ -131,7 +131,7 @@ For convenience, the function `~roentgen.util.density_ideal_gas` is provided whi
 Compounds
 ---------
 Materials can be added together to form more complex optical paths.
-If two or more materials are added together they form a `roentgen.absorption.Compound`.
+If two or more materials are added together they form a `roentgen.absorption.MaterialStack`.
 A simple example is the transmission through air and then through a thermal blanket composed of a thin layer of mylar and Aluminum::
 
     optical_path = Material('air', 2 * u.m) + Material('mylar', 5 * u.micron) + Material('Al', 5 * u.micron)

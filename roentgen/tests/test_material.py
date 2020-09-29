@@ -9,7 +9,7 @@ from astropy.io import ascii
 
 import roentgen
 from roentgen.absorption.material import (MassAttenuationCoefficient, Material,
-                                          Compound)
+                                          MaterialStack)
 from roentgen.util import is_an_element
 
 all_materials = list(roentgen.elements['symbol']) + list(roentgen.compounds['symbol'])
@@ -75,12 +75,12 @@ def test_material(material):
 
 def test_twomaterials_to_compound(material):
     # check that adding two materials returns a compound
-    assert isinstance(material + Material('Si', 500 * u.micron), Compound)
+    assert isinstance(material + Material('Si', 500 * u.micron), MaterialStack)
 
 
 def test_threematerials_to_compound(material):
     # check that adding three materials returns a compound
-    assert isinstance(material + Material('Ge', 500 * u.micron) + Material('cdte', 100 * u.micron), Compound)
+    assert isinstance(material + Material('Ge', 500 * u.micron) + Material('cdte', 100 * u.micron), MaterialStack)
 
 
 def test_compound_calculations(material):
