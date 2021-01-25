@@ -1,9 +1,8 @@
 import os
 import pytest
 
-import numpy as np
-
 import astropy.units as u
+import numpy as np
 from astropy.table import Table
 from astropy.io import ascii
 
@@ -108,3 +107,7 @@ def thin_material(request):
 def test_transparent(thin_material):
     # check that extremely large amounts of material mean no transmission
     assert thin_material.transmission(1 * u.keV) > 0.90
+
+
+def test_linear_attenuation_coefficient():
+    assert Material("Si", 1 * u.mm).linear_attenuation_coefficient(10 * u.keV) == 78.9637 / u.cm

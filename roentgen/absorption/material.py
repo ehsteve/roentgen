@@ -107,6 +107,18 @@ class Material(object):
         """
         return 1.0 - self.transmission(energy)
 
+    def linear_attenuation_coefficient(self, energy: u.keV):
+        """Provides the linear attenuation coefficient as a function of energy.
+
+        linear coeff = mass coeff * density.
+
+        Parameters
+        ----------
+        energy : `astropy.units.Quantity`
+            An array of energies in keV.
+        """
+        return self.mass_attenuation_coefficient.func(energy) * self.density
+
 
 class Compound(object):
     """
