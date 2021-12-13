@@ -2,13 +2,15 @@ import astropy.units as u
 
 import roentgen
 
-__all__ = ["is_an_element",
-           "get_atomic_number",
-           "is_in_known_compounds",
-           "get_compound_index",
-           "get_density",
-           "get_element_symbol",
-           "density_ideal_gas"]
+__all__ = [
+    "is_an_element",
+    "get_atomic_number",
+    "is_in_known_compounds",
+    "get_compound_index",
+    "get_density",
+    "get_element_symbol",
+    "density_ideal_gas",
+]
 
 
 def is_an_element(element_str):
@@ -31,7 +33,9 @@ def get_element_symbol(element_str):
         return element_str.capitalize()
     elif is_an_element(element_str):
         lower_case_list = list([s.lower() for s in roentgen.elements["name"]])
-        return roentgen.elements[lower_case_list.index(element_str.lower())]["symbol"].capitalize()
+        return roentgen.elements[lower_case_list.index(element_str.lower())][
+            "symbol"
+        ].capitalize()
     else:
         return None
 
@@ -93,8 +97,10 @@ def get_density(material_str):
 
 
 u.quantity_input(pressure=u.pascal)
+
+
 def density_ideal_gas(pressure, temperature):  # noqa
     """Given pressure and temperature of a dry gas, return the density using
     the ideal gas law"""
     R = 287.058 * u.J / u.kg / u.Kelvin
-    return pressure / (R * temperature.to('K', equivalencies=u.temperature()))
+    return pressure / (R * temperature.to("K", equivalencies=u.temperature()))

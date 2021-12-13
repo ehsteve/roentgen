@@ -6,13 +6,10 @@ import astropy.units as u
 import roentgen
 from roentgen.util import get_atomic_number
 
-__all__ = [
-    "get_lines"
-]
+__all__ = ["get_lines"]
 
 
-@u.quantity_input(energy_low=u.keV, energy_high=u.keV,
-                  equivalencies=u.spectral())
+@u.quantity_input(energy_low=u.keV, energy_high=u.keV, equivalencies=u.spectral())
 def get_lines(energy_low, energy_high, element=None):
     """
     Retrieve all emission lines in an energy range.
@@ -38,11 +35,11 @@ def get_lines(energy_low, energy_high, element=None):
     energies = em[em.colnames[0]]
     bool_array = (energies < energy_high) * (energies > energy_low)
     if np.any(bool_array):
-        result = em.loc[energy_low.to('eV').value:energy_high.to('eV').value]
+        result = em.loc[energy_low.to("eV").value : energy_high.to("eV").value]
 
     if len(result) > 1 and element is not None:
         # check to see if any lines from selected element exist in energy range
-        if np.any(result['z'] == get_atomic_number(element)):
-            result = result.loc['z', get_atomic_number(element)]
+        if np.any(result["z"] == get_atomic_number(element)):
+            result = result.loc["z", get_atomic_number(element)]
 
     return result
