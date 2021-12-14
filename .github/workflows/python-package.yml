@@ -3,10 +3,11 @@ name: Build Test
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - main
   pull_request:
-    branches: [ main ]
-
+    branches:
+      - main
 jobs:
   build:
 
@@ -33,9 +34,9 @@ jobs:
         tox
       env:
         PLATFORM: ${{ matrix.platform }}
-    - name: Build docs
-      run: |
-        tox -e build_docs
+#    - name: Build docs
+#      run: |
+#        tox -e build_docs
     - name: Check codestyle
       run: |
         tox -e codestyle
