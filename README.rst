@@ -18,7 +18,7 @@ Overview
     :target: https://roentgen.readthedocs.io/en/latest/?badge=latest
     :alt: Documentation Status
 
-.. |build| image:: https://circleci.com/gh/ehsteve/roentgen.svg?style=svg
+.. |build| image:: https://github.com/ehsteve/roentgen/actions/workflows/python_package.yaml/badge.svg)
     :target: https://circleci.com/gh/ehsteve/roentgen
     :alt: Build Status
 
