@@ -27,9 +27,12 @@ jobs:
         python -m pip install --upgrade pip
         python -m pip install --upgrade tox
         if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
-    - name: Run tests
+    - name: Run tests (Python 3.8)
       run: |
-        tox -e py38
+        tox -e python3.8
+    - name: Run tests (Python 3.9)
+      run: |
+        tox -e python3.9
     - name: Build docs
       run: |
         tox -e build_docs
