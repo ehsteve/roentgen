@@ -5,15 +5,15 @@ import os
 import astropy.units as u
 from scipy import interpolate
 import roentgen
-from roentgen.util import (get_atomic_number, get_density, get_compound_index,
-                           is_an_element, is_in_known_compounds)
+from roentgen.util import (
+    get_atomic_number,
+    get_density,
+    get_compound_index,
+    is_an_element,
+    is_in_known_compounds,
+)
 
-__all__ = [
-    "Material",
-    "MassAttenuationCoefficient",
-    "Compound",
-    "Response"
-]
+__all__ = ["Material", "MassAttenuationCoefficient", "Compound", "Response"]
 
 _package_directory = roentgen._package_directory
 _data_directory = roentgen._data_directory
@@ -67,7 +67,9 @@ class Material(object):
 
     def __repr__(self):
         """Returns a human-readable representation."""
-        txt = f"Material({self.name}) {self.thickness} {self.density.to('kg/m**3'):2.1f})"
+        txt = (
+            f"Material({self.name}) {self.thickness} {self.density.to('kg/m**3'):2.1f})"
+        )
         return txt
 
     def __str__(self):
@@ -154,9 +156,7 @@ class Compound(object):
         """
         transmission = np.ones(len(energy), dtype=np.float)
         for material in self.materials:
-            this_transmission = (
-                material.transmission(energy)
-            )
+            this_transmission = material.transmission(energy)
             transmission *= this_transmission
         return transmission
 
@@ -194,6 +194,7 @@ class Response(object):
     >>> optical_path = [Material('air', 1 * u.m), Material('Al', 500 * u.mm)]
     >>> resp = Response(optical_path, detector=Material('cdte', 500 * u.um))
     """
+
     def __init__(self, optical_path, detector):
         # make sure the materials are a list since we iterate over them
         # to calculate the transmission
@@ -206,7 +207,7 @@ class Response(object):
         if (type(detector) is Material) or (detector is None):
             self.detector = detector
         else:
-            raise TypeError('Detector must be a Material or None')
+            raise TypeError("Detector must be a Material or None")
 
     def __repr__(self):
         """Returns a human-readable representation."""
@@ -220,7 +221,7 @@ class Response(object):
         """Returns a human-readable representation."""
         txt = "path="
         for material in self.optical_path:
-            txt += str(material) + ' '
+            txt += str(material) + " "
         txt += " detector=" + str(self.detector)
         return txt
 
@@ -238,9 +239,7 @@ class Response(object):
         transmission = np.ones(len(energy), dtype=np.float)
         detector_absorption = np.ones(len(energy), dtype=np.float)
         for material in self.optical_path:
-            this_transmission = (
-                material.transmission(energy)
-            )
+            this_transmission = material.transmission(energy)
             transmission *= this_transmission
         if self.detector is None:
             detector_absorption = np.ones(len(energy), dtype=np.float)
@@ -314,8 +313,11 @@ class MassAttenuationCoefficient(object):
         data_energy_kev = np.log10(self.energy.value)
         data_attenuation_coeff = np.log10(self.data.value)
         self._f = interpolate.interp1d(
-            data_energy_kev, data_attenuation_coeff, bounds_error=False,
-            fill_value=0.0, assume_sorted=True
+            data_energy_kev,
+            data_attenuation_coeff,
+            bounds_error=False,
+            fill_value=0.0,
+            assume_sorted=True,
         )
         self.func = lambda x: u.Quantity(
             10 ** self._f(np.log10(x.to("keV").value)), "cm^2/g"
