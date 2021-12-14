@@ -31,7 +31,7 @@ jobs:
         python -m pip install -e .
     - name: Run tests
       run: |
-        tox -e pytest
+        tox
       env:
         PLATFORM: ${{ matrix.platform }}
     - name: Lint with Black
