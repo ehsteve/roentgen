@@ -31,9 +31,12 @@ jobs:
         python -m pip install -e .
     - name: Run tests
       run: |
-        tox
+        tox -e pytest
       env:
         PLATFORM: ${{ matrix.platform }}
+    - name: Build docs
+      run: |
+        tox -e black
 #    - name: Build docs
 #      run: |
 #        tox -e build_docs
