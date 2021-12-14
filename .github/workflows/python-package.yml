@@ -34,9 +34,9 @@ jobs:
         tox -e pytest
       env:
         PLATFORM: ${{ matrix.platform }}
-    - name: Build docs
+    - name: Lint with Black
       run: |
-        tox -e black
+        tox -e py39-black
 #    - name: Build docs
 #      run: |
 #        tox -e build_docs
