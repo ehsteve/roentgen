@@ -37,6 +37,6 @@ jobs:
 #    - name: Build docs
 #      run: |
 #        tox -e build_docs
-    - name: Check codestyle
-      run: |
-        tox -e codestyle
+#    - name: Check codestyle
+#      run: |
+#        tox -e codestyle
