@@ -35,7 +35,7 @@ jobs:
         PLATFORM: ${{ matrix.platform }}
     - name: Lint with Black
       run: |
-        tox -e py39-black
+        tox -e py38-black
 #    - name: Build docs
 #      run: |
 #        tox -e build_docs
