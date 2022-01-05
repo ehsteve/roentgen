@@ -30,8 +30,7 @@ jobs:
         python -m pip install --upgrade tox tox-gh-actions
         python -m pip install -e .
     - name: Run tests
-      run: |
-        tox
+      run: tox
       env:
         PLATFORM: ${{ matrix.platform }}
     - name: Lint with Black
