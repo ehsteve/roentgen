@@ -10,7 +10,7 @@ Overview
     * - docs
       - |docs|
     * - build status
-      - |testing| |black|
+      - |testing| |black| |coverage|
     * - package
       - |version| |downloads| |wheel|
 
@@ -25,6 +25,9 @@ Overview
 .. |black| image:: https://github.com/ehsteve/roentgen/actions/workflows/black.yml/badge.svg
     :target: https://github.com/ehsteve/roentgen/actions/workflows/black.yml
     :alt: Black linting
+
+.. |coverage| image:: https://codecov.io/gh/ehsteve/roentgen/branch/master/graph/badge.svg?token=feNCnYTjB3
+    :target: https://codecov.io/gh/ehsteve/roentgen
 
 .. |version| image:: https://img.shields.io/pypi/v/roentgen.svg?style=flat
     :alt: PyPI Package latest release
