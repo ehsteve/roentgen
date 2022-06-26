@@ -10,7 +10,7 @@ Overview
     * - docs
       - |docs|
     * - build status
-      - |build| |black|
+      - |testing| |black|
     * - package
       - |version| |downloads| |wheel|
 
@@ -18,12 +18,12 @@ Overview
     :target: https://roentgen.readthedocs.io/en/latest/?badge=latest
     :alt: Documentation Status
 
-.. |testing| image:: https://github.com/ehsteve/roentgen/actions/workflows/testing.yaml/badge.svg
-    :target: https://circleci.com/gh/ehsteve/roentgen
+.. |testing| image:: https://github.com/ehsteve/roentgen/actions/workflows/testing.yml/badge.svg
+    :target: https://github.com/ehsteve/roentgen/actions/workflows/testing.yml
     :alt: Build Status
 
-.. |black| image:: https://github.com/ehsteve/roentgen/actions/workflows/black.yaml/badge.svg
-    :target: https://coveralls.io/github/ehsteve/roentgen?branch=master
+.. |black| image:: https://github.com/ehsteve/roentgen/actions/workflows/black.yml/badge.svg
+    :target: https://github.com/ehsteve/roentgen/actions/workflows/black.yml
     :alt: Black linting
 
 .. |version| image:: https://img.shields.io/pypi/v/roentgen.svg?style=flat
@@ -71,7 +71,7 @@ https://roentgen-gui.herokuapp.com/gui
 To run it locally use the following command
 
 ::
-   
+
    bokeh serve --show <roengten_directory>/gui
 
 
