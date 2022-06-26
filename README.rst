@@ -61,10 +61,9 @@ http://roentgen.readthedocs.io/en/latest/
 
 GUI
 ===
-This package provides a gui interface to quickly investigate the absorption
-and transmission of x-rays through different materials. It is based on
-`bokeh <https://docs.bokeh.org/en/latest/>`_. A working version
-of the GUI can be found installed on `heroku <https://www.heroku.com>`_.
+This package provides a gui interface to quickly investigate the absorption and transmission of x-rays through different materials.
+It is based on `bokeh <https://docs.bokeh.org/en/latest/>`_.
+A working version of the GUI can be found installed on `heroku <https://www.heroku.com>`_.
 
 https://roentgen-gui.herokuapp.com/gui
 
@@ -77,11 +76,24 @@ To run it locally use the following command
 
 Data Sources
 ============
-This package includes on a number of data files which were
-translated and imported from a few key sources. The package
-developers would like to thank the following data providers
+This package includes on a number of data files which were translated and imported from a few key sources.
+The package developers would like to thank the following data providers
 
 * The U.S National Institute of Standards and Technology (NIST)
 * The Center for X-ray Optics and Advanced Light Source at the Lawrence Berkeley National Laboratory
 
-For more information see the README in data directory.
+For more information see the `README <roentgen/data/README.rst>`_ in data directory.
+
+Contributing
+============
+
+Contributions are welcome, and they are greatly appreciated!
+Every little bit helps, and credit will always be given.
+Have a look at the `great guide <https://github.com/sunpy/sunpy/blob/master/CONTRIBUTING.rst>`_ from the `sunpy project <https://sunpy.org>`_ which provides advice for new contributors.
+
+Code of Conduct
+===============
+
+When you are interacting with members of this community, you are asked to follow the SunPy `Code of Conduct`_.
+
+.. _Code of Conduct: https://sunpy.org/coc
