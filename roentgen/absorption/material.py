@@ -154,7 +154,7 @@ class Compound(object):
         energy : `astropy.units.Quantity`
             An array of energies in keV
         """
-        transmission = np.ones(len(energy), dtype=np.float)
+        transmission = np.ones(len(energy), dtype=float)
         for material in self.materials:
             this_transmission = material.transmission(energy)
             transmission *= this_transmission
@@ -236,13 +236,13 @@ class Response(object):
             An array of energies in keV.
         """
         # calculate the transmission
-        transmission = np.ones(len(energy), dtype=np.float)
-        detector_absorption = np.ones(len(energy), dtype=np.float)
+        transmission = np.ones(len(energy), dtype=float)
+        detector_absorption = np.ones(len(energy), dtype=float)
         for material in self.optical_path:
             this_transmission = material.transmission(energy)
             transmission *= this_transmission
         if self.detector is None:
-            detector_absorption = np.ones(len(energy), dtype=np.float)
+            detector_absorption = np.ones(len(energy), dtype=float)
         else:
             detector_absorption = self.detector.absorption(energy)
 
