@@ -10,7 +10,7 @@ Overview
     * - docs
       - |docs|
     * - build status
-      - |build| |coverage|
+      - |build| |black|
     * - package
       - |version| |downloads| |wheel|
 
@@ -18,13 +18,13 @@ Overview
     :target: https://roentgen.readthedocs.io/en/latest/?badge=latest
     :alt: Documentation Status
 
-.. |build| image:: https://circleci.com/gh/ehsteve/roentgen.svg?style=svg
+.. |testing| image:: https://github.com/ehsteve/roentgen/actions/workflows/testing.yaml/badge.svg
     :target: https://circleci.com/gh/ehsteve/roentgen
     :alt: Build Status
 
-.. |coverage| image:: https://coveralls.io/repos/github/ehsteve/roentgen/badge.svg?branch=master
+.. |black| image:: https://github.com/ehsteve/roentgen/actions/workflows/black.yaml/badge.svg
     :target: https://coveralls.io/github/ehsteve/roentgen?branch=master
-    :alt: Coverage Status
+    :alt: Black linting
 
 .. |version| image:: https://img.shields.io/pypi/v/roentgen.svg?style=flat
     :alt: PyPI Package latest release
