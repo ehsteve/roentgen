@@ -10,7 +10,7 @@ Overview
     * - docs
       - |docs|
     * - build status
-      - |testing| |black| |coverage|
+      - |build| |black| |coverage|
     * - package
       - |version| |downloads| |wheel|
 
@@ -32,6 +32,10 @@ Overview
 .. |version| image:: https://img.shields.io/pypi/v/roentgen.svg?style=flat
     :alt: PyPI Package latest release
     :target: https://pypi.python.org/pypi/roentgen
+
+.. |coverage| image:: https://codecov.io/gh/ehsteve/roentgen/branch/master/graph/badge.svg?token=feNCnYTjB3 
+    :alt: Test coverage on codecov
+    :target: https://codecov.io/gh/ehsteve/roentgen
 
 .. |downloads| image:: https://img.shields.io/pypi/dm/roentgen.svg?style=flat
     :alt: PyPI Package monthly downloads
