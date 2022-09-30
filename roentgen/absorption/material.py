@@ -20,7 +20,8 @@ _data_directory = roentgen._data_directory
 
 
 class Material(object):
-    """An object which enables the calculation of the x-ray transmission and
+    """
+    An object which enables the calculation of the x-ray transmission and
     absorption of a material (e.g. an element or a compound/mixture).
 
     Parameters
@@ -147,7 +148,7 @@ class Compound(object):
         return txt + ")"
 
     def transmission(self, energy):
-        """Provide the transmission fraction (0 to 1).
+        """Provides the transmission fraction (0 to 1).
 
         Parameters
         ----------

@@ -123,7 +123,7 @@ As a simple example, here is the transmission of x-rays through 10 meters of air
     plt.plot(energy, air.transmission(energy))
     plt.ylabel('Transmission')
     plt.xlabel('Energy [' + str(energy.unit) + ']')
-    plt.title("{0} {1}".format(str(thickness), air.name))
+    plt.title(f"{thickness} {air.name}")
 
 This plot shows that air, though not a dense material, does block low energy x-rays over long distances.
 For convenience, the function `~roentgen.util.density_ideal_gas` is provided which can calculate the density of a gas given a pressure and temperature.
