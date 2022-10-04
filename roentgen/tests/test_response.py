@@ -36,5 +36,5 @@ def test_optical_path_input_list():
 
 
 def test_detector_input_error():
-    with pytest.raises(TypeError) as e_info:
+    with pytest.raises(TypeError):
         Response(thin_material, detector=0)

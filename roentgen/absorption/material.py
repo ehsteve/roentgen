@@ -1,14 +1,17 @@
 """
 """
-import numpy as np
 import os
-import astropy.units as u
+
+import numpy as np
 from scipy import interpolate
+
+import astropy.units as u
+
 import roentgen
 from roentgen.util import (
     get_atomic_number,
-    get_density,
     get_compound_index,
+    get_density,
     is_an_element,
     is_in_known_compounds,
 )
@@ -68,9 +71,7 @@ class Material(object):
 
     def __repr__(self):
         """Returns a human-readable representation."""
-        txt = (
-            f"Material({self.name}) {self.thickness} {self.density.to('kg/m**3'):2.1f})"
-        )
+        txt = f"Material({self.name}) {self.thickness} {self.density.to('kg/m**3'):2.1f})"
         return txt
 
     def __str__(self):
@@ -320,9 +321,7 @@ class MassAttenuationCoefficient(object):
             fill_value=0.0,
             assume_sorted=True,
         )
-        self.func = lambda x: u.Quantity(
-            10 ** self._f(np.log10(x.to("keV").value)), "cm^2/g"
-        )
+        self.func = lambda x: u.Quantity(10 ** self._f(np.log10(x.to("keV").value)), "cm^2/g")
 
     def _remove_double_vals_from_data(self):
         """Remove double-values energy values. Edges are represented with
