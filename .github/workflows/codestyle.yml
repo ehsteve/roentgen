@@ -1,5 +1,5 @@
 # This workflow will install Python dependencies, run tests, run linting, and test building docs
-name: Codestyle with Black
+name: Codestyle and Linting
 
 on:
   push:
@@ -27,9 +27,13 @@ jobs:
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip
-        python -m pip install --upgrade tox tox-gh-actions
-        python -m pip install -e .
+        python -m pip install -e .[dev]
     - name: Lint with Black
       run: |
-        tox -e py38-black
-
+        black --check --diff roentgen
+    - name: flake8
+      run: |
+        flake8 --count roentgen
+    - name: isort
+      run: |
+        isort roentgen -c
