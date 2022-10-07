@@ -24,8 +24,6 @@ jobs:
       uses: actions/setup-python@v2
       with:
         python-version: ${{ matrix.python-version }}
-    - name: Update PATH
-        run: echo "$HOME/.local/bin" >> $GITHUB_PATH
 
     - name: Install Poetry
       run: curl -sSL https://install.python-poetry.org/ | python -
