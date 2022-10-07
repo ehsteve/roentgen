@@ -24,10 +24,17 @@ jobs:
       uses: actions/setup-python@v2
       with:
         python-version: ${{ matrix.python-version }}
+    
+
+    - name: Install Poetry
+      run: curl -sSL https://install.python-poetry.org/ | python -
+
+    - name: Update Poetry
+      run: poetry self update --preview
+
     - name: Install dependencies
-      run: |
-        python -m pip install --upgrade pip
-        python -m pip install -e .[dev]
+      run: poetry install --with dev
+
     - name: Lint with Black
       run: |
         black --check --diff roentgen

@@ -25,6 +25,7 @@ jobs:
       with:
         python-version: ${{ matrix.python-version }}
 
+
     - name: Install Poetry
       run: curl -sSL https://install.python-poetry.org/ | python -
 
@@ -35,7 +36,7 @@ jobs:
       run: poetry install --with dev
 
     - name: Run tests
-      run: poetry run pytest --pyargs roentgen --cov roentgen
+      run: pytest --pyargs roentgen --cov roentgen
 
     - name: Upload coverage reports to Codecov with GitHub Action
       uses: codecov/codecov-action@v3
