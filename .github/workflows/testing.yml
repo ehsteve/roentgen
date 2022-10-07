@@ -33,11 +33,8 @@ jobs:
     - name: Update Poetry
       run: poetry self update --preview
 
-    - name: Configure Poetry
-      run: poetry config virtualenvs.in-project true
-
     - name: Install dependencies
-      run: poetry install --extras test
+      run: poetry install --with dev
 
     - name: Run tests
       run: poetry run pytest --pyargs roentgen --cov roentgen
