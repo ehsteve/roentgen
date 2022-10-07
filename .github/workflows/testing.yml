@@ -10,13 +10,13 @@ on:
       - main
 
 jobs:
-  test-windows:
+    runs-on: ${{ matrix.os }}
     strategy:
       matrix: [ "ubuntu-latest", "macos-latest", "windows-latest" ]
+      python-version: [3.9]
     defaults:
       run:
         shell: bash
-    runs-on: ${{ matrix.os }}
     steps:
       - name: Check out repository
         uses: actions/checkout@v2
