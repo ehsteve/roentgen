@@ -41,4 +41,4 @@ jobs:
       - name: Build docs
         run: |
           source $VENV
-          sphinx-build docs docs/_build/html -W -b html
+          sphinx-build docs docs/_build/html -b html
