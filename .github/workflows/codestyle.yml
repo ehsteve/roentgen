@@ -40,10 +40,10 @@ jobs:
 
       - name: Lint with Black
         run: |
-          black --check --diff roentgen
+          poetry run black --check --diff roentgen
       - name: flake8
         run: |
-          flake8 --count roentgen
+          poetry run flake8 --count roentgen
       - name: isort
         run: |
-          isort roentgen -c
+          poetry run isort roentgen -c
