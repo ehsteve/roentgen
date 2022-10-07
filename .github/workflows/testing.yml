@@ -49,7 +49,7 @@ jobs:
         run: poetry install --no-interaction
 
       - name: Run tests
-      - run: |
+        run: |
           source $VENV
           pytest --version --cov=roentgen --cov-report=xml
 
