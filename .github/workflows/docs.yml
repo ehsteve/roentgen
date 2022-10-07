@@ -10,28 +10,33 @@ on:
       - main
 jobs:
   build:
-
-    runs-on: ${{ matrix.platform }}
-    strategy:
-      fail-fast: false
-      matrix:
-        platform: [ubuntu-latest]
-        python-version: [3.9]
+    runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2
-    - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v2
-      with:
-        python-version: ${{ matrix.python-version }}
-    - name: Install Poetry
-      run: curl -sSL https://install.python-poetry.org/ | python -
+      - uses: actions/checkout@v2
+      - name: Set up Python ${{ matrix.python-version }}
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.9
 
-    - name: Update Poetry
-      run: poetry self update --preview
+      - name: Install Poetry
+        uses: snok/install-poetry@v1
+        with:
+          virtualenvs-create: true
+          virtualenvs-in-project: true
 
-    - name: Install dependencies
-      run: poetry install --with docs
+      - name: Load cached venv
+        id: cached-pip-wheels
+        uses: actions/cache@v2
+        with:
+          path: ~/.cache
+          key: venv-${{ runner.os }}-${{ steps.setup-python.outputs.python-version }}-${{ hashFiles('**/poetry.lock') }}
 
-    - name: Build docs
-      run: sphinx-build docs docs/_build/html -W -b html
+      - name: Install dependencies
+        run: poetry install --no-interaction --no-root --with dev
+
+      - name: Install library
+        run: poetry install --no-interaction
+
+      - name: Build docs
+        run: sphinx-build docs docs/_build/html -W -b html
