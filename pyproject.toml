@@ -12,17 +12,32 @@ documentation = "https://roentgen.readthedocs.io/en/latest/"
 
 keywords = ["python", "x-ray", "roentgen"]
 
-[tool.poetry.dependencies]
-python = "^3.7"
-numpy = "^1.17.0"
-scipy = "^1.3.0"
-matplotlib = "^3.3.0"
-astropy = "^4.2.1"
 
-[tool.poetry.extras]
-gui = ["bokeh"]
-docs = ["sphinx", "sunpy-sphinx-theme", "sphinx-automodapi"]
-dev = ["pytest-astropy", "black", "isort", "flake8"]
+[tool.poetry.dependencies]
+python = "~3.9"    # see https://github.com/python-poetry/poetry/issues/4316
+astropy = "^5.1"
+scipy = "^1.9.1"
+numpy = "^1.23.3"
+
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^7.1.3"
+pytest-astropy = "^0.10.0"
+isort = "^5.10.1"
+black = "^22.10.0"
+flake8 = "^5.0.4"
+coverage = "^6.5.0"
+
+
+[tool.poetry.group.docs.dependencies]
+matplotlib = "^3.6.0"
+Sphinx = "^5.2.3"
+sphinx-automodapi = "^0.14.1"
+
+
+[tool.poetry.group.gui.dependencies]
+bokeh = "^2.4.3"
+
 
 [tool.poetry.urls]
 Issues = "https://github.com/ehsteve/roentgen/issues"
@@ -49,11 +64,6 @@ filterwarnings = [
      "ignore:Distutils was imported before Setuptools"
 ]
 
-[tool.pycodestyle]
-exclude = ["extern", "sphinx", "*parsetab.py", "conftest.py", "docs/conf.py", "setup.py", "gui/main.py"]
-max_line_length = 100
-# ignore line length
-ignore = ["E501", "E302"]
 
 [tool.isort]
 profile = "black"
