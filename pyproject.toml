@@ -12,6 +12,14 @@ documentation = "https://roentgen.readthedocs.io/en/latest/"
 
 keywords = ["python", "x-ray", "roentgen"]
 
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3 :: Only",
+    "Topic :: Scientific/Engineering :: Medical Science Apps.",
+    "Topic :: Scientific/Engineering :: Physics"
+]
 
 [tool.poetry.dependencies]
 python = "~3.9"    # see https://github.com/python-poetry/poetry/issues/4316
