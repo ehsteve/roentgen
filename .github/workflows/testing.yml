@@ -11,10 +11,10 @@ on:
 
 jobs:
   build:
-    runs-on: ${{ matrix.os }}
+    runs-on: ${{ matrix.platform }}
     strategy:
-      matrix: 
-        paltform: [ "ubuntu-latest", "macos-latest", "windows-latest" ]
+      matrix:
+        platform: ["ubuntu-latest", "macos-latest", "windows-latest"]
         python-version: [3.9]
     defaults:
       run:
@@ -22,29 +22,29 @@ jobs:
     steps:
       - name: Check out repository
         uses: actions/checkout@v2
-      
+
       - name: Set up Python ${{ matrix.python-version }}
         id: setup-python
         uses: actions/setup-python@v2
         with:
           python-version: ${{ matrix.python-version }}
-      
+
       - name: Install Poetry
         uses: snok/install-poetry@v1
         with:
           virtualenvs-create: true
           virtualenvs-in-project: true
-      
+
       - name: Load cached venv
         id: cached-pip-wheels
         uses: actions/cache@v2
         with:
           path: ~/.cache
           key: venv-${{ runner.os }}-${{ steps.setup-python.outputs.python-version }}-${{ hashFiles('**/poetry.lock') }}
-      
+
       - name: Install dependencies
         run: poetry install --no-interaction --no-root --with dev
-      
+
       - name: Install library
         run: poetry install --no-interaction
       - run: |
