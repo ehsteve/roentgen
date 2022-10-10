@@ -155,3 +155,5 @@ distribute-*.tar.gz
 
 roentgen/version.py
 *.eggs
+
+*.orig
