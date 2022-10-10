@@ -35,7 +35,7 @@ def get_element_symbol(element_str):
         lower_case_list = list([s.lower() for s in roentgen.elements["name"]])
         return roentgen.elements[lower_case_list.index(element_str.lower())]["symbol"].capitalize()
     else:
-        return None
+        raise ValueError(f"{element_str} not recognized.")
 
 
 def get_atomic_number(element_str):
@@ -49,7 +49,7 @@ def get_atomic_number(element_str):
             lower_case_list = list([s.lower() for s in roentgen.elements["name"]])
             atomic_number = roentgen.elements[lower_case_list.index(element_str.lower())]["z"]
     else:
-        atomic_number = None
+        raise ValueError(f"{element_str} not recognized.")
     return atomic_number
 
 
@@ -72,20 +72,21 @@ def get_compound_index(compound_str):
         if compound_str.lower() in lcase_name_list:
             return lcase_name_list.index(compound_str.lower())
     else:
-        return None
+        raise ValueError(f"{compound_str} not recognized.")
 
 
 def get_density(material_str):
     """Given a material name return the default density"""
     if is_an_element(material_str):
         ind = get_atomic_number(material_str) - 1
-        density = roentgen.elements[ind]["density"]
-    else:
+        return roentgen.elements[ind]["density"]
+    elif is_in_known_compounds(material_str):
         # not using loc because table indexing is not yet stable
-        # self.density = roentgen.compounds.loc[material_str]['density']
-        index = list(roentgen.compounds["symbol"]).index(material_str)
-        density = roentgen.compounds[index]["density"]
-    return density
+        # density = roentgen.compounds.loc[material_str]['density']
+        index = get_compound_index(material_str)
+        return roentgen.compounds[index]["density"]
+    else:
+        raise ValueError(f"{material_str} not recognized.")
 
 
 @u.quantity_input(pressure=u.pascal, temperature=u.deg_C, equivalencies=u.temperature())
