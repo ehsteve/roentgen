@@ -4,8 +4,14 @@ import pytest
 import astropy.units as u
 
 import roentgen
+<<<<<<< HEAD
 from roentgen.absorption.material import Compound, MassAttenuationCoefficient, Material
 from roentgen.util import get_density, is_an_element
+=======
+from roentgen.absorption.material import (MassAttenuationCoefficient, Material,
+                                          MaterialStack)
+from roentgen.util import is_an_element
+>>>>>>> feat-substance-class
 
 all_materials = list(roentgen.elements["symbol"]) + list(roentgen.compounds["symbol"])
 energy_array = u.Quantity(np.arange(1, 100, 1), "keV")
@@ -70,15 +76,23 @@ def test_material(material):
 
 def test_twomaterials_to_compound(material):
     # check that adding two materials returns a compound
+<<<<<<< HEAD
     assert isinstance(material + Material("Si", 500 * u.micron), Compound)
+=======
+    assert isinstance(material + Material('Si', 500 * u.micron), MaterialStack)
+>>>>>>> feat-substance-class
 
 
 def test_threematerials_to_compound(material):
     # check that adding three materials returns a compound
+<<<<<<< HEAD
     assert isinstance(
         material + Material("Ge", 500 * u.micron) + Material("cdte", 100 * u.micron),
         Compound,
     )
+=======
+    assert isinstance(material + Material('Ge', 500 * u.micron) + Material('cdte', 100 * u.micron), MaterialStack)
+>>>>>>> feat-substance-class
 
 
 def test_compound_calculations(material):
