@@ -22,3 +22,5 @@ Changelog
 * Added a Code of Conduct
 * If material string (element or compounds) are not found, raises a ValueError instead of returning None
 * Increased test coverage
+* Added attenuator section to guide.
+
