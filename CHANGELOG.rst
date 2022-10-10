@@ -9,6 +9,16 @@ Changelog
 ------------------
 * First stable release
 * Added gui, deployed to heroku
-* added data and support for emission lines
+* Added data and support for emission lines
 * Added Response class
 * Major update to documentation and moved to sunpy doc theme
+
+2.0.0 (2022-10-10)
+------------------
+* Moved to poetry for dependency management and packaging
+* Automated testing now also using poetry
+* Added data source information into the documentation
+* Updated dependencies versions
+* Added a Code of Conduct
+* If material string (element or compounds) are not found, raises a ValueError instead of returning None
+* Increased test coverage
