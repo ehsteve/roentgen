@@ -110,7 +110,8 @@ def test_get_density_compound(compound, density):
 
 
 @pytest.mark.parametrize(
-    "material", list(roentgen.compounds["symbol"]) + list(roentgen.compounds["symbol"]))
+    "material", list(roentgen.compounds["symbol"]) + list(roentgen.compounds["symbol"])
+)
 def test_get_density_quantity(material):
     assert isinstance(util.get_density(material), u.Quantity)
 
