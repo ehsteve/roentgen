@@ -5,7 +5,7 @@ import astropy.units as u
 
 import roentgen
 from roentgen.absorption.material import Compound, MassAttenuationCoefficient, Material
-from roentgen.util import is_an_element
+from roentgen.util import get_density, is_an_element
 
 all_materials = list(roentgen.elements["symbol"]) + list(roentgen.compounds["symbol"])
 energy_array = u.Quantity(np.arange(1, 100, 1), "keV")
@@ -108,5 +108,19 @@ def test_transparent(thin_material):
     assert thin_material.transmission(1 * u.keV) > 0.90
 
 
-def test_linear_attenuation_coefficient():
-    assert Material("Si", 1 * u.mm).linear_attenuation_coefficient(10 * u.keV) == 78.9637 / u.cm
+@pytest.mark.parametrize(
+    "material,energy,thickness",
+    [
+        ("Si", 10 * u.keV, 1 * u.mm),
+        ("Au", 1 * u.keV, 1 * u.micron),
+        ("Air (dry)", 1 * u.keV, 1 * u.m),
+        ("blood", 5 * u.keV, 1 * u.mm),
+    ],
+)
+def test_linear_attenuation_coefficient(material, energy, thickness):
+    mat = Material(material, thickness)
+    assert np.isclose(
+        mat.linear_attenuation_coefficient(energy),
+        mat.mass_attenuation_coefficient.func(energy) * get_density(material),
+        rtol=1e-4,
+    )
