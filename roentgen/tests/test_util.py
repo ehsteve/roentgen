@@ -1,14 +1,11 @@
+import numpy as np
 import pytest
 
-import numpy as np
-
 import astropy.units as u
-from astropy.units import cds
-from astropy.units import imperial
+from astropy.units import cds, imperial
 
 import roentgen
 import roentgen.util as util
-
 
 # this enables the atm unit
 cds.enable()
