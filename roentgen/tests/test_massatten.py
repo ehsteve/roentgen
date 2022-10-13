@@ -5,6 +5,8 @@ import astropy.units as u
 
 from roentgen.absorption.material import MassAttenuationCoefficient
 
+not_real_materials = ["adamantium", "ice-nine", "kryptonite", "redstone", "unobtainium"]
+
 
 def test_interpolate_matches_at_data():
     for this_element in ["Te", "Si", "Ge", "cdte"]:
@@ -15,3 +17,9 @@ def test_interpolate_matches_at_data():
         te.energy[0] = 10 * u.keV
         with pytest.raises(AssertionError):
             assert_allclose(te.data, te.func(te.energy))
+
+
+@pytest.mark.parametrize("element", not_real_materials)
+def test_nonexistent_material(element):
+    with pytest.raises(ValueError):
+        MassAttenuationCoefficient(element)

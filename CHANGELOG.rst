@@ -15,12 +15,13 @@ Changelog
 
 2.0.0 (2022-10-10)
 ------------------
+* The Material class can now represent substances with multiple and arbitrary constitutients
 * Moved to poetry for dependency management and packaging
 * Automated testing now also using poetry
 * Added data source information into the documentation
 * Updated dependencies versions
 * Added a Code of Conduct
-* If material string (element or compounds) are not found, raises a ValueError instead of returning None
+* If material (element or compounds) are not found, raises a ValueError instead of returning None
 * Increased test coverage
 * Added attenuator section to guide.
 

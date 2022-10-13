@@ -92,25 +92,43 @@ def test_get_compound_index_error(element):
         util.get_compound_index(element)
 
 
+@pytest.mark.parametrize("element", not_real_materials)
+def test_get_symbol_error(element):
+    with pytest.raises(ValueError):
+        util.get_material_symbol(element)
+
+
+@pytest.mark.parametrize("element", not_real_materials)
+def test_get_material_name(element):
+    with pytest.raises(ValueError):
+        util.get_material_name(element)
+
+
+@pytest.mark.parametrize("element", not_real_materials)
+def test_get_density_error(element):
+    with pytest.raises(ValueError):
+        util.get_material_density(element)
+
+
 @pytest.mark.parametrize(
     "symbol,density", zip(roentgen.elements["symbol"], roentgen.elements["density"])
 )
 def test_get_density_element(symbol, density):
-    assert util.get_density(symbol) == density
+    assert util.get_material_density(symbol) == density
 
 
 @pytest.mark.parametrize(
     "compound,density", zip(roentgen.compounds["symbol"], roentgen.compounds["density"])
 )
 def test_get_density_compound(compound, density):
-    assert util.get_density(compound) == density
+    assert util.get_material_density(compound) == density
 
 
 @pytest.mark.parametrize(
     "material", list(roentgen.compounds["symbol"]) + list(roentgen.compounds["symbol"])
 )
 def test_get_density_quantity(material):
-    assert isinstance(util.get_density(material), u.Quantity)
+    assert isinstance(util.get_material_density(material), u.Quantity)
 
 
 @pytest.mark.parametrize(

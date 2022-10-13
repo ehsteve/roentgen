@@ -11,7 +11,7 @@
 
 project = 'roentgen'
 copyright = '2020, '
-author = 'Steven D. Christe'
+author = 'Steven D. Christe, Shane Maloney, Dan Ryan'
 
 # The full version, including alpha/beta/rc tags
 from roentgen import __version__

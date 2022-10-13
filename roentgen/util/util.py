@@ -7,9 +7,11 @@ __all__ = [
     "get_atomic_number",
     "is_in_known_compounds",
     "get_compound_index",
-    "get_density",
+    "get_material_density",
     "get_element_symbol",
     "density_ideal_gas",
+    "get_material_name",
+    "get_material_symbol",
 ]
 
 
@@ -75,22 +77,36 @@ def get_compound_index(compound_str):
         raise ValueError(f"{compound_str} not recognized.")
 
 
-def get_density(material_str):
-    """Given a material name return the default density"""
+def get_material_value(material_str, column_str):
     if is_an_element(material_str):
         ind = get_atomic_number(material_str) - 1
-        return roentgen.elements[ind]["density"]
+        return roentgen.elements[ind][column_str]
     elif is_in_known_compounds(material_str):
         # not using loc because table indexing is not yet stable
         # density = roentgen.compounds.loc[material_str]['density']
         index = get_compound_index(material_str)
-        return roentgen.compounds[index]["density"]
+        return roentgen.compounds[index][column_str]
     else:
         raise ValueError(f"{material_str} not recognized.")
 
 
+def get_material_symbol(material_str):
+    """Given a material name return the symbol"""
+    return get_material_value(material_str, "symbol")
+
+
+def get_material_name(material_str):
+    """Given a material name return the official name"""
+    return get_material_value(material_str, "name")
+
+
+def get_material_density(material_str):
+    """Given a material name return the default density"""
+    return get_material_value(material_str, "density")
+
+
 @u.quantity_input(pressure=u.pascal, temperature=u.deg_C, equivalencies=u.temperature())
-def density_ideal_gas(pressure, temperature):
+def density_ideal_gas(pressure, temperature) -> u.kg / u.m**3:
     """Given the pressure and temperature of a dry gas, return the density using the ideal gas law"""
     R = 287.058 * u.J / u.kg / u.Kelvin
     result = pressure / (R * temperature.to(u.K, equivalencies=u.temperature()))

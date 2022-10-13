@@ -4,14 +4,8 @@ import pytest
 import astropy.units as u
 
 import roentgen
-<<<<<<< HEAD
-from roentgen.absorption.material import Compound, MassAttenuationCoefficient, Material
-from roentgen.util import get_density, is_an_element
-=======
-from roentgen.absorption.material import (MassAttenuationCoefficient, Material,
-                                          MaterialStack)
-from roentgen.util import is_an_element
->>>>>>> feat-substance-class
+from roentgen.absorption.material import MassAttenuationCoefficient, Material
+from roentgen.util import get_material_density, is_an_element
 
 all_materials = list(roentgen.elements["symbol"]) + list(roentgen.compounds["symbol"])
 energy_array = u.Quantity(np.arange(1, 100, 1), "keV")
@@ -74,32 +68,24 @@ def test_material(material):
     assert isinstance(material, Material)
 
 
-def test_twomaterials_to_compound(material):
-    # check that adding two materials returns a compound
-<<<<<<< HEAD
-    assert isinstance(material + Material("Si", 500 * u.micron), Compound)
-=======
-    assert isinstance(material + Material('Si', 500 * u.micron), MaterialStack)
->>>>>>> feat-substance-class
-
-
-def test_threematerials_to_compound(material):
-    # check that adding three materials returns a compound
-<<<<<<< HEAD
+def test_material_give_density():
     assert isinstance(
-        material + Material("Ge", 500 * u.micron) + Material("cdte", 100 * u.micron),
-        Compound,
+        Material(all_materials[40], 500 * u.micron, density=1 * u.kg / u.m**3), Material
     )
-=======
-    assert isinstance(material + Material('Ge', 500 * u.micron) + Material('cdte', 100 * u.micron), MaterialStack)
->>>>>>> feat-substance-class
 
 
-def test_compound_calculations(material):
-    comp = Material("Ge", 500 * u.micron) + Material("cdte", 100 * u.micron)
-    # test that it returns the same number of elements as energy array
-    assert len(comp.absorption(energy_array)) == len(energy_array)
-    assert len(comp.transmission(energy_array)) == len(energy_array)
+@pytest.mark.parametrize(
+    "material_wrong",
+    [(1), (["Si", "He"]), (4.5)],
+)
+def test_material_bad_input(material_wrong):
+    with pytest.raises(TypeError):
+        Material(material_wrong, 500 * u.micron)
+
+
+def test_bad_add_to_material():
+    with pytest.raises(TypeError):
+        Material("Ge", 500 * u.micron) + ["foo", "bar"]
 
 
 @pytest.fixture(params=all_materials)
@@ -135,6 +121,33 @@ def test_linear_attenuation_coefficient(material, energy, thickness):
     mat = Material(material, thickness)
     assert np.isclose(
         mat.linear_attenuation_coefficient(energy),
-        mat.mass_attenuation_coefficient.func(energy) * get_density(material),
+        mat.mass_attenuation_coefficient(energy) * get_material_density(material),
         rtol=1e-4,
     )
+
+
+@pytest.mark.parametrize(
+    "material_dict",
+    [
+        ({"Fe": 0.98, "C": 0.02}),  # steel
+        ({"Cu": 0.88, "Sn": 0.12}),  # bronze
+        ({"water": 0.97, "Na": 0.015, "Cl": 0.015}),  # salt water
+    ],
+)
+def test_dict_input(material_dict):
+    assert isinstance(Material(material_dict, 5 * u.mm), Material)
+
+
+def test_density_calculation():
+    a = {"Fe": 0.98, "C": 0.02}
+    this_mat = Material(a, 5 * u.m)
+    calc_density = get_material_density("Fe") * 0.98 + get_material_density("C") * 0.02
+    assert np.isclose(this_mat.density, calc_density)
+    a = {"Fe": 0.5, "C": 0.5}
+    this_mat = Material(a, 5 * u.m)
+    calc_density = get_material_density("Fe") * 0.5 + get_material_density("C") * 0.5
+    assert np.isclose(this_mat.density, calc_density)
+    a = {"Fe": 1, "C": 1}
+    this_mat = Material(a, 5 * u.m)
+    calc_density = get_material_density("Fe") * 0.5 + get_material_density("C") * 0.5
+    assert np.isclose(this_mat.density, calc_density)
