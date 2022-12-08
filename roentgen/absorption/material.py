@@ -135,16 +135,14 @@ class Material(object):
             raise TypeError(f"Cannot add {self} and {other}")
 
     def mass_attenuation_coefficient(self, energy):
-        return np.sum(
-            np.hstack(
+        return np.vstack(
                 [
                     atten.func(energy) * frac_mass
                     for atten, frac_mass in zip(
                         self.mass_attenuation_coefficients, self.fractional_masses
                     )
                 ]
-            )
-        )
+            ).sum(axis=0)
 
     @u.quantity_input(energy=u.keV)
     def transmission(self, energy):
