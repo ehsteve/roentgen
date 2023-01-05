@@ -157,3 +157,5 @@ roentgen/version.py
 *.eggs
 
 *.orig
+
+test.py
