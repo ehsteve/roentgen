@@ -8,4 +8,3 @@ To run it locally use the following command::
 
     bokeh serve --show <roengten_directory>/gui
 
-A working version of the GUI can be found installed on heroku at the following url `https://roentgen-gui.herokuapp.com/gui <https://roentgen-gui.herokuapp.com/gui>`_.
