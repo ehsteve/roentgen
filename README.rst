@@ -61,6 +61,13 @@ Installation
 
     pip install roentgen
 
+This project makes use of `Poetry <https://python-poetry.org>`_ for dependency management. To install this project for development, clone the repository and then run the following command inside the package directory
+
+::
+
+    poetry install --with dev,docs,gui
+
+
 Documentation
 =============
 
