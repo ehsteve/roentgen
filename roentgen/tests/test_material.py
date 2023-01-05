@@ -127,6 +127,69 @@ def test_linear_attenuation_coefficient(material, energy, thickness):
 
 
 @pytest.mark.parametrize(
+    "material",
+    [
+        ("Si"),
+        ("Au"),
+        ("Air (dry)"),
+        ("blood"),
+        ({"Fe": 0.98, "C": 0.02}),  # steel
+        ({"Cu": 0.88, "Sn": 0.12}),  # bronze
+        ({"water": 0.97, "Na": 0.015, "Cl": 0.015}),  # salt water
+    ],
+)
+def test_material_number_of_energies(material):
+    mat = Material(material, 1 * u.m)
+    energy = u.Quantity(np.arange(1, 1000), "keV")
+    assert len(mat.transmission(energy)) == len(energy)
+    assert len(mat.absorption(energy)) == len(energy)
+    assert len(mat.mass_attenuation_coefficient(energy)) == len(energy)
+    assert len(mat.linear_attenuation_coefficient(energy)) == len(energy)
+
+
+@pytest.mark.parametrize(
+    "material",
+    [
+        ("Si"),
+        ("Au"),
+        ("Air (dry)"),
+        ("blood"),
+        ({"Fe": 0.98, "C": 0.02}),  # steel
+        ({"Cu": 0.88, "Sn": 0.12}),  # bronze
+        ({"water": 0.97, "Na": 0.015, "Cl": 0.015}),  # salt water
+    ],
+)
+def test_material_scalar_energy(material):
+    """If a scalar energy is given then the results should NOT be arrays"""
+    mat = Material(material, 1 * u.m)
+    energy = 1 * u.keV
+    assert isinstance(mat.transmission(energy), float)
+    assert isinstance(mat.absorption(energy), float)
+    assert mat.mass_attenuation_coefficient(energy).isscalar
+    assert mat.linear_attenuation_coefficient(energy).isscalar
+
+
+@pytest.mark.parametrize(
+    "material",
+    [
+        ("Si"),
+        ("Au"),
+        ("Air (dry)"),
+        ("blood"),
+        ({"Fe": 0.98, "C": 0.02}),  # steel
+        ({"Cu": 0.88, "Sn": 0.12}),  # bronze
+        ({"water": 0.97, "Na": 0.015, "Cl": 0.015}),  # salt water
+    ],
+)
+def test_mass_atten_calculation_in_material(material):
+    mat = Material(material, 1 * u.m)
+    energy = u.Quantity(np.arange(1, 1000), "keV")
+    result1 = mat.mass_attenuation_coefficient(energy)[10]
+    result2 = np.average(u.Quantity([this_atten.func(energy[10]) for this_atten in mat.mass_attenuation_coefficients]), weights=mat.fractional_masses)
+    assert np.isclose(result1, result2)
+
+
+@pytest.mark.parametrize(
     "material_dict",
     [
         ({"Fe": 0.98, "C": 0.02}),  # steel
