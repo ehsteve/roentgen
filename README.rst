@@ -10,7 +10,7 @@ Overview
     * - docs
       - |docs|
     * - build status
-      - |build| |black| |coverage|
+      - |testing| |codestyle| |coverage|
     * - package
       - |version| |downloads| |wheel|
 
@@ -22,8 +22,8 @@ Overview
     :target: https://github.com/ehsteve/roentgen/actions/workflows/testing.yml
     :alt: Build Status
 
-.. |black| image:: https://github.com/ehsteve/roentgen/actions/workflows/black.yml/badge.svg
-    :target: https://github.com/ehsteve/roentgen/actions/workflows/black.yml
+.. |codestyle| image:: https://github.com/ehsteve/roentgen/actions/workflows/codestyle.yml/badge.svg
+    :target: https://github.com/ehsteve/roentgen/actions/workflows/codestyle.yml
     :alt: Black linting
 
 .. |coverage| image:: https://codecov.io/gh/ehsteve/roentgen/branch/master/graph/badge.svg?token=feNCnYTjB3
@@ -71,7 +71,7 @@ This project makes use of `Poetry <https://python-poetry.org>`_ for dependency m
 Documentation
 =============
 
-http://roentgen.readthedocs.io/en/latest/
+http://roentgen.readthedocs.io/en/stable/
 
 GUI
 ===
