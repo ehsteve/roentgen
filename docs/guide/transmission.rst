@@ -168,7 +168,7 @@ The following example uses the same optical path as defined above and assumes a 
 
     import astropy.units as u
     import matplotlib.pyplot as plt
-    from roentgen.absorption import Material, Response
+    from roentgen.absorption import Material, Response, Stack
     import numpy as np
 
     optical_path = Stack([Material('air', 2 * u.m), Material('mylar', 5 * u.micron), Material('Al', 5 * u.micron)])

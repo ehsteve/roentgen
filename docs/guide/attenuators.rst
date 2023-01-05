@@ -19,13 +19,13 @@ The shutters are circular aluminum disks and have three different thicknesses.
 
     import roentgen
     from roentgen.absorption import Material
-    from roentgen.util import get_density
+    from roentgen.util import get_material_density
 
     # the following parameters were found on the shutter parameter page listed above
     shutter_diameters = {'thick': [1.716, 24.3, 58.5] * u.mm,
                          'thin': [6.74, 17.1, 58.5] * u.mm}
-    shutter_thickness = {'thick': [0.013, 0.177, 0.414] * u.g / (u.cm)**2 / get_density('Al'),
-                         'thin': [0.0192, 0.261, 0.112] * u.g / (u.cm)**2 / get_density('Al')}
+    shutter_thickness = {'thick': [0.013, 0.177, 0.414] * u.g / (u.cm)**2 / get_material_density('Al'),
+                         'thin': [0.0192, 0.261, 0.112] * u.g / (u.cm)**2 / get_material_density('Al')}
 
     # calculate the fraction of the shutter with each thickness
     shutter_fractions = {'thick': u.Quantity([(shutter_diameters['thick'][0]) ** 2,
