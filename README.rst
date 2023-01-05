@@ -76,12 +76,7 @@ http://roentgen.readthedocs.io/en/latest/
 GUI
 ===
 This package provides a gui interface to quickly investigate the absorption and transmission of x-rays through different materials.
-It is based on `bokeh <https://docs.bokeh.org/en/latest/>`_.
-A working version of the GUI can be found installed on `heroku <https://www.heroku.com>`_.
-
-https://roentgen-gui.herokuapp.com/gui
-
-To run it locally use the following command
+It is based on `bokeh <https://docs.bokeh.org/en/stable/>`_. To run it locally use the following command
 
 ::
 
@@ -103,11 +98,9 @@ Contributing
 
 Contributions are welcome, and they are greatly appreciated!
 Every little bit helps, and credit will always be given.
-Have a look at the `great guide <https://github.com/sunpy/sunpy/blob/master/CONTRIBUTING.rst>`_ from the `sunpy project <https://sunpy.org>`_ which provides advice for new contributors.
+Have a look at the `great guide <https://docs.sunpy.org/en/latest/dev_guide/contents/newcomers.html>`_ from the `sunpy project <https://sunpy.org>`_ which provides advice for new contributors.
 
 Code of Conduct
 ===============
 
-When you are interacting with members of this community, you are asked to follow the SunPy `Code of Conduct`_.
-
-.. _Code of Conduct: https://sunpy.org/coc
+When you are interacting with members of this community, you are asked to follow the SunPy `Code of Conduct <https://sunpy.org/coc>`_.
