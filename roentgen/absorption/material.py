@@ -144,7 +144,8 @@ class Material(object):
                         self.mass_attenuation_coefficients, self.fractional_masses
                     )
                 ]
-            ), axis=0
+            ),
+            axis=0,
         )
         if energy.isscalar:
             return result[0]

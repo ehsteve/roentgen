@@ -185,7 +185,12 @@ def test_mass_atten_calculation_in_material(material):
     mat = Material(material, 1 * u.m)
     energy = u.Quantity(np.arange(1, 1000), "keV")
     result1 = mat.mass_attenuation_coefficient(energy)[10]
-    result2 = np.average(u.Quantity([this_atten.func(energy[10]) for this_atten in mat.mass_attenuation_coefficients]), weights=mat.fractional_masses)
+    result2 = np.average(
+        u.Quantity(
+            [this_atten.func(energy[10]) for this_atten in mat.mass_attenuation_coefficients]
+        ),
+        weights=mat.fractional_masses,
+    )
     assert np.isclose(result1, result2)
 
 
