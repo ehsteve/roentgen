@@ -33,7 +33,7 @@ from astropy import constants as const
 from astropy.units.imperial import deg_F, inch, foot, mil
 
 from roentgen.absorption import Material, Response
-from roentgen.util import get_density, density_ideal_gas
+from roentgen.util import get_material_density, density_ideal_gas
 import roentgen
 
 u.imperial.enable()
@@ -42,12 +42,12 @@ DEFAULT_MATERIAL = ["silicon"]
 DEFAULT_THICKNESS = [100.0]
 DEFAULT_ENERGY_LOW = 1.0
 DEFAULT_ENERGY_HIGH = 200.0
-DEFAULT_DENSITY = [get_density(DEFAULT_MATERIAL[0]).value]
+DEFAULT_DENSITY = [get_material_density(DEFAULT_MATERIAL[0]).value]
 NUMBER_OF_MATERIALS = len(DEFAULT_MATERIAL)
 
 DEFAULT_DETECTOR_MATERIAL = 'cdte'
 DEFAULT_DETECTOR_THICKNESS = 1
-DEFAULT_DETECTOR_DENSITY = get_density(DEFAULT_DETECTOR_MATERIAL).value
+DEFAULT_DETECTOR_DENSITY = get_material_density(DEFAULT_DETECTOR_MATERIAL).value
 
 DEFAULT_ENERGY_RESOLUTION = 0.25
 
@@ -352,7 +352,7 @@ air_temp_unit.on_change('value', update_air_temp_units)
 
 def update_material_density(attr, old, new):
     # if the material is changed then update the density
-    material_density_input.value = str(get_density(material_input.value).value)
+    material_density_input.value = str(get_material_density(material_input.value).value)
 
 
 material_input.on_change('value', update_material_density)
@@ -360,7 +360,7 @@ material_input.on_change('value', update_material_density)
 
 def update_detector_density(attr, old, new):
     # if the material is changed then update the density
-    detector_density_input.value = str(get_density(detector_material_input.value).value)
+    detector_density_input.value = str(get_material_density(detector_material_input.value).value)
 
 
 detector_material_input.on_change('value', update_detector_density)

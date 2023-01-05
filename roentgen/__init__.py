@@ -5,9 +5,9 @@ photons with matter (x-rays and gamma-rays).
 """
 import os
 
+import astropy.units as u
 from astropy.io import ascii
 from astropy.table import QTable, Table
-import astropy.units as u
 
 try:
     from .version import __version__
@@ -23,7 +23,7 @@ _data_directory = os.path.abspath(os.path.join(_package_directory, "data"))
 elements_file = os.path.join(_data_directory, "elements.csv")
 elements = QTable(ascii.read(elements_file, format="csv"))
 
-elements["density"].unit = u.g / (u.cm ** 3)
+elements["density"].unit = u.g / (u.cm**3)
 elements["i"].unit = u.eV
 elements["ionization energy"].unit = u.eV
 elements["atomic mass"] = elements["z"] / elements["zovera"] * u.u
@@ -31,7 +31,7 @@ elements.add_index("z")
 
 compounds_file = os.path.join(_data_directory, "compounds_mixtures.csv")
 compounds = QTable(ascii.read(compounds_file, format="csv", fast_reader=False))
-compounds["density"].unit = u.g / (u.cm ** 3)
+compounds["density"].unit = u.g / (u.cm**3)
 compounds.add_index("symbol")
 
 notation_translation = Table(

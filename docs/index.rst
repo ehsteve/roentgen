@@ -11,6 +11,7 @@ X-rays were originally referred to as Roentgen rays.
     :maxdepth: 1
 
     guide/index
+    sources
     reference/index
     examples/index
     contributing

@@ -1,49 +1,68 @@
 """
 """
-import numpy as np
 import os
-import astropy.units as u
+
+import numpy as np
 from scipy import interpolate
+
+import astropy.units as u
+
 import roentgen
 from roentgen.util import (
     get_atomic_number,
-    get_density,
     get_compound_index,
+    get_material_density,
+    get_material_name,
+    get_material_symbol,
     is_an_element,
     is_in_known_compounds,
 )
 
-__all__ = ["Material", "MassAttenuationCoefficient", "Compound", "Response"]
+__all__ = ["Material", "MassAttenuationCoefficient", "Stack", "Response"]
 
 _package_directory = roentgen._package_directory
 _data_directory = roentgen._data_directory
 
 
 class Material(object):
-    """An object which enables the calculation of the x-ray transmission and
+    """
+    An object which enables the calculation of the x-ray transmission and
     absorption of a material (e.g. an element or a compound/mixture).
+
+    A material may be composed of a single atomic element such as Aluminum ('Al'), or composed of number of elements and/or compounds.
 
     Parameters
     ----------
-    material_str : str
+    material_str : str or dict
         A string representation of the material which includes an element symbol
         (e.g. Si), an element name (e.g. Silicon), or the name of a compound
         (e.g. cdte, mylar). For all supported elements see :download:`elements.csv <../../roentgen/data/elements.csv>` and for compounds see :download:`compounds_mixtures.csv <../../roentgen/data/compounds_mixtures.csv>`.
+        Can also be a dictionary of element and compounds with fractional masses (ex. {"Cu":0.70, "Zn":0.30})
     thickness : `astropy.units.Quantity`
         The thickness of the material
-    density : `astropy.units.Quantity`
+    density : `astropy.units.Quantity`, optional
         The density of the material.
-        If not provided uses default values which can be found in :download:`elements.csv <../../roentgen/data/elements.csv>` for elements or
+        If not provided, uses default values which can be found in :download:`elements.csv <../../roentgen/data/elements.csv>` for elements or
         in :download:`compounds_mixtures.csv <../../roentgen/data/compounds_mixtures.csv>` for compounds.
+        If many materials are present, calculates the weighted density.
 
     Attributes
     ----------
-    symbol : `str`
-        The material symbol
+    symbols : `list`
+        A list of material symbol
+    material_names : `list`
+        A list of material names
     name : `str`
-        The material name
-    mass_attenuation_coefficient : `MassAttenuationCoefficient`
-        The mass attenuation coefficient for the material.
+        A name for the material
+    fractional_masses : `np.ndarray`
+        A normalized array of fractional masses
+    mass_attenuation_coefficients : `list`
+        A list of `MassAttenuationCoefficient`
+
+    Methods
+    -------
+    mass_attenuation_coefficient(energy)
+        The mass attenuation coefficient for the material at energy
 
     Examples
     --------
@@ -51,25 +70,55 @@ class Material(object):
     >>> import astropy.units as u
     >>> detector = Material('cdte', 500 * u.um)
     >>> thermal_blankets = Material('mylar', 0.5 * u.mm)
+    >>> bronze = Material({"Cu": 0.88, "Sn": 0.12}, 1 * u.mm)
     """
 
     @u.quantity_input
-    def __init__(self, material_str, thickness: u.m, density=None):
-        self.name = material_str
+    def __init__(self, material_input, thickness: u.m, density=None):
         self.thickness = thickness
-        self.mass_attenuation_coefficient = MassAttenuationCoefficient(material_str)
-        self.name = self.mass_attenuation_coefficient.name
-
-        if density is None:
-            self.density = get_density(material_str)
-        else:
+        if isinstance(density, u.Quantity):
             self.density = density
+        if isinstance(material_input, str):
+            self.list_names = [get_material_name(material_input)]
+            self.list_symbols = [get_material_symbol(material_input)]
+            self.mass_attenuation_coefficients = [MassAttenuationCoefficient(material_input)]
+            self.symbol = self.mass_attenuation_coefficients[0].symbol
+            self.name = self.mass_attenuation_coefficients[0].name
+            self.fractional_masses = np.ones(1)
+            if density is None:
+                self.density = get_material_density(material_input)
+        elif isinstance(material_input, dict):
+            self.list_names = [
+                get_material_name(this_str) for this_str in list(material_input.keys())
+            ]
+            self.list_symbols = [
+                get_material_symbol(this_str) for this_str in list(material_input.keys())
+            ]
+            # normalize the fractional masses
+            fractional_masses = np.array(list(material_input.values()))
+            self.fractional_masses = fractional_masses / fractional_masses.sum()
+            self.name = "".join(f"{this_name}" for this_name in self.list_names)
+            self.symbol = "".join(f"{this_symbol}" for this_symbol in self.list_symbols)
+            self.mass_attenuation_coefficients = [
+                MassAttenuationCoefficient(e) for e in self.list_names
+            ]
+            if density is None:
+                # calculate the average weighted density
+                densities = (
+                    [
+                        get_material_density(this_material).to("kg/m**3").value
+                        for this_material in self.list_names
+                    ]
+                    * u.kg
+                    / u.m**3
+                )
+                self.density = np.average(densities, weights=self.fractional_masses)
+        else:
+            raise TypeError("Material input must be a string or a dictionary.")
 
     def __repr__(self):
         """Returns a human-readable representation."""
-        txt = (
-            f"Material({self.name}) {self.thickness} {self.density.to('kg/m**3'):2.1f})"
-        )
+        txt = f"Material({self.name}) {self.thickness} {self.density.to('kg/m**3'):2.1f})"
         return txt
 
     def __str__(self):
@@ -79,11 +128,29 @@ class Material(object):
 
     def __add__(self, other):
         if isinstance(other, Material):
-            return Compound([self, other])
-        elif isinstance(other, Compound):
-            return Compound([self] + other.materials)
+            return Stack([self, other])
+        elif isinstance(other, Stack):
+            return Stack([self] + other.materials)
         else:
-            raise ValueError(f"Cannot add {self} and {other}")
+            raise TypeError(f"Cannot add {self} and {other}")
+
+    @u.quantity_input(energy=u.keV)
+    def mass_attenuation_coefficient(self, energy):
+        result = np.sum(
+            np.vstack(
+                [
+                    atten.func(energy) * frac_mass
+                    for atten, frac_mass in zip(
+                        self.mass_attenuation_coefficients, self.fractional_masses
+                    )
+                ]
+            ),
+            axis=0,
+        )
+        if energy.isscalar:
+            return result[0]
+        else:
+            return result
 
     @u.quantity_input(energy=u.keV)
     def transmission(self, energy):
@@ -94,7 +161,7 @@ class Material(object):
         energy : `astropy.units.Quantity`
             An array of energies in keV
         """
-        coefficients = self.mass_attenuation_coefficient.func(energy)
+        coefficients = self.mass_attenuation_coefficient(energy)
         transmission = np.exp(-coefficients * self.density * self.thickness)
         return transmission.value  # remove the dimensionless unit
 
@@ -109,12 +176,24 @@ class Material(object):
         """
         return 1.0 - self.transmission(energy)
 
+    def linear_attenuation_coefficient(self, energy: u.keV):
+        """Provides the linear attenuation coefficient as a function of energy.
 
-class Compound(object):
+        linear coeff = mass coeff * density.
+
+        Parameters
+        ----------
+        energy : `astropy.units.Quantity`
+            An array of energies in keV.
+        """
+        return self.mass_attenuation_coefficient(energy) * self.density
+
+
+class Stack(object):
     """
     An object which enables the calculation of the x-ray transmission and
-    absorption of a compound material (i.e. many materials).
-    This object is usually created automatically when `Material` objects are added together.
+    absorption of a stack of materaials.
+    This object is created automatically when `Material` objects are added together.
 
     Parameters
     ----------
@@ -123,9 +202,10 @@ class Compound(object):
 
     Examples
     --------
-    >>> from roentgen.absorption.material import Material, Compound
+    >>> from roentgen.absorption.material import Material, Stack
     >>> import astropy.units as u
-    >>> detector = Compound([Material('Pt', 5 * u.um), Material('cdte', 500 * u.um)])
+    >>> detector = Stack([Material('Pt', 5 * u.um), Material('cdte', 500 * u.um)])
+    >>> optical_path = Material('mylar', 50 * u.micron) + Material('Al', 1 * u.mm)
     """
 
     def __init__(self, materials):
@@ -133,28 +213,28 @@ class Compound(object):
 
     def __add__(self, other):
         if isinstance(other, Material):
-            return Compound(self.materials + [other])
-        elif isinstance(other, Compound):
-            return Compound(self.materials + other.materials)
+            return Stack(self.materials + [other])
+        elif isinstance(other, Stack):
+            return Stack(self.materials + other.materials)
         else:
-            raise ValueError(f"Cannot add {self} and {other}")
+            raise TypeError(f"Cannot add {self} and {other}")
 
     def __repr__(self):
         """Returns a human-readable representation."""
-        txt = "Compound("
+        txt = "Stack("
         for material in self.materials:
             txt += str(material)
         return txt + ")"
 
     def transmission(self, energy):
-        """Provide the transmission fraction (0 to 1).
+        """Provides the transmission fraction (0 to 1).
 
         Parameters
         ----------
         energy : `astropy.units.Quantity`
             An array of energies in keV
         """
-        transmission = np.ones(len(energy), dtype=np.float)
+        transmission = np.ones(len(energy), dtype=float)
         for material in self.materials:
             this_transmission = material.transmission(energy)
             transmission *= this_transmission
@@ -179,7 +259,7 @@ class Response(object):
 
     Parameters
     ----------
-    optical_path : list
+    optical_path : Stack
         A list of Material objects which make up the optical path.
 
     detector : Material or None
@@ -191,23 +271,22 @@ class Response(object):
     --------
     >>> from roentgen.absorption.material import Material, Response
     >>> import astropy.units as u
-    >>> optical_path = [Material('air', 1 * u.m), Material('Al', 500 * u.mm)]
+    >>> optical_path = Stack([Material('air', 1 * u.m), Material('Al', 500 * u.mm)])
     >>> resp = Response(optical_path, detector=Material('cdte', 500 * u.um))
     """
 
     def __init__(self, optical_path, detector):
         # make sure the materials are a list since we iterate over them
         # to calculate the transmission
-        if isinstance(optical_path, Material):
-            self.optical_path = [optical_path]
-        elif isinstance(optical_path, list):
+        if isinstance(optical_path, Stack) or isinstance(optical_path, Material):
             self.optical_path = optical_path
         else:
-            raise TypeError("optical_path must be Material or list of Materials")
-        if (type(detector) is Material) or (detector is None):
+            raise TypeError("optical_path must be a Stack or Material")
+
+        if isinstance(detector, Material):
             self.detector = detector
         else:
-            raise TypeError("Detector must be a Material or None")
+            raise TypeError("detector must be a Material")
 
     def __repr__(self):
         """Returns a human-readable representation."""
@@ -236,15 +315,11 @@ class Response(object):
             An array of energies in keV.
         """
         # calculate the transmission
-        transmission = np.ones(len(energy), dtype=np.float)
-        detector_absorption = np.ones(len(energy), dtype=np.float)
-        for material in self.optical_path:
-            this_transmission = material.transmission(energy)
-            transmission *= this_transmission
-        if self.detector is None:
-            detector_absorption = np.ones(len(energy), dtype=np.float)
-        else:
-            detector_absorption = self.detector.absorption(energy)
+        transmission = np.ones(len(energy), dtype=float)
+        detector_absorption = np.ones(len(energy), dtype=float)
+
+        transmission = self.optical_path.transmission(energy)
+        detector_absorption = self.detector.absorption(energy)
 
         return transmission * detector_absorption
 
@@ -280,7 +355,7 @@ class MassAttenuationCoefficient(object):
         """
         Parameters
         ----------
-        material_str : str
+        material : str
             A string representation of the material which includes an element symbol
             (e.g. Si), an element name (e.g. Silicon), or the name of a compound
             (e.g. cdte, mylar).
@@ -300,7 +375,7 @@ class MassAttenuationCoefficient(object):
                 _data_directory, "compounds_mixtures", symbol.replace(" ", "_") + ".csv"
             )
         else:
-            return NameError("Element or compound not found.")
+            raise ValueError(f"Element or compound {material} not found.")
         data = np.loadtxt(datafile_path, delimiter=",")
         # find the material in our list
         self.symbol = symbol
@@ -319,9 +394,7 @@ class MassAttenuationCoefficient(object):
             fill_value=0.0,
             assume_sorted=True,
         )
-        self.func = lambda x: u.Quantity(
-            10 ** self._f(np.log10(x.to("keV").value)), "cm^2/g"
-        )
+        self.func = lambda x: u.Quantity(10 ** self._f(np.log10(x.to("keV").value)), "cm^2/g")
 
     def _remove_double_vals_from_data(self):
         """Remove double-values energy values. Edges are represented with

@@ -1,3 +1,102 @@
+# compiled bytecode / extensions
+
+__pycache__/
+
+*.pyc
+*.pyo
+*.pyd
+
+# distribution / packaging
+
+build/
+dist/
+wheels/
+
+*.egg-info/
+*.egg
+
+MANIFEST
+
+*.manifest
+*.spec
+
+# coverage / reports
+
+.coverage
+coverage/
+
+coverage.*
+
+# testing
+
+.hypothesis/
+
+.pytest_cache/
+
+# IPython
+
+profile_default/
+ipython_config.py
+
+# local packages
+
+__pypackages__/
+
+# virtual environments
+
+.python-version
+
+.env
+env/
+env.bak/
+
+.venv
+venv/
+venv.bak/
+
+# documentation
+
+site/
+
+# translations
+
+*.mo
+*.pot
+
+# type checkers
+
+.mypy_cache/
+.pytype/
+
+# cython debugging information
+
+cython_debug/
+
+# various logs
+
+*.log
+
+# remove lock file if it should be included
+poetry.lock
+
+# compiled files and executables
+
+debug/
+target/
+
+# backup files
+
+*.rs.bk
+
+# debugging information
+
+*.pdb
+
+# remove lock file for executables
+# leave it in here for libraries
+
+Cargo.lock
+
 # Compiled files
 *.py[cod]
 *.a
@@ -56,3 +155,7 @@ distribute-*.tar.gz
 
 roentgen/version.py
 *.eggs
+
+*.orig
+
+test.py

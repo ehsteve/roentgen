@@ -18,13 +18,16 @@ Overview
     :target: https://roentgen.readthedocs.io/en/latest/?badge=latest
     :alt: Documentation Status
 
-.. |testing| image:: https://github.com/ehsteve/roentgen/actions/workflows/testing.yaml/badge.svg
-    :target: https://circleci.com/gh/ehsteve/roentgen
+.. |testing| image:: https://github.com/ehsteve/roentgen/actions/workflows/testing.yml/badge.svg
+    :target: https://github.com/ehsteve/roentgen/actions/workflows/testing.yml
     :alt: Build Status
 
-.. |black| image:: https://github.com/ehsteve/roentgen/actions/workflows/black.yaml/badge.svg
-    :target: https://coveralls.io/github/ehsteve/roentgen?branch=master
+.. |black| image:: https://github.com/ehsteve/roentgen/actions/workflows/black.yml/badge.svg
+    :target: https://github.com/ehsteve/roentgen/actions/workflows/black.yml
     :alt: Black linting
+
+.. |coverage| image:: https://codecov.io/gh/ehsteve/roentgen/branch/master/graph/badge.svg?token=feNCnYTjB3
+    :target: https://codecov.io/gh/ehsteve/roentgen
 
 .. |version| image:: https://img.shields.io/pypi/v/roentgen.svg?style=flat
     :alt: PyPI Package latest release
@@ -58,6 +61,13 @@ Installation
 
     pip install roentgen
 
+This project makes use of `Poetry <https://python-poetry.org>`_ for dependency management. To install this project for development, clone the repository and then run the following command inside the package directory
+
+::
+
+    poetry install --with dev,docs,gui
+
+
 Documentation
 =============
 
@@ -65,27 +75,32 @@ http://roentgen.readthedocs.io/en/latest/
 
 GUI
 ===
-This package provides a gui interface to quickly investigate the absorption
-and transmission of x-rays through different materials. It is based on
-`bokeh <https://docs.bokeh.org/en/latest/>`_. A working version
-of the GUI can be found installed on `heroku <https://www.heroku.com>`_.
-
-https://roentgen-gui.herokuapp.com/gui
-
-To run it locally use the following command
+This package provides a gui interface to quickly investigate the absorption and transmission of x-rays through different materials.
+It is based on `bokeh <https://docs.bokeh.org/en/stable/>`_. To run it locally use the following command
 
 ::
-   
+
    bokeh serve --show <roengten_directory>/gui
 
 
 Data Sources
 ============
-This package includes on a number of data files which were
-translated and imported from a few key sources. The package
-developers would like to thank the following data providers
+This package includes on a number of data files which were translated and imported from a few key sources.
+The package developers would like to thank the following data providers
 
 * The U.S National Institute of Standards and Technology (NIST)
 * The Center for X-ray Optics and Advanced Light Source at the Lawrence Berkeley National Laboratory
 
-For more information see the README in data directory.
+For more information see the `README <roentgen/data/README.rst>`_ in data directory.
+
+Contributing
+============
+
+Contributions are welcome, and they are greatly appreciated!
+Every little bit helps, and credit will always be given.
+Have a look at the `great guide <https://docs.sunpy.org/en/latest/dev_guide/contents/newcomers.html>`_ from the `sunpy project <https://sunpy.org>`_ which provides advice for new contributors.
+
+Code of Conduct
+===============
+
+When you are interacting with members of this community, you are asked to follow the SunPy `Code of Conduct <https://sunpy.org/coc>`_.

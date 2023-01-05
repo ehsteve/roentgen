@@ -123,15 +123,15 @@ As a simple example, here is the transmission of x-rays through 10 meters of air
     plt.plot(energy, air.transmission(energy))
     plt.ylabel('Transmission')
     plt.xlabel('Energy [' + str(energy.unit) + ']')
-    plt.title("{0} {1}".format(str(thickness), air.name))
+    plt.title(f"{thickness} {air.name}")
 
 This plot shows that air, though not a dense material, does block low energy x-rays over long distances.
 For convenience, the function `~roentgen.util.density_ideal_gas` is provided which can calculate the density of a gas given a pressure and temperature.
 
-Compounds
----------
+Stack
+-----
 Materials can be added together to form more complex optical paths.
-If two or more materials are added together they form a `roentgen.absorption.Compound`.
+If two or more materials are added together they form a `roentgen.absorption.Stack`.
 A simple example is the transmission through air and then through a thermal blanket composed of a thin layer of mylar and Aluminum::
 
     optical_path = Material('air', 2 * u.m) + Material('mylar', 5 * u.micron) + Material('Al', 5 * u.micron)
@@ -168,10 +168,10 @@ The following example uses the same optical path as defined above and assumes a 
 
     import astropy.units as u
     import matplotlib.pyplot as plt
-    from roentgen.absorption import Material, Response
+    from roentgen.absorption import Material, Response, Stack
     import numpy as np
 
-    optical_path = [Material('air', 2 * u.m), Material('mylar', 5 * u.micron), Material('Al', 5 * u.micron)]
+    optical_path = Stack([Material('air', 2 * u.m), Material('mylar', 5 * u.micron), Material('Al', 5 * u.micron)])
     detector = Material('Si', 500 * u.micron)
     resp = Response(optical_path=optical_path, detector=detector)
     energy = u.Quantity(np.arange(1, 30, 0.2), 'keV')

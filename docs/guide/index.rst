@@ -15,6 +15,7 @@ It also includes the generation of x-rays from emission lines.
 
     transmission_bkg*
     transmission*
+    attenuators*
     cxro_compare*
     gui*
     lines*

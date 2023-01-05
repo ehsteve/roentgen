@@ -9,7 +9,7 @@ The primary difference between results from this package and those from CXRO are
 
 These data only extend up to 30 keV while the NIST-provided data extend to 20 MeV.
 For more information on data sources see the README in the data directory.
-The comparison here shows that the results generally agree with each other.
+The comparison here shows that the data agree with each other.
 
 
 .. plot::

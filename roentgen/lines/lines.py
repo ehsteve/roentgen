@@ -1,7 +1,7 @@
 import numpy as np
 
-from astropy.table import Table
 import astropy.units as u
+from astropy.table import Table
 
 import roentgen
 from roentgen.util import get_atomic_number

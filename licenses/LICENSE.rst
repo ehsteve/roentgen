@@ -1,4 +1,4 @@
-Copyright 2019, Steven D. Christe
+2023, Public Domain
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
