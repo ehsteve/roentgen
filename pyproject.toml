@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "roentgen"
-version = "2.0.0"
+version = "2.0.1"
 description = "A Python package for the quantitative analysis of the interaction of energetic x-rays with matter. This package is named after one of the discoverers of X-rays, Wilhelm Rontgen."
 authors = ["Steven Christe <ehsteve@users.noreply.github.com>", "Nabil Freij <nabobalis@users.noreply.github.com>", "Shane Maloney <samaloney@users.noreply.github.com>, Dan Ryan <DanRyanIrish@users.noreply.github.com>"]
 readme = "README.rst"

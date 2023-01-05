@@ -27,15 +27,12 @@ Overview
     :alt: Black linting
 
 .. |coverage| image:: https://codecov.io/gh/ehsteve/roentgen/branch/master/graph/badge.svg?token=feNCnYTjB3
+    :alt: Test coverage on codecov
     :target: https://codecov.io/gh/ehsteve/roentgen
 
 .. |version| image:: https://img.shields.io/pypi/v/roentgen.svg?style=flat
     :alt: PyPI Package latest release
     :target: https://pypi.python.org/pypi/roentgen
-
-.. |coverage| image:: https://codecov.io/gh/ehsteve/roentgen/branch/master/graph/badge.svg?token=feNCnYTjB3 
-    :alt: Test coverage on codecov
-    :target: https://codecov.io/gh/ehsteve/roentgen
 
 .. |downloads| image:: https://img.shields.io/pypi/dm/roentgen.svg?style=flat
     :alt: PyPI Package monthly downloads
@@ -98,9 +95,9 @@ Contributing
 
 Contributions are welcome, and they are greatly appreciated!
 Every little bit helps, and credit will always be given.
-Have a look at the `great guide <https://docs.sunpy.org/en/latest/dev_guide/contents/newcomers.html>`_ from the `sunpy project <https://sunpy.org>`_ which provides advice for new contributors.
+Have a look at the `great guide <https://docs.sunpy.org/en/latest/dev_guide/contents/newcomers.html>`__ from the `sunpy project <https://sunpy.org>`__ which provides advice for new contributors.
 
 Code of Conduct
 ===============
 
-When you are interacting with members of this community, you are asked to follow the SunPy `Code of Conduct <https://sunpy.org/coc>`_.
+When you are interacting with members of this community, you are asked to follow the SunPy `Code of Conduct <https://sunpy.org/coc>`__.

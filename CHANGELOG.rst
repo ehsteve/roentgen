@@ -1,7 +1,7 @@
 Changelog
 =========
 
-2.0.0 (2022-10-10)
+2.0.1 (2022-10-10)
 ------------------
 * The Material class can now represent substances with multiple and arbitrary constitutients
 * Moved to poetry for dependency management and packaging
