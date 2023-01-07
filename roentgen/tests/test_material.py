@@ -50,11 +50,11 @@ def test_mass_atten(mass_atten):
 
 
 def test_returns_quantity(mass_atten):
-    assert isinstance(mass_atten.func(1 * u.keV), u.Quantity)
+    assert isinstance(mass_atten.func(2 * u.keV), u.Quantity)
 
 
 def test_number_of_energies(mass_atten):
-    energy = u.Quantity(np.arange(1, 1000), "keV")
+    energy = u.Quantity(np.arange(2, 1000), "keV")
     atten = mass_atten.func(energy)
     assert len(energy) == len(atten)
 
@@ -95,7 +95,7 @@ def thick_material(request):
 
 def test_opaque(thick_material):
     # check that extremely large amounts of material mean no transmission
-    assert thick_material.transmission(1 * u.keV) < 1e-6
+    assert thick_material.transmission(2 * u.keV) < 1e-6
 
 
 @pytest.fixture(params=all_materials)
@@ -105,7 +105,7 @@ def thin_material(request):
 
 def test_transparent(thin_material):
     # check that extremely large amounts of material mean no transmission
-    assert thin_material.transmission(1 * u.keV) > 0.90
+    assert thin_material.transmission(2 * u.keV) > 0.90
 
 
 @pytest.mark.parametrize(
