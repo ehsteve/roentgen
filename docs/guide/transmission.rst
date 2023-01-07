@@ -5,13 +5,14 @@ The purpose of this guide is to present an overview of the `roentgen.absorption`
 Mass Attenuation Coefficient
 ----------------------------
 The primary component that mediates the x-ray attenuation through a material is its mass attenuation coefficient.
-These tabulated values can be inspected using `roentgen.absorption.MassAttenuationCoefficient`.
+These tabulated values can be inspected using the `roentgen.absorption.MassAttenuationCoefficient` object.
 To create one::
 
     from roentgen.absorption import MassAttenuationCoefficient
     si_matten = MassAttenuationCoefficient('Si')
 
 Tabulated values for all elements are provided as well as additional specialized materials.
+These data are provided by the U.S National Institute of Standards and Technology (`NIST <https://physics.nist.gov/PhysRefData/XrayMassCoef/tab3.html>`__) and range from 1 keV to 2 MeV.
 Elements can be specificied by their symbol name or by their full name (e.g. Si, Silicon).
 A list of all of the elements is provided by::
 
@@ -21,7 +22,7 @@ Specialized materials, referred to as compounds, are also available. A complete 
 
     roentgen.compounds
 
-Here is the mass attenuation coefficient for Silicon.
+Here is the mass attenuation coefficient data for Silicon.
 
 .. plot::
     :include-source:
@@ -31,12 +32,40 @@ Here is the mass attenuation coefficient for Silicon.
     from roentgen.absorption import MassAttenuationCoefficient
 
     si_matten = MassAttenuationCoefficient('Si')
-    plt.plot(si_matten.energy, si_matten.data)
+    plt.plot(si_matten.energy, si_matten.data, 'o-')
     plt.yscale('log')
     plt.xscale('log')
     plt.xlabel('Energy [' + str(si_matten.energy[0].unit) + ']')
     plt.ylabel('Mass Attenuation Coefficient [' + str(si_matten.data[0].unit) + ']')
     plt.title(si_matten.name)
+
+You can get the interpolated value at any other point
+
+.. plot::
+    :include-source:
+
+    import astropy.units as u
+    import matplotlib.pyplot as plt
+    from roentgen.absorption import MassAttenuationCoefficient
+
+    si_matten = MassAttenuationCoefficient('Si')
+
+    energy = u.Quantity(np.arange(1, 10, 0.01), 'keV')
+    interpol_atten = si_matten.func(energy)
+
+    plt.plot(energy, interpol_atten, 'x-', label='Interpolated points')
+    plt.plot(si_matten.energy, si_matten.data, 'o', label='Data')
+
+    plt.xlim(1, 10)
+    plt.ylim(10, 5000)
+    plt.yscale('log')
+    plt.xscale('log')
+    plt.xlabel('Energy [' + str(si_matten.energy[0].unit) + ']')
+    plt.ylabel('Mass Attenuation Coefficient [' + str(si_matten.data[0].unit) + ']')
+    plt.title(si_matten.name)
+    plt.legend()
+
+Be careful that you interpolate with sufficient resolution to make out complex edges if high accuracy is required.
 
 Material
 --------
@@ -127,6 +156,21 @@ As a simple example, here is the transmission of x-rays through 10 meters of air
 
 This plot shows that air, though not a dense material, does block low energy x-rays over long distances.
 For convenience, the function `~roentgen.util.density_ideal_gas` is provided which can calculate the density of a gas given a pressure and temperature.
+
+It is also possible to create custom materials using a combination of elements and compounds::
+
+    >>> from roentgen.absorption import Material
+    >>> steel = Material({"Fe": 0.98, "C": 0.02}, 1 * u.cm)
+    >>> bronze = Material({"Cu": 0.88, "Sn": 0.12}, 1 * u.cm)
+    >>> salt_water = Material({"water": 0.97, "Na": 0.015, "Cl": 0.015}, 1 * u.cm)
+
+The fractions need not be normalized. It will normalize them for you.
+The density will be calculated automatically using the known densities but this is likely not a good assumption so you should provide your own density::
+    
+    >>> bronze = Material({"Cu": 0.88, "Sn": 0.12}, 1 * u.cm)
+    >>> bronze.density
+    <Quantity 7746.6 kg / m3>
+    >>> bronze = Material({"Cu": 0.88, "Sn": 0.12}, 1 * u.cm, density=8.73 * u.g u.cm**-3)
 
 Stack
 -----
