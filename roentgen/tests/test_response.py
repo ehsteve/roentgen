@@ -42,3 +42,9 @@ def test_optical_path_stack_input():
 def test_bad_optical_path():
     with pytest.raises(TypeError):
         Response(optical_path="Si", detector=thin_material)
+
+
+def test_repr_str():
+    resp = Response(optical_path=Material("air", thickness=1e-30 * u.um), detector=thin_material)
+    assert isinstance(resp.__repr__(), str)
+    assert isinstance(resp.__str__(), str)

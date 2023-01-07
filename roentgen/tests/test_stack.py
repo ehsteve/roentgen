@@ -60,3 +60,9 @@ def test_bad_add_to_stack():
 def test_mat_add_stack():
     stack1 = Material("Ge", 500 * u.micron) + Material("Si", 100 * u.micron)
     assert isinstance(Material("Ge", 500 * u.micron) + stack1, Stack)
+
+
+def test_repr_str():
+    stack = Material("Ge", 500 * u.micron) + Material("Si", 100 * u.micron)
+    assert isinstance(stack.__repr__(), str)
+    assert isinstance(stack.__str__(), str)

@@ -219,3 +219,10 @@ def test_density_calculation():
     this_mat = Material(a, 5 * u.m)
     calc_density = get_material_density("Fe") * 0.5 + get_material_density("C") * 0.5
     assert np.isclose(this_mat.density, calc_density)
+
+
+def test_repr_str():
+    a = {"Fe": 0.98, "C": 0.02}
+    this_mat = Material(a, 5 * u.m)
+    assert isinstance(this_mat.__repr__(), str)
+    assert isinstance(this_mat.__str__(), str)
