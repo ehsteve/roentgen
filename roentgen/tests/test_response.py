@@ -53,13 +53,19 @@ def test_repr_str():
 def test_raise_outside_of_data_range():
     """Test that ValueError is raised is trying to get values outside of data range 1 keV to 20 MeV."""
     resp = Response(optical_path=thin_material, detector=thin_material)
-
+    
     energy = u.Quantity(np.arange(0.1, 10, 0.1), "keV")
     # below 1 keV
     with pytest.raises(ValueError):
         resp.response(energy)
-
+    
     # above 20 MeV
     energy = u.Quantity(np.arange(10, 23, 0.1), "MeV")
     with pytest.raises(ValueError):
         resp.response(energy)
+
+
+def test_repr_str():
+    resp = Response(optical_path=Material("air", thickness=1e-30 * u.um), detector=thin_material)
+    assert isinstance(resp.__repr__(), str)
+    assert isinstance(resp.__str__(), str)
