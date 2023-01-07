@@ -219,3 +219,23 @@ def test_density_calculation():
     this_mat = Material(a, 5 * u.m)
     calc_density = get_material_density("Fe") * 0.5 + get_material_density("C") * 0.5
     assert np.isclose(this_mat.density, calc_density)
+
+
+def test_raise_outside_of_data_range():
+    """Test that ValueError is raised is trying to get values outside of data range 1 keV to 20 MeV."""
+    mat = Material("Fe", 1 * u.m)
+    energy = u.Quantity(np.arange(0.1, 10, 0.1), "keV")
+    # below 1 keV
+    with pytest.raises(ValueError):
+        mat.absorption(energy)
+    
+    with pytest.raises(ValueError):
+        mat.transmission(energy)
+
+    # above 20 MeV
+    energy = u.Quantity(np.arange(10, 23, 0.1), "MeV")
+    with pytest.raises(ValueError):
+        mat.absorption(energy)
+    
+    with pytest.raises(ValueError):
+        mat.transmission(energy)

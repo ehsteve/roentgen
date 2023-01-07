@@ -42,3 +42,18 @@ def test_optical_path_stack_input():
 def test_bad_optical_path():
     with pytest.raises(TypeError):
         Response(optical_path="Si", detector=thin_material)
+
+
+def test_raise_outside_of_data_range():
+    """Test that ValueError is raised is trying to get values outside of data range 1 keV to 20 MeV."""
+    resp = Response(optical_path=thin_material, detector=thin_material)
+
+    energy = u.Quantity(np.arange(0.1, 10, 0.1), "keV")
+    # below 1 keV
+    with pytest.raises(ValueError):
+        resp.response(energy)
+    
+    # above 20 MeV
+    energy = u.Quantity(np.arange(10, 23, 0.1), "MeV")
+    with pytest.raises(ValueError):
+        resp.response(energy)
