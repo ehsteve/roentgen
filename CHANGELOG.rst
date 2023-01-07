@@ -1,6 +1,13 @@
 Changelog
 =========
 
+2.1.0 (2022-01-07)
+------------------
+* Improvement to documentation to illustrate custom materials
+* Added tutorial and documentation to illustrate interpolation
+* Going outside of data range (1 keV to 2 MeV) now provides a ValueError instead of failing quietly and filling in zeros for extrapolated values.
+
+
 2.0.1 (2022-10-10)
 ------------------
 * The Material class can now represent substances with multiple and arbitrary constitutients
