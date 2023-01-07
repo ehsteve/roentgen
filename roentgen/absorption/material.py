@@ -223,7 +223,7 @@ class Stack(object):
         """Returns a human-readable representation."""
         txt = "Stack("
         for material in self.materials:
-            txt += str(material)
+            txt += str(material) + " "
         return txt + ")"
 
     def transmission(self, energy):
@@ -291,17 +291,17 @@ class Response(object):
     def __repr__(self):
         """Returns a human-readable representation."""
         txt = "Response(path="
-        for material in self.optical_path:
-            txt += str(material)
-        txt += " detector=" + str(self.detector)
+        for material in self.optical_path.materials:
+            txt += str(material) + ' '
+        txt += ", detector=" + str(self.detector)
         return txt + ")"
 
     def __str__(self):
         """Returns a human-readable representation."""
-        txt = "path="
-        for material in self.optical_path:
+        txt = "Response(path="
+        for material in self.optical_path.materials:
             txt += str(material) + " "
-        txt += " detector=" + str(self.detector)
+        txt += ", detector=" + str(self.detector)
         return txt
 
     def response(self, energy):
