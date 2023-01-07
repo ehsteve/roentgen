@@ -12,7 +12,7 @@ To create one::
     si_matten = MassAttenuationCoefficient('Si')
 
 Tabulated values for all elements are provided as well as additional specialized materials.
-These data are provided by the U.S National Institute of Standards and Technology (`NIST <https://physics.nist.gov/PhysRefData/XrayMassCoef/tab3.html>`__) and range from 1 keV to 2 MeV.
+These data are provided by the U.S National Institute of Standards and Technology (`NIST <https://physics.nist.gov/PhysRefData/XrayMassCoef/tab3.html>`__) and range from 1 keV to 20 MeV.
 Elements can be specificied by their symbol name or by their full name (e.g. Si, Silicon).
 A list of all of the elements is provided by::
 
