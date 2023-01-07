@@ -269,7 +269,7 @@ class Response(object):
 
     Examples
     --------
-    >>> from roentgen.absorption.material import Material, Response
+    >>> from roentgen.absorption.material import Material, Response, Stack
     >>> import astropy.units as u
     >>> optical_path = Stack([Material('air', 1 * u.m), Material('Al', 500 * u.mm)])
     >>> resp = Response(optical_path, detector=Material('cdte', 500 * u.um))
@@ -291,17 +291,23 @@ class Response(object):
     def __repr__(self):
         """Returns a human-readable representation."""
         txt = "Response(path="
-        for material in self.optical_path.materials:
-            txt += str(material) + ' '
-        txt += ", detector=" + str(self.detector)
+        if isinstance(self.optical_path, Material):
+            txt += f"{self.optical_path} "
+        else:  # must be a Stack
+            for material in self.optical_path.materials:
+                txt += f"{material} "
+        txt += f", detector={self.detector})"
         return txt + ")"
 
     def __str__(self):
         """Returns a human-readable representation."""
         txt = "Response(path="
-        for material in self.optical_path.materials:
-            txt += str(material) + " "
-        txt += ", detector=" + str(self.detector)
+        if isinstance(self.optical_path, Material):
+            txt += f"{self.optical_path} "
+        else:  # must be a Stack
+            for material in self.optical_path.materials:
+                txt += str(material) + " "
+        txt += f", detector={self.detector})"
         return txt
 
     def response(self, energy):
