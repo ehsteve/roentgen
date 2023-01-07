@@ -52,7 +52,7 @@ def test_raise_outside_of_data_range():
     # below 1 keV
     with pytest.raises(ValueError):
         resp.response(energy)
-    
+
     # above 20 MeV
     energy = u.Quantity(np.arange(10, 23, 0.1), "MeV")
     with pytest.raises(ValueError):
