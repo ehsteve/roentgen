@@ -117,13 +117,13 @@ class Material(object):
             raise TypeError("Material input must be a string or a dictionary.")
 
     def __repr__(self):
-        """Returns a human-readable representation."""
-        txt = f"Material({self.name}) {self.thickness} {self.density.to('kg/m**3'):2.1f})"
-        return txt
+        """Returns a developer-relevant representation."""
+        # at this point, no reason for this to be different than __str__
+        return self.__str__()
 
     def __str__(self):
-        """Returns a human-readable representation."""
-        txt = f"{self.name} {self.thickness} {self.density.to('kg/m**3'):2.1f}"
+        """Returns a human-readable user-focused representation."""
+        txt = f"Material('{self.name}' thickness={self.thickness} density={self.density.to('kg/m**3'):2.1f})"
         return txt
 
     def __add__(self, other):
@@ -219,12 +219,18 @@ class Stack(object):
         else:
             raise TypeError(f"Cannot add {self} and {other}")
 
-    def __repr__(self):
-        """Returns a human-readable representation."""
-        txt = "Stack("
-        for material in self.materials:
-            txt += str(material) + " "
-        return txt + ")"
+    def __repr__(self) -> str:
+        """Returns a developer-relevant representation."""
+        # at this point, no reason for this to be different than __str__
+        return self.__str__()
+
+    def __str__(self) -> str:
+        """Returns a human-readable user-focused representation."""
+        txt = "Stack(["
+        for this_material in self.materials:
+            txt += f'{this_material}, '
+        txt = f'{txt[:-2]}])'
+        return txt
 
     def transmission(self, energy):
         """Provides the transmission fraction (0 to 1).
@@ -288,26 +294,14 @@ class Response(object):
         else:
             raise TypeError("detector must be a Material")
 
-    def __repr__(self):
-        """Returns a human-readable representation."""
-        txt = "Response(path="
-        if isinstance(self.optical_path, Material):
-            txt += f"{self.optical_path} "
-        else:  # must be a Stack
-            for material in self.optical_path.materials:
-                txt += f"{material} "
-        txt += f", detector={self.detector})"
-        return txt + ")"
+    def __repr__(self) -> str:
+        """Returns a developer-relevant representation."""
+        # at this point, no reason for this to be different than __str__
+        return self.__str__()
 
-    def __str__(self):
-        """Returns a human-readable representation."""
-        txt = "Response(path="
-        if isinstance(self.optical_path, Material):
-            txt += f"{self.optical_path} "
-        else:  # must be a Stack
-            for material in self.optical_path.materials:
-                txt += str(material) + " "
-        txt += f", detector={self.detector})"
+    def __str__(self) -> str:
+        """Returns a human-readable user-focused representation."""
+        txt = f"Response(optical_path={self.optical_path} detector={self.detector})"
         return txt
 
     def response(self, energy):
@@ -355,6 +349,10 @@ class MassAttenuationCoefficient(object):
         A function which returns the interpolated mass attenuation value at
         any given energy. Energies must be given by an `astropy.units.Quantity`.
 
+    Examples
+    --------
+    >>> from roentgen.absorption.material import MassAttenuationCoefficient
+    >>> mass_atten = MassAttenuationCoefficient('air')
     """
 
     def __init__(self, material):
@@ -401,6 +399,16 @@ class MassAttenuationCoefficient(object):
             assume_sorted=True,
         )
         self.func = lambda x: u.Quantity(10 ** self._f(np.log10(x.to("keV").value)), "cm^2/g")
+
+    def __repr__(self) -> str:
+        """Returns a developer-relevant representation."""
+        # at this point, no reason for this to be different than __str__
+        return self.__str__()
+
+    def __str__(self) -> str:
+        """Returns a human-readable user-focused representation."""
+        txt = f"MassAttenuationCoefficient('{self.name}')"
+        return txt
 
     def _remove_double_vals_from_data(self):
         """Remove double-values energy values. Edges are represented with
