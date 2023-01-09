@@ -2,7 +2,7 @@ Edges in the Mass Attenuation Coefficient and Interpolation
 ===========================================================
 
 Some elements have complex features in their mass attentuation coefficients.
-The mass attenuation coefficients are interpolated between data points so be careful to sufficient points to resolve those features if you are looking for high accuracy.
+The mass attenuation coefficients are interpolated between data points so be careful to include sufficient points to resolve those features if you are looking for high accuracy.
 
 .. plot::
     :include-source:
