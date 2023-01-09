@@ -243,8 +243,8 @@ class Stack(object):
         """Returns a human-readable user-focused representation."""
         txt = "Stack(["
         for this_material in self.materials:
-            txt += f'{this_material}, '
-        txt = f'{txt[:-2]}])'
+            txt += f"{this_material}, "
+        txt = f"{txt[:-2]}])"
         return txt
 
     def transmission(self, energy):
