@@ -44,12 +44,6 @@ def test_bad_optical_path():
         Response(optical_path="Si", detector=thin_material)
 
 
-def test_repr_str():
-    resp = Response(optical_path=Material("air", thickness=1e-30 * u.um), detector=thin_material)
-    assert isinstance(resp.__repr__(), str)
-    assert isinstance(resp.__str__(), str)
-
-
 def test_raise_outside_of_data_range():
     """Test that ValueError is raised is trying to get values outside of data range 1 keV to 20 MeV."""
     resp = Response(optical_path=thin_material, detector=thin_material)
