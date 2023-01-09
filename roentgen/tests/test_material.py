@@ -239,3 +239,10 @@ def test_raise_outside_of_data_range():
 
     with pytest.raises(ValueError):
         mat.transmission(energy)
+
+
+def test_repr_str():
+    a = {"Fe": 0.98, "C": 0.02}
+    this_mat = Material(a, 5 * u.m)
+    assert isinstance(this_mat.__repr__(), str)
+    assert isinstance(this_mat.__str__(), str)

@@ -23,3 +23,9 @@ def test_interpolate_matches_at_data():
 def test_nonexistent_material(element):
     with pytest.raises(ValueError):
         MassAttenuationCoefficient(element)
+
+
+def test_repr_str():
+    te = MassAttenuationCoefficient("Au")
+    assert isinstance(te.__repr__(), str)
+    assert isinstance(te.__str__(), str)
