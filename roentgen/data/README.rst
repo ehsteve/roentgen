@@ -21,6 +21,7 @@ elements.csv
 ------------
 Source: `https://physics.nist.gov/PhysRefData/XrayMassCoef/tab1.html <https://physics.nist.gov/PhysRefData/XrayMassCoef/tab1.html>`__
 Provides translation between atomic number, element names, and element symbols.
+Energy ranges from 1 keV to 20 MeV.
 
 - **z**: Atomic number
 - **name**: Element name
@@ -33,6 +34,7 @@ compounds_mixtures.csv
 Source: `https://physics.nist.gov/PhysRefData/XrayMassCoef/tab2.html <https://physics.nist.gov/PhysRefData/XrayMassCoef/tab2.html>`__
 Provides a list of all compounds and mixtures supported
 density is in units of g/cm^3
+Energy ranges from 1 keV to 20 MeV.
 
 emission_lines.csv
 ------------------

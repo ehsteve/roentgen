@@ -160,6 +160,11 @@ class Material(object):
         ----------
         energy : `astropy.units.Quantity`
             An array of energies in keV
+
+        Raises
+        ------
+        ValueError
+            If energy is outside of the interpolation range of 1 keV to 20 MeV.
         """
         coefficients = self.mass_attenuation_coefficient(energy)
         transmission = np.exp(-coefficients * self.density * self.thickness)
@@ -173,6 +178,11 @@ class Material(object):
         ----------
         energy : `astropy.units.Quantity`
             An array of energies in keV.
+
+        Raises
+        ------
+        ValueError
+            If energy is outside of the interpolation range of 1 keV to 20 MeV.
         """
         return 1.0 - self.transmission(energy)
 
@@ -185,6 +195,11 @@ class Material(object):
         ----------
         energy : `astropy.units.Quantity`
             An array of energies in keV.
+
+        Raises
+        ------
+        ValueError
+            If energy is outside of the interpolation range of 1 keV to 20 MeV.
         """
         return self.mass_attenuation_coefficient(energy) * self.density
 
@@ -239,6 +254,11 @@ class Stack(object):
         ----------
         energy : `astropy.units.Quantity`
             An array of energies in keV
+
+        Raises
+        ------
+        ValueError
+            If energy is outside of the interpolation range of 1 keV to 20 MeV.
         """
         transmission = np.ones(len(energy), dtype=float)
         for material in self.materials:
@@ -253,6 +273,11 @@ class Stack(object):
         ----------
         energy : `astropy.units.Quantity`
             An array of energies in keV.
+
+        Raises
+        ------
+        ValueError
+            If energy is outside of the interpolation range of 1 keV to 20 MeV.
         """
         return 1.0 - self.transmission(energy)
 
@@ -313,6 +338,11 @@ class Response(object):
         ----------
         energy : `astropy.units.Quantity`
             An array of energies in keV.
+
+        Raises
+        ------
+        ValueError
+            If energy is outside of the interpolation range of 1 keV to 20 MeV.
         """
         # calculate the transmission
         transmission = np.ones(len(energy), dtype=float)
@@ -348,6 +378,8 @@ class MassAttenuationCoefficient(object):
     func : `lambda func`
         A function which returns the interpolated mass attenuation value at
         any given energy. Energies must be given by an `astropy.units.Quantity`.
+        The interpolation range is 1 keV to 20 MeV.
+        Going outside that range will result in a ValueError.
 
     Examples
     --------
@@ -394,8 +426,7 @@ class MassAttenuationCoefficient(object):
         self._f = interpolate.interp1d(
             data_energy_kev,
             data_attenuation_coeff,
-            bounds_error=False,
-            fill_value=0.0,
+            bounds_error=True,
             assume_sorted=True,
         )
         self.func = lambda x: u.Quantity(10 ** self._f(np.log10(x.to("keV").value)), "cm^2/g")

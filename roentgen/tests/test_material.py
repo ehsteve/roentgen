@@ -50,11 +50,11 @@ def test_mass_atten(mass_atten):
 
 
 def test_returns_quantity(mass_atten):
-    assert isinstance(mass_atten.func(1 * u.keV), u.Quantity)
+    assert isinstance(mass_atten.func(2 * u.keV), u.Quantity)
 
 
 def test_number_of_energies(mass_atten):
-    energy = u.Quantity(np.arange(1, 1000), "keV")
+    energy = u.Quantity(np.arange(2, 1000), "keV")
     atten = mass_atten.func(energy)
     assert len(energy) == len(atten)
 
@@ -95,7 +95,7 @@ def thick_material(request):
 
 def test_opaque(thick_material):
     # check that extremely large amounts of material mean no transmission
-    assert thick_material.transmission(1 * u.keV) < 1e-6
+    assert thick_material.transmission(2 * u.keV) < 1e-6
 
 
 @pytest.fixture(params=all_materials)
@@ -105,7 +105,7 @@ def thin_material(request):
 
 def test_transparent(thin_material):
     # check that extremely large amounts of material mean no transmission
-    assert thin_material.transmission(1 * u.keV) > 0.90
+    assert thin_material.transmission(2 * u.keV) > 0.90
 
 
 @pytest.mark.parametrize(
@@ -226,3 +226,23 @@ def test_repr_str():
     this_mat = Material(a, 5 * u.m)
     assert isinstance(this_mat.__repr__(), str)
     assert isinstance(this_mat.__str__(), str)
+
+
+def test_raise_outside_of_data_range():
+    """Test that ValueError is raised is trying to get values outside of data range 1 keV to 20 MeV."""
+    mat = Material("Fe", 1 * u.m)
+    energy = u.Quantity(np.arange(0.1, 10, 0.1), "keV")
+    # below 1 keV
+    with pytest.raises(ValueError):
+        mat.absorption(energy)
+
+    with pytest.raises(ValueError):
+        mat.transmission(energy)
+
+    # above 20 MeV
+    energy = u.Quantity(np.arange(10, 23, 0.1), "MeV")
+    with pytest.raises(ValueError):
+        mat.absorption(energy)
+
+    with pytest.raises(ValueError):
+        mat.transmission(energy)
