@@ -78,7 +78,7 @@ air = Material('air', DEFAULT_AIR_THICKNESS * u.m, density=air_density)
 this_detector = Material(DEFAULT_DETECTOR_MATERIAL,
                          DEFAULT_DETECTOR_THICKNESS * u.mm)
 
-response = Response(optical_path=[this_material, air], detector=this_detector)
+response = Response(optical_path=this_material + air, detector=this_detector)
 
 energy = u.Quantity(np.arange(DEFAULT_ENERGY_LOW, DEFAULT_ENERGY_HIGH,
                               DEFAULT_ENERGY_RESOLUTION), "keV")
@@ -94,8 +94,8 @@ all_materials = [this_material.lower() for this_material in all_materials]
 
 # Set up the plot
 plot = figure(
-    plot_height=PLOT_HEIGHT,
-    plot_width=PLOT_WIDTH,
+    height=PLOT_HEIGHT,
+    width=PLOT_WIDTH,
     tools=TOOLS,
     x_range=[1, 50],
     y_range=[0, 1],
@@ -200,7 +200,7 @@ def update_response(attrname, old, new):
                                      density=this_density)
     else:
         this_detector = None
-    response = Response(optical_path=[this_material, air], detector=this_detector)
+    response = Response(optical_path=this_material + air, detector=this_detector)
 
 
 def update_data(attrname, old, new):
@@ -230,7 +230,7 @@ def update_data(attrname, old, new):
     source.data = dict(x=energy, y=y)
 
 
-def toggle_active(new):
+def toggle_active(attr, old, new):
     if 0 in new:
         material_input.disabled = False
         material_thick_unit.disabled = False
@@ -260,7 +260,7 @@ def toggle_active(new):
 
 checkbox_group = CheckboxGroup(labels=["Material", "Air", "Detector"],
                                active=[0, 1, 2])
-checkbox_group.on_click(toggle_active)
+checkbox_group.on_change("active", toggle_active)
 
 
 def update_button_action():
