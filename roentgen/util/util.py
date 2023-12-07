@@ -1,3 +1,4 @@
+import numpy as np
 import astropy.units as u
 
 import roentgen
@@ -28,16 +29,23 @@ def is_an_element(element_str):
     return result
 
 
-def get_element_symbol(element_str):
-    """Return the element abbreviation"""
+def get_element_symbol(element):
+    """Return the symbol of an element given its long or its atomic number."""
     lower_case_symbol_list = list([s.lower() for s in roentgen.elements["symbol"]])
-    if element_str.lower() in lower_case_symbol_list:  # already a symbol
-        return element_str.capitalize()
-    elif is_an_element(element_str):
-        lower_case_list = list([s.lower() for s in roentgen.elements["name"]])
-        return roentgen.elements[lower_case_list.index(element_str.lower())]["symbol"].capitalize()
+    if isinstance(element, str):
+        if element.lower() in lower_case_symbol_list:  # already a symbol
+            return element.capitalize()
+        elif is_an_element(element):
+            lower_case_list = list([s.lower() for s in roentgen.elements["name"]])
+            return roentgen.elements[lower_case_list.index(element.lower())]["symbol"].capitalize()
+        else:
+            raise ValueError(f"{element} not recognized.")
+    elif isinstance(element, (int, np.integer)):
+        if element < 0:
+            raise ValueError(f"{element} of type {type(element)} not recognized.")
+        return roentgen.elements["symbol"][element - 1]
     else:
-        raise ValueError(f"{element_str} not recognized.")
+        raise ValueError(f"{element} of type {type(element)} not recognized.")
 
 
 def get_atomic_number(element_str):

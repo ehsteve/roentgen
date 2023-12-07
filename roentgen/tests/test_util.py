@@ -45,6 +45,18 @@ def test_get_element_symbol_error(element):
         util.get_element_symbol(element)
 
 
+@pytest.mark.parametrize("z", np.arange(91, dtype="int") + 1)
+def test_get_element_symbol_int(z):
+    assert util.get_element_symbol(z) == roentgen.elements["symbol"][z - 1]
+
+
+def test_get_element_symbol__badnum_error():
+    with pytest.raises(ValueError):
+        util.get_element_symbol(0.1)
+    with pytest.raises(ValueError):
+        util.get_element_symbol(-1)
+
+
 @pytest.mark.parametrize("symbol,z", zip(roentgen.elements["symbol"], roentgen.elements["z"]))
 def test_get_atomic_number_symbol(symbol, z):
     assert util.get_atomic_number(symbol) == z
