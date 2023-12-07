@@ -44,7 +44,7 @@ sphinx-automodapi = "^0.14.1"
 graphviz = "^0.20.1"
 
 [tool.poetry.group.gui.dependencies]
-bokeh = "^3.3.0"
+bokeh = "^3"
 
 [tool.poetry.urls]
 Issues = "https://github.com/ehsteve/roentgen/issues"
