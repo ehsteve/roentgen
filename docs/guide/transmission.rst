@@ -38,6 +38,7 @@ Here is the mass attenuation coefficient data for Silicon.
     plt.xlabel('Energy [' + str(si_matten.energy[0].unit) + ']')
     plt.ylabel('Mass Attenuation Coefficient [' + str(si_matten.data[0].unit) + ']')
     plt.title(si_matten.name)
+    plt.show()
 
 You can get the interpolated value at any other point
 
@@ -60,10 +61,11 @@ You can get the interpolated value at any other point
     plt.ylim(10, 5000)
     plt.yscale('log')
     plt.xscale('log')
-    plt.xlabel('Energy [' + str(si_matten.energy[0].unit) + ']')
-    plt.ylabel('Mass Attenuation Coefficient [' + str(si_matten.data[0].unit) + ']')
+    plt.xlabel(f'Energy [{si_matten.energy[0].unit}]')
+    plt.ylabel(f'Mass Attenuation Coefficient [{si_matten.data[0].unit}]')
     plt.title(si_matten.name)
     plt.legend()
+    plt.show()
 
 Be careful that you interpolate with sufficient resolution to make out complex edges if high accuracy is required.
 
@@ -109,6 +111,7 @@ no transmission) to 1 (complete absorption or complete transmission).
     plt.ylabel('Transmission')
     plt.xlabel('Energy [' + str(energy.unit) + ']')
     plt.title(al.name)
+    plt.show()
 
 
 From the above plot, one can see that the this thickness of Aluminum blocks almost all x-rays below about 7 keV.
@@ -131,6 +134,7 @@ The relationship between transmission and absorption can be seen in the followin
     plt.xlabel('Energy [' + str(energy.unit) + ']')
     plt.title(si.name)
     plt.legend(loc='lower left')
+    plt.show()
 
 
 Besides elements, a number of compounds and mixtures are also available.
@@ -153,6 +157,7 @@ As a simple example, here is the transmission of x-rays through 10 meters of air
     plt.ylabel('Transmission')
     plt.xlabel('Energy [' + str(energy.unit) + ']')
     plt.title(f"{thickness} {air.name}")
+    plt.show()
 
 This plot shows that air, though not a dense material, does block low energy x-rays over long distances.
 For convenience, the function `~roentgen.util.density_ideal_gas` is provided which can calculate the density of a gas given a pressure and temperature.
@@ -197,8 +202,9 @@ Here is a plot of that transmission over energy
 
     plt.plot(energy, optical_path.transmission(energy), label='Transmission')
     plt.ylabel('Efficiency')
-    plt.xlabel('Energy [' + str(energy.unit) + ']')
+    plt.xlabel(f'Energy [{energy.unit}]')
     plt.legend(loc='upper left')
+    plt.show()
 
 
 Frequently, it is useful to consider the response function of a particular detector which includes absorption through materials in front of a detector.
@@ -210,10 +216,10 @@ The following example uses the same optical path as defined above and assumes a 
 .. plot::
     :include-source:
 
+    import numpy as np
     import astropy.units as u
     import matplotlib.pyplot as plt
     from roentgen.absorption import Material, Response, Stack
-    import numpy as np
 
     optical_path = Stack([Material('air', 2 * u.m), Material('mylar', 5 * u.micron), Material('Al', 5 * u.micron)])
     detector = Material('Si', 500 * u.micron)
@@ -221,7 +227,9 @@ The following example uses the same optical path as defined above and assumes a 
     energy = u.Quantity(np.arange(1, 30, 0.2), 'keV')
 
     plt.plot(energy, resp.response(energy))
-    plt.xlabel('Energy [' + str(energy.unit) + ']')
+    plt.xlabel(f'Energy [{energy.unit}]')
     plt.ylabel('Response')
+    plt.show()
+
 
 This plot shows that the peak efficiency for this detector system is less than 50% and lies around 15 keV.
