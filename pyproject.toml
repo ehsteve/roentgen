@@ -1,12 +1,11 @@
 [build-system]
 requires = ["setuptools>=45",
-            "setuptools_scm[toml]>=6.2",
             "wheel"]
 build-backend = 'setuptools.build_meta'
 
 [project]
 name = "roentgen"
-dynamic = ["version"]
+version = ["heroku"]
 description = "A Python package for the quantitative analysis of the interaction of energetic x-rays with matter. This package is named after one of the discoverers of X-rays, Wilhelm Rontgen."
 readme = "README.rst"
 license = {file = "LICENSE.rst"}
@@ -78,9 +77,6 @@ hermes_core = ["roentgen/data/*"]
 
 [tool.setuptools]
 packages = ["roentgen"]
-
-[tool.setuptools_scm]
-write_to = "roentgen/_version.py"
 
 [tool.pytest]
 minversion = 3.0
