@@ -39,3 +39,15 @@ jobs:
         - name: isort
           run: |
             isort roentgen -c
+        - name: pre-commit hooks
+          run: |
+            pre-commit run check-ast --all-files
+            pre-commit run check-case-conflict --all-files
+            pre-commit run trailing-whitespace --all-files
+            pre-commit run check-toml --all-files
+            pre-commit run detect-private-key --all-files
+            pre-commit run end-of-file-fixer --all-files
+            pre-commit run debug-statements --all-files
+            pre-commit run check-added-large-files --all-files
+            pre-commit run mixed-line-ending --all-files
+
