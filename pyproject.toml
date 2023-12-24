@@ -11,9 +11,9 @@ description = "A Python package for the quantitative analysis of the interaction
 readme = "README.rst"
 license = {file = "LICENSE.rst"}
 authors = [
-  {name="Steven Christe", email="steven.d.christe@nasa.gov"}, 
+  {name="Steven Christe", email="steven.d.christe@nasa.gov"},
   {name="Nabil Freij", email="nabobalis@users.noreply.github.com"},
-  {name="Shane Maloney", email="samaloney@users.noreply.github.com"}, 
+  {name="Shane Maloney", email="samaloney@users.noreply.github.com"},
   {name="Dan Ryan", email="DanRyanIrish@users.noreply.github.com"}
   ]
 requires-python = ">=3.10"
@@ -44,21 +44,23 @@ dev = [
   'black>=22.10.0',
   'flake8>=5.0.4',
   'coverage>=6.5.0',
+  'rstcheck',
+  'pre-commit>=3.6.0',
 ]
 
 tests = [
   'pytest>=7.1.3',
   'pytest-astropy>=0.10.0',
   'coverage>=6.5.0',
+  'pytest_doctestplus',
 ]
 
 style = [
-  'pytest>=7.1.3',
-  'pytest-astropy>=0.10.0',
   'isort>=5.10.1',
   'black>=22.10.0',
   'flake8>=5.0.4',
   'coverage>=6.5.0',
+  'pre-commit>=3.6.0'
 ]
 
 docs = [
