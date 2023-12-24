@@ -21,25 +21,27 @@ repos:
   # E902 - IOError
   # F822: undefined name in __all__
   # F823: local variable name referenced before assignment
-  - repo: https://gitlab.com/pycqa/flake8
-    rev: 3.7.9
+  - repo: https://github.com/pycqa/flake8
+    rev: 5.0.4
     hooks:
       - id: flake8
-        args: ['--count', '--select', 'E101,W191,W291,W292,W293,W391,E111,E112,E113,E303,E304,E306,E502,E722,E901,E902,F822,F823']
+        args: ['--count', '--select', 'E501, E203']
 
   - repo: https://github.com/psf/black
-    rev: 21.6b0
+    rev: 23.12.1
     hooks:
       - id: black
 
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v2.4.0
+    rev: v4.5.0
     hooks:
       - id: check-ast
       - id: check-case-conflict
       - id: trailing-whitespace
         exclude: ".*(.fits|.fts|.fit|.txt)$"
-      - id: check-yaml
+      - id: check-toml
+      - id: detect-private-key
+      - id: end-of-file-fixer
       - id: debug-statements
       - id: check-added-large-files
 #      - id: end-of-file-fixer uncommenting this will break the testing of the cookiecutter template
