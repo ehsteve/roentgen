@@ -1,9 +1,10 @@
 import os
+
 import numpy as np
 
 import astropy.units as u
-from astropy.table import QTable
 from astropy.io import ascii
+from astropy.table import QTable
 
 import roentgen
 from roentgen.util import get_atomic_number, get_element_symbol
@@ -22,7 +23,9 @@ emission_lines.rename_column(emission_lines.colnames[0], "energy")
 emission_lines[emission_lines.colnames[0]].unit = u.eV
 emission_lines.add_index(emission_lines.colnames[0])
 emission_lines.add_index(emission_lines.colnames[1])
-emission_lines.add_column([get_element_symbol(int(z)) for z in emission_lines["z"]], name="symbol", index=2)
+emission_lines.add_column(
+    [get_element_symbol(int(z)) for z in emission_lines["z"]], name="symbol", index=2
+)
 emission_lines.meta = {
     "source": "Center for X-ray Optics and Advanced Light Source, X-Ray Data Booklet Table 1-3",
     "publication date": "2009 October",
@@ -98,7 +101,7 @@ def get_edges(element):
     """
     z = get_atomic_number(element)
     if z > 92:
-        raise ValueError(f"No data for elements beyond Uranium, z = 92.")
+        raise ValueError("No data for elements beyond Uranium, z = 92.")
 
     energies = []
     columns = []

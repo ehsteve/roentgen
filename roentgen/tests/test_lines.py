@@ -1,11 +1,11 @@
 import pytest
 
 import astropy.units as u
-from astropy.table import QTable, Table, Row
+from astropy.table import QTable
 
 import roentgen
 import roentgen.lines
-from roentgen.lines import get_lines, get_edges
+from roentgen.lines import get_edges, get_lines
 
 # remove H and He
 all_elements = list(roentgen.elements["symbol"])[2:]
@@ -15,8 +15,7 @@ all_elements = list(roentgen.elements["symbol"])[2:]
 def test_line(element_str):
     """Check that all elements return at least one line"""
     line_list = get_lines(0 * u.keV, 100 * u.keV, element=element_str)
-    # assert isinstance(line_list, Table)
-    assert len(get_lines(0 * u.keV, 100 * u.keV, element=element_str)) > 0
+    assert len(line_list) > 0
 
 
 def test_get_lines():

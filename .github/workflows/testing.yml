@@ -13,28 +13,30 @@ on:
       - main
 jobs:
   build:
-    runs-on: ${{ matrix.platform }}
     strategy:
       fail-fast: false
       matrix:
-        platform: [ubuntu-latest]
-        python-version: [3.10]
-
-steps:
-    - uses: actions/checkout@v2
-    - name: Set up Python ${{ matrix.python-version }}
-      uses: actions/setup-python@v2
-      with:
-        python-version: ${{ matrix.python-version }}
-    - name: Install dependencies
-      run: |
-        pip install pip setuptools wheel --upgrade
-        python -m pip install -e '.[dev]'
-    - name: Run tests
-      run: |
-        pytest --cov=./ --cov-report=xml
-    - name: Upload coverage reports to Codecov with GitHub Action
-      uses: codecov/codecov-action@v3
-      with:
-        file: ./coverage.xml
-        fail_ci_if_error: true
+        platform: ["ubuntu-latest", "macos-latest", "windows-latest"]
+        python-version: ["3.10", "3.11"]
+    defaults:
+      run:
+        shell: bash
+    runs-on: ${{ matrix.platform }}
+    steps:
+        - uses: actions/checkout@v2
+        - name: Set up Python ${{ matrix.python-version }}
+          uses: actions/setup-python@v2
+          with:
+            python-version: ${{ matrix.python-version }}
+        - name: Install dependencies
+          run: |
+            pip install pip setuptools wheel --upgrade
+            python -m pip install -e '.[tests]'
+        - name: Run tests
+          run: |
+            pytest --cov=./ --cov-report=xml
+        - name: Upload coverage reports to Codecov with GitHub Action
+          uses: codecov/codecov-action@v3
+          with:
+            file: ./coverage.xml
+            fail_ci_if_error: true

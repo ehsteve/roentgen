@@ -110,7 +110,7 @@ pip-wheel-metadata/**
 *.c
 
 # Other generated files
-*/version.py
+*/_version.py
 */cython_version.py
 htmlcov
 .coverage

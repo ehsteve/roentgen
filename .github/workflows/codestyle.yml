@@ -15,7 +15,7 @@ jobs:
       fail-fast: false
       matrix:
         platform: ["ubuntu-latest"]
-        python-version: [3.10, 3.11]
+        python-version: ["3.10"]
     defaults:
       run:
         shell: bash
@@ -29,7 +29,7 @@ jobs:
         - name: Install dependencies
           run: |
             pip install pip setuptools wheel --upgrade
-            python -m pip install -e '.[dev]'
+            python -m pip install -e '.[style]'
         - name: Lint with Black
           run: |
             black --check --diff roentgen
