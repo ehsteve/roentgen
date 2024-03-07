@@ -171,7 +171,7 @@ It is also possible to create custom materials using a combination of elements a
 
 The fractions need not be normalized. It will normalize them for you.
 The density will be calculated automatically using the known densities but this is likely not a good assumption so you should provide your own density::
-    
+
     >>> bronze = Material({"Cu": 0.88, "Sn": 0.12}, 1 * u.cm)
     >>> bronze.density
     <Quantity 7746.6 kg / m3>
