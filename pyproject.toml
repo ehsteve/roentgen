@@ -57,7 +57,7 @@ tests = [
 
 style = [
   'isort>=5.10.1',
-  'black>=22.10.0',
+  'black>=24.2.0',
   'flake8>=5.0.4',
   'coverage>=6.5.0',
   'pre-commit>=3.6.0'

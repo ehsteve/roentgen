@@ -3,6 +3,7 @@ Use the ``bokeh serve`` command to run the example by executing:
     bokeh serve --show gui
 in your browser.
 """
+
 from pathlib import Path
 import numpy as np
 
