@@ -69,6 +69,7 @@ docs = [
   'sphinx-automodapi>=0.14.1',
   'graphviz>=0.20.1',
   'rstcheck',
+  'pytest_doctestplus'
 ]
 
 gui = [
