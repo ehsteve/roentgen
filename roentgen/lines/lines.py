@@ -100,8 +100,6 @@ def get_edges(element):
     edge_list : `astropy.table.QTable`
     """
     z = get_atomic_number(element)
-    if z > 92:
-        raise ValueError("No data for elements beyond Uranium, z = 92.")
 
     energies = []
     columns = []
