@@ -10,10 +10,12 @@ from astropy.io import ascii
 from astropy.table import QTable, Table
 
 try:
-    from .version import __version__
+    from roentgen._version import __version__
 except ImportError:
     __version__ = "unknown"
+
 __all__ = []
+
 # roentgen specific configuration
 # load some data files on import
 
