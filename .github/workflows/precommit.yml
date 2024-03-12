@@ -1,0 +1,26 @@
+# This workflow will install Python dependencies and run a few (not all) pre-commit checks
+name: pre-commit
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  pre-commit:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: actions/setup-python@v3
+    - uses: pre-commit/action@v3.0.0
+      with:
+        extra_args: check-ast --all-files
+    - uses: pre-commit/action@v3.0.0
+      with:
+        extra_args: trailing-whitespace --all-files
+    - uses: pre-commit/action@v3.0.0
+      with:
+        extra_args: mixed-line-ending --all-files
+    - uses: pre-commit/action@v3.0.0
+      with:
+        extra_args: debug-statements --all-files

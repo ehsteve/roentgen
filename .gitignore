@@ -110,7 +110,7 @@ pip-wheel-metadata/**
 *.c
 
 # Other generated files
-*/version.py
+*/_version.py
 */cython_version.py
 htmlcov
 .coverage
@@ -118,7 +118,7 @@ MANIFEST
 .ipynb_checkpoints
 
 # Sphinx
-docs/api
+docs/generated
 docs/_build
 
 # Eclipse editor project files

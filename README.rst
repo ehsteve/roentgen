@@ -79,6 +79,7 @@ It is based on `bokeh <https://docs.bokeh.org/en/stable/>`_. To run it locally u
 
    bokeh serve --show <roengten_directory>/gui
 
+An online version of this tool usually working at `https://roentgen-069cf7954bb2.herokuapp.com/gui <https://roentgen-069cf7954bb2.herokuapp.com/gui>`_.
 
 Data Sources
 ============

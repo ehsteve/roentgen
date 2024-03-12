@@ -1,57 +1,89 @@
-[tool.poetry]
+[build-system]
+requires = ["setuptools>=45",
+            "setuptools_scm[toml]>=8.0",
+            "wheel"]
+build-backend = 'setuptools.build_meta'
+
+[project]
 name = "roentgen"
-version = "2.1.0"
+dynamic = ["version"]
 description = "A Python package for the quantitative analysis of the interaction of energetic x-rays with matter. This package is named after one of the discoverers of X-rays, Wilhelm Rontgen."
-authors = ["Steven Christe <ehsteve@users.noreply.github.com>", "Nabil Freij <nabobalis@users.noreply.github.com>", "Shane Maloney <samaloney@users.noreply.github.com>, Dan Ryan <DanRyanIrish@users.noreply.github.com>"]
 readme = "README.rst"
-packages = [{include = "roentgen"}, {include="gui"}]
-license = "Apache-2.0"
-homepage = "https://github.com/ehsteve/roentgen"
-repository = "https://github.com/ehsteve/roentgen"
-documentation = "https://roentgen.readthedocs.io/en/latest/"
-
+license = {file = "licenses/LICENSE.rst"}
+authors = [
+  {name="Steven Christe", email="steven.d.christe@nasa.gov"},
+  {name="Nabil Freij", email="nabobalis@users.noreply.github.com"},
+  {name="Shane Maloney", email="samaloney@users.noreply.github.com"},
+  {name="Dan Ryan", email="DanRyanIrish@users.noreply.github.com"}
+  ]
+requires-python = ">=3.10"
 keywords = ["python", "x-ray", "roentgen"]
-
 classifiers = [
     "Development Status :: 5 - Production/Stable",
     "License :: OSI Approved :: Apache Software License",
     "Operating System :: OS Independent",
     "Programming Language :: Python :: 3 :: Only",
-    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
     "Topic :: Scientific/Engineering :: Astronomy",
     "Topic :: Scientific/Engineering :: Medical Science Apps.",
-    "Topic :: Scientific/Engineering :: Physics"
+    "Topic :: Scientific/Engineering :: Physics",
+    "Intended Audience :: Science/Research",
+    "Natural Language :: English",
+]
+dependencies = [
+  'astropy>=5.1',
+  'scipy>=1.9.1',
+  'numpy>=1.23.3',
 ]
 
-[tool.poetry.dependencies]
-python = "~3.9"    # see https://github.com/python-poetry/poetry/issues/4316
-astropy = "^5.1"
-scipy = "^1.9.1"
-numpy = "^1.23.3"
+[project.optional-dependencies]
+dev = [
+  'pytest>=7.1.3',
+  'pytest-astropy>=0.10.0',
+  'isort>=5.10.1',
+  'black>=22.10.0',
+  'flake8>=5.0.4',
+  'coverage>=6.5.0',
+  'rstcheck',
+  'pre-commit>=3.6.0',
+]
 
-[tool.poetry.group.dev.dependencies]
-pytest = "^7.1.3"
-pytest-astropy = "^0.10.0"
-isort = "^5.10.1"
-black = "^22.10.0"
-flake8 = "^5.0.4"
-coverage = "^6.5.0"
+tests = [
+  'pytest>=7.1.3',
+  'pytest-astropy>=0.10.0',
+  'coverage>=6.5.0',
+  'pytest_doctestplus',
+]
 
-[tool.poetry.group.docs.dependencies]
-matplotlib = "^3.6.0"
-sphinx = "^5.2.3"
-sphinx-automodapi = "^0.14.1"
-graphviz = "^0.20.1"
+style = [
+  'isort>=5.10.1',
+  'black>=24.2.0',
+  'flake8>=5.0.4',
+  'coverage>=6.5.0',
+  'pre-commit>=3.6.0'
+]
 
-[tool.poetry.group.gui.dependencies]
-bokeh = "^2.4.3"
+docs = [
+  'matplotlib>3.6.0',
+  'sphinx>=5.2.3',
+  'sphinx-automodapi>=0.14.1',
+  'graphviz>=0.20.1',
+  'rstcheck',
+  'pytest_doctestplus'
+]
 
-[tool.poetry.urls]
-Issues = "https://github.com/ehsteve/roentgen/issues"
+gui = [
+  'bokeh>=3',
+]
 
-[build-system]
-requires = ["poetry-core"]
-build-backend = "poetry.core.masonry.api"
+[tool.setuptools.package-data]
+hermes_core = ["roentgen/data/*"]
+
+[tool.setuptools]
+packages = ["roentgen"]
+
+[tool.setuptools_scm]
+write_to = "roentgen/_version.py"
 
 [tool.pytest]
 minversion = 3.0
@@ -71,6 +103,20 @@ filterwarnings = [
      "ignore:Distutils was imported before Setuptools"
 ]
 
+[tool.rstcheck]
+report_level = "WARNING"
+ignore_roles = [
+  "py:class",
+  "py:class",
+  "file",
+]
+ignore_directives = [
+    "plot",
+    "doctest",
+    "automodapi",
+    "csv-table",
+]
+ignore_messages = "not referenced"
 
 [tool.isort]
 profile = "black"
