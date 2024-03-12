@@ -9,7 +9,7 @@ name = "roentgen"
 dynamic = ["version"]
 description = "A Python package for the quantitative analysis of the interaction of energetic x-rays with matter. This package is named after one of the discoverers of X-rays, Wilhelm Rontgen."
 readme = "README.rst"
-license = {file = "LICENSE.rst"}
+license = {file = "licenses/LICENSE.rst"}
 authors = [
   {name="Steven Christe", email="steven.d.christe@nasa.gov"},
   {name="Nabil Freij", email="nabobalis@users.noreply.github.com"},
