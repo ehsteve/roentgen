@@ -1,12 +1,25 @@
 Changelog
 =========
+We follow `semantic versioning <https://semver.org>`_ practices so versions increment as
+
+#. MAJOR version when you make incompatible API changes
+#. MINOR version when you add functionality in a backward compatible manner
+#. PATCH version when you make backward compatible bug fixes
+
+Note that PATCH versions releases may not be documented below.
+
+2.2.0 (2024-03-14)
+------------------
+* Fix and improvement to gui
+* General improvements to documentation and examples
+* Removed poetry
+* added pre-commit support and updated testing
 
 2.1.0 (2022-01-07)
 ------------------
 * Improvement to documentation to illustrate custom materials
 * Added tutorial and documentation to illustrate interpolation
 * Going outside of data range (1 keV to 2 MeV) now provides a ValueError instead of failing quietly and filling in zeros for extrapolated values.
-
 
 2.0.1 (2022-10-10)
 ------------------
