@@ -161,3 +161,5 @@ roentgen/version.py
 test.py
 poetry.lock
 coverage.xml
+
+test*
