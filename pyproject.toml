@@ -83,7 +83,6 @@ hermes_core = ["roentgen/data/*"]
 packages = ["roentgen"]
 
 [tool.setuptools_scm]
-write_to = "roentgen/_version.py"
 
 [tool.pytest]
 minversion = 3.0

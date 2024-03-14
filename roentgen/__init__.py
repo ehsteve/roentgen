@@ -4,15 +4,17 @@ A Python package for the quantitative analysis of the interaction of energetic
 photons with matter (x-rays and gamma-rays).
 """
 import os
+from importlib.metadata import version, PackageNotFoundError
 
 import astropy.units as u
 from astropy.io import ascii
 from astropy.table import QTable, Table
 
 try:
-    from roentgen._version import __version__
-except ImportError:
-    __version__ = "unknown"
+    __version__ = version(__name__)
+except PackageNotFoundError:
+    # package is not installed
+    pass
 
 __all__ = []
 
