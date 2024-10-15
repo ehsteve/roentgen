@@ -4,7 +4,7 @@ import astropy.units as u
 from astropy.table import QTable
 
 import roentgen
-from roentgen.lines import get_edges, get_lines, emission_lines
+from roentgen.lines import emission_lines, get_edges, get_lines
 
 # remove H and He
 all_elements = list(roentgen.elements["symbol"])[2:]

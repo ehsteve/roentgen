@@ -4,7 +4,7 @@ A Python package for the quantitative analysis of the interaction of energetic
 photons with matter (x-rays and gamma-rays).
 """
 import os
-from importlib.metadata import version, PackageNotFoundError
+from importlib.metadata import PackageNotFoundError, version
 
 import astropy.units as u
 from astropy.io import ascii
