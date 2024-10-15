@@ -8,6 +8,10 @@ We follow `semantic versioning <https://semver.org>`_ practices so versions incr
 
 Note that PATCH versions releases may not be documented below.
 
+2.3.0 (2024-10-14)
+------------------
+* Added line widths to the emission line list
+
 2.2.0 (2024-03-14)
 ------------------
 * Fix and improvement to gui

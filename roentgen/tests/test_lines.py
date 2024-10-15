@@ -4,11 +4,16 @@ import astropy.units as u
 from astropy.table import QTable
 
 import roentgen
-import roentgen.lines
-from roentgen.lines import get_edges, get_lines
+from roentgen.lines import get_edges, get_lines, emission_lines, binding_energies
 
 # remove H and He
 all_elements = list(roentgen.elements["symbol"])[2:]
+
+
+def test_emission_lines():
+    assert len(emission_lines.colnames) == 6
+    assert isinstance(emission_lines["energy"], u.Quantity)
+    assert isinstance(emission_lines["width"], u.Quantity)
 
 
 @pytest.mark.parametrize("element_str", all_elements)
@@ -25,7 +30,7 @@ def test_get_lines():
 
 def test_get_all_lines():
     """Check that all lines are returned if the range is large enough."""
-    assert len(get_lines(0 * u.keV, 200 * u.keV)) == len(roentgen.lines.emission_lines)
+    assert len(get_lines(0 * u.keV, 200 * u.keV)) == len(emission_lines)
 
 
 @pytest.mark.parametrize(
