@@ -9,7 +9,7 @@ from astropy.table import QTable
 import roentgen
 from roentgen.util import get_atomic_number, get_element_symbol
 
-__all__ = ["get_lines", "get_edges", "emission_lines"]
+__all__ = ["get_lines", "get_edges", "emission_lines", "binding_energies"]
 
 emission_lines = QTable(
     ascii.read(
@@ -19,8 +19,12 @@ emission_lines = QTable(
     )
 )
 # not sure why i need to fix this otherwise it is \ufenergy
+# remove unit from column title to make it shorter
 emission_lines.rename_column(emission_lines.colnames[0], "energy")
 emission_lines[emission_lines.colnames[0]].unit = u.eV
+emission_lines.rename_column(emission_lines.colnames[4], "width")
+emission_lines[emission_lines.colnames[4]].unit = u.eV
+
 emission_lines.add_index(emission_lines.colnames[0])
 emission_lines.add_index(emission_lines.colnames[1])
 emission_lines.add_column(
