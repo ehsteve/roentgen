@@ -31,9 +31,8 @@ jobs:
             python -m pip install -e '.[tests]'
         - name: Run tests
           run: |
-            pytest --cov=./ --cov-report=xml
-        - name: Upload coverage reports to Codecov with GitHub Action
-          uses: codecov/codecov-action@v3
-          with:
-            file: ./coverage.xml
-            fail_ci_if_error: true
+            pytest --pyargs roentgen --cov roentgen
+        - name: Upload coverage to Codecov
+          uses: codecov/codecov-action@v4
+          env:
+            CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
