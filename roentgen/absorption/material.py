@@ -1,5 +1,4 @@
-"""
-"""
+""" """
 
 import os
 
@@ -37,7 +36,7 @@ class Material(object):
     material_str : str or dict
         A string representation of the material which includes an element symbol
         (e.g. Si), an element name (e.g. Silicon), or the name of a compound
-        (e.g. cdte, mylar). For all supported elements see :download:`elements.csv <../../roentgen/data/elements.csv>` and for compounds see :download:`compounds_mixtures.csv <../../roentgen/data/compounds_mixtures.csv>`.
+        (e.g. cdte, mylar). For supported elements see :download:`elements.csv <../../roentgen/data/elements.csv>` and for compounds see :download:`compounds_mixtures.csv <../../roentgen/data/compounds_mixtures.csv>`.
         Can also be a dictionary of element and compounds with fractional masses (ex. {"Cu":0.70, "Zn":0.30})
     thickness : `astropy.units.Quantity`
         The thickness of the material
@@ -46,6 +45,9 @@ class Material(object):
         If not provided, uses default values which can be found in :download:`elements.csv <../../roentgen/data/elements.csv>` for elements or
         in :download:`compounds_mixtures.csv <../../roentgen/data/compounds_mixtures.csv>` for compounds.
         If many materials are present, calculates the weighted density.
+
+    .. warning::
+        Elements beyond z = 92 are not supported by this class.
 
     Attributes
     ----------

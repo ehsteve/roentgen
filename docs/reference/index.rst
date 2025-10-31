@@ -6,4 +6,5 @@ Reference
 
     material*
     lines*
+    nuclides*
     util*

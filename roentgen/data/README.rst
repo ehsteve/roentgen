@@ -20,6 +20,8 @@ More specifically, elements are from `here <https://physics.nist.gov/PhysRefData
 elements.csv
 ------------
 Source: `https://physics.nist.gov/PhysRefData/XrayMassCoef/tab1.html <https://physics.nist.gov/PhysRefData/XrayMassCoef/tab1.html>`__
+supplemented for elements z>92 by wikipedia (zovera), `NIST Atomic Spectra Database <https://physics.nist.gov/PhysRefData/ASD/ionEnergy.html>`_ (ionization energy), and
+`NIST ASTAR Material composition <https://physics.nist.gov/cgi-bin/Star/compos.pl?ap-text>`_ (mean excitation energy, density)
 Provides translation between atomic number, element names, and element symbols.
 Energy ranges from 1 keV to 20 MeV.
 
@@ -55,3 +57,8 @@ electron_binding_energies.csv
 -----------------------------
 Source `CXRO X-ray data Booklet Table 1-1 <https://xdb.lbl.gov/Section1/Table_1-1.pdf>`_
 energies in eV
+
+lara
+----
+Source `Laboratoire Nationale Henri Becquerel Library for gamma and alpha emissions <http://www.lnhb.fr/accueil/donnees-nucleaires/module-lara/>`_
+Provides emission data for the most common radionuclides or radiation sources frequently used for laboratory testing and calibration.

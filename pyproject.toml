@@ -1,7 +1,5 @@
 [build-system]
-requires = ["setuptools>=45",
-            "setuptools_scm[toml]>=8.0",
-            "wheel"]
+requires = ["setuptools>=45", "setuptools_scm[toml]>=6.2", "wheel"]
 build-backend = 'setuptools.build_meta'
 
 [project]
@@ -77,30 +75,20 @@ gui = [
 ]
 
 [tool.setuptools.package-data]
-hermes_core = ["roentgen/data/*"]
+"roentgen.data" = ["**"]
 
 [tool.setuptools]
 packages = ["roentgen"]
 
 [tool.setuptools_scm]
+write_to = "roentgen/_version.py"
 
-[tool.pytest]
-minversion = 3.0
-testpaths = ["roentgen", "docs"]
-norecursedirs = ["build", "docs/_build", "docs/generated", "*.egg-info", "examples"]
+[tool.pytest.ini_options]
+testpaths = ["padre_meddea/tests", "docs"]
 doctest_plus = "enabled"
+norecursedirs = ["_build"]
 text_file_format = "rst"
-addopts = "--doctest-modules"
-astropy_header = true
-filterwarnings = [
-     # This is due to dependencies building with a numpy version different from
-     # the local installed numpy version, but should be fine
-     # See https://github.com/numpy/numpy/issues/15748#issuecomment-598584838
-     "ignore:numpy.ufunc size changed:RuntimeWarning",
-     "ignore:numpy.ndarray size changed:RuntimeWarning",
-     # See https://github.com/astropy/extension-helpers/issues/23
-     "ignore:Distutils was imported before Setuptools"
-]
+addopts = "--doctest-rst --doctest-plus --doctest-report ndiff"
 
 [tool.rstcheck]
 report_level = "WARNING"

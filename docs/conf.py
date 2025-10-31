@@ -5,12 +5,18 @@
 # This file does only contain a selection of the most common options. For a
 # full list see the documentation:
 # http://www.sphinx-doc.org/en/master/config
+import os
+import sys
+from datetime import datetime
 
+sys.path.insert(0, os.path.abspath(".."))
+
+now = datetime.now()
 
 # -- Project information -----------------------------------------------------
 
 project = "roentgen"
-copyright = "2023, Public Domain"
+copyright = f"US Government (not copyrighted) 2023-{now.year}"
 author = "Steven D. Christe, Nabil Freij, Shane Maloney, Daniel Ryan"
 
 # The full version, including alpha/beta/rc tags

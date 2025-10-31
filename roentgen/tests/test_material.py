@@ -7,7 +7,8 @@ import roentgen
 from roentgen.absorption.material import MassAttenuationCoefficient, Material
 from roentgen.util import get_material_density, is_an_element
 
-all_materials = list(roentgen.elements["symbol"]) + list(roentgen.compounds["symbol"])
+# elements beyond z = 93 have no mass absorption data
+all_materials = list(roentgen.elements["symbol"])[:-6] + list(roentgen.compounds["symbol"])
 energy_array = u.Quantity(np.arange(1, 100, 1), "keV")
 
 

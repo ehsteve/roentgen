@@ -6,8 +6,8 @@ from astropy.table import QTable
 import roentgen
 from roentgen.lines import emission_lines, get_edges, get_lines
 
-# remove H and He
-all_elements = list(roentgen.elements["symbol"])[2:]
+# remove H and He and z > 92
+all_elements = list(roentgen.elements["symbol"])[2:-6]
 
 
 def test_emission_lines():

@@ -81,6 +81,10 @@ For example, a 500 micron thick layer of Aluminum can be created like so::
 An optional density can also be provided.
 A default density is assumed if none is provided.
 Default values can be found in :download:`elements.csv <../../roentgen/data/elements.csv>` for elements or in :download:`compounds_mixtures.csv <../../roentgen/data/compounds_mixtures.csv>` for compounds.
+
+.. warning::
+    Elements beyond z = 92 are not supported by this module.
+
 To inspect the density::
 
     al.density

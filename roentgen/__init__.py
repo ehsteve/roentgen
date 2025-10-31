@@ -3,18 +3,19 @@
 A Python package for the quantitative analysis of the interaction of energetic
 photons with matter (x-rays and gamma-rays).
 """
+
 import os
-from importlib.metadata import PackageNotFoundError, version
 
 import astropy.units as u
 from astropy.io import ascii
 from astropy.table import QTable, Table
 
 try:
-    __version__ = version(__name__)
-except PackageNotFoundError:
-    # package is not installed
-    pass
+    from ._version import version as __version__
+    from ._version import version_tuple
+except ImportError:
+    __version__ = "unknown version"
+    version_tuple = (0, 0, "unknown version")
 
 __all__ = []
 
@@ -32,6 +33,7 @@ elements["i"].unit = u.eV
 elements["ionization energy"].unit = u.eV
 elements["atomic mass"] = elements["z"] / elements["zovera"] * u.u
 elements.add_index("z")
+elements.add_index("symbol")
 
 compounds_file = os.path.join(_data_directory, "compounds_mixtures.csv")
 compounds = QTable(ascii.read(compounds_file, format="csv", fast_reader=False))
