@@ -1,20 +1,20 @@
-Nucléide ; Ce-139 
-Élément ; Cérium
+Nuclide ; Ce-139 
+Element ; Cerium
 Z ; 58
-Fils ; (EC) ; La-139 ; 100
+Daughter(s) ; (EC) ; La-139 ; 100
 Q+ ; 270
-Période (d) ; 137,641 ; 0,020
-Période (s) ; 11,8922E6 ; 0,0017E6
-Constante radioactive (1/s) ; 58,286E-9 ; 0,008E-9
-Activité spécifique (Bq/g) ; 252,523E12 ; 0,037E12
-Référence ; CEA/LNE-LNHB, INEEL - 2008
-Émissions (6 raies) triées par énergie croissante
+Half-life (d) ; 137.641 ; 0.020
+Half-life (s) ; 11.8922E6 ; 0.0017E6
+Decay constant (1/s) ; 58.286E-9 ; 0.008E-9
+Specific activity (Bq/g) ; 252.523E12 ; 0.037E12
+Reference ; CEA/LNE-LNHB, INEEL - 2008
+Emissions (6 lines) sorted by increasing energy
 ------------------------------------------------------------------------------------------------------------------
-Énergie (keV) ; Éner. inc. (keV) ; Intensité (%) ; Int. inc. (%) ; Type ; Origine ; Niv. déb. ; Niv. fin
-5,0945 ;  ; 12,19 ; 0,18 ; XL ; La ;  ;  ; 
-33,0344 ;  ; 22,80 ; 0,24 ; XKa2 ; La ;  ;  ; 
-33,4421 ;  ; 41,9 ; 0,4 ; XKa1 ; La ;  ;  ; 
-37,8687 ;  ; 12,47 ; 0,18 ; XK'b1 ; La ;  ;  ; 
-38,8228 ;  ; 3,16 ; 0,08 ; XK'b2 ; La ;  ;  ; 
-165,8575 ; 0,0011 ; 79,90 ; 0,04 ; g ; La-139 ; 1 ; 0 ; 
+Energy (keV) ; Ener. unc. (keV) ; Intensity (%) ; Int. unc. (%) ; Type ; Origin ; Lvl. start ; Lvl. end
+5.0945 ;  ; 12.19 ; 0.18 ; XL ; La ;  ;  ; 
+33.0344 ;  ; 22.80 ; 0.24 ; XKa2 ; La ;  ;  ; 
+33.4421 ;  ; 41.9 ; 0.4 ; XKa1 ; La ;  ;  ; 
+37.8687 ;  ; 12.47 ; 0.18 ; XK'b1 ; La ;  ;  ; 
+38.8228 ;  ; 3.16 ; 0.08 ; XK'b2 ; La ;  ;  ; 
+165.8575 ; 0.0011 ; 79.90 ; 0.04 ; g ; La-139 ; 1 ; 0 ; 
 ==================================================================================================================

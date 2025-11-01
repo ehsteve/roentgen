@@ -1,21 +1,21 @@
-Nucléide ; Nb-92 
-Élément ; Niobium
+Nuclide ; Nb-92 
+Element ; Niobium
 Z ; 41
-Fils ; (EC) ; Zr-92 ; 100
-Q+ ; 2005,6
-Période (a) ; 35E6 ; 3E6
-Période (s) ; 1,10E15 ; 0,09E15
-Constante radioactive (1/s) ; 628E-18 ; 54E-18
-Activité spécifique (Bq/g) ; 4,11E6 ; 0,35E6
-Référence ; CEA/LNE-LNHB - 1999
-Émissions (7 raies) triées par énergie croissante
+Daughter(s) ; (EC) ; Zr-92 ; 100
+Q+ ; 2005.6
+Half-life (a) ; 35E6 ; 3E6
+Half-life (s) ; 1.10E15 ; 0.09E15
+Decay constant (1/s) ; 628E-18 ; 54E-18
+Specific activity (Bq/g) ; 4.11E6 ; 0.35E6
+Reference ; CEA/LNE-LNHB - 1999
+Emissions (7 lines) sorted by increasing energy
 ------------------------------------------------------------------------------------------------------------------
-Énergie (keV) ; Éner. inc. (keV) ; Intensité (%) ; Int. inc. (%) ; Type ; Origine ; Niv. déb. ; Niv. fin
-2,15 ;  ; 2,8 ; 1,0 ; XL ; Zr ;  ;  ; 
-15,691 ;  ; 18,28 ; 0,07 ; XKa2 ; Zr ;  ;  ; 
-15,7752 ;  ; 35,14 ; 0,12 ; XKa1 ; Zr ;  ;  ; 
-17,7127 ;  ; 8,9 ; 0,1 ; XK'b1 ; Zr ;  ;  ; 
-17,982 ;  ; 1,30 ; 0,02 ; XK'b2 ; Zr ;  ;  ; 
-561,1 ; 0,1 ; 99,7 ; 0,1 ; g ; Zr-92 ; -1 ; 0 ; 
-934,5 ; 0,1 ; 99,9 ; 0,1 ; g ; Zr-92 ; -1 ; 1 ; 
+Energy (keV) ; Ener. unc. (keV) ; Intensity (%) ; Int. unc. (%) ; Type ; Origin ; Lvl. start ; Lvl. end
+2.15 ;  ; 2.8 ; 1.0 ; XL ; Zr ;  ;  ; 
+15.691 ;  ; 18.28 ; 0.07 ; XKa2 ; Zr ;  ;  ; 
+15.7752 ;  ; 35.14 ; 0.12 ; XKa1 ; Zr ;  ;  ; 
+17.7127 ;  ; 8.9 ; 0.1 ; XK'b1 ; Zr ;  ;  ; 
+17.982 ;  ; 1.30 ; 0.02 ; XK'b2 ; Zr ;  ;  ; 
+561.1 ; 0.1 ; 99.7 ; 0.1 ; g ; Zr-92 ; -1 ; 0 ; 
+934.5 ; 0.1 ; 99.9 ; 0.1 ; g ; Zr-92 ; -1 ; 1 ; 
 ==================================================================================================================
