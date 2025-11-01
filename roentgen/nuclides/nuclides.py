@@ -64,9 +64,13 @@ class Nuclide(object):
     def __init__(self, element: str, mass_number: int):
         filename = get_lara_file(element, mass_number)
         self._line_tables = read_lara_tables(filename)
-        self.lines = vstack(self._line_tables)
+        if len(self._line_tables) > 1:
+            self.lines = vstack(self._line_tables)
+            self.lines.sort("energy")
+        else:
+            self.lines = self._line_tables
         self.meta = read_lara_header(filename)
-        self.lines.sort("energy")
+
         self.name = self.meta["Nuclide"]
         self.element = self.meta["Element"]
         self.half_life = self.meta["Half-life (s)"]
@@ -137,7 +141,13 @@ def read_lara_tables(file_path: str | Path) -> list:
         for this_line in lines[this_index + skip_num :]:
             tokens = this_line.split(";")
             if len(tokens) > 1:
-                energy.append(float(tokens[0]))
+                # check to see if an energy range is provided
+                if tokens[0].count("-") == 1:
+                    energy1, energy2 = tokens[0].split(" - ")
+                    # find average energy
+                    energy.append(0.5 * (float(energy1) + float(energy2)))
+                else:
+                    energy.append(float(tokens[0]))
                 intensity.append(float(tokens[2]))
                 origin.append(tokens[5])
             else:
@@ -148,6 +158,7 @@ def read_lara_tables(file_path: str | Path) -> list:
         this_table["origin"] = np.array(origin, dtype="<U7")
         this_table["parent"] = np.array([parent] * len(origin), dtype="<U7")
         this_table.add_index("origin")
+        this_table.sort("energy")
         result.append(this_table)
     return result
 
