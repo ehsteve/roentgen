@@ -1,0 +1,13 @@
+Nuclide ; Cs-136 
+Element ; Cesium
+Z ; 55
+Daughter(s) ; (B-) ; Ba-136 ; 100
+Q- ; 2548.2
+Half-life (d) ; 13.16 ; 0.03
+Half-life (s) ; 1.1370E6 ; 0.0026E6
+Decay constant (1/s) ; 609.6E-9 ; 1.4E-9
+Specific activity (Bq/g) ; 2.699E15 ; 0.006E15
+Reference ; NDS 71 & 95 - 2002
+Coincidence threshold ; 10%
+No selected emissions
+==========================================================================================================================================

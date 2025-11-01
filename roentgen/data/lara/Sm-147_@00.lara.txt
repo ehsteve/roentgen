@@ -1,0 +1,16 @@
+Nuclide ; Sm-147 
+Element ; Samarium
+Z ; 62
+Daughter(s) ; (alpha) ; Nd-143 ; 100
+Qalpha ; 2311.2
+Possible parent(s) ; (B-) ; Pm-147 ; 100
+Half-life (a) ; 107.9E9 ; 1.2E9
+Half-life (s) ; 3.405E18 ; 0.038E18
+Decay constant (1/s) ; 203.6E-21 ; 2.3E-21
+Specific activity (Bq/g) ; 834 ; 9
+Reference ; CEA/LNE-LNHB - 2013
+Emissions (1 line) sorted by increasing energy
+------------------------------------------------------------------------------------------------------------------
+Energy (keV) ; Ener. unc. (keV) ; Intensity (%) ; Int. unc. (%) ; Type ; Origin ; Lvl. start ; Lvl. end
+2248 ; 1 ; 100 ;  ; a ; Sm-147 ; 0 ; 0 ; 
+==================================================================================================================

@@ -1,0 +1,15 @@
+Nuclide ; Cl-36 
+Element ; Chlorine
+Z ; 17
+Daughter(s) ; (B+, EC) ; S-36 ; 1.9 ; (B-) ; Ar-36 ; 98.1
+Q+ ; 1142.14 ; Q- ; 709.55
+Half-life (a) ; 302E3 ; 4E3
+Half-life (s) ; 9.53E12 ; 0.13E12
+Decay constant (1/s) ; 72.7E-15 ; 1.0E-15
+Specific activity (Bq/g) ; 1.217E9 ; 0.016E9
+Reference ; CEA/LNE-LNHB, KRI - 2012
+Gamma and alpha emissions (1 line) sorted by decreasing intensity
+------------------------------------------------------------------------------------------------------------------
+Energy (keV) ; Ener. unc. (keV) ; Intensity (%) ; Int. unc. (%) ; Type ; Origin ; Lvl. start ; Lvl. end
+511 ;  ; 0.0031 ; 0.0006 ; g511 ; S-36 ; -1 ; -1 ; 
+==================================================================================================================

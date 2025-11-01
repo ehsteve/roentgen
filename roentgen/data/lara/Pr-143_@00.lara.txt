@@ -1,0 +1,16 @@
+Nuclide ; Pr-143 
+Element ; Praseodymium
+Z ; 59
+Daughter(s) ; (B-) ; Nd-143 ; 100
+Q- ; 933.9
+Possible parent(s) ; (B-) ; Ce-143 ; 100
+Half-life (d) ; 13.57 ; 0.02
+Half-life (s) ; 1.1724E6 ; 0.0017E6
+Decay constant (1/s) ; 591.2E-9 ; 0.9E-9
+Specific activity (Bq/g) ; 2.4897E15 ; 0.0037E15
+Reference ; CEA/LNE-LNHB - 1998
+Emissions (1 line) sorted by increasing energy
+------------------------------------------------------------------------------------------------------------------
+Energy (keV) ; Ener. unc. (keV) ; Intensity (%) ; Int. unc. (%) ; Type ; Origin ; Lvl. start ; Lvl. end
+742.1 ; 0.1 ; 0.0000012 ;  ; g ; Nd-143 ; 1 ; 0 ; 
+==================================================================================================================

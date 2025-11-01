@@ -1,0 +1,13 @@
+Nuclide ; Cs-135 
+Element ; Cesium
+Z ; 55
+Daughter(s) ; (B-) ; Ba-135 ; 100
+Q- ; 268.9
+Possible parent(s) ; (B-) ; Xe-135 ; 100 ; (B-) ; Xe-135m ; 0.004
+Half-life (a) ; 2.3E6 ; 0.3E6
+Half-life (s) ; 73E12 ; 9E12
+Decay constant (1/s) ; 9.5E-15 ; 1.2E-15
+Specific activity (Bq/g) ; 43E6 ; 6E6
+Reference ; CEA/LNE-LNHB - 2013
+No emissions
+==================================================================================================================

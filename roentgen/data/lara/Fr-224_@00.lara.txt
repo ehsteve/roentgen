@@ -1,0 +1,13 @@
+Nuclide ; Fr-224 
+Element ; Francium
+Z ; 87
+Daughter(s) ; (B-) ; Ra-224 ; 100
+Q- ; 2923
+Possible parent(s) ; (alpha) ; Ac-228 ; 0.0000055
+Half-life (min) ; 3.33 ; 0.10
+Half-life (s) ; 200 ; 6
+Decay constant (1/s) ; 3.47E-3 ; 0.10E-3
+Specific activity (Bq/g) ; 9.33E18 ; 0.28E18
+Reference ; NDS (part. eval.)
+No emissions
+==================================================================================================================

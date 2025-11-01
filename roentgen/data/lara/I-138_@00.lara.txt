@@ -1,0 +1,16 @@
+Nuclide ; I-138 
+Element ; Iodine
+Z ; 53
+Daughter(s) ; (B-) ; Xe-138 ; 100
+Q- ; 7992
+Half-life (s) ; 6.49 ; 0.07
+Decay constant (1/s) ; 106.8E-3 ; 1.2E-3
+Specific activity (Bq/g) ; 466E18 ; 5E18
+Reference ; NDS 69 - 1999
+Energy threshold ; 0.05 keV
+Intensity threshold ; 2%
+X emissions (1 line out of 10) sorted by nuclide and by increasing energy
+------------------------------------------------------ I-138 -----------------------------------------------------
+Energy (keV) ; Ener. unc. (keV) ; Intensity (%) ; Int. unc. (%) ; Type ; Origin ; Lvl. start ; Lvl. end ; Parent
+4.674 ;  ; 5.9 ; 1.7 ; XL ; Cs ;  ;  ; Xe-138
+==================================================================================================================

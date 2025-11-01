@@ -1,0 +1,24 @@
+Nuclide ; Hg-197 
+Element ; Mercury
+Z ; 80
+Daughter(s) ; (EC) ; Au-197 ; 100
+Q+ ; 600
+Possible parent(s) ; (I.T.) ; Hg-197m ; 93
+Half-life (d) ; 2.671 ; 0.008
+Half-life (s) ; 230.8E3 ; 0.7E3
+Decay constant (1/s) ; 3.004E-6 ; 0.009E-6
+Specific activity (Bq/g) ; 9.182E15 ; 0.028E15
+Reference ; CEA/LNE-LNHB - 1998
+Coincidence threshold ; 10%
+X and gamma emissions (8 lines) sorted by increasing energy
+------------------------------------------------------------------------------------------------------------------------------------------
+Energy (keV) ; Ener. unc. (keV) ; Intensity (%) ; Int. unc. (%) ; Type ; Origin ; Lvl. start ; Lvl. end ; Possible coinc./Sum of
+11.422 ;  ; 51 ; 8 ; XL ; Au ;  ;  ;  ; 
+66.9904 ;  ; 20.8 ; 1.0 ; XKa2 ; Au ;  ;  ;  ; 
+68.8046 ;  ; 35.5 ; 1.5 ; XKa1 ; Au ;  ;  ;  ; 
+77.352 ; 0.002 ; 18.8 ; 0.3 ; g ; Au-197 ; 1 ; 0 ;  ; 
+78.1332 ;  ; 12.3 ; 0.6 ; XK'b1 ; Au ;  ;  ;  ; 
+80.3757 ;  ; 3.3 ; 0.2 ; XK'b2 ; Au ;  ;  ;  ; 
+191.364 ; 0.015 ; 0.58 ; 0.14 ; g ; Au-197 ; 2 ; 1 ;  ; 
+268.71 ; 0.03 ; 0.04 ; 0.02 ; g ; Au-197 ; 2 ; 0 ;  ; 
+==========================================================================================================================================
