@@ -23,7 +23,7 @@ nuclides_list = QTable(
 )
 nuclides_list["half_life"] = nuclides_list["half_life[year]"]
 nuclides_list.remove_column("half_life[year]")
-nuclides_list["half_life"].unit = u.year
+nuclides_list["half_life"].unit = u.yr
 
 nuclides_list.add_index("symbol")
 nuclides_list.add_index("mass_number")
@@ -57,7 +57,7 @@ class Nuclide(object):
 
     Examples
     --------
-    >>> from roentgen.nuclides.nuclides import Nuclide
+    >>> from roentgen.nuclides import Nuclide
     >>> import astropy.units as u
     >>> fe55 = Nuclide('fe', 55)
     >>> fe55.get_lines(1 * u.keV, 10 * u.keV)
@@ -72,7 +72,12 @@ class Nuclide(object):
     """
 
     def __init__(self, element: str, mass_number: int):
-        filename = get_lara_file(element.capitalize(), mass_number)
+        try:
+            filename = get_lara_file(element.capitalize(), mass_number)
+        except KeyError:
+            raise KeyError(
+                f"No match for mass_number {mass_number} for {element}. Valid mass numbers are {get_nuclide_mass_numbers(element)}"
+            )
         self._line_tables = read_lara_tables(filename)
         if len(self._line_tables) > 1:
             self.lines = vstack(self._line_tables)
@@ -84,10 +89,11 @@ class Nuclide(object):
                 data={"energy": None, "intensity": None, "origin": None, "parent": None}
             )
         self.meta = read_lara_header(filename)
-
         self.name = self.meta["Nuclide"]
         self.element = self.meta["Element"]
-        self.half_life = self.meta["Half-life (s)"].to("year")
+        self.half_life = self.meta["Half-life (s)"].to("yr")
+        self.mass_number = mass_number
+        self.data_sheet = f"http://www.lnhb.fr/nuclides/{self.name}_tables.pdf"
 
     def __str__(self):
         return f"{self._text_summary()}{self.lines.__repr__()}"
@@ -97,9 +103,7 @@ class Nuclide(object):
 
     def _text_summary(self):
         num_lines = len(self.lines)
-        result = (
-            f"Nuclide: {self.name}, half life={self.half_life.to('year')} - ({num_lines:,} lines)\n"
-        )
+        result = f"Nuclide: {self.name}, ({self.element}) half life={self.half_life.to('year')} - ({num_lines:,} lines)\n"
         if len(self._line_tables) == 1:
             decay_chain = f"{self.name}->{self._line_tables[0]['origin'][-1].lstrip()}"
         else:

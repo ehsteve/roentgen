@@ -114,6 +114,7 @@ pip-wheel-metadata/**
 */cython_version.py
 htmlcov
 .coverage
+.coverage*
 MANIFEST
 .ipynb_checkpoints
 
