@@ -6,23 +6,25 @@ import numpy as np
 
 from astropy.table import QTable, Table, vstack
 import astropy.units as u
+from astropy.io import ascii
 
 import roentgen
-from roentgen import elements
 
-__all__ = ["Nuclide"]
+__all__ = ["Nuclide", "get_nuclide_mass_numbers"]
 
 _lara_directory = Path(roentgen._data_directory) / "lara"
-_lara_files = list(_lara_directory.glob("*.txt"))
 
-nuclides_list = Table(data={"filename": [this_file.name for this_file in _lara_files]})
-nuclides_list["symbol"] = [this_row["filename"].split("-")[0] for this_row in nuclides_list]
-nuclides_list["mass_number"] = [
-    int(this_row["filename"].split("-")[1].split("_")[0]) for this_row in nuclides_list
-]
-nuclides_list["name"] = [
-    elements.loc["symbol", this_row["symbol"]]["name"] for this_row in nuclides_list
-]
+nuclides_list = QTable(
+    ascii.read(
+        Path(roentgen._data_directory) / "nuclides_list.csv",
+        format="csv",
+        fast_reader=False,
+    )
+)
+nuclides_list["half_life"] = nuclides_list["half_life[year]"]
+nuclides_list.remove_column("half_life[year]")
+nuclides_list["half_life"].unit = u.year
+
 nuclides_list.add_index("symbol")
 nuclides_list.add_index("mass_number")
 
@@ -35,7 +37,7 @@ class Nuclide(object):
     material_str : str
         A string representation of the material which includes an element symbol
         (e.g. Si), an element name (e.g. Silicon).
-        For all supported radionuclides see :download:`lara <../../roentgen/data/lara/>`.
+        For all supported radionuclides see :download:`lara <../../roentgen/data/nuclides_list.csv/>`.
     mass_number : int
         The mass number of the radionuclide (e.g. 55 for Fe-55)
 
@@ -55,25 +57,37 @@ class Nuclide(object):
 
     Examples
     --------
-    >>> from roentgen.nuclides.material import Nuclide
+    >>> from roentgen.nuclides.nuclides import Nuclide
     >>> import astropy.units as u
     >>> fe55 = Nuclide('fe', 55)
-    >>> fe55.get_lines(1 * u.kev, 10 * u.keV)
+    >>> fe55.get_lines(1 * u.keV, 10 * u.keV)
+    <QTable length=3>
+    energy intensity origin parent
+     keV
+    float64  float64   str7   str7
+    ------- --------- ------ ------
+    5.88772       8.4    Mn   Fe-55
+    5.89881     16.48    Mn   Fe-55
+    6.513        3.38    Mn   Fe-55
     """
 
     def __init__(self, element: str, mass_number: int):
-        filename = get_lara_file(element, mass_number)
+        filename = get_lara_file(element.capitalize(), mass_number)
         self._line_tables = read_lara_tables(filename)
         if len(self._line_tables) > 1:
             self.lines = vstack(self._line_tables)
             self.lines.sort("energy")
+        elif len(self._line_tables) == 1:
+            self.lines = self._line_tables[0]
         else:
-            self.lines = self._line_tables
+            self.lines = QTable(
+                data={"energy": None, "intensity": None, "origin": None, "parent": None}
+            )
         self.meta = read_lara_header(filename)
 
         self.name = self.meta["Nuclide"]
         self.element = self.meta["Element"]
-        self.half_life = self.meta["Half-life (s)"]
+        self.half_life = self.meta["Half-life (s)"].to("year")
 
     def __str__(self):
         return f"{self._text_summary()}{self.lines.__repr__()}"
@@ -83,7 +97,9 @@ class Nuclide(object):
 
     def _text_summary(self):
         num_lines = len(self.lines)
-        result = f"Nuclide {self.name}, half_life={self.half_life} - ({num_lines:,} lines)\n"
+        result = (
+            f"Nuclide: {self.name}, half life={self.half_life.to('year')} - ({num_lines:,} lines)\n"
+        )
         if len(self._line_tables) == 1:
             decay_chain = f"{self.name}->{self._line_tables[0]['origin'][-1].lstrip()}"
         else:
@@ -91,7 +107,12 @@ class Nuclide(object):
         result += f"Decay chain: {decay_chain}\n"
         return result
 
-    def get_lines(self, energy_low, energy_high, min_intensity: float = 0.0):
+    def get_lines(
+        self,
+        energy_low: u.Quantity[u.keV],
+        energy_high: u.Quantity[u.keV],
+        min_intensity: float = 0.0,
+    ) -> QTable:
         """Returns a list of all emission lines in the energy range."""
         bool_array = (self.lines["energy"] < energy_high) * (self.lines["energy"] > energy_low)
         if min_intensity > 0:
@@ -99,7 +120,30 @@ class Nuclide(object):
         return self.lines[bool_array]
 
 
-def get_lara_file(element: str, mass_number: int):
+def get_nuclide_mass_numbers(element: str) -> list:
+    """Return all available nuclide mass numbers for a given element."""
+    bool_array = nuclides_list["symbol"] == element
+    if sum(bool_array) > 0:
+        mass_numbers = nuclides_list["mass_number"][bool_array].data
+        return mass_numbers
+    else:
+        raise ValueError(f"No nuclide data found for element {element}")
+
+
+def get_lara_file(element: str, mass_number: int) -> Path:
+    """Return path to the specified lara data file.
+
+    Parameters
+    ----------
+    element : str
+        The element or symbol name for the nuclide
+    mass_number : int
+        The mass number of the nuclide
+
+    Returns
+    -------
+    file_path : Path
+    """
     these_nuclides = nuclides_list.loc["symbol", element]
     if isinstance(these_nuclides, Table):  # multiple isotopes exist
         this_nuclide = these_nuclides.loc["mass_number", mass_number]
@@ -124,41 +168,46 @@ def read_lara_tables(file_path: str | Path) -> list:
         if this_line.count("---------") > 1:
             table_line_index.append(i)
     result = []
-    for j, this_index in enumerate(table_line_index):
-        this_table = QTable()
-        energy = []
-        intensity = []
-        origin = []
-        # get the parent nuclide, may be self
-        table_separator = lines[this_index]
-        if table_separator.count(" "):
-            parent = table_separator.split(" ")[1]
-        else:
-            parent = file_path.name.split("_")[0]
-        skip_num = 2  # first table has the header line
-        if j > 0:
-            skip_num = 1
-        for this_line in lines[this_index + skip_num :]:
-            tokens = this_line.split(";")
-            if len(tokens) > 1:
-                # check to see if an energy range is provided
-                if tokens[0].count("-") == 1:
-                    energy1, energy2 = tokens[0].split(" - ")
-                    # find average energy
-                    energy.append(0.5 * (float(energy1) + float(energy2)))
-                else:
-                    energy.append(float(tokens[0]))
-                intensity.append(float(tokens[2]))
-                origin.append(tokens[5])
+    if len(table_line_index) > 0:
+        for j, this_index in enumerate(table_line_index):
+            this_table = QTable()
+            energy = []
+            intensity = []
+            origin = []
+            # get the parent nuclide, may be self
+            table_separator = lines[this_index]
+            if table_separator.count(" "):
+                parent = table_separator.split(" ")[1]
             else:
-                break
-        energy = u.Quantity(energy, "keV")
-        this_table["energy"] = energy
-        this_table["intensity"] = intensity
-        this_table["origin"] = np.array(origin, dtype="<U7")
-        this_table["parent"] = np.array([parent] * len(origin), dtype="<U7")
-        this_table.add_index("origin")
-        this_table.sort("energy")
+                parent = file_path.name.split("_")[0]
+            skip_num = 2  # first table has the header line
+            if j > 0:
+                skip_num = 1
+            for this_line in lines[this_index + skip_num :]:
+                tokens = this_line.split(";")
+                if len(tokens) > 1:
+                    # check to see if an energy range is provided
+                    if tokens[0].count("-") == 1:
+                        energy1, energy2 = tokens[0].split(" - ")
+                        # find average energy
+                        energy.append(0.5 * (float(energy1) + float(energy2)))
+                    else:
+                        energy.append(float(tokens[0]))
+                    intensity.append(float(tokens[2]))
+                    origin.append(tokens[5])
+                else:
+                    break
+            energy = u.Quantity(energy, "keV")
+            this_table["energy"] = energy
+            this_table["intensity"] = intensity
+            this_table["origin"] = np.array(origin, dtype="<U7")
+            this_table["parent"] = np.array([parent] * len(origin), dtype="<U7")
+            this_table.add_index("origin")
+            this_table.sort("energy")
+            result.append(this_table)
+    else:
+        # generate an empty table
+        this_table = QTable()
         result.append(this_table)
     return result
 
@@ -188,7 +237,6 @@ def read_lara_header(file_path: str | Path) -> dict:
             elif key.count("Half-life (a)"):
                 value = value * u.year
             elif key.count("Half-life (s)"):
-                print(value)
                 value = value * u.s
             elif key.count("Decay"):
                 value = value / u.s
