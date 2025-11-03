@@ -50,7 +50,7 @@ test = ['pytest', 'pytest-astropy', 'pytest-cov', 'coverage[toml]', 'pytest_doct
 
 style = ['ruff']
 
-docs = ['sphinx', 'sphinx-automodapi', 'matplotlib', 'sphinx-copybutton', 'pydata-sphinx-theme', 'graphviz', 'rstcheck']
+docs = ['sphinx', 'sphinx-automodapi', 'matplotlib', 'sphinx-copybutton', 'pydata-sphinx-theme', 'graphviz', 'rstcheck', 'pytest-doctestplus']
 
 gui = [
   'bokeh>=3',
