@@ -37,7 +37,7 @@ dependencies = [
 [project.optional-dependencies]
 dev = [
   'ruff',
-  'pytest>=7.1.3',
+  'pytest',
   'pytest-cov',
   'pytest-astropy',
   'coverage[toml]',
