@@ -1,1 +1,1 @@
-from .lines import __all__ as __all__
+from .lines import *

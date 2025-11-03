@@ -1,1 +1,1 @@
-from .nuclides import __all__ as __all__
+from .nuclides import *

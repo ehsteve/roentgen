@@ -1,3 +1,5 @@
+"""A module to access atomic line emission, binding energies, and transmission edges."""
+
 import os
 
 import numpy as np

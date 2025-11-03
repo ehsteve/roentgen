@@ -1,4 +1,4 @@
-"""Support for the emission of radiation from radionuclides"""
+"""A module to provide access to x-ray and gamma-ray radiation from radionuclides"""
 
 from pathlib import Path
 

@@ -1,4 +1,4 @@
-""" """
+"""A module to enable the analyze the transmission and absorption of x-rays through materials"""
 
 import os
 
