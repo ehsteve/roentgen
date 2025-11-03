@@ -13,10 +13,8 @@ from bokeh.models import ColumnDataSource, CustomJS
 from bokeh.models import HoverTool
 from bokeh.models.widgets.inputs import NumericInput
 from bokeh.models.widgets import (
-    Select,
     Paragraph,
     AutocompleteInput,
-    CheckboxGroup,
     TableColumn,
     DataTable,
     Button,
@@ -24,11 +22,9 @@ from bokeh.models.widgets import (
     Select,
 )
 from bokeh.plotting import figure
-from bokeh.events import ButtonClick
 
 import astropy.units as u
 from astropy import constants as const
-from astropy.units.imperial import deg_F, inch, foot, mil
 
 from roentgen.absorption import Material, Response
 from roentgen.util import get_material_density, density_ideal_gas
@@ -69,11 +65,15 @@ air_density = density_ideal_gas(
     DEFAULT_AIR_PRESSURE * const.atm, DEFAULT_AIR_TEMPERATURE * u.Celsius
 )
 air = Material("air", DEFAULT_AIR_THICKNESS_M * u.m, density=air_density)
-this_detector = Material(DEFAULT_DETECTOR_MATERIAL, DEFAULT_DETECTOR_THICKNESS_MM * u.mm)
+this_detector = Material(
+    DEFAULT_DETECTOR_MATERIAL, DEFAULT_DETECTOR_THICKNESS_MM * u.mm
+)
 
 response = Response(optical_path=this_material + air, detector=this_detector)
 
-energy = u.Quantity(np.arange(DEFAULT_ENERGY_LOW, DEFAULT_ENERGY_HIGH, DEFAULT_ENERGY_STEP), "keV")
+energy = u.Quantity(
+    np.arange(DEFAULT_ENERGY_LOW, DEFAULT_ENERGY_HIGH, DEFAULT_ENERGY_STEP), "keV"
+)
 
 x = energy.value
 y = response.response(energy)
@@ -101,7 +101,9 @@ ylog_checkbox = CheckboxGroup(labels=["y-log"], active=[0])
 # materials in the path
 material_input = AutocompleteInput(title="Material (lowercase)", value=DEFAULT_MATERIAL)
 material_input.completions = all_materials
-material_thickness_input = NumericInput(title="thickness", value=DEFAULT_THICKNESS_UM, mode="float")
+material_thickness_input = NumericInput(
+    title="thickness", value=DEFAULT_THICKNESS_UM, mode="float"
+)
 material_density_input = NumericInput(
     title="density", value=this_material.density.value, mode="float"
 )
@@ -109,17 +111,23 @@ material_density_input = NumericInput(
 air_thickness_input = NumericInput(
     title="air path length", value=DEFAULT_AIR_THICKNESS_M, mode="float"
 )
-air_pressure_input = NumericInput(title="air pressure", value=DEFAULT_AIR_PRESSURE, mode="float")
+air_pressure_input = NumericInput(
+    title="air pressure", value=DEFAULT_AIR_PRESSURE, mode="float"
+)
 air_temperature_input = NumericInput(
     title="air temperature", value=DEFAULT_AIR_TEMPERATURE, mode="float"
 )
 
-detector_material_input = AutocompleteInput(title="Detector", value=DEFAULT_DETECTOR_MATERIAL)
+detector_material_input = AutocompleteInput(
+    title="Detector", value=DEFAULT_DETECTOR_MATERIAL
+)
 detector_material_input.completions = all_materials
 detector_thickness_input = NumericInput(
     title="thickness", value=DEFAULT_DETECTOR_THICKNESS_MM, mode="float"
 )
-detector_density_input = NumericInput(title="density", value=DEFAULT_DETECTOR_DENSITY, mode="float")
+detector_density_input = NumericInput(
+    title="density", value=DEFAULT_DETECTOR_DENSITY, mode="float"
+)
 
 energy_high_input = NumericInput(
     title="High energy in keV", value=DEFAULT_ENERGY_HIGH, mode="float", high=2e6
@@ -175,8 +183,12 @@ def update_response(attrname, old, new):
 
     if not material_input.disabled:
         if material_input.value.lower() in all_materials:
-            this_thickness = u.Quantity(material_thickness_input.value, material_thick_unit.value)
-            this_density = u.Quantity(material_density_input.value, material_density_unit.value)
+            this_thickness = u.Quantity(
+                material_thickness_input.value, material_thick_unit.value
+            )
+            this_density = u.Quantity(
+                material_density_input.value, material_density_unit.value
+            )
             this_material = Material(
                 material_input.value.lower(), this_thickness, density=this_density
             )
@@ -188,14 +200,16 @@ def update_response(attrname, old, new):
         if air_pressure_unit.value == "atm":
             air_pressure = u.Quantity(air_pressure_input.value * const.atm, "Pa")
         elif air_pressure_unit.value == "torr":
-            air_pressure = u.Quantity(air_pressure_input.value * const.atm / 760.0, "Pa")
+            air_pressure = u.Quantity(
+                air_pressure_input.value * const.atm / 760.0, "Pa"
+            )
         else:
             air_pressure = u.Quantity(air_pressure_input.value, air_pressure_unit.value)
 
         air_path_length = u.Quantity(air_thickness_input.value, air_thick_unit.value)
-        air_temperature = u.Quantity(air_temperature_input.value, air_temp_unit.value).to(
-            "Celsius", equivalencies=u.temperature()
-        )
+        air_temperature = u.Quantity(
+            air_temperature_input.value, air_temp_unit.value
+        ).to("Celsius", equivalencies=u.temperature())
         air_density = density_ideal_gas(air_pressure, air_temperature)
         air = Material("air", air_path_length, density=air_density)
     else:
@@ -204,10 +218,16 @@ def update_response(attrname, old, new):
 
     if not detector_material_input.disabled:
         if detector_material_input.value.lower() in all_materials:
-            this_thickness = u.Quantity(detector_thickness_input.value, detector_thick_unit.value)
-            this_density = u.Quantity(detector_density_input.value, detector_density_unit.value)
+            this_thickness = u.Quantity(
+                detector_thickness_input.value, detector_thick_unit.value
+            )
+            this_density = u.Quantity(
+                detector_density_input.value, detector_density_unit.value
+            )
             this_detector = Material(
-                detector_material_input.value.lower(), this_thickness, density=this_density
+                detector_material_input.value.lower(),
+                this_thickness,
+                density=this_density,
             )
     else:
         # if detector is not selected than add bogus super thick detector
@@ -218,7 +238,10 @@ def update_response(attrname, old, new):
 def update_data(attrname, old, new):
     global source
     energy = u.Quantity(
-        np.arange(energy_low_input.value, energy_high_input.value, energy_step_input.value), "keV"
+        np.arange(
+            energy_low_input.value, energy_high_input.value, energy_step_input.value
+        ),
+        "keV",
     )
     x = energy.value
     y = response.response(energy)
@@ -300,7 +323,9 @@ material_thick_unit = Select(title="unit", value=length_units[2], options=length
 
 
 def update_mat_thick_units(attr, old, new):
-    material_thickness_input.value = u.Quantity(material_thickness_input.value, old).to(new).value
+    material_thickness_input.value = (
+        u.Quantity(material_thickness_input.value, old).to(new).value
+    )
 
 
 material_thick_unit.on_change("value", update_mat_thick_units)
@@ -310,7 +335,9 @@ detector_thick_unit = Select(title="unit", value=length_units[1], options=length
 
 
 def update_det_thick_units(attr, old, new):
-    detector_thickness_input.value = u.Quantity(detector_thickness_input.value, old).to(new).value
+    detector_thickness_input.value = (
+        u.Quantity(detector_thickness_input.value, old).to(new).value
+    )
 
 
 detector_thick_unit.on_change("value", update_det_thick_units)
@@ -323,24 +350,34 @@ def update_air_thick_units(attr, old, new):
 
 air_thick_unit.on_change("value", update_air_thick_units)
 
-material_density_unit = Select(title="unit", value=density_units[0], options=density_units)
+material_density_unit = Select(
+    title="unit", value=density_units[0], options=density_units
+)
 
 
 def update_mat_density_units(attr, old, new):
-    material_density_input.value = u.Quantity(material_density_input.value, old).to(new).value
+    material_density_input.value = (
+        u.Quantity(material_density_input.value, old).to(new).value
+    )
 
 
 material_density_unit.on_change("value", update_mat_density_units)
 
-detector_density_unit = Select(title="unit", value=density_units[0], options=density_units)
+detector_density_unit = Select(
+    title="unit", value=density_units[0], options=density_units
+)
 
 
 def update_det_density_units(attr, old, new):
-    detector_density_input.value = u.Quantity(detector_density_input.value, old).to(new).value
+    detector_density_input.value = (
+        u.Quantity(detector_density_input.value, old).to(new).value
+    )
 
 
 detector_density_unit.on_change("value", update_det_density_units)
-air_pressure_unit = Select(title="unit", value=pressure_units[2], options=pressure_units)
+air_pressure_unit = Select(
+    title="unit", value=pressure_units[2], options=pressure_units
+)
 
 
 def update_air_pressure_units(attr, old, new):
@@ -350,12 +387,16 @@ def update_air_pressure_units(attr, old, new):
 
 air_pressure_unit.on_change("value", update_air_pressure_units)
 
-air_temp_unit = Select(title="unit", value=temperature_units[1], options=temperature_units)
+air_temp_unit = Select(
+    title="unit", value=temperature_units[1], options=temperature_units
+)
 
 
 def update_air_temp_units(attr, old, new):
     air_temperature_input.value = (
-        u.Quantity(air_temperature_input.value, old).to(new, equivalencies=u.temperature()).value
+        u.Quantity(air_temperature_input.value, old)
+        .to(new, equivalencies=u.temperature())
+        .value
     )
 
 
@@ -372,7 +413,9 @@ material_input.on_change("value", update_material_density)
 
 def update_detector_density(attr, old, new):
     # if the material is changed then update the density
-    detector_density_input.value = get_material_density(detector_material_input.value).value
+    detector_density_input.value = get_material_density(
+        detector_material_input.value
+    ).value
 
 
 detector_material_input.on_change("value", update_detector_density)

@@ -84,7 +84,9 @@ class Material(object):
         if isinstance(material_input, str):
             self.list_names = [get_material_name(material_input)]
             self.list_symbols = [get_material_symbol(material_input)]
-            self.mass_attenuation_coefficients = [MassAttenuationCoefficient(material_input)]
+            self.mass_attenuation_coefficients = [
+                MassAttenuationCoefficient(material_input)
+            ]
             self.symbol = self.mass_attenuation_coefficients[0].symbol
             self.name = self.mass_attenuation_coefficients[0].name
             self.fractional_masses = np.ones(1)
@@ -95,7 +97,8 @@ class Material(object):
                 get_material_name(this_str) for this_str in list(material_input.keys())
             ]
             self.list_symbols = [
-                get_material_symbol(this_str) for this_str in list(material_input.keys())
+                get_material_symbol(this_str)
+                for this_str in list(material_input.keys())
             ]
             # normalize the fractional masses
             fractional_masses = np.array(list(material_input.values()))
@@ -432,7 +435,9 @@ class MassAttenuationCoefficient(object):
             bounds_error=True,
             assume_sorted=True,
         )
-        self.func = lambda x: u.Quantity(10 ** self._f(np.log10(x.to("keV").value)), "cm^2/g")
+        self.func = lambda x: u.Quantity(
+            10 ** self._f(np.log10(x.to("keV").value)), "cm^2/g"
+        )
 
     def __repr__(self) -> str:
         """Returns a developer-relevant representation."""

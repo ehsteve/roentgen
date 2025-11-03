@@ -38,7 +38,9 @@ def get_element_symbol(element):
             return element.capitalize()
         elif is_an_element(element):
             lower_case_list = list([s.lower() for s in roentgen.elements["name"]])
-            return roentgen.elements[lower_case_list.index(element.lower())]["symbol"].capitalize()
+            return roentgen.elements[lower_case_list.index(element.lower())][
+                "symbol"
+            ].capitalize()
         else:
             raise ValueError(f"{element} not recognized.")
     elif isinstance(element, (int, np.integer)):
@@ -55,10 +57,14 @@ def get_atomic_number(element_str):
     if is_an_element(element_str):
         if len(element_str) <= 2:
             lower_case_list = list([s.lower() for s in roentgen.elements["symbol"]])
-            atomic_number = roentgen.elements[lower_case_list.index(element_str.lower())]["z"]
+            atomic_number = roentgen.elements[
+                lower_case_list.index(element_str.lower())
+            ]["z"]
         else:
             lower_case_list = list([s.lower() for s in roentgen.elements["name"]])
-            atomic_number = roentgen.elements[lower_case_list.index(element_str.lower())]["z"]
+            atomic_number = roentgen.elements[
+                lower_case_list.index(element_str.lower())
+            ]["z"]
     else:
         raise ValueError(f"{element_str} not recognized.")
     return atomic_number
@@ -76,7 +82,9 @@ def is_in_known_compounds(compound_str):
 def get_compound_index(compound_str):
     """Return the index of the compound in the compound table"""
     if is_in_known_compounds(compound_str):
-        lower_case_symbols_list = list([s.lower() for s in roentgen.compounds["symbol"]])
+        lower_case_symbols_list = list(
+            [s.lower() for s in roentgen.compounds["symbol"]]
+        )
         if compound_str.lower() in lower_case_symbols_list:
             return lower_case_symbols_list.index(compound_str.lower())
         lcase_name_list = list([s.lower() for s in roentgen.compounds["name"]])

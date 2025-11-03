@@ -107,7 +107,9 @@ class Nuclide(object):
         if len(self._line_tables) == 1:
             decay_chain = f"{self.name}->{self._line_tables[0]['origin'][-1].lstrip()}"
         else:
-            decay_chain = "->".join([this_table["parent"][0] for this_table in self._line_tables])
+            decay_chain = "->".join(
+                [this_table["parent"][0] for this_table in self._line_tables]
+            )
         result += f"Decay chain: {decay_chain}\n"
         return result
 
@@ -118,7 +120,9 @@ class Nuclide(object):
         min_intensity: float = 0.0,
     ) -> QTable:
         """Returns a list of all emission lines in the energy range."""
-        bool_array = (self.lines["energy"] < energy_high) * (self.lines["energy"] > energy_low)
+        bool_array = (self.lines["energy"] < energy_high) * (
+            self.lines["energy"] > energy_low
+        )
         if min_intensity > 0:
             bool_array *= self.lines["intensity"] > min_intensity
         return self.lines[bool_array]

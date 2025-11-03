@@ -80,7 +80,9 @@ def get_lines(energy_low, energy_high, element=None):
     energies = emission_lines[emission_lines.colnames[0]]
     bool_array = (energies < energy_high) * (energies > energy_low)
     if np.any(bool_array):
-        result = emission_lines.loc[energy_low.to("eV").value : energy_high.to("eV").value]
+        result = emission_lines.loc[
+            energy_low.to("eV").value : energy_high.to("eV").value
+        ]
 
     if len(result) > 1 and element is not None:
         # check to see if any lines from selected element exist in energy range
@@ -107,12 +109,16 @@ def get_edges(element):
 
     energies = []
     columns = []
-    for this_colname, this_element in zip(binding_energies.colnames, binding_energies.loc[z]):
+    for this_colname, this_element in zip(
+        binding_energies.colnames, binding_energies.loc[z]
+    ):
         if isinstance(this_element, u.Quantity) and (this_element.value > 0):
             columns.append(this_colname.split(" ")[0])
             energies.append(this_element)
     result = QTable(
-        [energies, columns], names=("energy", "edge name"), meta={"element": f"{element} z={z}"}
+        [energies, columns],
+        names=("energy", "edge name"),
+        meta={"element": f"{element} z={z}"},
     )
 
     return result
