@@ -1,4 +1,0 @@
-Nuclides
-========
-
-.. automodapi:: roentgen.nuclides

@@ -5,6 +5,7 @@ The data used in this package comes from the following data providers.
 
 * The U.S National Institute of Standards and Technology (`NIST <https://www.nist.gov>`__)
 * The Center for X-ray Optics and Advanced Light Source (`CXRO <http://cxro.lbl.gov/>`__) at the Lawrence Berkeley National Laboratory
+* The Library for gamma and alpha emissions (`LARA <http://www.lnhb.fr/accueil/donnees-nucleaires/module-lara/>`_) at the Laboratoire Nationale Henri Becquerel
 
 We would like to extend our thanks to these groups for making their data public.
 
@@ -55,10 +56,10 @@ energy in eV
 
 electron_binding_energies.csv
 -----------------------------
-Source `CXRO X-ray data Booklet Table 1-1 <https://xdb.lbl.gov/Section1/Table_1-1.pdf>`_
+Source: `CXRO X-ray data Booklet Table 1-1 <https://xdb.lbl.gov/Section1/Table_1-1.pdf>`_
 energies in eV
 
 lara
 ----
-Source `Laboratoire Nationale Henri Becquerel Library for gamma and alpha emissions <http://www.lnhb.fr/accueil/donnees-nucleaires/module-lara/>`_
+Source:  `Laboratoire Nationale Henri Becquerel Library for gamma and alpha emissions <http://www.lnhb.fr/accueil/donnees-nucleaires/module-lara/>`_
 Provides emission data for the most common radionuclides or radiation sources frequently used for laboratory testing and calibration.

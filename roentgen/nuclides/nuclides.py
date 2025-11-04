@@ -10,7 +10,7 @@ from astropy.io import ascii
 
 import roentgen
 
-__all__ = ["Nuclide", "get_nuclide_mass_numbers"]
+__all__ = ["Nuclide", "get_nuclide_mass_numbers", "nuclides_list"]
 
 _lara_directory = Path(roentgen._data_directory) / "lara"
 
@@ -21,8 +21,8 @@ nuclides_list = QTable(
         fast_reader=False,
     )
 )
-nuclides_list["half_life"] = nuclides_list["half_life[year]"]
-nuclides_list.remove_column("half_life[year]")
+nuclides_list["half_life"] = nuclides_list["half_life [year]"]
+nuclides_list.remove_column("half_life [year]")
 nuclides_list["half_life"].unit = u.yr
 
 nuclides_list.add_index("symbol")

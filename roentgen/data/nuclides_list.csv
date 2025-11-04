@@ -1,4 +1,4 @@
-symbol,name,mass_number,half_life[year],filename
+symbol,name,mass_number,half_life [year],filename
 H,Hydrogen,3,12.310822115750247,H-3_@00.lara.txt
 He,Helium,6,2.5575772555580905e-08,He-6_@00.lara.txt
 Be,Beryllium,7,0.1457018277689051,Be-7_@00.lara.txt

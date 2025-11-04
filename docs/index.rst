@@ -8,11 +8,11 @@ He was awarded the very first Nobel Prize in Physics "in recognition of the extr
 X-rays were originally referred to as Roentgen rays.
 
 .. toctree::
-    :maxdepth: 1
+    :maxdepth: 3
 
     guide/index
     sources
-    reference/index
+    api
     examples/index
     contributing
     authors
