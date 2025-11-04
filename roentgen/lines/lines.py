@@ -1,7 +1,5 @@
 """A module to access atomic line emission, binding energies, and transmission edges."""
 
-import os
-
 import numpy as np
 
 import astropy.units as u
@@ -15,19 +13,23 @@ __all__ = ["get_lines", "get_edges", "emission_lines", "binding_energies"]
 
 emission_lines = QTable(
     ascii.read(
-        os.path.join(roentgen._data_directory, "emission_lines.csv"),
+        roentgen._data_directory / "emission_lines.csv",
         format="csv",
         fast_reader=False,
     )
 )
 # not sure why i need to fix this otherwise it is \ufenergy
 # remove unit from column title to make it shorter
-emission_lines.rename_column(emission_lines.colnames[0], "energy")
-emission_lines[emission_lines.colnames[0]].unit = u.eV
-emission_lines.rename_column(emission_lines.colnames[4], "width")
-emission_lines[emission_lines.colnames[4]].unit = u.eV
+emission_lines.rename_column(emission_lines.colnames[0], "energy_ev")
+emission_lines["energy_ev"].unit = u.eV
+emission_lines.add_column(
+    np.round(emission_lines["energy_ev"].to("keV"), 5), name="energy", index=0
+)
+emission_lines["width [eV]"].unit = u.eV
+emission_lines.remove_column("energy_ev")
+emission_lines.rename_column("width [eV]", "width")
 
-emission_lines.add_index(emission_lines.colnames[0])
+emission_lines.add_index("energy")
 emission_lines.add_index(emission_lines.colnames[1])
 emission_lines.add_column(
     [get_element_symbol(int(z)) for z in emission_lines["z"]], name="symbol", index=2
@@ -40,7 +42,7 @@ emission_lines.meta = {
 
 binding_energies = QTable(
     ascii.read(
-        os.path.join(roentgen._data_directory, "electron_binding_energies.csv"),
+        roentgen._data_directory / "electron_binding_energies.csv",
         format="csv",
         fast_reader=False,
     )
@@ -58,7 +60,7 @@ binding_energies.meta = {
 
 
 @u.quantity_input(energy_low=u.keV, energy_high=u.keV, equivalencies=u.spectral())
-def get_lines(energy_low, energy_high, element=None):
+def get_lines(energy_low, energy_high, element=None, min_intensity: int = 0):
     """
     Retrieve all emission lines in an energy range.
 
@@ -73,25 +75,23 @@ def get_lines(energy_low, energy_high, element=None):
     element : str, optional
         Select only lines from a specific element
 
+    min_intensity : int, optional
+        Select only lines above or equal to a given intensity
+
     Returns
     -------
     line_list : `astropy.table.QTable`
     """
-    result = QTable()  # this is the default result
+    bool_array = (emission_lines["energy"] < energy_high) * (
+        emission_lines["energy"] > energy_low
+    )
+    if element is not None:
+        bool_array *= emission_lines["z"] == get_atomic_number(element)
 
-    energies = emission_lines[emission_lines.colnames[0]]
-    bool_array = (energies < energy_high) * (energies > energy_low)
-    if np.any(bool_array):
-        result = emission_lines.loc[
-            energy_low.to("eV").value : energy_high.to("eV").value
-        ]
+    if min_intensity > 0:
+        bool_array *= emission_lines["intensity"] >= min_intensity
 
-    if len(result) > 1 and element is not None:
-        # check to see if any lines from selected element exist in energy range
-        if np.any(result["z"] == get_atomic_number(element)):
-            result = result.loc["z", get_atomic_number(element)]
-
-    return result
+    return emission_lines[bool_array]
 
 
 def get_edges(element):

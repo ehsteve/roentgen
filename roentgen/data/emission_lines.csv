@@ -1,4 +1,4 @@
-﻿energy [keV],z,transition,intensity,width [keV]
+﻿energy [eV],z,transition,intensity,width [eV]
 54.3,3,"Kα1,2",150,
 108.5,4,"Kα1,2",150,5
 183.3,5,"Kα1,2",151,

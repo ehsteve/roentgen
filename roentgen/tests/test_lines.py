@@ -1,13 +1,14 @@
 import pytest
 
+import numpy as np
+
 import astropy.units as u
 from astropy.table import QTable
 
-import roentgen
 from roentgen.lines import emission_lines, get_edges, get_lines
 
 # remove H and He and z > 92
-all_elements = list(roentgen.elements["symbol"])[2:-6]
+all_elements = np.unique(emission_lines["symbol"])
 
 
 def test_emission_lines():
@@ -21,6 +22,7 @@ def test_line(element_str):
     """Check that all elements return at least one line"""
     line_list = get_lines(0 * u.keV, 100 * u.keV, element=element_str)
     assert len(line_list) > 0
+    assert isinstance(line_list, QTable)
 
 
 def test_get_lines():

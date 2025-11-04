@@ -15,7 +15,7 @@ The comparison here shows that the data agree with each other.
 .. plot::
     :include-source:
 
-    import os
+    from pathlib import Path
     import matplotlib.pyplot as plt
 
     import numpy as np
@@ -32,7 +32,7 @@ The comparison here shows that the data agree with each other.
                       'water_1000micron.dat', 'ge_500micron.dat',
                       'air_1m_1atm_295kelvin.dat')
 
-    cxro_files = [os.path.join(roentgen._data_directory, 'cxro', f) for f in
+    cxro_files = [roentgen._data_directory / f for f in
                   cxro_filenames]
 
     material_list = ['Be', 'Al', 'Si', 'water', 'ge', 'air']

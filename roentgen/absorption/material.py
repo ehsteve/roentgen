@@ -1,7 +1,5 @@
 """A module to enable the analyze the transmission and absorption of x-rays through materials"""
 
-import os
-
 import numpy as np
 from scipy import interpolate
 
@@ -404,18 +402,16 @@ class MassAttenuationCoefficient(object):
         """
         if is_an_element(material):
             atomic_number = get_atomic_number(material)
-            datafile_path = os.path.join(
-                _data_directory, "elements", "z" + str(atomic_number).zfill(2) + ".csv"
-            )
+            filename = "z" + str(atomic_number).zfill(2) + ".csv"
+            datafile_path = _data_directory / "elements" / filename
             symbol = roentgen.elements[atomic_number - 1]["symbol"]
             name = roentgen.elements[atomic_number - 1]["name"]
         elif is_in_known_compounds(material):
             compound_index = get_compound_index(material)
             symbol = roentgen.compounds[compound_index]["symbol"]
             name = roentgen.compounds[compound_index]["name"]
-            datafile_path = os.path.join(
-                _data_directory, "compounds_mixtures", symbol.replace(" ", "_") + ".csv"
-            )
+            filename = symbol.replace(" ", "_") + ".csv"
+            datafile_path = _data_directory / "compounds_mixtures" / filename
         else:
             raise ValueError(f"Element or compound {material} not found.")
         data = np.loadtxt(datafile_path, delimiter=",")
