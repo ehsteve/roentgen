@@ -94,6 +94,14 @@ class Nuclide(object):
         self.half_life = self.meta["Half-life (s)"].to("yr")
         self.mass_number = mass_number
         self.data_sheet = f"http://www.lnhb.fr/nuclides/{self.name}_tables.pdf"
+        if len(self._line_tables) == 1:
+            self.decay_chain = (
+                f"{self.name}->{self._line_tables[0]['origin'][-1].lstrip()}"
+            )
+        else:
+            self.decay_chain = "->".join(
+                [this_table["parent"][0] for this_table in self._line_tables]
+            )
 
     def __str__(self):
         return f"{self._text_summary()}{self.lines.__repr__()}"
@@ -104,13 +112,7 @@ class Nuclide(object):
     def _text_summary(self):
         num_lines = len(self.lines)
         result = f"Nuclide: {self.name}, ({self.element}) half life={self.half_life.to('year')} - ({num_lines:,} lines)\n"
-        if len(self._line_tables) == 1:
-            decay_chain = f"{self.name}->{self._line_tables[0]['origin'][-1].lstrip()}"
-        else:
-            decay_chain = "->".join(
-                [this_table["parent"][0] for this_table in self._line_tables]
-            )
-        result += f"Decay chain: {decay_chain}\n"
+        result += f"Decay chain: {self.decay_chain}\n"
         return result
 
     def get_lines(

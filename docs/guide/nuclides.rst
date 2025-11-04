@@ -79,12 +79,22 @@ We can there filter the list to only the strongest lines within a particular ene
     94.666         9.1      U  Pa-233
     98.44         14.6      U  Pa-233
 
-The Nuclide class also provides access to some helpful information such as the half life
+The Nuclide class also provides access to some additional information such as the half life
 
     >>> print(am241.half_life)
     <Quantity 432.60577484 yr>
+
+the decay chain
+
+    >>> print(am241.decay_chain)
+    'Am-241->Np-237->Pa-233->U-233->Ra-225->Ac-225->Fr-221->At-217->Rn-217->Bi-213->Po-213->Tl-209'
 
 and the url for the data sheet
 
     >>> print(am241.data_sheet)
     'http://www.lnhb.fr/nuclides/Am-241_tables.pdf'
+
+All other metadata is available in meta attribute
+
+    >>> print(am241.meta)
+    {'Nuclide': 'Am-241', 'Element': 'Americium', 'Z': 95.0, 'Daughter(s)': '(alpha)', 'Qalpha': 5637.82, 'Possible parent(s)': '(B-)', 'Half-life (a)': <Quantity 432.6 yr>, 'Half-life (s)': <Quantity 1.3652e+10 s>, 'Decay constant (1/s)': <Quantity 5.077e-11 1 / s>, 'Specific activity (Bq/g)': <Quantity 1.2688e+11 Bq / g>, 'Reference': 'KRI - 2009'}
