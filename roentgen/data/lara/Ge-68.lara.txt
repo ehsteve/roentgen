@@ -1,0 +1,19 @@
+Nuclide ; Ge-68 
+Element ; Germanium
+Z ; 32
+Daughter(s) ; (EC) ; Ga-68 ; 100
+Q+ ; 106.9
+Half-life (d) ; 270.95 ; 0.26
+Half-life (s) ; 23.410E6 ; 0.022E6
+Decay constant (1/s) ; 29.609E-9 ; 0.028E-9
+Specific activity (Bq/g) ; 262.22E12 ; 0.25E12
+Reference ; LNHB, PTB - 2011
+Emissions (5 lines) sorted by increasing energy
+----------------------------------------------------------------------------------------------------------
+Energy (keV) ; Ener. unc. (keV) ; Intensity (%) ; Int. unc. (%) ; Type ; Origin ; Lvl. start ; Lvl. end
+1.131 ;  ; 1.490 ; 0.024 ; XL ; Ga-68 ;  ; 
+9.22495 ;  ; 13.25 ; 0.13 ; XKa2 ; Ga-68 ;  ; 
+9.25184 ;  ; 25.74 ; 0.22 ; XKa1 ; Ga-68 ;  ; 
+10.291 ;  ; 5.65 ; 0.07 ; XK'b1 ; Ga-68 ;  ; 
+10.3664 ;  ; 0.034 ; 0.009 ; XK'b2 ; Ga-68 ;  ; 
+==========================================================================================================

@@ -1,0 +1,21 @@
+Nuclide ; I-129 
+Element ; Iodine
+Z ; 53
+Daughter(s) ; (B-) ; Xe-129 ; 100
+Q- ; 190.8
+Possible parent(s) ; (B-) ; Te-129 ; 100 ; (B-) ; Te-129m ; 37
+Half-life (a) ; 16.1E6 ; 0.7E6
+Half-life (s) ; 508E12 ; 22E12
+Decay constant (1/s) ; 1.36E-15 ; 0.06E-15
+Specific activity (Bq/g) ; 6.37E6 ; 0.28E6
+Reference ; KRI - 2003
+Emissions (6 lines) sorted by increasing energy
+----------------------------------------------------------------------------------------------------------
+Energy (keV) ; Ener. unc. (keV) ; Intensity (%) ; Int. unc. (%) ; Type ; Origin ; Lvl. start ; Lvl. end
+4.5 ;  ; 7.9 ; 0.4 ; XL ; Xe-129 ;  ; 
+29.459 ;  ; 20.1 ; 0.3 ; XKa2 ; Xe-129 ;  ; 
+29.779 ;  ; 37.2 ; 0.6 ; XKa1 ; Xe-129 ;  ; 
+33.6893 ;  ; 10.3 ; 0.4 ; XK'b1 ; Xe-129 ;  ; 
+34.4877 ;  ; 2.30 ; 0.13 ; XK'b2 ; Xe-129 ;  ; 
+39.578 ; 0.004 ; 7.42 ; 0.08 ; g ; Xe-129 ; 1 ; 0
+==========================================================================================================

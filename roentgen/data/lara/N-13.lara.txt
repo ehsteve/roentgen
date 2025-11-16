@@ -1,0 +1,15 @@
+Nuclide ; N-13 
+Element ; Nitrogen
+Z ; 7
+Daughter(s) ; (B+, EC) ; C-13 ; 100
+Q+ ; 2220.45
+Half-life (min) ; 9.9670 ; 0.0037
+Half-life (s) ; 598.02 ; 0.22
+Decay constant (1/s) ; 1.15907E-3 ; 0.00043E-3
+Specific activity (Bq/g) ; 53.693E18 ; 0.020E18
+Reference ; CEA/LNE-LNHB - 2003
+Emissions (1 line) sorted by increasing energy
+----------------------------------------------------------------------------------------------------------
+Energy (keV) ; Ener. unc. (keV) ; Intensity (%) ; Int. unc. (%) ; Type ; Origin ; Lvl. start ; Lvl. end
+511 ;  ; 199.636 ; 0.026 ; g511 ; C-13 ; -1 ; -1
+==========================================================================================================

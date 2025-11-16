@@ -4,7 +4,7 @@ from pathlib import Path
 
 import numpy as np
 
-from astropy.table import QTable, Table, vstack
+from astropy.table import QTable, vstack
 import astropy.units as u
 from astropy.io import ascii
 
@@ -71,9 +71,9 @@ class Nuclide(object):
     6.513        3.38    Mn   Fe-55
     """
 
-    def __init__(self, element: str, mass_number: int):
+    def __init__(self, element: str, mass_number: int, descriptor: str = ""):
         try:
-            filename = get_lara_file(element.capitalize(), mass_number)
+            filename = get_lara_file(element.capitalize(), mass_number, descriptor)
         except KeyError:
             raise KeyError(
                 f"No match for mass_number {mass_number} for {element}. Valid mass numbers are {get_nuclide_mass_numbers(element)}"
@@ -84,20 +84,14 @@ class Nuclide(object):
             self.lines.sort("energy")
         elif len(self._line_tables) == 1:
             self.lines = self._line_tables[0]
-        else:
-            self.lines = QTable(
-                data={"energy": None, "intensity": None, "origin": None, "parent": None}
-            )
         self.meta = read_lara_header(filename)
         self.name = self.meta["Nuclide"]
         self.element = self.meta["Element"]
         self.half_life = self.meta["Half-life (s)"].to("yr")
         self.mass_number = mass_number
         self.data_sheet = f"http://www.lnhb.fr/nuclides/{self.name}_tables.pdf"
-        if len(self._line_tables) == 1:
-            self.decay_chain = (
-                f"{self.name}->{self._line_tables[0]['origin'][-1].lstrip()}"
-            )
+        if len(self.lines) == 0 or len(self._line_tables) == 1:
+            self.decay_chain = f"{self.name}->{self.meta['Daughter(s)']}"
         else:
             self.decay_chain = "->".join(
                 [this_table["parent"][0] for this_table in self._line_tables]
@@ -140,7 +134,7 @@ def get_nuclide_mass_numbers(element: str) -> list:
         raise ValueError(f"No nuclide data found for element {element}")
 
 
-def get_lara_file(element: str, mass_number: int) -> Path:
+def get_lara_file(element: str, mass_number: int, descriptor: str = "") -> Path:
     """Return path to the specified lara data file.
 
     Parameters
@@ -155,11 +149,21 @@ def get_lara_file(element: str, mass_number: int) -> Path:
     file_path : Path
     """
     these_nuclides = nuclides_list.loc["symbol", element]
-    if isinstance(these_nuclides, Table):  # multiple isotopes exist
-        this_nuclide = these_nuclides.loc["mass_number", mass_number]
+    if isinstance(these_nuclides, QTable):
+        filename = f"{these_nuclides['symbol'][0]}-{mass_number}{descriptor}.lara.txt"
     else:
-        this_nuclide = these_nuclides
-    return _lara_directory / str(this_nuclide["filename"])
+        filename = f"{these_nuclides['symbol']}-{mass_number}{descriptor}.lara.txt"
+    # check if file exists
+    if any(nuclides_list["filename"] == filename):
+        return _lara_directory / filename
+    else:
+        raise FileNotFoundError(f"{filename} not found in nuclides_list.")
+    # if isinstance(these_nuclides, Table):  # multiple isotopes exist
+    #    this_nuclide = these_nuclides.loc["mass_number", mass_number]
+    #    if len(descriptor) > 0:
+    # else:
+    #    this_nuclide = these_nuclides
+    # return _lara_directory / str(this_nuclide["filename"])
 
 
 def read_lara_tables(file_path: str | Path) -> list:
@@ -189,7 +193,7 @@ def read_lara_tables(file_path: str | Path) -> list:
             if table_separator.count(" "):
                 parent = table_separator.split(" ")[1]
             else:
-                parent = file_path.name.split("_")[0]
+                parent = file_path.name.split(".")[0]
             skip_num = 2  # first table has the header line
             if j > 0:
                 skip_num = 1
@@ -237,7 +241,10 @@ def read_lara_header(file_path: str | Path) -> dict:
         tokens = this_line.rstrip().split(";")
         if len(tokens) > 1:
             key = tokens[0].rstrip()
-            value = tokens[1].rstrip().lstrip()
+            if key.count("Daughter"):
+                value = tokens[2].rstrip().lstrip()
+            else:
+                value = tokens[1].rstrip().lstrip()
             try:
                 value = float(value)
             except ValueError:

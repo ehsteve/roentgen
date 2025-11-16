@@ -1,0 +1,11 @@
+Nuclide ; He-6 
+Element ; Helium
+Z ; 2
+Daughter(s) ; (B-) ; Li-6 ; 100
+Q- ; 3505.21
+Half-life (s) ; 807.11E-3 ; 0.15E-3
+Decay constant (1/s) ; 858.80E-3 ; 0.16E-3
+Specific activity (Bq/g) ; 86.197E21 ; 0.016E21
+Reference ; CEA-LNHB - 2022
+No emissions
+==================================================================================================================

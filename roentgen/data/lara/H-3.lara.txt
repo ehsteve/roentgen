@@ -1,0 +1,12 @@
+Nuclide ; H-3 
+Element ; Tritium
+Z ; 1
+Daughter(s) ; (B-) ; He-3 ; 100
+Q- ; 18.591
+Half-life (a) ; 12.312 ; 0.025
+Half-life (s) ; 388.5E6 ; 0.8E6
+Decay constant (1/s) ; 1.7840E-9 ; 0.0036E-9
+Specific activity (Bq/g) ; 358.1E12 ; 0.7E12
+Reference ; KRI - 2006
+No emissions for the selected type
+==========================================================================================================

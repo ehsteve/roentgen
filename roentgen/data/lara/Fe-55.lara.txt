@@ -1,0 +1,19 @@
+Nuclide ; Fe-55 
+Element ; Iron
+Z ; 26
+Daughter(s) ; (EC) ; Mn-55 ; 100
+Q+ ; 231.12
+Half-life (a) ; 2.75614 ; 0.00041
+Half-life (s) ; 86.975E6 ; 0.013E6
+Decay constant (1/s) ; 7.9695E-9 ; 0.0012E-9
+Specific activity (Bq/g) ; 87.261E12 ; 0.013E12
+Reference ; Sofia University - 2024
+X and gamma emissions (5 lines) sorted by increasing energy
+------------------------------------------------------------------------------------------------------------------
+Energy (keV) ; Ener. unc. (keV) ; Intensity (%) ; Int. unc. (%) ; Type ; Origin ; Lvl. start ; Lvl. end
+0.6635 ;  ; 0.523 ; 0.021 ; XL ; Mn ;  ;  ; 
+5.88772 ;  ; 8.40 ; 0.14 ; XKa2 ; Mn ;  ;  ; 
+5.89881 ;  ; 16.48 ; 0.26 ; XKa1 ; Mn ;  ;  ; 
+6.513 ;  ; 3.38 ; 0.07 ; XK'b1 ; Mn ;  ;  ; 
+125.949 ; 0.010 ; 0.00000013 ; 0.00000001 ; g ; Mn-55 ; 1 ; 0 ; 
+==================================================================================================================

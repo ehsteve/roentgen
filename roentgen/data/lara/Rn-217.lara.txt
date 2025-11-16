@@ -1,0 +1,15 @@
+Nuclide ; Rn-217 
+Element ; Radon
+Z ; 86
+Daughter(s) ; (alpha) ; Po-213 ; 100
+Qalpha ; 7887
+Possible parent(s) ; (B-) ; At-217 ; 0.0067 ; (alpha) ; Ra-221 ; 100
+Half-life (s) ; 540E-6 ; 50E-6
+Decay constant (1/s) ; 1.28E3 ; 0.12E3
+Specific activity (Bq/g) ; 3.56E24 ; 0.33E24
+Reference ; CNDC - 2008
+Emissions (1 line) sorted by increasing energy
+----------------------------------------------------------------------------------------------------------
+Energy (keV) ; Ener. unc. (keV) ; Intensity (%) ; Int. unc. (%) ; Type ; Origin ; Lvl. start ; Lvl. end
+7742 ; 3 ; 100 ;  ; a ; Rn-217 ; 0 ; 0
+==========================================================================================================

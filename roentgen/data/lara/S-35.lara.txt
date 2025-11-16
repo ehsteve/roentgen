@@ -1,0 +1,12 @@
+Nuclide ; S-35 
+Element ; Sulfur
+Z ; 16
+Daughter(s) ; (B-) ; Cl-35 ; 100
+Q- ; 167.33
+Half-life (d) ; 87.25 ; 0.15
+Half-life (s) ; 7.538E6 ; 0.013E6
+Decay constant (1/s) ; 91.95E-9 ; 0.16E-9
+Specific activity (Bq/g) ; 1.5821E15 ; 0.0027E15
+Reference ; KRI, LNHB - 2012
+No emissions for the selected type
+==========================================================================================================

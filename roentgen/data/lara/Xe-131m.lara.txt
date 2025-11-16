@@ -1,0 +1,20 @@
+Nuclide ; Xe-131m 
+Element ; Xenon
+Z ; 54
+Daughter(s) ; (I.T.) ; Xe-131 ; 100
+QIT ; 163.93
+Half-life (d) ; 11.962 ; 0.020
+Half-life (s) ; 1.0335E6 ; 0.0017E6
+Decay constant (1/s) ; 670.7E-9 ; 1.1E-9
+Specific activity (Bq/g) ; 3.083E15 ; 0.005E15
+Reference ; CEA/LNE-LNHB - 2013
+Emissions (6 lines) sorted by increasing energy
+----------------------------------------------------------------------------------------------------------
+Energy (keV) ; Ener. unc. (keV) ; Intensity (%) ; Int. unc. (%) ; Type ; Origin ; Lvl. start ; Lvl. end
+4.47 ;  ; 8.12 ; 0.16 ; XL ; Xe-131 ;  ; 
+29.459 ;  ; 15.5 ; 0.4 ; XKa2 ; Xe-131 ;  ; 
+29.779 ;  ; 28.7 ; 0.7 ; XKa1 ; Xe-131 ;  ; 
+33.6893 ;  ; 8.31 ; 0.22 ; XK'b1 ; Xe-131 ;  ; 
+34.4877 ;  ; 1.96 ; 0.07 ; XK'b2 ; Xe-131 ;  ; 
+163.930 ; 0.008 ; 1.942 ; 0.026 ; g ; Xe-131 ; 1 ; 0
+==========================================================================================================
