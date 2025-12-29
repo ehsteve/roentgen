@@ -1,49 +1,27 @@
 exclude: '.git|.tox'
 
 repos:
-  # The warnings/errors we check for here are:
-  # E101 - mix of tabs and spaces
-  # W191 - use of tabs
-  # W291 - trailing whitespace
-  # W292 - no newline at end of file
-  # W293 - trailing whitespace
-  # W391 - blank line at end of file
-  # E111 - 4 spaces per indentation level
-  # E112 - 4 spaces per indentation level
-  # E113 - 4 spaces per indentation level
-  # E303 - too many blank lines (3)
-  # E304 - blank lines found after function decorator
-  # E305 - expected 2 blank lines after class or function definition
-  # E306 - expected 1 blank line before a nested definition
-  # E502 - the backslash is redundant between brackets
-  # E722 - do not use bare except
-  # E901 - SyntaxError or IndentationError
-  # E902 - IOError
-  # F822: undefined name in __all__
-  # F823: local variable name referenced before assignment
-  - repo: https://github.com/pycqa/flake8
-    rev: 5.0.4
+  - repo: https://github.com/astral-sh/ruff-pre-commit
+    # Ruff version.
+    rev: v0.12.4
     hooks:
-      - id: flake8
-        args: ['--count', '--select', 'E501, E203']
-
-  - repo: https://github.com/psf/black
-    rev: 24.2.0
-    hooks:
-      - id: black
+      # Run the linter.
+      - id: ruff-check
+        args: [ --fix ]
+      # Run the formatter.
+      - id: ruff-format
 
   - repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v4.5.0
+    rev: v5.0.0
     hooks:
       - id: check-ast
       - id: check-case-conflict
       - id: trailing-whitespace
-        exclude: ".*(.fits|.fts|.fit|.txt)$"
-      - id: check-toml
-      - id: detect-private-key
+        exclude: ".*(.fits|.fts|.fit|.txt|.mca|.json)$"
+      - id: check-yaml
       - id: debug-statements
       - id: check-added-large-files
 #      - id: end-of-file-fixer uncommenting this will break the testing of the cookiecutter template
 #        exclude: ".*(.fits|.fts|.fit|.txt|tca.*)$"
       - id: mixed-line-ending
-        exclude: ".*(.fits|.fts|.fit|.txt|tca.*)$"
+        exclude: ".*(.fits|.fts|.fit|.txt|tca.*|.mca|.json)$"
