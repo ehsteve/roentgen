@@ -78,6 +78,7 @@ exclude = [
     "conftest.py",
     "conf.py",
     ".csv",
+    "gui"
 ]
 
 [tool.ruff.lint]
