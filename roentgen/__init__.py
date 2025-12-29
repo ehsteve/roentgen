@@ -3,18 +3,18 @@
 A Python package for the quantitative analysis of the interaction of energetic
 photons with matter (x-rays and gamma-rays).
 """
+
 import os
-from importlib.metadata import PackageNotFoundError, version
+import importlib.metadata
 
 import astropy.units as u
 from astropy.io import ascii
 from astropy.table import QTable, Table
 
 try:
-    __version__ = version(__name__)
-except PackageNotFoundError:
-    # package is not installed
-    pass
+    __version__ = importlib.metadata.version(__name__)
+except importlib.metadata.PackageNotFoundError:
+    __version__ = "0.0.0"  # Fallback for development mode
 
 __all__ = []
 
