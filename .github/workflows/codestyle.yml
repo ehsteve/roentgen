@@ -1,41 +1,8 @@
-# This workflow will install Python dependencies and check code style and linting
-name: Codestyle and Linting
-
-on:
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
-
+name: Ruff Codestyle
+on: [ push, pull_request ]
 jobs:
-  build:
-    strategy:
-      fail-fast: false
-      matrix:
-        platform: ["ubuntu-latest"]
-        python-version: ["3.10"]
-    defaults:
-      run:
-        shell: bash
-    runs-on: ${{ matrix.platform }}
+  ruff:
+    runs-on: ubuntu-latest
     steps:
-        - uses: actions/checkout@v2
-        - name: Set up Python ${{ matrix.python-version }}
-          uses: actions/setup-python@v2
-          with:
-            python-version: ${{ matrix.python-version }}
-        - name: Install dependencies
-          run: |
-            pip install pip setuptools wheel --upgrade
-            python -m pip install -e '.[style]'
-        - name: Lint with Black
-          run: |
-            black --check --diff roentgen
-        - name: flake8
-          run: |
-            flake8 --count roentgen
-        - name: isort
-          run: |
-            isort roentgen -c
+      - uses: actions/checkout@v4
+      - uses: astral-sh/ruff-action@v3
