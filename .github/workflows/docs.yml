@@ -15,21 +15,20 @@ jobs:
       fail-fast: false
       matrix:
         platform: ["ubuntu-latest"]
-        python-version: ["3.10"]
+        python-version: ["3.11"]
     defaults:
       run:
         shell: bash
     runs-on: ${{ matrix.platform }}
     steps:
-        - uses: actions/checkout@v2
-        - name: Set up Python ${{ matrix.python-version }}
-          uses: actions/setup-python@v2
-          with:
-            python-version: ${{ matrix.python-version }}
-        - name: Install dependencies
-          run: |
-            pip install pip setuptools wheel --upgrade
-            python -m pip install -e '.[docs]'
-        - name: Build docs
-          run: |
-            sphinx-build docs docs/_build/html -b html
+      - uses: actions/checkout@v5
+      - name: Install uv and set the Python version ${{ matrix.python-version }}
+        uses: astral-sh/setup-uv@v7
+        with:
+          python-version: ${{ matrix.python-version }}
+          enable-cache: true
+      - name: Install the project
+        run: uv sync --locked --all-extras --dev
+      - name: Run tests
+        # For example, using `pytest`
+        run: uv run sphinx-build docs docs/_build/html -b html
