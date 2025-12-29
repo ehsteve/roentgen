@@ -83,8 +83,9 @@ def get_lines(energy_low, energy_high, element=None, min_intensity: int = 0):
 
     if len(result) > 1 and element is not None:
         # check to see if any lines from selected element exist in energy range
-        if np.any(result["z"] == get_atomic_number(element)):
-            result = result.loc["z", get_atomic_number(element)]
+        bool_array = result["z"] == get_atomic_number(element)
+        if np.any(bool_array):
+            result = result[bool_array]
 
     return emission_lines[bool_array]
 

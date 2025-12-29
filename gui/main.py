@@ -18,7 +18,6 @@ from bokeh.models.widgets import (
     TableColumn,
     DataTable,
     Button,
-    CheckboxGroup,
     Select,
 )
 from bokeh.plotting import figure

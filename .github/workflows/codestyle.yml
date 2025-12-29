@@ -1,4 +1,4 @@
-name: Codestyle and linting with Ruff
+name: Ruff Codestyle
 on: [ push, pull_request ]
 jobs:
   ruff:
@@ -6,5 +6,3 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - uses: astral-sh/ruff-action@v3
-      - run: ruff check --fix
-      - run: ruff format

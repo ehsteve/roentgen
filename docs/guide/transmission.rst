@@ -168,6 +168,7 @@ For convenience, the function `~roentgen.util.density_ideal_gas` is provided whi
 
 It is also possible to create custom materials using a combination of elements and compounds::
 
+    >>> import astropy.units as u
     >>> from roentgen.absorption import Material
     >>> steel = Material({"Fe": 0.98, "C": 0.02}, 1 * u.cm)
     >>> bronze = Material({"Cu": 0.88, "Sn": 0.12}, 1 * u.cm)
@@ -178,8 +179,8 @@ The density will be calculated automatically using the known densities but this 
 
     >>> bronze = Material({"Cu": 0.88, "Sn": 0.12}, 1 * u.cm)
     >>> bronze.density
-    <Quantity 7746.6 kg / m3>
-    >>> bronze = Material({"Cu": 0.88, "Sn": 0.12}, 1 * u.cm, density=8.73 * u.g u.cm**-3)
+    <Quantity 8762. kg / m3>
+    >>> bronze = Material({"Cu": 0.88, "Sn": 0.12}, 1 * u.cm, density=8.73 * u.g / u.cm**-3)
 
 Stack
 -----
