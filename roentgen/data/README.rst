@@ -39,12 +39,10 @@ Energy ranges from 1 keV to 20 MeV.
 emission_lines.csv
 ------------------
 Source: `CXRO X-ray data Booklet Table 1-3 <https://xdb.lbl.gov/Section1/Table_1-3.pdf>`__
-Source: `AXAF Project Science: Widths for Characteristic X-Ray Lines <https://wwwastro.msfc.nasa.gov/xraycal/linewidths.html>`__
 
 - **energy**: Energy of emission line in eV
 - **transition**: Name of the transition in Siegbahn notation
 - **intensity**: Relative intensity of the line
-- **width**: Line width in eV
 
 emission_energies.csv
 ---------------------

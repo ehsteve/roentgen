@@ -26,7 +26,7 @@ Overview
     :target: https://github.com/ehsteve/roentgen/actions/workflows/codestyle.yml
     :alt: Black linting
 
-.. |coverage| image:: https://codecov.io/gh/ehsteve/roentgen/graph/badge.svg?token=feNCnYTjB3
+.. |coverage| image:: https://codecov.io/gh/ehsteve/roentgen/branch/master/graph/badge.svg?token=feNCnYTjB3
     :alt: Test coverage on codecov
     :target: https://codecov.io/gh/ehsteve/roentgen
 
@@ -44,55 +44,45 @@ Overview
 
 .. end-badges
 
-.. image:: https://raw.githubusercontent.com/ehsteve/roentgen/main/docs/logo/roentgen.svg
+.. image:: https://raw.githubusercontent.com/ehsteve/roentgen/main/docs/logo/roentgen_logo.svg
     :height: 150
     :width: 150
 
 A Python package for the quantitative analysis of the interaction of energetic x-rays with matter.
 This package is named after one of the discoverers of X-rays, `Wilhelm Röntgen <https://en.wikipedia.org/wiki/Wilhelm_Röntgen>`_.
-This is a `SunPy-affiliated package <https://sunpy.org>`_ though it does not depend on the `sunpy package <https://github.com/sunpy/sunpy>`_. We appreciate their support!
 
 Installation
 ============
 
-To install this package::
+::
 
     pip install roentgen
 
-To install this package for development::
-
-    pip install -e .'[dev]'
 
 Documentation
 =============
 
-Our documentation is hosted on `readthedocs <http://roentgen.readthedocs.io/en/stable/>`_.
+http://roentgen.readthedocs.io/en/stable/
 
-Graphical User Interface
-========================
-This package provides a GUI interface to quickly investigate the absorption and transmission of x-rays through different materials.
-This tool is similar to that provided the `Center for X-ray Optics <https://henke.lbl.gov/optical_constants/>`_.
-To install the dependencies to use the GUI::
+GUI
+===
+This package provides a gui interface to quickly investigate the absorption and transmission of x-rays through different materials.
+It is based on `bokeh <https://docs.bokeh.org/en/stable/>`_. To run it locally use the following command
 
-    pip install -e .'[gui]'
-
-You can then run it locally with the following command::
+::
 
    bokeh serve --show <roengten_directory>/gui
 
-An online version of this tool (usually) working at `https://roentgen-069cf7954bb2.herokuapp.com/gui <https://roentgen-069cf7954bb2.herokuapp.com/gui>`_.
 
 Data Sources
 ============
-This package includes on a number of data files which were translated and imported from a few sources.
+This package includes on a number of data files which were translated and imported from a few key sources.
 The package developers would like to thank the following data providers
 
 * The U.S National Institute of Standards and Technology (NIST)
 * The Center for X-ray Optics and Advanced Light Source at the Lawrence Berkeley National Laboratory
 
-For more information see the `README <roentgen/data/README.rst>`_ in the data directory.
-
-You can find a comparison of the output of this package with that provided by the Center for X-ray Optics on our `documentation <https://roentgen.readthedocs.io/en/stable/guide/cxro_compare.html>`_.
+For more information see the `README <roentgen/data/README.rst>`_ in data directory.
 
 Contributing
 ============

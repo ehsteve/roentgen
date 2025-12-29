@@ -163,3 +163,6 @@ poetry.lock
 coverage.xml
 
 test*
+
+uv.lock
+setup_package.py
