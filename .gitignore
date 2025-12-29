@@ -166,3 +166,6 @@ test*
 
 uv.lock
 setup_package.py
+
+docs/_autosummary/*
+.coverage.*
