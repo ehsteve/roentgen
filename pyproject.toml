@@ -1,6 +1,6 @@
 [project]
 name = "roentgen"
-version = "0.1.0"
+dynamic = ["version"]
 description = "A Python package for the quantitative analysis of the interaction of energetic x-rays with matter. This package is named after one of the discoverers of X-rays, Wilhelm Rontgen."
 readme = "README.rst"
 requires-python = ">=3.11"
@@ -26,6 +26,17 @@ classifiers = [
     "Natural Language :: English",
 ]
 
+[build-system]
+requires = ["hatchling", "uv-dynamic-versioning"]
+build-backend = "hatchling.build"
+
+[tool.hatch.version]
+source = "uv-dynamic-versioning"
+
+[tool.uv-dynamic-versioning]
+fallback-version = "0.0.0"
+
+
 [project.optional-dependencies]
 gui = ["bokeh>=3.8.1"]
 
@@ -34,6 +45,8 @@ dev = [
     { include-group = "lint" },
     { include-group = "test" },
     { include-group = "docs" },
+    "ipykernel>=7.1.0",
+    "ipython>=9.8.0",
     "pre-commit>=4.5.1",
 ]
 test = ["coverage>=7.13.0", "pytest>=9.0.2", "pytest-cov>=7.0.0"]
@@ -43,6 +56,7 @@ docs = [
     "matplotlib>=3.10.8",
     "pytest-doctestplus>=1.6.0",
     "sphinx>=9.0.4",
+    "sphinx-automodapi>=0.22.0",
 ]
 
 [tool.ruff]
@@ -78,6 +92,7 @@ exclude = [
     "conftest.py",
     "conf.py",
     ".csv",
+    "gui"
 ]
 
 [tool.ruff.lint]
@@ -126,7 +141,7 @@ testpaths = ["roentgen/tests", "docs"]
 doctest_plus = "enabled"
 norecursedirs = ["_build"]
 text_file_format = "rst"
-addopts = "--doctest-rst --doctest-plus --doctest-report ndiff --cov=roentgen"
+addopts = "--doctest-rst --doctest-plus --doctest-report udiff --cov=roentgen"
 
 
 [tool.coverage.run]

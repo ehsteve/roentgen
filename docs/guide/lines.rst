@@ -46,15 +46,15 @@ with::
     >>> from roentgen.lines import get_lines
     >>> lines = get_lines(5 * u.keV, 5.2 * u.keV)
     >>> print(lines)
-    energy  z  transition intensity
+    energy  z  symbol transition intensity width [keV]
       eV
-    ------ --- ---------- ---------
-    5013.5  59        Lα2        11
-    5033.7  59        Lα1       100
-    5034.0  54        Lγ1         8
-    5042.1  57        Lβ1        60
-    5156.5  56     Lβ2,15        20
-    5177.2  63         Ll         4
+    ------ --- ------ ---------- --------- -----------
+    5013.5  59     Pr        Lα2        11          --
+    5033.7  59     Pr        Lα1       100          --
+    5034.0  54     Xe        Lγ1         8          --
+    5042.1  57     La        Lβ1        60          --
+    5156.5  56     Ba     Lβ2,15        20          --
+    5177.2  63     Eu         Ll         4          --
 
 If you are only interested in lines from a particular element, the search can
 be limited with::
@@ -63,10 +63,10 @@ be limited with::
     >>> from roentgen.lines import get_lines
     >>> ni_lines = get_lines(5 * u.keV, 10 * u.keV, element='Ni')
     >>> print(ni_lines)
-    energy  z  transition intensity
+    energy  z  symbol transition intensity width [keV]
       eV
-    ------ --- ---------- ---------
-    7460.9  28        Kα2        51
-    8264.7  28      Kβ1,3        17
-    7478.2  28        Kα1       100
+    ------ --- ------ ---------- --------- -----------
+    7460.9  28     Ni        Kα2        51        3.15
+    7478.2  28     Ni        Kα1       100        2.25
+    8264.7  28     Ni      Kβ1,3        17        5.44
 
