@@ -45,6 +45,8 @@ dev = [
     { include-group = "lint" },
     { include-group = "test" },
     { include-group = "docs" },
+    "ipykernel>=7.1.0",
+    "ipython>=9.8.0",
     "pre-commit>=4.5.1",
 ]
 test = ["coverage>=7.13.0", "pytest>=9.0.2", "pytest-cov>=7.0.0"]
@@ -138,7 +140,7 @@ testpaths = ["roentgen/tests", "docs"]
 doctest_plus = "enabled"
 norecursedirs = ["_build"]
 text_file_format = "rst"
-addopts = "--doctest-rst --doctest-plus --doctest-report ndiff --cov=roentgen"
+addopts = "--doctest-rst --doctest-plus --doctest-report udiff --cov=roentgen"
 
 
 [tool.coverage.run]
