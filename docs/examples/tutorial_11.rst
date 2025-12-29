@@ -22,7 +22,7 @@ Finding X-ray K absorption Edges
         plt.plot(e, mat.transmission(e), label=f"{this_material} K edge at {edges['energy'][0].to('keV')}")
         # lets only show the K shell
         plt.axvline(edges['energy'][0].to('keV').value, linestyle='dashed')
-
+    
     plt.xlabel(f'Energy [{e.unit}]')
     plt.ylabel('Transmission')
     plt.ylim(0, 1)

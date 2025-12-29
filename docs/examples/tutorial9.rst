@@ -14,10 +14,10 @@ Compare our plot with their `Figure 1 <https://www.sciencedirect.com/science/art
     from matplotlib import pyplot as plt
     from roentgen.absorption import Material
 
-    gaas_deadlayer = Material({'Ga': 0.518, 'As': 0.482},
+    gaas_deadlayer = Material({'Ga': 0.518, 'As': 0.482}, 
                             density=5.32*u.g/u.cm**3, thickness=500*u.nm)
 
-    gaas_detector = Material({'Ga': 0.518, 'As': 0.482},
+    gaas_detector = Material({'Ga': 0.518, 'As': 0.482}, 
                             density=5.32*u.g/u.cm**3, thickness=10000*u.nm)
     e = np.linspace(1, 30, 1000)*u.keV
 

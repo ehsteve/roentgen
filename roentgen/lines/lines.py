@@ -9,7 +9,7 @@ from astropy.table import QTable
 import roentgen
 from roentgen.util import get_atomic_number, get_element_symbol
 
-__all__ = ["get_lines", "get_edges", "emission_lines", "binding_energies"]
+__all__ = ["get_lines", "get_edges", "emission_lines"]
 
 emission_lines = QTable(
     ascii.read(
@@ -19,12 +19,8 @@ emission_lines = QTable(
     )
 )
 # not sure why i need to fix this otherwise it is \ufenergy
-# remove unit from column title to make it shorter
 emission_lines.rename_column(emission_lines.colnames[0], "energy")
 emission_lines[emission_lines.colnames[0]].unit = u.eV
-emission_lines.rename_column(emission_lines.colnames[4], "width")
-emission_lines[emission_lines.colnames[4]].unit = u.eV
-
 emission_lines.add_index(emission_lines.colnames[0])
 emission_lines.add_index(emission_lines.colnames[1])
 emission_lines.add_column(
@@ -80,7 +76,7 @@ def get_lines(energy_low, energy_high, element=None):
     energies = emission_lines[emission_lines.colnames[0]]
     bool_array = (energies < energy_high) * (energies > energy_low)
     if np.any(bool_array):
-        result = emission_lines.loc[energy_low.to("eV").value : energy_high.to("eV").value]
+        result = emission_lines[bool_array]
 
     if len(result) > 1 and element is not None:
         # check to see if any lines from selected element exist in energy range
@@ -104,6 +100,8 @@ def get_edges(element):
     edge_list : `astropy.table.QTable`
     """
     z = get_atomic_number(element)
+    if z > 92:
+        raise ValueError("No data for elements beyond Uranium, z = 92.")
 
     energies = []
     columns = []
