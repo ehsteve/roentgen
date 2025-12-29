@@ -1604,12 +1604,14 @@ dev = [
     { name = "pytest-doctestplus" },
     { name = "ruff" },
     { name = "sphinx" },
+    { name = "sphinx-automodapi" },
 ]
 docs = [
     { name = "graphviz" },
     { name = "matplotlib" },
     { name = "pytest-doctestplus" },
     { name = "sphinx" },
+    { name = "sphinx-automodapi" },
 ]
 lint = [
     { name = "ruff" },
@@ -1641,12 +1643,14 @@ dev = [
     { name = "pytest-doctestplus", specifier = ">=1.6.0" },
     { name = "ruff", specifier = ">=0.14.10" },
     { name = "sphinx", specifier = ">=9.0.4" },
+    { name = "sphinx-automodapi", specifier = ">=0.22.0" },
 ]
 docs = [
     { name = "graphviz", specifier = ">=0.21" },
     { name = "matplotlib", specifier = ">=3.10.8" },
     { name = "pytest-doctestplus", specifier = ">=1.6.0" },
     { name = "sphinx", specifier = ">=9.0.4" },
+    { name = "sphinx-automodapi", specifier = ">=0.22.0" },
 ]
 lint = [{ name = "ruff", specifier = ">=0.14.10" }]
 test = [
@@ -1805,6 +1809,19 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/42/50/a8c6ccc36d5eacdfd7913ddccd15a9cee03ecafc5ee2bc40e1f168d85022/sphinx-9.0.4.tar.gz", hash = "sha256:594ef59d042972abbc581d8baa577404abe4e6c3b04ef61bd7fc2acbd51f3fa3", size = 8710502, upload-time = "2025-12-04T07:45:27.343Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/c6/3f/4bbd76424c393caead2e1eb89777f575dee5c8653e2d4b6afd7a564f5974/sphinx-9.0.4-py3-none-any.whl", hash = "sha256:5bebc595a5e943ea248b99c13814c1c5e10b3ece718976824ffa7959ff95fffb", size = 3917713, upload-time = "2025-12-04T07:45:24.944Z" },
+]
+
+[[package]]
+name = "sphinx-automodapi"
+version = "0.22.0"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "packaging" },
+    { name = "sphinx" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/3f/9f/16c79a06f4c6772124f03f1d69a0394bc1f52c154202db5d5905cb3579c7/sphinx_automodapi-0.22.0.tar.gz", hash = "sha256:9a6745d606eb948321f0bb7bd4511dc6d8481da8819caa1604d7138910173b38", size = 56683, upload-time = "2025-12-13T00:19:52.962Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/d3/a0/1a0c44070d2f7e8761ca221d51e1ce8f959b2a0add4cab13de0a677f81bc/sphinx_automodapi-0.22.0-py3-none-any.whl", hash = "sha256:8ecbe8c8ba33a1e3dbe03aea06879062567d611b543da3f33367512d45118b01", size = 111939, upload-time = "2025-12-13T00:19:51.596Z" },
 ]
 
 [[package]]

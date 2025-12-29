@@ -56,6 +56,7 @@ docs = [
     "matplotlib>=3.10.8",
     "pytest-doctestplus>=1.6.0",
     "sphinx>=9.0.4",
+    "sphinx-automodapi>=0.22.0",
 ]
 
 [tool.ruff]
