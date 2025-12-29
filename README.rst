@@ -71,7 +71,7 @@ It is based on `bokeh <https://docs.bokeh.org/en/stable/>`_. To run it locally u
 
 ::
 
-   bokeh serve --show <roengten_directory>/gui
+   uv run --with 'bokeh' bokeh serve --show gui
 
 
 Data Sources
