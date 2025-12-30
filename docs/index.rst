@@ -15,6 +15,7 @@ X-rays were originally referred to as Roentgen rays.
     api
     examples/index
     contributing
+    dev-guide/index
     authors
     license
     changelog

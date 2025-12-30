@@ -22,4 +22,4 @@ It also includes the generation of x-rays from emission lines as well as emissio
     emission_line_list
     nuclides
     nuclides_list
-    lines
+    gui

@@ -54,9 +54,11 @@ lint = ["ruff>=0.14.10"]
 docs = [
     "graphviz>=0.21",
     "matplotlib>=3.10.8",
+    "pydata-sphinx-theme>=0.16.1",
     "pytest-doctestplus>=1.6.0",
     "sphinx>=9.0.4",
     "sphinx-automodapi>=0.22.0",
+    "sphinx-copybutton>=0.5.2",
 ]
 
 [tool.ruff]

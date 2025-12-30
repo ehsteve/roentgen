@@ -55,6 +55,7 @@ plot_include_source = True
 # Add any paths that contain templates here, relative to this directory.
 # templates_path = ['_templates']
 
+
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
 # This pattern also affects html_static_path and html_extra_path.
@@ -102,7 +103,6 @@ intersphinx_mapping = {
         (None, "http://data.astropy.org/intersphinx/matplotlib.inv"),
     ),
     "astropy": ("http://docs.astropy.org/en/stable/", None),
-    "sunpy": ("https://docs.sunpy.org/en/stable/", None),
 }
 
 # -- Options for HTML output -------------------------------------------------
@@ -124,11 +124,11 @@ html_theme_options = {
 }
 
 html_context = {
-	"display_github": True,
-	"github_user": "ehsteve",
-	"github_repo": "roentgen",
-	"github_version": "main",
-	"conf_py_path": "/docs/",
+    "display_github": True,
+    "github_user": "ehsteve",
+    "github_repo": "roentgen",
+    "github_version": "main",
+    "conf_py_path": "/docs/",
 }
 
 # Render inheritance diagrams in SVG

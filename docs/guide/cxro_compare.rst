@@ -32,7 +32,7 @@ The comparison here shows that the data agree with each other.
                       'water_1000micron.dat', 'ge_500micron.dat',
                       'air_1m_1atm_295kelvin.dat')
 
-    cxro_files = [roentgen._data_directory / f for f in
+    cxro_files = [roentgen._data_directory / 'cxro' / f for f in
                   cxro_filenames]
 
     material_list = ['Be', 'Al', 'Si', 'water', 'ge', 'air']
@@ -52,7 +52,7 @@ The comparison here shows that the data agree with each other.
 
     for ax, this_material, this_thickness, this_file in zip(axis, material_list, thick_list, cxro_files):
 
-        cxro_data = Table(ascii.read(this_file, data_start=2, delimiter=' ', names=['energy', 'transmission']))
+        cxro_data = ascii.read(str(this_file), data_start=2, fast_reader=False, format='basic', header_start=2, names=['energy', 'transmission'])
         if this_material == 'air':
             density = density_ideal_gas(atm, 295 * u.Kelvin)
             mat = Material(this_material, thickness=this_thickness, density=density)
