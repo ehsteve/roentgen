@@ -1,6 +1,7 @@
 """A module to provide access to x-ray and gamma-ray radiation from radionuclides"""
 
 from pathlib import Path
+import re
 
 import numpy as np
 
@@ -10,7 +11,14 @@ from astropy.io import ascii
 
 import roentgen
 
-__all__ = ["Nuclide", "get_nuclide_mass_numbers", "nuclides_list"]
+__all__ = [
+    "Nuclide",
+    "get_nuclide_mass_numbers",
+    "nuclides_list",
+    "get_lara_file",
+    "read_lara_tables",
+    "read_lara_header",
+]
 
 _lara_directory = Path(roentgen._data_directory) / "lara"
 
@@ -71,31 +79,22 @@ class Nuclide(object):
     6.513        3.38    Mn   Fe-55
     """
 
-    def __init__(self, element: str, mass_number: int, descriptor: str = ""):
-        try:
-            filename = get_lara_file(element.capitalize(), mass_number, descriptor)
-        except KeyError:
-            raise KeyError(
-                f"No match for mass_number {mass_number} for {element}. Valid mass numbers are {get_nuclide_mass_numbers(element)}"
-            )
-        self._line_tables = read_lara_tables(filename)
+    def __init__(self, element: str, mass_number: int, metastable: bool = False):
+        file_path = get_lara_file(element.capitalize(), mass_number, metastable)
+        self._line_tables = read_lara_tables(file_path)
         if len(self._line_tables) > 1:
             self.lines = vstack(self._line_tables)
             self.lines.sort("energy")
         elif len(self._line_tables) == 1:
             self.lines = self._line_tables[0]
-        self.meta = read_lara_header(filename)
+        self.meta = read_lara_header(file_path)
         self.name = self.meta["Nuclide"]
         self.element = self.meta["Element"]
         self.half_life = self.meta["Half-life (s)"].to("yr")
+        self.daughters = self.meta["Daughter(s)"]
         self.mass_number = mass_number
+        self.metastable = metastable
         self.data_sheet = f"http://www.lnhb.fr/nuclides/{self.name}_tables.pdf"
-        if len(self.lines) == 0 or len(self._line_tables) == 1:
-            self.decay_chain = f"{self.name}->{self.meta['Daughter(s)']}"
-        else:
-            self.decay_chain = "->".join(
-                [this_table["parent"][0] for this_table in self._line_tables]
-            )
 
     def __str__(self):
         return f"{self._text_summary()}{self.lines.__repr__()}"
@@ -106,7 +105,7 @@ class Nuclide(object):
     def _text_summary(self):
         num_lines = len(self.lines)
         result = f"Nuclide: {self.name}, ({self.element}) half life={self.half_life.to('year')} - ({num_lines:,} lines)\n"
-        result += f"Decay chain: {self.decay_chain}\n"
+        result += f"Daughters: {self.daughters}\n"
         return result
 
     def get_lines(
@@ -116,9 +115,7 @@ class Nuclide(object):
         min_intensity: float = 0.0,
     ) -> QTable:
         """Returns a list of all emission lines in the energy range."""
-        bool_array = (self.lines["energy"] < energy_high) * (
-            self.lines["energy"] > energy_low
-        )
+        bool_array = (self.lines["energy"] < energy_high) * (self.lines["energy"] > energy_low)
         if min_intensity > 0:
             bool_array *= self.lines["intensity"] > min_intensity
         return self.lines[bool_array]
@@ -134,7 +131,7 @@ def get_nuclide_mass_numbers(element: str) -> list:
         raise ValueError(f"No nuclide data found for element {element}")
 
 
-def get_lara_file(element: str, mass_number: int, descriptor: str = "") -> Path:
+def get_lara_file(element: str, mass_number: int, metastable: bool = False) -> Path:
     """Return path to the specified lara data file.
 
     Parameters
@@ -143,27 +140,27 @@ def get_lara_file(element: str, mass_number: int, descriptor: str = "") -> Path:
         The element or symbol name for the nuclide
     mass_number : int
         The mass number of the nuclide
+    metastable : bool
+        Whether the nuclide is metastable
 
     Returns
     -------
     file_path : Path
     """
-    these_nuclides = nuclides_list.loc["symbol", element]
-    if isinstance(these_nuclides, QTable):
-        filename = f"{these_nuclides['symbol'][0]}-{mass_number}{descriptor}.lara.txt"
+    bool_array = nuclides_list["symbol"] == element
+    bool_array *= nuclides_list["mass_number"] == mass_number
+    descriptor = ""
+    if metastable:
+        bool_array *= nuclides_list["metastable"] == metastable
+        descriptor = "m"
+    if sum(bool_array) == 0:
+        raise KeyError(f"No match for mass_number {mass_number} for {element}{descriptor}")
+    elif sum(bool_array) > 1:
+        raise KeyError(
+            f"Multiple matches for mass_number {mass_number} for {element}{descriptor}. {nuclides_list[bool_array]}"
+        )
     else:
-        filename = f"{these_nuclides['symbol']}-{mass_number}{descriptor}.lara.txt"
-    # check if file exists
-    if any(nuclides_list["filename"] == filename):
-        return _lara_directory / filename
-    else:
-        raise FileNotFoundError(f"{filename} not found in nuclides_list.")
-    # if isinstance(these_nuclides, Table):  # multiple isotopes exist
-    #    this_nuclide = these_nuclides.loc["mass_number", mass_number]
-    #    if len(descriptor) > 0:
-    # else:
-    #    this_nuclide = these_nuclides
-    # return _lara_directory / str(this_nuclide["filename"])
+        return _lara_directory / str(nuclides_list["filename"][bool_array].data[0])
 
 
 def read_lara_tables(file_path: str | Path) -> list:
@@ -242,13 +239,26 @@ def read_lara_header(file_path: str | Path) -> dict:
         if len(tokens) > 1:
             key = tokens[0].rstrip()
             if key.count("Daughter"):
-                value = tokens[2].rstrip().lstrip()
+                key = "Daughter(s)"
+                pattern = r"(?:; \((.*?)\) ; ([A-Za-z]+-\d+) ; (\d+.\d+))"
+                match = re.findall(pattern, this_line[12:])
+                value = []
+                if match:
+                    for this_match in match:
+                        value.append(
+                            {
+                                "decay_mode": this_match[0],
+                                "element": this_match[1].split("-")[0],
+                                "mass_number": int(this_match[1].split("-")[1]),
+                                "branching_ratio": float(this_match[2]),
+                            }
+                        )
             else:
                 value = tokens[1].rstrip().lstrip()
-            try:
-                value = float(value)
-            except ValueError:
-                pass
+                try:
+                    value = float(value)
+                except ValueError:
+                    pass
             if key.count("Q+"):
                 value = value * u.keV
             elif key.count("Half-life (a)"):

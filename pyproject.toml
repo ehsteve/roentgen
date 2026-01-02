@@ -4,7 +4,10 @@ dynamic = ["version"]
 description = "A Python package for the quantitative analysis of the interaction of energetic x-rays with matter. This package is named after one of the discoverers of X-rays, Wilhelm Rontgen."
 readme = "README.rst"
 requires-python = ">=3.11"
-dependencies = ["astropy>=7.2.0", "scipy>=1.16.3"]
+dependencies = [
+    "astropy>=7.2.0",
+    "scipy>=1.16.3",
+]
 license = { file = "LICENSE.rst" }
 authors = [
     { name = "Steven Christe", email = "steven.d.christe@nasa.gov" },

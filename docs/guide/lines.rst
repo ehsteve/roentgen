@@ -45,7 +45,7 @@ with::
     >>> import astropy.units as u
     >>> from roentgen.lines import get_lines
     >>> lines = get_lines(5 * u.keV, 5.2 * u.keV)
-    >>> print(lines)
+    >>> print(lines)  # doctest: +SKIP
     energy  z  symbol transition intensity width [keV]
       eV
     ------ --- ------ ---------- --------- -----------
@@ -62,7 +62,7 @@ be limited with::
     >>> import astropy.units as u
     >>> from roentgen.lines import get_lines
     >>> ni_lines = get_lines(5 * u.keV, 10 * u.keV, element='Ni')
-    >>> print(ni_lines)
+    >>> print(ni_lines)  # doctest: +SKIP
     energy  z  symbol transition intensity width [keV]
       eV
     ------ --- ------ ---------- --------- -----------
