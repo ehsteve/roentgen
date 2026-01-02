@@ -104,7 +104,7 @@ class Nuclide(object):
 
     def _text_summary(self):
         num_lines = len(self.lines)
-        result = f"Nuclide: {self.name}, ({self.element}) half life={self.half_life.to('year')} - ({num_lines:,} lines)\n"
+        result = f"Nuclide: {self.name}, ({self.element}) half life={self.half_life.to('yr')} - ({num_lines:,} lines)\n"
         result += f"Daughters: {self.daughters}\n"
         return result
 
@@ -262,7 +262,7 @@ def read_lara_header(file_path: str | Path) -> dict:
             if key.count("Q+"):
                 value = value * u.keV
             elif key.count("Half-life (a)"):
-                value = value * u.year
+                value = value * u.yr
             elif key.count("Half-life (s)"):
                 value = value * u.s
             elif key.count("Decay"):
