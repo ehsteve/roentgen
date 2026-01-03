@@ -9,8 +9,7 @@ import numpy as np
 
 from bokeh.io import curdoc
 from bokeh.layouts import layout, Spacer
-from bokeh.models import ColumnDataSource, CustomJS
-from bokeh.models import HoverTool
+from bokeh.models import ColumnDataSource, CustomJS, HoverTool, TabPanel, Tabs
 from bokeh.models.widgets.inputs import NumericInput
 from bokeh.models.widgets import (
     Paragraph,
@@ -19,6 +18,7 @@ from bokeh.models.widgets import (
     DataTable,
     Button,
     Select,
+    CheckboxGroup,
 )
 from bokeh.plotting import figure
 
