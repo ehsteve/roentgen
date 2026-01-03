@@ -1,0 +1,12 @@
+Nuclide ; Ru-106 
+Element ; Ruthenium
+Z ; 44
+Daughter(s) ; (B-) ; Rh-106 ; 100
+Q- ; 39.4
+Half-life (d) ; 371.5 ; 2.1
+Half-life (s) ; 32.10E6 ; 0.18E6
+Decay constant (1/s) ; 21.59E-9 ; 0.12E-9
+Specific activity (Bq/g) ; 122.7E12 ; 0.7E12
+Reference ; NPL - 2013
+No emissions for the selected type
+==========================================================================================================

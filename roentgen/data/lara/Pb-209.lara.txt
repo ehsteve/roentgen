@@ -1,0 +1,13 @@
+Nuclide ; Pb-209 
+Element ; Lead
+Z ; 82
+Daughter(s) ; (B-) ; Bi-209 ; 100
+Q- ; 644
+Possible parent(s) ; (B-) ; Tl-209 ; 100 ; (alpha) ; Po-213 ; 100
+Half-life (h) ; 3.277 ; 0.015
+Half-life (s) ; 11.80E3 ; 0.05E3
+Decay constant (1/s) ; 58.76E-6 ; 0.27E-6
+Specific activity (Bq/g) ; 169.3E15 ; 0.8E15
+Reference ; ANL - 2011
+No emissions for the selected type
+==========================================================================================================

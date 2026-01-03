@@ -1,4 +1,0 @@
-Utilities
-=========
-
-.. automodapi:: roentgen.util

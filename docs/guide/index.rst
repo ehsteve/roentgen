@@ -8,14 +8,18 @@ X-rays were originally referred to as Roentgen rays.
 
 The scope of this package is evolving but it currently includes the penetration or absorption of x-rays in materials.
 These materials may be metals, gases, biological, or detector materials.
-It also includes the generation of x-rays from emission lines.
+It also includes the generation of x-rays from emission lines as well as emission lines from radionuclides.
 
 .. toctree::
-    :glob:
+    :maxdepth: 3
 
-    transmission_bkg*
-    transmission*
-    attenuators*
-    cxro_compare*
-    gui*
-    lines*
+    transmission_bkg
+    transmission
+    element_list
+    attenuators
+    cxro_compare
+    lines
+    emission_line_list
+    nuclides
+    nuclides_list
+    gui

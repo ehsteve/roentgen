@@ -1,0 +1,13 @@
+Nuclide ; Sr-90 
+Element ; Strontium
+Z ; 38
+Daughter(s) ; (B-) ; Y-90 ; 100
+Q- ; 545.9
+Possible parent(s) ; (B-) ; Rb-90 ; 100 ; (B-) ; Rb-90m ; 97.4
+Half-life (a) ; 28.80 ; 0.07
+Half-life (s) ; 908.8E6 ; 2.2E6
+Decay constant (1/s) ; 762.7E-12 ; 1.9E-12
+Specific activity (Bq/g) ; 5.103E12 ; 0.012E12
+Reference ; CEA/LNE-LNHB - 2005
+No emissions for the selected type
+==========================================================================================================

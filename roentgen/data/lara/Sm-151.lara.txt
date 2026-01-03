@@ -1,0 +1,17 @@
+Nuclide ; Sm-151 
+Element ; Samarium
+Z ; 62
+Daughter(s) ; (B-) ; Eu-151 ; 100
+Q- ; 76.43
+Possible parent(s) ; (B-) ; Pm-151 ; 100
+Half-life (a) ; 94.7 ; 0.6
+Half-life (s) ; 2.988E9 ; 0.019E9
+Decay constant (1/s) ; 231.9E-12 ; 1.5E-12
+Specific activity (Bq/g) ; 925E9 ; 6E9
+Reference ; CEA/LNE-LNHB - 2023
+Emissions (2 lines) sorted by increasing energy
+------------------------------------------------------------------------------------------------------------------
+Energy (keV) ; Ener. unc. (keV) ; Intensity (%) ; Int. unc. (%) ; Type ; Origin ; Lvl. start ; Lvl. end
+6.48305 ;  ; 0.116 ; 0.004 ; XL ; Eu ;  ;  ; 
+21.541 ; 0.003 ; 0.0311 ; 0.0015 ; g ; Eu-151 ; 1 ; 0 ; 
+==================================================================================================================

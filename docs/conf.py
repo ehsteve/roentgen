@@ -5,12 +5,18 @@
 # This file does only contain a selection of the most common options. For a
 # full list see the documentation:
 # http://www.sphinx-doc.org/en/master/config
+import os
+import sys
+from datetime import datetime
 
+sys.path.insert(0, os.path.abspath(".."))
+
+now = datetime.now()
 
 # -- Project information -----------------------------------------------------
 
 project = "roentgen"
-copyright = "2023, Public Domain"
+copyright = f"US Government (not copyrighted) 2023-{now.year}"
 author = "Steven D. Christe, Nabil Freij, Shane Maloney, Daniel Ryan"
 
 # The full version, including alpha/beta/rc tags
@@ -34,14 +40,21 @@ extensions = [
     "sphinx.ext.napoleon",
     "sphinx.ext.doctest",
     "sphinx.ext.mathjax",
-    "sphinx_automodapi.automodapi",
-    "sphinx_automodapi.smart_resolver",
+    "sphinx.ext.autosummary",
     "matplotlib.sphinxext.plot_directive",
     "pytest_doctestplus.sphinx.doctestplus",
+    "sphinx_copybutton",
 ]
+
+# to exclude traditional Python prompts from your copied code
+copybutton_prompt_text = ">>> "
+
+# plot_directive default to always show source when including a plot
+plot_include_source = True
 
 # Add any paths that contain templates here, relative to this directory.
 # templates_path = ['_templates']
+
 
 # List of patterns, relative to source directory, that match files and
 # directories to ignore when looking for source files.
@@ -59,8 +72,15 @@ master_doc = "index"
 # documents. Set to the "smart" one.
 default_role = "obj"
 
-# Set automodapi to generate files inside the generated directory
-automodapi_toctreedirnm = "generated/api"
+autosummary_generate = True  # Turn on sphinx.ext.autosummary
+autosummary_ignore_module_all = False
+autosummary_imported_members = False
+
+autodoc_default_options = {
+    "members": True,
+    "undoc-members": False,
+    "private-members": True,
+}
 
 # -- Options for intersphinx extension ---------------------------------------
 
@@ -83,7 +103,6 @@ intersphinx_mapping = {
         (None, "http://data.astropy.org/intersphinx/matplotlib.inv"),
     ),
     "astropy": ("http://docs.astropy.org/en/stable/", None),
-    "sunpy": ("https://docs.sunpy.org/en/stable/", None),
 }
 
 # -- Options for HTML output -------------------------------------------------
@@ -97,6 +116,20 @@ html_logo = "logo/roentgen.svg"
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
 # html_static_path = ['_static']
+html_theme = "pydata_sphinx_theme"
+
+html_theme_options = {
+   "use_edit_page_button": True,
+   "back_to_top_button": True,
+}
+
+html_context = {
+    "display_github": True,
+    "github_user": "ehsteve",
+    "github_repo": "roentgen",
+    "github_version": "main",
+    "conf_py_path": "/docs/",
+}
 
 # Render inheritance diagrams in SVG
 graphviz_output_format = "svg"

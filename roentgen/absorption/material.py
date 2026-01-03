@@ -1,6 +1,4 @@
-"""
-"""
-import os
+""" """
 
 import numpy as np
 from scipy import interpolate
@@ -36,7 +34,7 @@ class Material(object):
     material_str : str or dict
         A string representation of the material which includes an element symbol
         (e.g. Si), an element name (e.g. Silicon), or the name of a compound
-        (e.g. cdte, mylar). For all supported elements see :download:`elements.csv <../../roentgen/data/elements.csv>` and for compounds see :download:`compounds_mixtures.csv <../../roentgen/data/compounds_mixtures.csv>`.
+        (e.g. cdte, mylar). For supported elements see :download:`elements.csv <../../roentgen/data/elements.csv>` and for compounds see :download:`compounds_mixtures.csv <../../roentgen/data/compounds_mixtures.csv>`.
         Can also be a dictionary of element and compounds with fractional masses (ex. {"Cu":0.70, "Zn":0.30})
     thickness : `astropy.units.Quantity`
         The thickness of the material
@@ -45,6 +43,9 @@ class Material(object):
         If not provided, uses default values which can be found in :download:`elements.csv <../../roentgen/data/elements.csv>` for elements or
         in :download:`compounds_mixtures.csv <../../roentgen/data/compounds_mixtures.csv>` for compounds.
         If many materials are present, calculates the weighted density.
+
+    .. warning::
+        Elements beyond z = 92 are not supported by this class.
 
     Attributes
     ----------
@@ -398,18 +399,16 @@ class MassAttenuationCoefficient(object):
         """
         if is_an_element(material):
             atomic_number = get_atomic_number(material)
-            datafile_path = os.path.join(
-                _data_directory, "elements", "z" + str(atomic_number).zfill(2) + ".csv"
-            )
+            filename = "z" + str(atomic_number).zfill(2) + ".csv"
+            datafile_path = _data_directory / "elements" / filename
             symbol = roentgen.elements[atomic_number - 1]["symbol"]
             name = roentgen.elements[atomic_number - 1]["name"]
         elif is_in_known_compounds(material):
             compound_index = get_compound_index(material)
             symbol = roentgen.compounds[compound_index]["symbol"]
             name = roentgen.compounds[compound_index]["name"]
-            datafile_path = os.path.join(
-                _data_directory, "compounds_mixtures", symbol.replace(" ", "_") + ".csv"
-            )
+            filename = symbol.replace(" ", "_") + ".csv"
+            datafile_path = _data_directory / "compounds_mixtures" / filename
         else:
             raise ValueError(f"Element or compound {material} not found.")
         data = np.loadtxt(datafile_path, delimiter=",")

@@ -1,0 +1,12 @@
+Nuclide ; Se-79 
+Element ; Selenium
+Z ; 34
+Daughter(s) ; (B-) ; Br-79 ; 100
+Q- ; 150.9
+Half-life (a) ; 356E3 ; 40E3
+Half-life (s) ; 11.2E12 ; 1.3E12
+Decay constant (1/s) ; 62E-15 ; 7E-15
+Specific activity (Bq/g) ; 470E6 ; 53E6
+Reference ; CEA/LNE-LNHB - 2006
+No emissions for the selected type
+==========================================================================================================

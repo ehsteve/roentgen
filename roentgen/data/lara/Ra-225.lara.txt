@@ -1,0 +1,16 @@
+Nuclide ; Ra-225 
+Element ; Radium
+Z ; 88
+Daughter(s) ; (B-) ; Ac-225 ; 100
+Q- ; 356
+Half-life (d) ; 14.82 ; 0.19
+Half-life (s) ; 1.280E6 ; 0.016E6
+Decay constant (1/s) ; 541E-9 ; 7E-9
+Specific activity (Bq/g) ; 1.449E15 ; 0.019E15
+Reference ; CNDC - 2008
+Emissions (2 lines) sorted by increasing energy
+----------------------------------------------------------------------------------------------------------
+Energy (keV) ; Ener. unc. (keV) ; Intensity (%) ; Int. unc. (%) ; Type ; Origin ; Lvl. start ; Lvl. end
+14.89645 ;  ; 13.6 ; 0.6 ; XL ; Ac-225 ;  ; 
+40.09 ; 0.05 ; 30.0 ; 0.7 ; g ; Ac-225 ; 1 ; 0
+==========================================================================================================

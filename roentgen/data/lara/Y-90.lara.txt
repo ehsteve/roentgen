@@ -1,0 +1,17 @@
+Nuclide ; Y-90 
+Element ; Yttrium
+Z ; 39
+Daughter(s) ; (B-) ; Zr-90 ; 100
+Q- ; 2278.7
+Possible parent(s) ; (I.T.) ; Y-90m ; 99.9981 ; (B-) ; Sr-90 ; 100
+Half-life (d) ; 2.6684 ; 0.0013
+Half-life (s) ; 230.55E3 ; 0.11E3
+Decay constant (1/s) ; 3.0065E-6 ; 0.0015E-6
+Specific activity (Bq/g) ; 20.117E15 ; 0.010E15
+Reference ; CEA/LNE-LNHB - 2015
+Emissions (2 lines) sorted by increasing energy
+----------------------------------------------------------------------------------------------------------
+Energy (keV) ; Ener. unc. (keV) ; Intensity (%) ; Int. unc. (%) ; Type ; Origin ; Lvl. start ; Lvl. end
+511 ;  ; 0.00638 ; 0.00010 ; g511 ; Zr-90 ; -1 ; -1
+2186.254 ; 0.010 ; 0.0000014 ; 0.0000003 ; g ; Zr-90 ; 2 ; 0
+==========================================================================================================

@@ -1,0 +1,12 @@
+Nuclide ; C-14 
+Element ; Carbon
+Z ; 6
+Daughter(s) ; (B-) ; N-14 ; 100
+Q- ; 156.476
+Half-life (a) ; 5.70E3 ; 0.03E3
+Half-life (s) ; 179.9E9 ; 0.9E9
+Decay constant (1/s) ; 3.854E-12 ; 0.020E-12
+Specific activity (Bq/g) ; 165.8E9 ; 0.9E9
+Reference ; KRI, LNHB - 2012
+No emissions for the selected type
+==========================================================================================================

@@ -6,7 +6,8 @@ import astropy.units as u
 import roentgen
 from roentgen.absorption.material import Material, Stack
 
-all_materials = list(roentgen.elements["symbol"]) + list(roentgen.compounds["symbol"])
+# elements beyond z = 93 have no mass absorption data
+all_materials = list(roentgen.elements["symbol"])[:-6] + list(roentgen.compounds["symbol"])
 energy_array = u.Quantity(np.arange(1, 100, 1), "keV")
 
 
@@ -23,7 +24,8 @@ def test_twomaterials_to_stack(material):
 def test_threematerials_to_stack(material):
     # check that adding three materials returns a compound
     assert isinstance(
-        material + Material("Ge", 500 * u.micron) + Material("cdte", 100 * u.micron), Stack
+        material + Material("Ge", 500 * u.micron) + Material("cdte", 100 * u.micron),
+        Stack,
     )
 
 

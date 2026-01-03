@@ -1,4 +1,0 @@
-Material
-========
-
-.. automodapi:: roentgen.absorption

@@ -1,3 +1,5 @@
+"""A module providing utility functions"""
+
 import numpy as np
 
 import astropy.units as u
