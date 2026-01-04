@@ -62,4 +62,4 @@ energies in eV
 lara
 ----
 Source:  `Laboratoire Nationale Henri Becquerel Library for gamma and alpha emissions <http://www.lnhb.fr/accueil/donnees-nucleaires/module-lara/>`_
-Provides emission data for the most common radionuclides or radiation sources frequently used for laboratory testing and calibration.
+More specifically, data files are from `here <http://www.lnhb.fr/accueil/donnees-nucleaires/donnees-nucleaires-tableau/>`__

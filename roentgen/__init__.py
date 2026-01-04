@@ -5,18 +5,15 @@ photons with matter (x-rays and gamma-rays).
 """
 
 from pathlib import Path
-import importlib.metadata
 
 import astropy.units as u
 from astropy.io import ascii
 from astropy.table import QTable, Table
 
 try:
-    __version__ = importlib.metadata.version(__name__)
-except importlib.metadata.PackageNotFoundError:
+    from _version import version as __version__
+except ImportError:
     __version__ = "0.0.0"  # Fallback for development mode
-
-__all__ = []
 
 # roentgen specific configuration
 # load some data files on import

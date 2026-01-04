@@ -10,10 +10,11 @@ We follow `semantic versioning <https://semver.org>`_ practices so versions incr
 Note that PATCH versions releases may not be documented below.
 
 
-Latest
-------
+2.4.0 (2026-Jan)
+----------------
 * Moved to ruff for linting
 * Moved to uv
+* Added nuclides module that provides access to radioactive nuclide emission lines
 
 
 2.3.0 (2024-10-14)

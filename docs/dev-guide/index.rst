@@ -16,3 +16,4 @@ The guidelines are
    code_standards
    tests
    docs
+   release

@@ -30,14 +30,17 @@ classifiers = [
 ]
 
 [build-system]
-requires = ["hatchling", "uv-dynamic-versioning"]
+requires = ["hatchling", "hatch-vcs"]
 build-backend = "hatchling.build"
 
 [tool.hatch.version]
-source = "uv-dynamic-versioning"
+source = "vcs"
 
-[tool.uv-dynamic-versioning]
-fallback-version = "0.0.0"
+[tool.hatch.build.hooks.vcs]
+version-file = "_version.py"
+
+[tool.hatch.version.raw-options]
+version_scheme = "no-guess-dev"
 
 [[tool.uv.index]]
 name = "testpypi"

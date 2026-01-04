@@ -169,3 +169,5 @@ setup_package.py
 
 docs/_autosummary/*
 .coverage.*
+
+_version.py
