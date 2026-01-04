@@ -26,7 +26,7 @@ Overview
     :target: https://github.com/ehsteve/roentgen/actions/workflows/codestyle.yml
     :alt: Black linting
 
-.. |coverage| image:: https://codecov.io/gh/ehsteve/roentgen/branch/master/graph/badge.svg?token=feNCnYTjB3
+.. |coverage| image:: https://codecov.io/gh/ehsteve/roentgen/branch/main/graph/badge.svg?token=feNCnYTjB3
     :alt: Test coverage on codecov
     :target: https://codecov.io/gh/ehsteve/roentgen
 
