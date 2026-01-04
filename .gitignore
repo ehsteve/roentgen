@@ -114,11 +114,12 @@ pip-wheel-metadata/**
 */cython_version.py
 htmlcov
 .coverage
+.coverage*
 MANIFEST
 .ipynb_checkpoints
 
 # Sphinx
-docs/generated
+docs/_autosummary
 docs/_build
 
 # Eclipse editor project files
@@ -168,3 +169,5 @@ setup_package.py
 
 docs/_autosummary/*
 .coverage.*
+
+_version.py

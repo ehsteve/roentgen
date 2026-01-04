@@ -1,0 +1,13 @@
+Nuclide ; Rb-87 
+Element ; Rubidium
+Z ; 37
+Daughter(s) ; (B-) ; Sr-87 ; 100
+Q- ; 282.275
+Possible parent(s) ; (B-) ; Kr-87 ; 100
+Half-life (a) ; 49.650E9 ; 0.040E9
+Half-life (s) ; 1.5668E18 ; 0.0013E18
+Decay constant (1/s) ; 442.40E-21 ; 0.36E-21
+Specific activity (Bq/g) ; 3.0623E3 ; 0.0025E3
+Reference ; CEA/LNE-LNHB - 2022
+No emissions
+==================================================================================================================

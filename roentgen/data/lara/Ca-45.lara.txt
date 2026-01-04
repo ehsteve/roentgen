@@ -1,0 +1,12 @@
+Nuclide ; Ca-45 
+Element ; Calcium
+Z ; 20
+Daughter(s) ; (B-) ; Sc-45 ; 100
+Q- ; 258
+Half-life (d) ; 162.64 ; 0.11
+Half-life (s) ; 14.052E6 ; 0.010E6
+Decay constant (1/s) ; 49.327E-9 ; 0.033E-9
+Specific activity (Bq/g) ; 660.12E12 ; 0.45E12
+Reference ; CEA/LNE-LNHB - 2012
+No emissions for the selected type
+==========================================================================================================

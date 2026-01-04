@@ -1,10 +1,34 @@
 Changelog
 =========
 
-Latest
-------
+We follow `semantic versioning <https://semver.org>`_ practices so versions increment as
+
+#. MAJOR version when you make incompatible API changes
+#. MINOR version when you add functionality in a backward compatible manner
+#. PATCH version when you make backward compatible bug fixes
+
+Note that PATCH versions releases may not be documented below.
+
+
+2.4.0 (2026-Jan)
+----------------
 * Moved to ruff for linting
 * Moved to uv
+* Added nuclides module that provides access to radioactive nuclide emission lines
+
+
+2.3.0 (2024-10-14)
+------------------
+* Added line widths to the emission line list
+
+
+2.2.0 (2024-03-14)
+------------------
+* Fix and improvement to gui
+* General improvements to documentation and examples
+* Removed poetry
+* added pre-commit support and updated testing
+
 
 2.1.0 (2022-01-07)
 ------------------

@@ -1,0 +1,15 @@
+Nuclide ; O-15 
+Element ; Oxygen
+Z ; 8
+Daughter(s) ; (B+, EC) ; N-15 ; 100
+Q+ ; 2757
+Half-life (min) ; 2.041 ; 0.006
+Half-life (s) ; 122.46 ; 0.36
+Decay constant (1/s) ; 5.660E-3 ; 0.017E-3
+Specific activity (Bq/g) ; 227.2E18 ; 0.7E18
+Reference ; CEA/LNE-LNHB - 2003
+Emissions (1 line) sorted by increasing energy
+----------------------------------------------------------------------------------------------------------
+Energy (keV) ; Ener. unc. (keV) ; Intensity (%) ; Int. unc. (%) ; Type ; Origin ; Lvl. start ; Lvl. end
+511 ;  ; 199.770 ; 0.012 ; g511 ; N-15 ; -1 ; -1
+==========================================================================================================

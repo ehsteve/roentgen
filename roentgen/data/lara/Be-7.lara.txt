@@ -1,0 +1,15 @@
+Nuclide ; Be-7 
+Element ; Beryllium
+Z ; 4
+Daughter(s) ; (EC) ; Li-7 ; 100
+Q+ ; 861.815
+Half-life (d) ; 53.22 ; 0.06
+Half-life (s) ; 4.598E6 ; 0.005E6
+Decay constant (1/s) ; 150.74E-9 ; 0.17E-9
+Specific activity (Bq/g) ; 12.969E15 ; 0.015E15
+Reference ; INEEL, PTB - 2001
+Emissions (1 line) sorted by increasing energy
+----------------------------------------------------------------------------------------------------------
+Energy (keV) ; Ener. unc. (keV) ; Intensity (%) ; Int. unc. (%) ; Type ; Origin ; Lvl. start ; Lvl. end
+477.6035 ; 0.0020 ; 10.44 ; 0.04 ; g ; Li-7 ; 1 ; 0
+==========================================================================================================

@@ -1,0 +1,20 @@
+Nuclide ; Nb-93m 
+Element ; Niobium
+Z ; 41
+Daughter(s) ; (I.T.) ; Nb-93 ; 100
+QIT ; 30.77
+Half-life (a) ; 16.12 ; 0.15
+Half-life (s) ; 508.7E6 ; 4.7E6
+Decay constant (1/s) ; 1.363E-9 ; 0.013E-9
+Specific activity (Bq/g) ; 8.82E12 ; 0.08E12
+Reference ; KRI - 2013
+Emissions (6 lines) sorted by increasing energy
+----------------------------------------------------------------------------------------------------------
+Energy (keV) ; Ener. unc. (keV) ; Intensity (%) ; Int. unc. (%) ; Type ; Origin ; Lvl. start ; Lvl. end
+2.285 ;  ; 2.88 ; 0.06 ; XL ; Nb-93 ;  ; 
+16.5213 ;  ; 3.32 ; 0.08 ; XKa2 ; Nb-93 ;  ; 
+16.6152 ;  ; 6.34 ; 0.15 ; XKa1 ; Nb-93 ;  ; 
+18.67 ;  ; 1.64 ; 0.04 ; XK'b1 ; Nb-93 ;  ; 
+18.967 ;  ; 0.246 ; 0.011 ; XK'b2 ; Nb-93 ;  ; 
+30.77 ; 0.02 ; 0.000591 ; 0.000009 ; g ; Nb-93 ; 1 ; 0
+==========================================================================================================

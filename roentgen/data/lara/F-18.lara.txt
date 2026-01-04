@@ -1,0 +1,17 @@
+Nuclide ; F-18 
+Element ; Fluorine
+Z ; 9
+Daughter(s) ; (B+, EC) ; O-18 ; 100
+Q+ ; 1655.9
+Half-life (h) ; 1.82890 ; 0.00023
+Half-life (s) ; 6.5840E3 ; 0.0008E3
+Decay constant (1/s) ; 105.277E-6 ; 0.013E-6
+Specific activity (Bq/g) ; 3.52218E18 ; 0.00044E18
+Reference ; LNHB, KRI - 2014
+Emissions (3 lines) sorted by increasing energy
+----------------------------------------------------------------------------------------------------------
+Energy (keV) ; Ener. unc. (keV) ; Intensity (%) ; Int. unc. (%) ; Type ; Origin ; Lvl. start ; Lvl. end
+0.525 ;  ; 0.007 ; 0.002 ; XKa2 ; O-18 ;  ; 
+0.525 ;  ; 0.013 ; 0.004 ; XKa1 ; O-18 ;  ; 
+511 ;  ; 193.72 ; 0.38 ; g511 ; O-18 ; -1 ; -1
+==========================================================================================================

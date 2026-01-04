@@ -1,0 +1,12 @@
+Nuclide ; Ni-63 
+Element ; Nickel
+Z ; 28
+Daughter(s) ; (B-) ; Cu-63 ; 100
+Q- ; 66.98
+Half-life (a) ; 98.7 ; 2.4
+Half-life (s) ; 3.11E9 ; 0.08E9
+Decay constant (1/s) ; 223E-12 ; 5E-12
+Specific activity (Bq/g) ; 2.13E12 ; 0.05E12
+Reference ; KRISS - 2005
+No emissions for the selected type
+==========================================================================================================

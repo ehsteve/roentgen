@@ -4,7 +4,10 @@ dynamic = ["version"]
 description = "A Python package for the quantitative analysis of the interaction of energetic x-rays with matter. This package is named after one of the discoverers of X-rays, Wilhelm Rontgen."
 readme = "README.rst"
 requires-python = ">=3.11"
-dependencies = ["astropy>=7.2.0", "scipy>=1.16.3"]
+dependencies = [
+    "astropy>=7.2.0",
+    "scipy>=1.16.3",
+]
 license = { file = "LICENSE.rst" }
 authors = [
     { name = "Steven Christe", email = "steven.d.christe@nasa.gov" },
@@ -27,15 +30,23 @@ classifiers = [
 ]
 
 [build-system]
-requires = ["hatchling", "uv-dynamic-versioning"]
+requires = ["hatchling", "hatch-vcs"]
 build-backend = "hatchling.build"
 
 [tool.hatch.version]
-source = "uv-dynamic-versioning"
+source = "vcs"
 
-[tool.uv-dynamic-versioning]
-fallback-version = "0.0.0"
+[tool.hatch.build.hooks.vcs]
+version-file = "_version.py"
 
+[tool.hatch.version.raw-options]
+version_scheme = "no-guess-dev"
+
+[[tool.uv.index]]
+name = "testpypi"
+url = "https://test.pypi.org/simple/"
+publish-url = "https://test.pypi.org/legacy/"
+explicit = true
 
 [project.optional-dependencies]
 gui = ["bokeh>=3.8.1"]
@@ -54,9 +65,11 @@ lint = ["ruff>=0.14.10"]
 docs = [
     "graphviz>=0.21",
     "matplotlib>=3.10.8",
+    "pydata-sphinx-theme>=0.16.1",
     "pytest-doctestplus>=1.6.0",
     "sphinx>=9.0.4",
     "sphinx-automodapi>=0.22.0",
+    "sphinx-copybutton>=0.5.2",
 ]
 
 [tool.ruff]
