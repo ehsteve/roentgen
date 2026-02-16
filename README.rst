@@ -62,7 +62,7 @@ Installation
 Documentation
 =============
 
-http://roentgen.readthedocs.io/en/stable/
+http://roentgen.readthedocs.io/
 
 GUI
 ===
