@@ -1,0 +1,189 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) US Government (not copyrighted) 2023-2026
+# This file is distributed under the same license as the roentgen package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: roentgen \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-03-16 22:16+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: fr\n"
+"Language-Team: fr <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../_autosummary/roentgen.tests.test_util.rst:2
+msgid "roentgen.tests.test\\_util"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_util.rst:8
+msgid "Functions"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_util.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`test_density_ideal_gas "
+"<roentgen.tests.test_util.test_density_ideal_gas>`\\ \\(pressure\\, "
+"...\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_util.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`test_density_ideal_gas_bad_units "
+"<roentgen.tests.test_util.test_density_ideal_gas_bad_units>`\\ "
+"\\(pressure\\, ...\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_util.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`test_get_atomic_number_error "
+"<roentgen.tests.test_util.test_get_atomic_number_error>`\\ \\(element\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_util.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`test_get_atomic_number_name "
+"<roentgen.tests.test_util.test_get_atomic_number_name>`\\ \\(name\\, z\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_util.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`test_get_atomic_number_symbol "
+"<roentgen.tests.test_util.test_get_atomic_number_symbol>`\\ \\(symbol\\, "
+"z\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_util.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`test_get_compound_index_error "
+"<roentgen.tests.test_util.test_get_compound_index_error>`\\ \\(element\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_util.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`test_get_compound_index_name "
+"<roentgen.tests.test_util.test_get_compound_index_name>`\\ \\(name\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_util.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`test_get_compound_index_symbol "
+"<roentgen.tests.test_util.test_get_compound_index_symbol>`\\ \\(symbol\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_util.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`test_get_density_compound "
+"<roentgen.tests.test_util.test_get_density_compound>`\\ \\(compound\\, "
+"density\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_util.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`test_get_density_element "
+"<roentgen.tests.test_util.test_get_density_element>`\\ \\(symbol\\, "
+"density\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_util.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`test_get_density_error "
+"<roentgen.tests.test_util.test_get_density_error>`\\ \\(element\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_util.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`test_get_density_quantity "
+"<roentgen.tests.test_util.test_get_density_quantity>`\\ \\(material\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_util.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`test_get_element_symbol "
+"<roentgen.tests.test_util.test_get_element_symbol>`\\ \\(name\\, "
+"symbol\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_util.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`test_get_element_symbol__badnum_error "
+"<roentgen.tests.test_util.test_get_element_symbol__badnum_error>`\\ "
+"\\(\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_util.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`test_get_element_symbol_error "
+"<roentgen.tests.test_util.test_get_element_symbol_error>`\\ \\(element\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_util.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`test_get_element_symbol_int "
+"<roentgen.tests.test_util.test_get_element_symbol_int>`\\ \\(z\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_util.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`test_get_element_symbol_same_return "
+"<roentgen.tests.test_util.test_get_element_symbol_same_return>`\\ "
+"\\(symbol\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_util.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`test_get_material_name "
+"<roentgen.tests.test_util.test_get_material_name>`\\ \\(element\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_util.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`test_get_symbol_error "
+"<roentgen.tests.test_util.test_get_symbol_error>`\\ \\(element\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_util.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`test_is_an_element_name "
+"<roentgen.tests.test_util.test_is_an_element_name>`\\ \\(element\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_util.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`test_is_an_element_symbol "
+"<roentgen.tests.test_util.test_is_an_element_symbol>`\\ \\(element\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_util.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`test_is_in_known_compounds_name "
+"<roentgen.tests.test_util.test_is_in_known_compounds_name>`\\ \\(name\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_util.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`test_is_in_known_compounds_not "
+"<roentgen.tests.test_util.test_is_in_known_compounds_not>`\\ "
+"\\(element\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_util.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`test_is_in_known_compounds_symbol "
+"<roentgen.tests.test_util.test_is_in_known_compounds_symbol>`\\ "
+"\\(symbol\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_util.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`test_is_not_an_element "
+"<roentgen.tests.test_util.test_is_not_an_element>`\\ \\(element\\)"
+msgstr ""
+

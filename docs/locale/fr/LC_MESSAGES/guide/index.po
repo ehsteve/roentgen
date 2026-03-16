@@ -1,0 +1,56 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) US Government (not copyrighted) 2023-2026
+# This file is distributed under the same license as the roentgen package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: roentgen\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-03-16 22:16+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: fr <LL@li.org>\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../guide/index.rst:2
+msgid "Guide"
+msgstr "Guide"
+
+#: ../../guide/index.rst:4
+msgid ""
+"This is a Python package for the quantitative analysis of the interaction of"
+" energetic x-rays with matter. This package is named after one of the "
+"discoverers of X-rays, `Wilhelm Roentgen "
+"<https://en.wikipedia.org/wiki/Wilhelm_Röntgen>`_. He was awarded the very "
+"first Nobel Prize in Physics \"in recognition of the extraordinary services "
+"he has rendered by the discovery of the remarkable rays subsequently named "
+"after him\". X-rays were originally referred to as Roentgen rays."
+msgstr ""
+"Ceci est un paquet Python pour l'analyse quantitative de l'interaction des "
+"rayons X énergétiques avec la matière. Ce paquet est nommé d'après l'un des "
+"découvreurs des rayons X, `Wilhelm Roentgen "
+"<https://en.wikipedia.org/wiki/Wilhelm_Röntgen>`_. Il a reçu le tout premier"
+" prix Nobel de physique « en reconnaissance des services extraordinaires "
+"qu'il a rendus par la découverte des rayons remarquables qui portent son nom"
+" ». Les rayons X étaient à l'origine appelés rayons Roentgen."
+
+#: ../../guide/index.rst:9
+msgid ""
+"The scope of this package is evolving but it currently includes the "
+"penetration or absorption of x-rays in materials. These materials may be "
+"metals, gases, biological, or detector materials. It also includes the "
+"generation of x-rays from emission lines as well as emission lines from "
+"radionuclides."
+msgstr ""
+"La portée de ce paquet évolue mais elle comprend actuellement la pénétration"
+" ou l'absorption des rayons X dans les matériaux. Ces matériaux peuvent être"
+" des métaux, des gaz, des matériaux biologiques ou des détecteurs. Il "
+"comprend également la génération de rayons X par les raies d'émission ainsi "
+"que les raies d'émission des radionucléides."

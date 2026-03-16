@@ -1,0 +1,201 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) US Government (not copyrighted) 2023-2026
+# This file is distributed under the same license as the roentgen package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: roentgen\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-03-16 22:16+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: fr <LL@li.org>\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../guide/transmission_bkg.rst:2
+msgid "Theory of Transmission and Absorption"
+msgstr "Théorie de la transmission et de l'absorption"
+
+#: ../../guide/transmission_bkg.rst:5
+msgid "Mass Attenuation Coefficient"
+msgstr "Coefficient d'atténuation massique"
+
+#: ../../guide/transmission_bkg.rst:6
+msgid ""
+"If a narrow beam of monoenergetic photons with intensity, :math:`I_0`, are "
+"impinged on a material of thickness :math:`x`,the intensity is attenuated "
+"exponentially,"
+msgstr ""
+"Si un faisceau étroit de photons monoénergétiques d'intensité :math:`I_0` "
+"frappe un matériau d'épaisseur :math:`x`, l'intensité est atténuée de "
+"manière exponentielle,"
+
+#: ../../guide/transmission_bkg.rst:9
+msgid ""
+"I(x) = I_0 \\exp(-\\mu x)\n"
+"\n"
+msgstr ""
+
+#: ../../guide/transmission_bkg.rst:12
+#, python-brace-format
+msgid ""
+"The parameter :math:`\\mu` is called the linear attenuation coefficient and "
+"measures the absorptivity of the material. It has units of :math:`cm^{-1}`. "
+"This value captures the sum of the probabilities of individual processes "
+"which might remove an individual photon from the impinging beam. Those "
+"interactions most relevant to the x-ray and gamma-ray range are the "
+"photoelectric interaction and Compton scattering. In a photoelectric "
+"interaction, the entire incident energy of the interacting photon is "
+"absorbed by the material while in Compton scattering, only a portion of the "
+"incident energy is absorbed. These interactions are energy dependent which "
+"means that the linear attenuation coefficient is also. Another way to "
+"represent the linear attenuation coefficient is through the mass attenuation"
+" coefficient or"
+msgstr ""
+"Le paramètre :math:`\\mu` est appelé le coefficient d'atténuation linéaire "
+"et mesure la capacité d'absorption du matériau. Il a les unités de "
+":math:`cm^{-1}`. Cette valeur correspond à la somme des probabilités des "
+"processus individuels pouvant retirer un photon individuel du faisceau "
+"incident. Les interactions les plus pertinentes dans la gamme des rayons X "
+"et gamma sont l'interaction photoélectrique et la diffusion Compton. Dans "
+"une interaction photoélectrique, toute l'énergie incidente du photon "
+"interagissant est absorbée par le matériau, alors que dans la diffusion "
+"Compton, seule une partie de l'énergie incidente est absorbée. Ces "
+"interactions dépendent de l'énergie, ce qui signifie que le coefficient "
+"d'atténuation linéaire l'est également. Une autre façon de représenter le "
+"coefficient d'atténuation linéaire est le coefficient d'atténuation massique"
+" ou"
+
+#: ../../guide/transmission_bkg.rst:20
+#, python-brace-format
+msgid ""
+"\\mu_m = \\frac{\\mu}{\\rho}\n"
+"\n"
+msgstr ""
+
+#: ../../guide/transmission_bkg.rst:23
+#, python-brace-format
+msgid ""
+"where :math:`\\rho` is the density of the medium. It has units of "
+":math:`cm^2 g^{-1}`. This is the measure used by this module."
+msgstr ""
+"où :math:`\\rho` est la densité du milieu. Il a les unités de :math:`cm^2 "
+"g^{-1}`. C'est la mesure utilisée par ce module."
+
+#: ../../guide/transmission_bkg.rst:26
+msgid "This equation can be re-written in the following form"
+msgstr "Cette équation peut être réécrite sous la forme suivante"
+
+#: ../../guide/transmission_bkg.rst:28
+#, python-brace-format
+msgid ""
+"\\frac{\\mu}{\\rho} = \\frac{1}{x} \\ln\\left (\\frac{I_0}{I}\\right)\n"
+"\n"
+msgstr ""
+
+#: ../../guide/transmission_bkg.rst:31
+msgid ""
+"which suggests a method for measuring the mass attenuation coefficient."
+msgstr ""
+"ce qui suggère une méthode pour mesurer le coefficient d'atténuation "
+"massique."
+
+#: ../../guide/transmission_bkg.rst:34
+msgid "Transmission and Absorption"
+msgstr "Transmission et absorption"
+
+#: ../../guide/transmission_bkg.rst:35
+msgid ""
+"As described above the probability of transmission through a material is "
+"given by"
+msgstr ""
+"Comme décrit ci-dessus, la probabilité de transmission à travers un matériau"
+" est donnée par"
+
+#: ../../guide/transmission_bkg.rst:37
+#, python-brace-format
+msgid ""
+"I_{trans} = I_0 \\exp\\left (- \\frac{\\mu}{\\rho} x\\right)\n"
+"\n"
+msgstr ""
+
+#: ../../guide/transmission_bkg.rst:40
+msgid "therefore the absorption is given by"
+msgstr "donc l'absorption est donnée par"
+
+#: ../../guide/transmission_bkg.rst:42
+#, python-brace-format
+msgid ""
+"I_{trans} = I_0 \\left(1 - \\exp\\left(- \\frac{\\mu}{\\rho} x\\right)\\right)\n"
+"\n"
+msgstr ""
+
+#: ../../guide/transmission_bkg.rst:47
+msgid "Multiple Materials"
+msgstr "Matériaux multiples"
+
+#: ../../guide/transmission_bkg.rst:48
+msgid ""
+"Since we are dealing with probabilities of interactions if there are "
+"multiple materials present the probabilities must be multiplied. For "
+"example, if we are interested in the amount of flux which passes through two"
+" materials, a and b, both with thickness x, it is given by the following "
+"equation"
+msgstr ""
+"Puisque nous traitons des probabilités d'interactions, si plusieurs "
+"matériaux sont présents, les probabilités doivent être multipliées. Par "
+"exemple, si nous nous intéressons à la quantité de flux qui traverse deux "
+"matériaux, a et b, tous deux d'épaisseur x, elle est donnée par l'équation "
+"suivante"
+
+#: ../../guide/transmission_bkg.rst:52
+#, python-brace-format
+msgid ""
+"I_{trans} = I_0 \\exp\\left(- \\frac{\\mu_a}{\\rho_a} x\\right) \\exp\\left(- \\frac{\\mu_b}{\\rho_b} x\\right)\n"
+"\n"
+msgstr ""
+
+#: ../../guide/transmission_bkg.rst:55
+msgid "which can be simplified to"
+msgstr "ce qui peut être simplifié en"
+
+#: ../../guide/transmission_bkg.rst:57
+#, python-brace-format
+msgid ""
+"I_{trans} = I_0 \\exp\\left(- \\left(\\frac{\\mu_a}{\\rho_a} + \\frac{\\mu_b}{\\rho_b} \\right) x \\right)\n"
+"\n"
+msgstr ""
+
+#: ../../guide/transmission_bkg.rst:60
+msgid ""
+"If we are interested in the amount of flux deposited in a detector of "
+"thickness, t made of material b after traveling through material a with "
+"thickness T"
+msgstr ""
+"Si nous nous intéressons à la quantité de flux déposée dans un détecteur "
+"d'épaisseur t constitué du matériau b après avoir traversé le matériau a "
+"d'épaisseur T"
+
+#: ../../guide/transmission_bkg.rst:62
+#, python-brace-format
+msgid ""
+"F = I_0 \\exp\\left(- \\frac{\\mu_a}{\\rho_a} T\\right) \\left(1-\\exp\\left(- \\frac{\\mu_b}{\\rho_b} t\\right)\\right)\n"
+"\n"
+msgstr ""
+
+#: ../../guide/transmission_bkg.rst:67
+msgid "Reference"
+msgstr "Référence"
+
+#: ../../guide/transmission_bkg.rst:69
+msgid ""
+"`Mass attenuation coefficient Wikipedia "
+"<https://en.wikipedia.org/wiki/Mass_attenuation_coefficient>`_"
+msgstr ""

@@ -1,0 +1,218 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) US Government (not copyrighted) 2023-2026
+# This file is distributed under the same license as the roentgen package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: roentgen \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-03-16 22:16+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: fr\n"
+"Language-Team: fr <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../_autosummary/roentgen.tests.test_material.rst:2
+msgid "roentgen.tests.test\\_material"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_material.rst:8
+msgid "Functions"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_material.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`mass_atten <roentgen.tests.test_material.mass_atten>`\\ "
+"\\(request\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_material.rst:35:<autosummary>:1
+msgid ":py:obj:`material <roentgen.tests.test_material.material>`\\ \\(request\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_material.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`test_bad_add_to_material "
+"<roentgen.tests.test_material.test_bad_add_to_material>`\\ \\(\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_material.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`test_density_calculation "
+"<roentgen.tests.test_material.test_density_calculation>`\\ \\(\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_material.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`test_dict_input "
+"<roentgen.tests.test_material.test_dict_input>`\\ \\(material\\_dict\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_material.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`test_is_an_element_caseinsensitive_name "
+"<roentgen.tests.test_material.test_is_an_element_caseinsensitive_name>`\\"
+" \\(\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_material.rst:35:<autosummary>:1 of
+#: roentgen.tests.test_material.test_is_an_element_caseinsensitive_name:1
+msgid "Test that searching for an element name is not case sensitive"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_material.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`test_is_an_element_caseinsensitive_symbol "
+"<roentgen.tests.test_material.test_is_an_element_caseinsensitive_symbol>`\\"
+" \\(\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_material.rst:35:<autosummary>:1 of
+#: roentgen.tests.test_material.test_is_an_element_caseinsensitive_symbol:1
+msgid "Test that searching for an element symbol is not case sensitive"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_material.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`test_is_an_element_name "
+"<roentgen.tests.test_material.test_is_an_element_name>`\\ \\(\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_material.rst:35:<autosummary>:1 of
+#: roentgen.tests.test_material.test_is_an_element_name:1
+msgid "Test that function is okay with all known elements names"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_material.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`test_is_an_element_symbol "
+"<roentgen.tests.test_material.test_is_an_element_symbol>`\\ \\(\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_material.rst:35:<autosummary>:1 of
+#: roentgen.tests.test_material.test_is_an_element_symbol:1
+msgid "Test that function is okay with all known elements symbols"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_material.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`test_linear_attenuation_coefficient "
+"<roentgen.tests.test_material.test_linear_attenuation_coefficient>`\\ "
+"\\(...\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_material.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`test_mass_atten "
+"<roentgen.tests.test_material.test_mass_atten>`\\ \\(mass\\_atten\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_material.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`test_mass_atten_calculation_in_material "
+"<roentgen.tests.test_material.test_mass_atten_calculation_in_material>`\\"
+" \\(material\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_material.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`test_material <roentgen.tests.test_material.test_material>`\\ "
+"\\(material\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_material.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`test_material_bad_input "
+"<roentgen.tests.test_material.test_material_bad_input>`\\ "
+"\\(material\\_wrong\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_material.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`test_material_give_density "
+"<roentgen.tests.test_material.test_material_give_density>`\\ \\(\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_material.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`test_material_number_of_energies "
+"<roentgen.tests.test_material.test_material_number_of_energies>`\\ "
+"\\(material\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_material.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`test_material_scalar_energy "
+"<roentgen.tests.test_material.test_material_scalar_energy>`\\ "
+"\\(material\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_material.rst:35:<autosummary>:1 of
+#: roentgen.tests.test_material.test_material_scalar_energy:1
+msgid "If a scalar energy is given then the results should NOT be arrays"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_material.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`test_number_of_energies "
+"<roentgen.tests.test_material.test_number_of_energies>`\\ "
+"\\(mass\\_atten\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_material.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`test_opaque <roentgen.tests.test_material.test_opaque>`\\ "
+"\\(thick\\_material\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_material.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`test_raise_outside_of_data_range "
+"<roentgen.tests.test_material.test_raise_outside_of_data_range>`\\ \\(\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_material.rst:35:<autosummary>:1 of
+#: roentgen.tests.test_material.test_raise_outside_of_data_range:1
+msgid ""
+"Test that ValueError is raised is trying to get values outside of data "
+"range 1 keV to 20 MeV."
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_material.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`test_repr_str <roentgen.tests.test_material.test_repr_str>`\\ "
+"\\(\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_material.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`test_returns_quantity "
+"<roentgen.tests.test_material.test_returns_quantity>`\\ "
+"\\(mass\\_atten\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_material.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`test_transparent "
+"<roentgen.tests.test_material.test_transparent>`\\ \\(thin\\_material\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_material.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`thick_material <roentgen.tests.test_material.thick_material>`\\ "
+"\\(request\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_material.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`thin_material <roentgen.tests.test_material.thin_material>`\\ "
+"\\(request\\)"
+msgstr ""
+

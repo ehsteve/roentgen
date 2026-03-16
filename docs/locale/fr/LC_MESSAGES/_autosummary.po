@@ -1,0 +1,1269 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) US Government (not copyrighted) 2023-2026
+# This file is distributed under the same license as the roentgen package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: roentgen \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-03-16 22:15+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: fr\n"
+"Language-Team: fr <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../_autosummary/roentgen.rst:2
+msgid "roentgen"
+msgstr ""
+
+#: of roentgen:1
+msgid ""
+"A Python package for the quantitative analysis of the interaction of "
+"energetic photons with matter (x-rays and gamma-rays)."
+msgstr ""
+
+#: ../../_autosummary/roentgen.absorption.rst:8
+#: ../../_autosummary/roentgen.lines.rst:8
+#: ../../_autosummary/roentgen.nuclides.rst:8 ../../_autosummary/roentgen.rst:8
+#: ../../_autosummary/roentgen.tests.rst:8
+#: ../../_autosummary/roentgen.util.rst:8
+msgid "Modules"
+msgstr ""
+
+#: ../../_autosummary/roentgen.rst:17:<autosummary>:1
+msgid ":py:obj:`absorption <roentgen.absorption>`"
+msgstr ""
+
+#: ../../_autosummary/roentgen.rst:17:<autosummary>:1
+msgid ":py:obj:`lines <roentgen.lines>`"
+msgstr ""
+
+#: ../../_autosummary/roentgen.rst:17:<autosummary>:1
+msgid ":py:obj:`nuclides <roentgen.nuclides>`"
+msgstr ""
+
+#: ../../_autosummary/roentgen.rst:17:<autosummary>:1
+msgid ":py:obj:`tests <roentgen.tests>`"
+msgstr ""
+
+#: ../../_autosummary/roentgen.rst:17:<autosummary>:1 of roentgen.tests:1
+msgid "This module contains package tests."
+msgstr ""
+
+#: ../../_autosummary/roentgen.rst:17:<autosummary>:1
+msgid ":py:obj:`util <roentgen.util>`"
+msgstr ""
+
+#: ../../_autosummary/roentgen.absorption.rst:2
+msgid "roentgen.absorption"
+msgstr ""
+
+#: ../../_autosummary/roentgen.absorption.rst:13:<autosummary>:1
+msgid ":py:obj:`material <roentgen.absorption.material>`"
+msgstr ""
+
+#: ../../_autosummary/roentgen.absorption.material.rst:2
+msgid "roentgen.absorption.material"
+msgstr ""
+
+#: ../../_autosummary/roentgen.absorption.material.rst:8
+#: ../../_autosummary/roentgen.nuclides.nuclides.rst:17
+msgid "Classes"
+msgstr ""
+
+#: ../../_autosummary/roentgen.absorption.material.rst:14:<autosummary>:1
+msgid ""
+":py:obj:`Material <roentgen.absorption.material.Material>`\\ "
+"\\(material\\_input\\, thickness\\[\\, density\\]\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.absorption.material.rst:14:<autosummary>:1 of
+#: roentgen.absorption.material.Material:1
+msgid ""
+"An object which enables the calculation of the x-ray transmission and "
+"absorption of a material (e.g. an element or a compound/mixture)."
+msgstr ""
+
+#: ../../_autosummary/roentgen.absorption.material.rst:14:<autosummary>:1
+msgid ""
+":py:obj:`MassAttenuationCoefficient "
+"<roentgen.absorption.material.MassAttenuationCoefficient>`\\ "
+"\\(material\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.absorption.material.rst:14:<autosummary>:1 of
+#: roentgen.absorption.material.MassAttenuationCoefficient:1
+msgid "The mass attenuation coefficient."
+msgstr ""
+
+#: ../../_autosummary/roentgen.absorption.material.rst:14:<autosummary>:1
+msgid ":py:obj:`Stack <roentgen.absorption.material.Stack>`\\ \\(materials\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.absorption.material.rst:14:<autosummary>:1
+msgid ""
+"An object which enables the calculation of the x-ray transmission and "
+"absorption of a stack of materaials."
+msgstr ""
+
+#: ../../_autosummary/roentgen.absorption.material.rst:14:<autosummary>:1
+msgid ""
+":py:obj:`Response <roentgen.absorption.material.Response>`\\ "
+"\\(optical\\_path\\, detector\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.absorption.material.rst:14:<autosummary>:1 of
+#: roentgen.absorption.material.Response:1
+msgid ""
+"An object to handle the response of a detector material which includes an"
+" optical path or filter through which x-rays must first traverse before "
+"reaching the detector."
+msgstr ""
+
+#: ../../_autosummary/roentgen.absorption.material.rst
+#: ../../_autosummary/roentgen.lines.lines.rst
+#: ../../_autosummary/roentgen.nuclides.nuclides.rst
+msgid "Parameters"
+msgstr ""
+
+#: of roentgen.absorption.material.MassAttenuationCoefficient:3
+msgid ""
+"A string representation of the material which includes an element symbol "
+"(e.g. Si), an element name (e.g. Silicon), or the name of a compound "
+"(e.g. cdte, mylar)."
+msgstr ""
+
+#: of roentgen.absorption.material.MassAttenuationCoefficient:10
+msgid "The mass attenuation data values."
+msgstr ""
+
+#: of roentgen.absorption.material.MassAttenuationCoefficient
+#: roentgen.absorption.material.Material roentgen.nuclides.nuclides.Nuclide
+msgid "type"
+msgstr ""
+
+#: of roentgen.absorption.material.MassAttenuationCoefficient:12
+msgid "`astropy.units.Quantity` array"
+msgstr ""
+
+#: of roentgen.absorption.material.MassAttenuationCoefficient:16
+msgid "The energy values of the mass attenuation values."
+msgstr ""
+
+#: of roentgen.absorption.material.MassAttenuationCoefficient:18
+msgid "`astropy.units.Quantity`"
+msgstr ""
+
+#: of roentgen.absorption.material.MassAttenuationCoefficient:22
+msgid "The material symbol"
+msgstr ""
+
+#: of roentgen.absorption.material.MassAttenuationCoefficient:24
+#: roentgen.absorption.material.MassAttenuationCoefficient:30
+#: roentgen.absorption.material.Material:36
+#: roentgen.nuclides.nuclides.Nuclide:26
+msgid "`str`"
+msgstr ""
+
+#: of roentgen.absorption.material.MassAttenuationCoefficient:28
+msgid "The material name"
+msgstr ""
+
+#: of roentgen.absorption.material.MassAttenuationCoefficient:34
+msgid ""
+"A function which returns the interpolated mass attenuation value at any "
+"given energy. Energies must be given by an `astropy.units.Quantity`. The "
+"interpolation range is 1 keV to 20 MeV. Going outside that range will "
+"result in a ValueError."
+msgstr ""
+
+#: of roentgen.absorption.material.MassAttenuationCoefficient:39
+msgid "`lambda func`"
+msgstr ""
+
+#: of roentgen.absorption.material.MassAttenuationCoefficient:42
+#: roentgen.absorption.material.Material:56
+#: roentgen.absorption.material.Response:13
+#: roentgen.absorption.material.Stack:9 roentgen.nuclides.nuclides.Nuclide:34
+msgid "Examples"
+msgstr ""
+
+#: of
+#: roentgen.absorption.material.MassAttenuationCoefficient._remove_double_vals_from_data:1
+msgid ""
+"Remove double-values energy values. Edges are represented with the same "
+"energy index and at the bottom and top value of the edge. This must be "
+"removed to enable correct interpolation."
+msgstr ""
+
+#: of roentgen.absorption.material.Material:4
+msgid ""
+"A material may be composed of a single atomic element such as Aluminum "
+"('Al'), or composed of number of elements and/or compounds."
+msgstr ""
+
+#: of roentgen.absorption.material.Material:6
+#, python-brace-format
+msgid ""
+"A string representation of the material which includes an element symbol "
+"(e.g. Si), an element name (e.g. Silicon), or the name of a compound "
+"(e.g. cdte, mylar). For supported elements see :download:`elements.csv "
+"<../../roentgen/data/elements.csv>` and for compounds see "
+":download:`compounds_mixtures.csv "
+"<../../roentgen/data/compounds_mixtures.csv>`. Can also be a dictionary "
+"of element and compounds with fractional masses (ex. {\"Cu\":0.70, "
+"\"Zn\":0.30})"
+msgstr ""
+
+#: of roentgen.absorption.material.Material:11
+msgid "The thickness of the material"
+msgstr ""
+
+#: of roentgen.absorption.material.Material:13
+msgid ""
+"The density of the material. If not provided, uses default values which "
+"can be found in :download:`elements.csv "
+"<../../roentgen/data/elements.csv>` for elements or in "
+":download:`compounds_mixtures.csv "
+"<../../roentgen/data/compounds_mixtures.csv>` for compounds. If many "
+"materials are present, calculates the weighted density."
+msgstr ""
+
+#: of roentgen.absorption.material.Material:18
+msgid "Elements beyond z = 92 are not supported by this class."
+msgstr ""
+
+#: of roentgen.absorption.material.Material:22
+#: roentgen.nuclides.nuclides.Nuclide:12
+msgid "A list of material symbol"
+msgstr ""
+
+#: of roentgen.absorption.material.Material:24
+#: roentgen.absorption.material.Material:30
+#: roentgen.absorption.material.Material:48
+#: roentgen.nuclides.nuclides.Nuclide:14 roentgen.nuclides.nuclides.Nuclide:20
+msgid "`list`"
+msgstr ""
+
+#: of roentgen.absorption.material.Material:28
+#: roentgen.nuclides.nuclides.Nuclide:18
+msgid "A list of material names"
+msgstr ""
+
+#: of roentgen.absorption.material.Material:34
+#: roentgen.nuclides.nuclides.Nuclide:24
+msgid "A name for the material"
+msgstr ""
+
+#: of roentgen.absorption.material.Material:40
+msgid "A normalized array of fractional masses"
+msgstr ""
+
+#: of roentgen.absorption.material.Material:42
+msgid "`np.ndarray`"
+msgstr ""
+
+#: of roentgen.absorption.material.Material:46
+msgid "A list of `MassAttenuationCoefficient`"
+msgstr ""
+
+#: of roentgen.absorption.material.Material:52
+msgid "The mass attenuation coefficient for the material at energy"
+msgstr ""
+
+#: of roentgen.absorption.material.Material.absorption:1
+#: roentgen.absorption.material.Stack.absorption:1
+msgid "Provides the absorption fraction (0 to 1)."
+msgstr ""
+
+#: of roentgen.absorption.material.Material.absorption:3
+#: roentgen.absorption.material.Material.linear_attenuation_coefficient:5
+#: roentgen.absorption.material.Response.response:5
+#: roentgen.absorption.material.Stack.absorption:3
+msgid "An array of energies in keV."
+msgstr ""
+
+#: ../../_autosummary/roentgen.absorption.material.rst
+msgid "Raises"
+msgstr ""
+
+#: of roentgen.absorption.material.Material.absorption:6
+#: roentgen.absorption.material.Material.linear_attenuation_coefficient:8
+#: roentgen.absorption.material.Material.transmission:6
+#: roentgen.absorption.material.Response.response:8
+#: roentgen.absorption.material.Stack.absorption:6
+#: roentgen.absorption.material.Stack.transmission:6
+msgid "If energy is outside of the interpolation range of 1 keV to 20 MeV."
+msgstr ""
+
+#: of roentgen.absorption.material.Material.linear_attenuation_coefficient:1
+msgid "Provides the linear attenuation coefficient as a function of energy."
+msgstr ""
+
+#: of roentgen.absorption.material.Material.linear_attenuation_coefficient:3
+msgid "linear coeff = mass coeff * density."
+msgstr ""
+
+#: of roentgen.absorption.material.Material.transmission:1
+msgid "Provide the transmission fraction (0 to 1)."
+msgstr ""
+
+#: of roentgen.absorption.material.Material.transmission:3
+#: roentgen.absorption.material.Stack.transmission:3
+msgid "An array of energies in keV"
+msgstr ""
+
+#: of roentgen.absorption.material.Response:5
+msgid "A list of Material objects which make up the optical path."
+msgstr ""
+
+#: of roentgen.absorption.material.Response:7
+msgid ""
+"A Material which represents the detector material where the x-rays are "
+"absorbed. If provided with None, than assume a perfectly absorbing "
+"detector material."
+msgstr ""
+
+#: of roentgen.absorption.material.Response.response:1
+msgid ""
+"Returns the response as a function of energy which corresponds to the "
+"transmission through the optical path multiplied by the absorption in the"
+" detector."
+msgstr ""
+
+#: of roentgen.absorption.material.Stack:1
+msgid ""
+"An object which enables the calculation of the x-ray transmission and "
+"absorption of a stack of materaials. This object is created automatically"
+" when `Material` objects are added together."
+msgstr ""
+
+#: of roentgen.absorption.material.Stack:5
+msgid "A list of `Material` objects"
+msgstr ""
+
+#: of roentgen.absorption.material.Stack.transmission:1
+msgid "Provides the transmission fraction (0 to 1)."
+msgstr ""
+
+#: ../../_autosummary/roentgen.lines.rst:2
+msgid "roentgen.lines"
+msgstr ""
+
+#: ../../_autosummary/roentgen.lines.rst:13:<autosummary>:1
+msgid ":py:obj:`lines <roentgen.lines.lines>`"
+msgstr ""
+
+#: ../../_autosummary/roentgen.lines.rst:13:<autosummary>:1 of
+#: roentgen.lines.lines:1
+msgid ""
+"A module to access atomic line emission, binding energies, and "
+"transmission edges."
+msgstr ""
+
+#: ../../_autosummary/roentgen.lines.lines.rst:2
+msgid "roentgen.lines.lines"
+msgstr ""
+
+#: ../../_autosummary/roentgen.lines.lines.rst:8
+#: ../../_autosummary/roentgen.nuclides.nuclides.rst:8
+#: ../../_autosummary/roentgen.tests.test_lines.rst:8
+#: ../../_autosummary/roentgen.tests.test_massatten.rst:8
+#: ../../_autosummary/roentgen.tests.test_material.rst:8
+#: ../../_autosummary/roentgen.tests.test_response.rst:8
+#: ../../_autosummary/roentgen.tests.test_stack.rst:8
+#: ../../_autosummary/roentgen.tests.test_util.rst:8
+#: ../../_autosummary/roentgen.util.util.rst:8
+msgid "Functions"
+msgstr ""
+
+#: ../../_autosummary/roentgen.lines.lines.rst:12:<autosummary>:1
+msgid ""
+":py:obj:`get_lines <roentgen.lines.lines.get_lines>`\\ \\(energy\\_low\\,"
+" energy\\_high\\[\\, ...\\]\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.lines.lines.rst:12:<autosummary>:1 of
+#: roentgen.lines.lines.get_lines:1
+msgid "Retrieve all emission lines in an energy range."
+msgstr ""
+
+#: ../../_autosummary/roentgen.lines.lines.rst:12:<autosummary>:1
+msgid ":py:obj:`get_edges <roentgen.lines.lines.get_edges>`\\ \\(element\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.lines.lines.rst:12:<autosummary>:1
+msgid "Retrieve the absorption edges for a given element."
+msgstr ""
+
+#: of roentgen.lines.lines.get_edges:1
+msgid ""
+"Retrieve the absorption edges for a given element. Edges occur at the "
+"electron binding energies of the element."
+msgstr ""
+
+#: ../../_autosummary/roentgen.lines.lines.rst
+#: ../../_autosummary/roentgen.nuclides.nuclides.rst
+msgid "Returns"
+msgstr ""
+
+#: of roentgen.lines.lines.get_edges:7
+msgid "**edge_list**"
+msgstr ""
+
+#: ../../_autosummary/roentgen.lines.lines.rst
+#: ../../_autosummary/roentgen.nuclides.nuclides.rst
+msgid "Return type"
+msgstr ""
+
+#: of roentgen.lines.lines.get_edges:8 roentgen.lines.lines.get_lines:13
+msgid "`astropy.table.QTable`"
+msgstr ""
+
+#: of roentgen.lines.lines.get_lines:3
+msgid "The low end of the energy range"
+msgstr ""
+
+#: of roentgen.lines.lines.get_lines:5
+msgid "The high end of the energy range"
+msgstr ""
+
+#: of roentgen.lines.lines.get_lines:7
+msgid "Select only lines from a specific element"
+msgstr ""
+
+#: of roentgen.lines.lines.get_lines:9
+msgid "Select only lines above or equal to a given intensity"
+msgstr ""
+
+#: of roentgen.lines.lines.get_lines:12
+msgid "**line_list**"
+msgstr ""
+
+#: ../../_autosummary/roentgen.nuclides.rst:2
+msgid "roentgen.nuclides"
+msgstr ""
+
+#: ../../_autosummary/roentgen.nuclides.rst:13:<autosummary>:1
+msgid ":py:obj:`nuclides <roentgen.nuclides.nuclides>`"
+msgstr ""
+
+#: ../../_autosummary/roentgen.nuclides.rst:13:<autosummary>:1 of
+#: roentgen.nuclides.nuclides:1
+msgid ""
+"A module to provide access to x-ray and gamma-ray radiation from "
+"radionuclides"
+msgstr ""
+
+#: ../../_autosummary/roentgen.nuclides.nuclides.rst:2
+msgid "roentgen.nuclides.nuclides"
+msgstr ""
+
+#: ../../_autosummary/roentgen.nuclides.nuclides.rst:15:<autosummary>:1
+msgid ""
+":py:obj:`get_nuclide_mass_numbers "
+"<roentgen.nuclides.nuclides.get_nuclide_mass_numbers>`\\ \\(element\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.nuclides.nuclides.rst:15:<autosummary>:1 of
+#: roentgen.nuclides.nuclides.get_nuclide_mass_numbers:1
+msgid "Return all available nuclide mass numbers for a given element."
+msgstr ""
+
+#: ../../_autosummary/roentgen.nuclides.nuclides.rst:15:<autosummary>:1
+msgid ""
+":py:obj:`get_lara_file <roentgen.nuclides.nuclides.get_lara_file>`\\ "
+"\\(element\\, mass\\_number\\[\\, metastable\\]\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.nuclides.nuclides.rst:15:<autosummary>:1 of
+#: roentgen.nuclides.nuclides.get_lara_file:1
+msgid "Return path to the specified lara data file."
+msgstr ""
+
+#: ../../_autosummary/roentgen.nuclides.nuclides.rst:15:<autosummary>:1
+msgid ""
+":py:obj:`read_lara_tables "
+"<roentgen.nuclides.nuclides.read_lara_tables>`\\ \\(file\\_path\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.nuclides.nuclides.rst:15:<autosummary>:1 of
+#: roentgen.nuclides.nuclides.read_lara_header:1
+#: roentgen.nuclides.nuclides.read_lara_tables:1
+msgid "Return a table of all emissions from all origins."
+msgstr ""
+
+#: ../../_autosummary/roentgen.nuclides.nuclides.rst:15:<autosummary>:1
+msgid ""
+":py:obj:`read_lara_header "
+"<roentgen.nuclides.nuclides.read_lara_header>`\\ \\(file\\_path\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.nuclides.nuclides.rst:20:<autosummary>:1
+msgid ""
+":py:obj:`Nuclide <roentgen.nuclides.nuclides.Nuclide>`\\ \\(element\\, "
+"mass\\_number\\[\\, metastable\\]\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.nuclides.nuclides.rst:20:<autosummary>:1 of
+#: roentgen.nuclides.nuclides.Nuclide:1
+msgid "An object to support radionuclides that emit x-ray radiation."
+msgstr ""
+
+#: of roentgen.nuclides.nuclides.Nuclide:3
+msgid ""
+"A string representation of the material which includes an element symbol "
+"(e.g. Si), an element name (e.g. Silicon). For all supported "
+"radionuclides see :download:`lara "
+"<../../roentgen/data/nuclides_list.csv/>`."
+msgstr ""
+
+#: of roentgen.nuclides.nuclides.Nuclide:7
+msgid "The mass number of the radionuclide (e.g. 55 for Fe-55)"
+msgstr ""
+
+#: of roentgen.nuclides.nuclides.Nuclide:30
+msgid "X-ray lines in the energy range."
+msgstr ""
+
+#: of roentgen.nuclides.nuclides.Nuclide.get_lines:1
+msgid "Returns a list of all emission lines in the energy range."
+msgstr ""
+
+#: of roentgen.nuclides.nuclides.get_lara_file:3
+msgid "The element or symbol name for the nuclide"
+msgstr ""
+
+#: of roentgen.nuclides.nuclides.get_lara_file:5
+msgid "The mass number of the nuclide"
+msgstr ""
+
+#: of roentgen.nuclides.nuclides.get_lara_file:7
+msgid "Whether the nuclide is metastable"
+msgstr ""
+
+#: of roentgen.nuclides.nuclides.get_lara_file:10
+msgid "**file_path**"
+msgstr ""
+
+#: of roentgen.nuclides.nuclides.read_lara_header:3
+#: roentgen.nuclides.nuclides.read_lara_tables:3
+msgid "**result**"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.rst:2
+msgid "roentgen.tests"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.rst:18:<autosummary>:1
+msgid ":py:obj:`test_lines <roentgen.tests.test_lines>`"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.rst:18:<autosummary>:1
+msgid ":py:obj:`test_massatten <roentgen.tests.test_massatten>`"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.rst:18:<autosummary>:1
+msgid ":py:obj:`test_material <roentgen.tests.test_material>`"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.rst:18:<autosummary>:1
+msgid ":py:obj:`test_response <roentgen.tests.test_response>`"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.rst:18:<autosummary>:1
+msgid ":py:obj:`test_stack <roentgen.tests.test_stack>`"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.rst:18:<autosummary>:1
+msgid ":py:obj:`test_util <roentgen.tests.test_util>`"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_lines.rst:2
+msgid "roentgen.tests.test\\_lines"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_lines.rst:17:<autosummary>:1
+msgid ""
+":py:obj:`test_emission_lines "
+"<roentgen.tests.test_lines.test_emission_lines>`\\ \\(\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_lines.rst:17:<autosummary>:1
+msgid ""
+":py:obj:`test_get_all_lines "
+"<roentgen.tests.test_lines.test_get_all_lines>`\\ \\(\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_lines.rst:17:<autosummary>:1 of
+#: roentgen.tests.test_lines.test_get_all_lines:1
+msgid "Check that all lines are returned if the range is large enough."
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_lines.rst:17:<autosummary>:1
+msgid ""
+":py:obj:`test_get_edges <roentgen.tests.test_lines.test_get_edges>`\\ "
+"\\(element\\_str\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_lines.rst:17:<autosummary>:1 of
+#: roentgen.tests.test_lines.test_get_edges:1
+msgid "Test that all element return one row at least."
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_lines.rst:17:<autosummary>:1
+msgid ""
+":py:obj:`test_get_edges_values "
+"<roentgen.tests.test_lines.test_get_edges_values>`\\ \\(element\\_str\\, "
+"...\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_lines.rst:17:<autosummary>:1 of
+#: roentgen.tests.test_lines.test_get_edges_values:1
+msgid "Check a few specific cases"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_lines.rst:17:<autosummary>:1
+msgid ""
+":py:obj:`test_get_lines <roentgen.tests.test_lines.test_get_lines>`\\ "
+"\\(\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_lines.rst:17:<autosummary>:1 of
+#: roentgen.tests.test_lines.test_get_lines:1
+msgid "Check that lines are returned in a range"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_lines.rst:17:<autosummary>:1
+msgid ""
+":py:obj:`test_get_right_number_of_lines "
+"<roentgen.tests.test_lines.test_get_right_number_of_lines>`\\ "
+"\\(energy\\_low\\, ...\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_lines.rst:17:<autosummary>:1 of
+#: roentgen.tests.test_lines.test_get_right_number_of_lines:1
+msgid "Check a few specific cases for known number of lines"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_lines.rst:17:<autosummary>:1
+msgid ""
+":py:obj:`test_line <roentgen.tests.test_lines.test_line>`\\ "
+"\\(element\\_str\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_lines.rst:17:<autosummary>:1 of
+#: roentgen.tests.test_lines.test_line:1
+msgid "Check that all elements return at least one line"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_massatten.rst:2
+msgid "roentgen.tests.test\\_massatten"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_massatten.rst:13:<autosummary>:1
+msgid ""
+":py:obj:`test_interpolate_matches_at_data "
+"<roentgen.tests.test_massatten.test_interpolate_matches_at_data>`\\ "
+"\\(\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_massatten.rst:13:<autosummary>:1
+msgid ""
+":py:obj:`test_nonexistent_material "
+"<roentgen.tests.test_massatten.test_nonexistent_material>`\\ "
+"\\(element\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_massatten.rst:13:<autosummary>:1
+msgid ""
+":py:obj:`test_repr_str <roentgen.tests.test_massatten.test_repr_str>`\\ "
+"\\(\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_material.rst:2
+msgid "roentgen.tests.test\\_material"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_material.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`mass_atten <roentgen.tests.test_material.mass_atten>`\\ "
+"\\(request\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_material.rst:35:<autosummary>:1
+msgid ":py:obj:`material <roentgen.tests.test_material.material>`\\ \\(request\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_material.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`test_bad_add_to_material "
+"<roentgen.tests.test_material.test_bad_add_to_material>`\\ \\(\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_material.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`test_density_calculation "
+"<roentgen.tests.test_material.test_density_calculation>`\\ \\(\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_material.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`test_dict_input "
+"<roentgen.tests.test_material.test_dict_input>`\\ \\(material\\_dict\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_material.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`test_is_an_element_caseinsensitive_name "
+"<roentgen.tests.test_material.test_is_an_element_caseinsensitive_name>`\\"
+" \\(\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_material.rst:35:<autosummary>:1 of
+#: roentgen.tests.test_material.test_is_an_element_caseinsensitive_name:1
+msgid "Test that searching for an element name is not case sensitive"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_material.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`test_is_an_element_caseinsensitive_symbol "
+"<roentgen.tests.test_material.test_is_an_element_caseinsensitive_symbol>`\\"
+" \\(\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_material.rst:35:<autosummary>:1 of
+#: roentgen.tests.test_material.test_is_an_element_caseinsensitive_symbol:1
+msgid "Test that searching for an element symbol is not case sensitive"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_material.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`test_is_an_element_name "
+"<roentgen.tests.test_material.test_is_an_element_name>`\\ \\(\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_material.rst:35:<autosummary>:1 of
+#: roentgen.tests.test_material.test_is_an_element_name:1
+msgid "Test that function is okay with all known elements names"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_material.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`test_is_an_element_symbol "
+"<roentgen.tests.test_material.test_is_an_element_symbol>`\\ \\(\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_material.rst:35:<autosummary>:1 of
+#: roentgen.tests.test_material.test_is_an_element_symbol:1
+msgid "Test that function is okay with all known elements symbols"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_material.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`test_linear_attenuation_coefficient "
+"<roentgen.tests.test_material.test_linear_attenuation_coefficient>`\\ "
+"\\(...\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_material.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`test_mass_atten "
+"<roentgen.tests.test_material.test_mass_atten>`\\ \\(mass\\_atten\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_material.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`test_mass_atten_calculation_in_material "
+"<roentgen.tests.test_material.test_mass_atten_calculation_in_material>`\\"
+" \\(material\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_material.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`test_material <roentgen.tests.test_material.test_material>`\\ "
+"\\(material\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_material.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`test_material_bad_input "
+"<roentgen.tests.test_material.test_material_bad_input>`\\ "
+"\\(material\\_wrong\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_material.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`test_material_give_density "
+"<roentgen.tests.test_material.test_material_give_density>`\\ \\(\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_material.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`test_material_number_of_energies "
+"<roentgen.tests.test_material.test_material_number_of_energies>`\\ "
+"\\(material\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_material.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`test_material_scalar_energy "
+"<roentgen.tests.test_material.test_material_scalar_energy>`\\ "
+"\\(material\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_material.rst:35:<autosummary>:1 of
+#: roentgen.tests.test_material.test_material_scalar_energy:1
+msgid "If a scalar energy is given then the results should NOT be arrays"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_material.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`test_number_of_energies "
+"<roentgen.tests.test_material.test_number_of_energies>`\\ "
+"\\(mass\\_atten\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_material.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`test_opaque <roentgen.tests.test_material.test_opaque>`\\ "
+"\\(thick\\_material\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_material.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`test_raise_outside_of_data_range "
+"<roentgen.tests.test_material.test_raise_outside_of_data_range>`\\ \\(\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_material.rst:35:<autosummary>:1
+#: ../../_autosummary/roentgen.tests.test_response.rst:17:<autosummary>:1 of
+#: roentgen.tests.test_material.test_raise_outside_of_data_range:1
+#: roentgen.tests.test_response.test_raise_outside_of_data_range:1
+msgid ""
+"Test that ValueError is raised is trying to get values outside of data "
+"range 1 keV to 20 MeV."
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_material.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`test_repr_str <roentgen.tests.test_material.test_repr_str>`\\ "
+"\\(\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_material.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`test_returns_quantity "
+"<roentgen.tests.test_material.test_returns_quantity>`\\ "
+"\\(mass\\_atten\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_material.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`test_transparent "
+"<roentgen.tests.test_material.test_transparent>`\\ \\(thin\\_material\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_material.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`thick_material <roentgen.tests.test_material.thick_material>`\\ "
+"\\(request\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_material.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`thin_material <roentgen.tests.test_material.thin_material>`\\ "
+"\\(request\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_response.rst:2
+msgid "roentgen.tests.test\\_response"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_response.rst:17:<autosummary>:1
+msgid ""
+":py:obj:`test_bad_optical_path "
+"<roentgen.tests.test_response.test_bad_optical_path>`\\ \\(\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_response.rst:17:<autosummary>:1
+msgid ""
+":py:obj:`test_optical_path_stack_input "
+"<roentgen.tests.test_response.test_optical_path_stack_input>`\\ \\(\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_response.rst:17:<autosummary>:1
+msgid ""
+":py:obj:`test_raise_outside_of_data_range "
+"<roentgen.tests.test_response.test_raise_outside_of_data_range>`\\ \\(\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_response.rst:17:<autosummary>:1
+msgid ""
+":py:obj:`test_repr_str <roentgen.tests.test_response.test_repr_str>`\\ "
+"\\(\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_response.rst:17:<autosummary>:1
+msgid ""
+":py:obj:`test_response_detector_is_none_error "
+"<roentgen.tests.test_response.test_response_detector_is_none_error>`\\ "
+"\\(wrong\\_type\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_response.rst:17:<autosummary>:1
+msgid ""
+":py:obj:`test_thick_optical_path "
+"<roentgen.tests.test_response.test_thick_optical_path>`\\ \\(\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_response.rst:17:<autosummary>:1
+msgid ""
+":py:obj:`test_thin_detector "
+"<roentgen.tests.test_response.test_thin_detector>`\\ \\(\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_stack.rst:2
+msgid "roentgen.tests.test\\_stack"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_stack.rst:19:<autosummary>:1
+msgid ":py:obj:`material <roentgen.tests.test_stack.material>`\\ \\(request\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_stack.rst:19:<autosummary>:1
+msgid ""
+":py:obj:`test_add_material_to_stack "
+"<roentgen.tests.test_stack.test_add_material_to_stack>`\\ \\(\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_stack.rst:19:<autosummary>:1
+msgid ""
+":py:obj:`test_add_two_stacks "
+"<roentgen.tests.test_stack.test_add_two_stacks>`\\ \\(\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_stack.rst:19:<autosummary>:1
+msgid ""
+":py:obj:`test_bad_add_to_stack "
+"<roentgen.tests.test_stack.test_bad_add_to_stack>`\\ \\(\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_stack.rst:19:<autosummary>:1
+msgid ""
+":py:obj:`test_mat_add_stack "
+"<roentgen.tests.test_stack.test_mat_add_stack>`\\ \\(\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_stack.rst:19:<autosummary>:1
+msgid ":py:obj:`test_repr_str <roentgen.tests.test_stack.test_repr_str>`\\ \\(\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_stack.rst:19:<autosummary>:1
+msgid ""
+":py:obj:`test_stack_calculations "
+"<roentgen.tests.test_stack.test_stack_calculations>`\\ \\(material\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_stack.rst:19:<autosummary>:1
+msgid ""
+":py:obj:`test_threematerials_to_stack "
+"<roentgen.tests.test_stack.test_threematerials_to_stack>`\\ "
+"\\(material\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_stack.rst:19:<autosummary>:1
+msgid ""
+":py:obj:`test_twomaterials_to_stack "
+"<roentgen.tests.test_stack.test_twomaterials_to_stack>`\\ \\(material\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_util.rst:2
+msgid "roentgen.tests.test\\_util"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_util.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`test_density_ideal_gas "
+"<roentgen.tests.test_util.test_density_ideal_gas>`\\ \\(pressure\\, "
+"...\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_util.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`test_density_ideal_gas_bad_units "
+"<roentgen.tests.test_util.test_density_ideal_gas_bad_units>`\\ "
+"\\(pressure\\, ...\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_util.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`test_get_atomic_number_error "
+"<roentgen.tests.test_util.test_get_atomic_number_error>`\\ \\(element\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_util.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`test_get_atomic_number_name "
+"<roentgen.tests.test_util.test_get_atomic_number_name>`\\ \\(name\\, z\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_util.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`test_get_atomic_number_symbol "
+"<roentgen.tests.test_util.test_get_atomic_number_symbol>`\\ \\(symbol\\, "
+"z\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_util.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`test_get_compound_index_error "
+"<roentgen.tests.test_util.test_get_compound_index_error>`\\ \\(element\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_util.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`test_get_compound_index_name "
+"<roentgen.tests.test_util.test_get_compound_index_name>`\\ \\(name\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_util.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`test_get_compound_index_symbol "
+"<roentgen.tests.test_util.test_get_compound_index_symbol>`\\ \\(symbol\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_util.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`test_get_density_compound "
+"<roentgen.tests.test_util.test_get_density_compound>`\\ \\(compound\\, "
+"density\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_util.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`test_get_density_element "
+"<roentgen.tests.test_util.test_get_density_element>`\\ \\(symbol\\, "
+"density\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_util.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`test_get_density_error "
+"<roentgen.tests.test_util.test_get_density_error>`\\ \\(element\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_util.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`test_get_density_quantity "
+"<roentgen.tests.test_util.test_get_density_quantity>`\\ \\(material\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_util.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`test_get_element_symbol "
+"<roentgen.tests.test_util.test_get_element_symbol>`\\ \\(name\\, "
+"symbol\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_util.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`test_get_element_symbol__badnum_error "
+"<roentgen.tests.test_util.test_get_element_symbol__badnum_error>`\\ "
+"\\(\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_util.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`test_get_element_symbol_error "
+"<roentgen.tests.test_util.test_get_element_symbol_error>`\\ \\(element\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_util.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`test_get_element_symbol_int "
+"<roentgen.tests.test_util.test_get_element_symbol_int>`\\ \\(z\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_util.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`test_get_element_symbol_same_return "
+"<roentgen.tests.test_util.test_get_element_symbol_same_return>`\\ "
+"\\(symbol\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_util.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`test_get_material_name "
+"<roentgen.tests.test_util.test_get_material_name>`\\ \\(element\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_util.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`test_get_symbol_error "
+"<roentgen.tests.test_util.test_get_symbol_error>`\\ \\(element\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_util.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`test_is_an_element_name "
+"<roentgen.tests.test_util.test_is_an_element_name>`\\ \\(element\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_util.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`test_is_an_element_symbol "
+"<roentgen.tests.test_util.test_is_an_element_symbol>`\\ \\(element\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_util.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`test_is_in_known_compounds_name "
+"<roentgen.tests.test_util.test_is_in_known_compounds_name>`\\ \\(name\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_util.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`test_is_in_known_compounds_not "
+"<roentgen.tests.test_util.test_is_in_known_compounds_not>`\\ "
+"\\(element\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_util.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`test_is_in_known_compounds_symbol "
+"<roentgen.tests.test_util.test_is_in_known_compounds_symbol>`\\ "
+"\\(symbol\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_util.rst:35:<autosummary>:1
+msgid ""
+":py:obj:`test_is_not_an_element "
+"<roentgen.tests.test_util.test_is_not_an_element>`\\ \\(element\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.util.rst:2
+msgid "roentgen.util"
+msgstr ""
+
+#: ../../_autosummary/roentgen.util.rst:13:<autosummary>:1
+msgid ":py:obj:`util <roentgen.util.util>`"
+msgstr ""
+
+#: ../../_autosummary/roentgen.util.rst:13:<autosummary>:1 of
+#: roentgen.util.util:1
+msgid "A module providing utility functions"
+msgstr ""
+
+#: ../../_autosummary/roentgen.util.util.rst:2
+msgid "roentgen.util.util"
+msgstr ""
+
+#: ../../_autosummary/roentgen.util.util.rst:19:<autosummary>:1
+msgid ""
+":py:obj:`is_an_element <roentgen.util.util.is_an_element>`\\ "
+"\\(element\\_str\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.util.util.rst:19:<autosummary>:1 of
+#: roentgen.util.util.is_an_element:1
+msgid "Returns True if the string represents an element"
+msgstr ""
+
+#: ../../_autosummary/roentgen.util.util.rst:19:<autosummary>:1
+msgid ""
+":py:obj:`get_atomic_number <roentgen.util.util.get_atomic_number>`\\ "
+"\\(element\\_str\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.util.util.rst:19:<autosummary>:1 of
+#: roentgen.util.util.get_atomic_number:1
+msgid "Return the atomic number of the element"
+msgstr ""
+
+#: ../../_autosummary/roentgen.util.util.rst:19:<autosummary>:1
+msgid ""
+":py:obj:`is_in_known_compounds "
+"<roentgen.util.util.is_in_known_compounds>`\\ \\(compound\\_str\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.util.util.rst:19:<autosummary>:1 of
+#: roentgen.util.util.is_in_known_compounds:1
+msgid "Returns True is the compound is in the list of known compounds"
+msgstr ""
+
+#: ../../_autosummary/roentgen.util.util.rst:19:<autosummary>:1
+msgid ""
+":py:obj:`get_compound_index <roentgen.util.util.get_compound_index>`\\ "
+"\\(compound\\_str\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.util.util.rst:19:<autosummary>:1 of
+#: roentgen.util.util.get_compound_index:1
+msgid "Return the index of the compound in the compound table"
+msgstr ""
+
+#: ../../_autosummary/roentgen.util.util.rst:19:<autosummary>:1
+msgid ""
+":py:obj:`get_material_density "
+"<roentgen.util.util.get_material_density>`\\ \\(material\\_str\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.util.util.rst:19:<autosummary>:1 of
+#: roentgen.util.util.get_material_density:1
+msgid "Given a material name return the default density"
+msgstr ""
+
+#: ../../_autosummary/roentgen.util.util.rst:19:<autosummary>:1
+msgid ""
+":py:obj:`get_element_symbol <roentgen.util.util.get_element_symbol>`\\ "
+"\\(element\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.util.util.rst:19:<autosummary>:1 of
+#: roentgen.util.util.get_element_symbol:1
+msgid "Return the symbol of an element given its long or its atomic number."
+msgstr ""
+
+#: ../../_autosummary/roentgen.util.util.rst:19:<autosummary>:1
+msgid ""
+":py:obj:`density_ideal_gas <roentgen.util.util.density_ideal_gas>`\\ "
+"\\(pressure\\, temperature\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.util.util.rst:19:<autosummary>:1 of
+#: roentgen.util.util.density_ideal_gas:1
+msgid ""
+"Given the pressure and temperature of a dry gas, return the density using"
+" the ideal gas law"
+msgstr ""
+
+#: ../../_autosummary/roentgen.util.util.rst:19:<autosummary>:1
+msgid ""
+":py:obj:`get_material_name <roentgen.util.util.get_material_name>`\\ "
+"\\(material\\_str\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.util.util.rst:19:<autosummary>:1 of
+#: roentgen.util.util.get_material_name:1
+msgid "Given a material name return the official name"
+msgstr ""
+
+#: ../../_autosummary/roentgen.util.util.rst:19:<autosummary>:1
+msgid ""
+":py:obj:`get_material_symbol <roentgen.util.util.get_material_symbol>`\\ "
+"\\(material\\_str\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.util.util.rst:19:<autosummary>:1 of
+#: roentgen.util.util.get_material_symbol:1
+msgid "Given a material name return the symbol"
+msgstr ""
+

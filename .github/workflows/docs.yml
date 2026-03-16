@@ -32,3 +32,5 @@ jobs:
       - name: Run tests
         # For example, using `pytest`
         run: uv run sphinx-build docs docs/_build/html -b html
+      - name: Build French (fr) documentation
+        run: uv run sphinx-build docs docs/_build/html/fr -b html -D language=fr

@@ -1,0 +1,204 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) US Government (not copyrighted) 2023-2026
+# This file is distributed under the same license as the roentgen package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: roentgen\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-03-16 22:15+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: fr <LL@li.org>\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../../CHANGELOG.rst:2
+msgid "Changelog"
+msgstr "Journal des modifications"
+
+#: ../../../CHANGELOG.rst:4
+msgid ""
+"We follow `semantic versioning <https://semver.org>`_ practices so versions "
+"increment as"
+msgstr ""
+"Nous suivons les pratiques de `versionnage sémantique <https://semver.org>`_"
+" donc les versions s'incrémentent selon"
+
+#: ../../../CHANGELOG.rst:6
+msgid "MAJOR version when you make incompatible API changes"
+msgstr "Version MAJEURE lors de changements d'API incompatibles"
+
+#: ../../../CHANGELOG.rst:7
+msgid ""
+"MINOR version when you add functionality in a backward compatible manner"
+msgstr "Version MINEURE lors de l'ajout de fonctionnalités compatibles"
+
+#: ../../../CHANGELOG.rst:8
+msgid "PATCH version when you make backward compatible bug fixes"
+msgstr "Version CORRECTIF lors de corrections de bogues compatibles"
+
+#: ../../../CHANGELOG.rst:10
+msgid "Note that PATCH versions releases may not be documented below."
+msgstr ""
+"Notez que les versions CORRECTIF peuvent ne pas être documentées ci-dessous."
+
+#: ../../../CHANGELOG.rst:14
+msgid "2.4.0 (2026-Jan)"
+msgstr "2.4.0 (2026-Jan)"
+
+#: ../../../CHANGELOG.rst:15
+msgid "Moved to ruff for linting"
+msgstr "Migration vers ruff pour l'analyse de code"
+
+#: ../../../CHANGELOG.rst:16
+msgid "Moved to uv"
+msgstr "Migration vers uv"
+
+#: ../../../CHANGELOG.rst:17
+msgid ""
+"Added nuclides module that provides access to radioactive nuclide emission "
+"lines"
+msgstr ""
+"Ajout du module nuclides qui donne accès aux raies d'émission des nucléides "
+"radioactifs"
+
+#: ../../../CHANGELOG.rst:21
+msgid "2.3.0 (2024-10-14)"
+msgstr "2.3.0 (2024-10-14)"
+
+#: ../../../CHANGELOG.rst:22
+msgid "Added line widths to the emission line list"
+msgstr "Ajout des largeurs de raies à la liste des raies d'émission"
+
+#: ../../../CHANGELOG.rst:26
+msgid "2.2.0 (2024-03-14)"
+msgstr "2.2.0 (2024-03-14)"
+
+#: ../../../CHANGELOG.rst:27
+msgid "Fix and improvement to gui"
+msgstr "Corrections et améliorations de l'interface graphique"
+
+#: ../../../CHANGELOG.rst:28
+msgid "General improvements to documentation and examples"
+msgstr "Améliorations générales de la documentation et des exemples"
+
+#: ../../../CHANGELOG.rst:29
+msgid "Removed poetry"
+msgstr "Suppression de poetry"
+
+#: ../../../CHANGELOG.rst:30
+msgid "added pre-commit support and updated testing"
+msgstr "Ajout du support pre-commit et mise à jour des tests"
+
+#: ../../../CHANGELOG.rst:34
+msgid "2.1.0 (2022-01-07)"
+msgstr "2.1.0 (2022-01-07)"
+
+#: ../../../CHANGELOG.rst:35
+msgid "Improvement to documentation to illustrate custom materials"
+msgstr ""
+"Amélioration de la documentation pour illustrer les matériaux personnalisés"
+
+#: ../../../CHANGELOG.rst:36
+msgid "Added tutorial and documentation to illustrate interpolation"
+msgstr ""
+"Ajout d'un tutoriel et de documentation pour illustrer l'interpolation"
+
+#: ../../../CHANGELOG.rst:37
+msgid ""
+"Going outside of data range (1 keV to 2 MeV) now provides a ValueError "
+"instead of failing quietly and filling in zeros for extrapolated values."
+msgstr ""
+"Sortir de la plage de données (1 keV à 2 MeV) génère maintenant une "
+"ValueError au lieu de remplir silencieusement de zéros les valeurs "
+"extrapolées."
+
+#: ../../../CHANGELOG.rst:41
+msgid "2.0.1 (2022-10-10)"
+msgstr "2.0.1 (2022-10-10)"
+
+#: ../../../CHANGELOG.rst:42
+msgid ""
+"The Material class can now represent substances with multiple and arbitrary "
+"constitutients"
+msgstr ""
+"La classe Material peut maintenant représenter des substances avec plusieurs"
+" constituants arbitraires"
+
+#: ../../../CHANGELOG.rst:43
+msgid "Moved to poetry for dependency management and packaging"
+msgstr ""
+"Migration vers poetry pour la gestion des dépendances et l'empaquetage"
+
+#: ../../../CHANGELOG.rst:44
+msgid "Automated testing now also using poetry"
+msgstr "Les tests automatisés utilisent maintenant aussi poetry"
+
+#: ../../../CHANGELOG.rst:45
+msgid "Added data source information into the documentation"
+msgstr ""
+"Ajout des informations sur les sources de données dans la documentation"
+
+#: ../../../CHANGELOG.rst:46
+msgid "Updated dependencies versions"
+msgstr "Mise à jour des versions des dépendances"
+
+#: ../../../CHANGELOG.rst:47
+msgid "Added a Code of Conduct"
+msgstr "Ajout d'un Code de conduite"
+
+#: ../../../CHANGELOG.rst:48
+msgid ""
+"If material (element or compounds) are not found, raises a ValueError "
+"instead of returning None"
+msgstr ""
+"Si le matériau (élément ou composé) n'est pas trouvé, lève une ValueError au"
+" lieu de retourner None"
+
+#: ../../../CHANGELOG.rst:49
+msgid "Increased test coverage"
+msgstr "Augmentation de la couverture de tests"
+
+#: ../../../CHANGELOG.rst:50
+msgid "Added attenuator section to guide."
+msgstr "Ajout d'une section attenuateurs au guide."
+
+#: ../../../CHANGELOG.rst:53
+msgid "1.0.0 (2020-04-23)"
+msgstr "1.0.0 (2020-04-23)"
+
+#: ../../../CHANGELOG.rst:54
+msgid "First stable release"
+msgstr "Première version stable"
+
+#: ../../../CHANGELOG.rst:55
+msgid "Added gui, deployed to heroku"
+msgstr "Ajout de l'interface graphique, déployée sur heroku"
+
+#: ../../../CHANGELOG.rst:56
+msgid "Added data and support for emission lines"
+msgstr "Ajout des données et du support pour les raies d'émission"
+
+#: ../../../CHANGELOG.rst:57
+msgid "Added Response class"
+msgstr "Ajout de la classe Response"
+
+#: ../../../CHANGELOG.rst:58
+msgid "Major update to documentation and moved to sunpy doc theme"
+msgstr ""
+"Mise à jour majeure de la documentation et migration vers le thème sunpy"
+
+#: ../../../CHANGELOG.rst:61
+msgid "0.1.0 (2017-03-24)"
+msgstr "0.1.0 (2017-03-24)"
+
+#: ../../../CHANGELOG.rst:62
+msgid "First release"
+msgstr "Première version"

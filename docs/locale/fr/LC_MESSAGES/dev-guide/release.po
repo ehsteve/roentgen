@@ -1,0 +1,134 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) US Government (not copyrighted) 2023-2026
+# This file is distributed under the same license as the roentgen package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: roentgen\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-03-16 22:16+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: fr <LL@li.org>\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../dev-guide/release.rst:5
+msgid "Release Process"
+msgstr "Processus de publication"
+
+#: ../../dev-guide/release.rst:8
+msgid "The release process for Roentgen is as follows:"
+msgstr "Le processus de publication pour Roentgen est le suivant :"
+
+#: ../../dev-guide/release.rst:10
+msgid ""
+"Update the `CHANGELOG.rst` file with the new version number and a summary of"
+" changes."
+msgstr ""
+"Mettez à jour le fichier `CHANGELOG.rst` avec le nouveau numéro de version "
+"et un résumé des modifications."
+
+#: ../../dev-guide/release.rst:11
+msgid ""
+"Commit the changes to the `CHANGELOG.rst` file and make sure that there are "
+"no other uncommitted changes."
+msgstr ""
+"Committez les modifications dans le fichier `CHANGELOG.rst` et assurez-vous "
+"qu'il n'y a pas d'autres modifications non committées."
+
+#: ../../dev-guide/release.rst:12
+msgid ""
+"Determine the new version number according to `semantic versioning "
+"<https://semver.org>`."
+msgstr ""
+"Déterminez le nouveau numéro de version selon le `versionnage sémantique "
+"<https://semver.org>`."
+
+#: ../../dev-guide/release.rst:13
+msgid ""
+"Create a new local git tag for the release using the format `vX.Y.Z`, where "
+"`X.Y.Z` is the new version number."
+msgstr ""
+"Créez un nouveau tag git local pour la version en utilisant le format "
+"`vX.Y.Z`, où `X.Y.Z` est le nouveau numéro de version."
+
+#: ../../dev-guide/release.rst:14
+msgid "`git tag vX.Y.Z`"
+msgstr "`git tag vX.Y.Z`"
+
+#: ../../dev-guide/release.rst:15
+msgid ""
+"Clean out the `dist/` directory to remove any previous build artifacts."
+msgstr ""
+"Nettoyez le répertoire `dist/` pour supprimer tous les artefacts de "
+"construction précédents."
+
+#: ../../dev-guide/release.rst:17
+msgid "Build the distribution packages using `uv build`."
+msgstr "Construisez les paquets de distribution avec `uv build`."
+
+#: ../../dev-guide/release.rst:18
+msgid ""
+"Test the distribution packages by installing them in a clean virtual "
+"environment and running the test suite."
+msgstr ""
+"Testez les paquets de distribution en les installant dans un environnement "
+"virtuel propre et en exécutant la suite de tests."
+
+#: ../../dev-guide/release.rst:19
+msgid "`uv run --isolated --no-project --with dist/*.whl pytest`"
+msgstr "`uv run --isolated --no-project --with dist/*.whl pytest`"
+
+#: ../../dev-guide/release.rst:20
+msgid ""
+"Test that the distribution package can be installed and imported and that "
+"the version number is correct."
+msgstr ""
+"Vérifiez que le paquet de distribution peut être installé et importé et que "
+"le numéro de version est correct."
+
+#: ../../dev-guide/release.rst:21
+msgid ""
+"`uv run --isolated --no-project --with dist/*.whl python -c \"import "
+"roentgen; print(roentgen.__version__)\"`"
+msgstr ""
+"`uv run --isolated --no-project --with dist/*.whl python -c \"import "
+"roentgen; print(roentgen.__version__)\"`"
+
+#: ../../dev-guide/release.rst:22
+msgid ""
+"Upload the distribution packages to TestPyPI using `uv publish --index "
+"testpypi --token <TESTPYPI_TOKEN> `."
+msgstr ""
+"Téléversez les paquets de distribution sur TestPyPI avec `uv publish --index"
+" testpypi --token <TESTPYPI_TOKEN> `."
+
+#: ../../dev-guide/release.rst:23
+msgid ""
+"Verify the release on TestPyPI (https://test.pypi.org/project/roentgen/)"
+msgstr ""
+"Vérifiez la version sur TestPyPI (https://test.pypi.org/project/roentgen/)"
+
+#: ../../dev-guide/release.rst:24
+msgid ""
+"If you need to make changes, delete the local git tag using `git tag -d "
+"vX.Y.Z`, make the necessary changes, and repeat steps above."
+msgstr ""
+"Si vous devez apporter des modifications, supprimez le tag git local avec "
+"`git tag -d vX.Y.Z`, effectuez les modifications nécessaires et répétez les "
+"étapes ci-dessus."
+
+#: ../../dev-guide/release.rst:25
+msgid ""
+"Push the git tag to the remote repository. This will trigger the GitHub "
+"Actions workflow to build and upload the package to PyPI."
+msgstr ""
+"Poussez le tag git vers le dépôt distant. Cela déclenchera le workflow "
+"GitHub Actions pour construire et téléverser le paquet sur PyPI."

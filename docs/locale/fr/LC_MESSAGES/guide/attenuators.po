@@ -1,0 +1,78 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) US Government (not copyrighted) 2023-2026
+# This file is distributed under the same license as the roentgen package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version:  roentgen\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-03-16 22:31+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: fr\n"
+"Language-Team: fr <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../../guide/attenuators.rst:2
+msgid "Attenuators"
+msgstr "Atténuateurs"
+
+#: ../../../guide/attenuators.rst:5
+msgid "RHESSI"
+msgstr "RHESSI"
+
+#: ../../../guide/attenuators.rst:6
+msgid ""
+"The Reuven Ramaty High Energy Solar Spectroscopic Imager (RHESSI) makes "
+"use of two aluminum attenuators or shutters to reduce the high fluxes "
+"from solar flares at low energies. These two attenuators are frequently "
+"referred to as the thin and thick attenuator. They can also be inserted "
+"at the same time creating a third attenuation scenario. The attenuators "
+"are described in `Smith et al. 2002 "
+"<https://link.springer.com/article/10.1023/A:1022400716414>`_. The "
+"shutter parameters can be found at `HESSI SHUTTER PARAMETERS "
+"<https://hesperia.gsfc.nasa.gov/rhessidatacenter/instrument/Shutter_parameters.html>`_."
+" The shutters are circular aluminum disks and have three different "
+"thicknesses."
+msgstr ""
+"Le Reuven Ramaty High Energy Solar Spectroscopic Imager (RHESSI) utilise "
+"deux atténuateurs ou volets en aluminium pour réduire les flux élevés des"
+" éruptions solaires à basses énergies. Ces deux atténuateurs sont souvent"
+" appelés l'atténuateur fin et l'atténuateur épais. Ils peuvent également "
+"être insérés simultanément, créant un troisième scénario d'atténuation. "
+"Les atténuateurs sont décrits dans `Smith et al. 2002 "
+"<https://link.springer.com/article/10.1023/A:1022400716414>`_. Les "
+"paramètres des volets se trouvent à `HESSI SHUTTER PARAMETERS "
+"<https://hesperia.gsfc.nasa.gov/rhessidatacenter/instrument/Shutter_parameters.html>`_."
+" Les volets sont des disques circulaires en aluminium et ont trois "
+"épaisseurs différentes."
+
+#: ../../../guide/attenuators.rst:62
+msgid ""
+"(:download:`Source code "
+"<../_build/gettext/gettext/plot_directive/guide/attenuators-1.py>`, "
+":download:`png "
+"<../_build/gettext/gettext/plot_directive/guide/attenuators-1.png>`, "
+":download:`hires.png "
+"<../_build/gettext/gettext/plot_directive/guide/attenuators-1.hires.png>`,"
+" :download:`pdf "
+"<../_build/gettext/gettext/plot_directive/guide/attenuators-1.pdf>`)"
+msgstr ""
+
+#~ msgid ""
+#~ "(:download:`Source code "
+#~ "<../_build/gettext/plot_directive/guide/attenuators-1.py>`, "
+#~ ":download:`png "
+#~ "<../_build/gettext/plot_directive/guide/attenuators-1.png>`, "
+#~ ":download:`hires.png "
+#~ "<../_build/gettext/plot_directive/guide/attenuators-1.hires.png>`, "
+#~ ":download:`pdf "
+#~ "<../_build/gettext/plot_directive/guide/attenuators-1.pdf>`)"
+#~ msgstr ""
+

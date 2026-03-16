@@ -1,0 +1,70 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) US Government (not copyrighted) 2023-2026
+# This file is distributed under the same license as the roentgen package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: roentgen\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-03-16 22:15+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: fr <LL@li.org>\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../api.rst:5
+msgid "API Reference"
+msgstr "Référence de l'API"
+
+#: ../../api.rst:15:<autosummary>:1
+msgid ":py:obj:`roentgen <roentgen>`"
+msgstr ""
+
+#: ../../api.rst:15:<autosummary>:1
+msgid ""
+"A Python package for the quantitative analysis of the interaction of "
+"energetic photons with matter (x-rays and gamma-rays)."
+msgstr ""
+"Un paquet Python pour l'analyse quantitative de l'interaction de photons "
+"énergétiques avec la matière (rayons X et rayons gamma)."
+
+#: ../../api.rst:15:<autosummary>:1
+msgid ":py:obj:`roentgen.absorption.material <roentgen.absorption.material>`"
+msgstr ""
+
+#: ../../api.rst:15:<autosummary>:1
+msgid ":py:obj:`roentgen.lines.lines <roentgen.lines.lines>`"
+msgstr ""
+
+#: ../../api.rst:15:<autosummary>:1
+msgid ""
+"A module to access atomic line emission, binding energies, and transmission "
+"edges."
+msgstr ""
+"Un module pour accéder aux émissions de raies atomiques, aux énergies de "
+"liaison et aux seuils de transmission."
+
+#: ../../api.rst:15:<autosummary>:1
+msgid ":py:obj:`roentgen.util.util <roentgen.util.util>`"
+msgstr ""
+
+#: ../../api.rst:15:<autosummary>:1
+msgid "A module providing utility functions"
+msgstr "Un module fournissant des fonctions utilitaires"
+
+#: ../../api.rst:15:<autosummary>:1
+msgid ":py:obj:`roentgen.nuclides.nuclides <roentgen.nuclides.nuclides>`"
+msgstr ""
+
+#: ../../api.rst:15:<autosummary>:1
+msgid ""
+"A module to provide access to x-ray and gamma-ray radiation from "
+"radionuclides"
+msgstr "Un module pour accéder au rayonnement X et gamma des radionucléides"

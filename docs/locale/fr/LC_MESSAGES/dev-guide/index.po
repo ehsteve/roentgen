@@ -1,0 +1,46 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) US Government (not copyrighted) 2023-2026
+# This file is distributed under the same license as the roentgen package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: roentgen\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-03-16 22:16+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: fr <LL@li.org>\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../dev-guide/index.rst:3
+msgid "Developer's Guide"
+msgstr "Guide du développeur"
+
+#: ../../dev-guide/index.rst:5
+msgid ""
+"This article describes the guidelines to be followed by developers working "
+"on this repository. If you are planning on contributing to this repository "
+"please read the following carefully. This guide borrows heavily from the one"
+" developed by the SunPy Project. It is consistent with the `standards "
+"<https://github.com/heliophysicsPy/standards/blob/main/standards.md>`_ "
+"recommended by the `Python in Heliophysics (PyHC) "
+"<https://heliopython.org/>`_."
+msgstr ""
+"Cet article décrit les lignes directrices à suivre par les développeurs "
+"travaillant sur ce dépôt. Si vous envisagez de contribuer à ce dépôt, "
+"veuillez lire attentivement ce qui suit. Ce guide s'inspire fortement de "
+"celui développé par le Projet SunPy. Il est conforme aux `normes "
+"<https://github.com/heliophysicsPy/standards/blob/main/standards.md>`_ "
+"recommandées par `Python en Héliophysique (PyHC) "
+"<https://heliopython.org/>`_."
+
+#: ../../dev-guide/index.rst:10
+msgid "The guidelines are"
+msgstr "Les directives sont"
