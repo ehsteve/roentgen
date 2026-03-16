@@ -1,0 +1,259 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) US Government (not copyrighted) 2023-2026
+# This file is distributed under the same license as the roentgen package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: roentgen\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-03-16 22:16+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: fr <LL@li.org>\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../guide/lines.rst:2
+msgid "Emission Lines"
+msgstr "Raies d'émission"
+
+#: ../../guide/lines.rst:4
+msgid ""
+"Characteristic radiation come from interactions between a high-energy "
+"particle, such as an electron, and an orbital electron in an atom. These "
+"interactions or collisions can, if the energy of the incoming electron is "
+"greater than the binding energy of the orbital electron, kick out the "
+"electron and leave a vacancy. An electron from a high energy level can move "
+"down to fill the vacancy. In the process, it gives up energy which is "
+"emitted in the form of a photon. For inner orbitals vacancies, these photons"
+" are generally in the x-ray regime. This process is schematically shown in "
+"the diagram below."
+msgstr ""
+"Le rayonnement caractéristique provient des interactions entre une particule"
+" de haute énergie, comme un électron, et un électron orbital dans un atome. "
+"Ces interactions ou collisions peuvent, si l'énergie de l'électron incident "
+"est supérieure à l'énergie de liaison de l'électron orbital, éjecter "
+"l'électron et laisser une lacune. Un électron d'un niveau d'énergie "
+"supérieur peut descendre pour combler cette lacune. Dans ce processus, il "
+"libère de l'énergie sous forme d'un photon. Pour les lacunes des orbitales "
+"internes, ces photons sont généralement dans le domaine des rayons X. Ce "
+"processus est représenté schématiquement dans le diagramme ci-dessous."
+
+#: ../../guide/lines.rst:13
+msgid ""
+"Energy levels in copper and the associated characteristic x-rays with the "
+"two different nomenclatures."
+msgstr ""
+"Niveaux d'énergie dans le cuivre et les rayons X caractéristiques associés "
+"avec les deux nomenclatures différentes."
+
+#: ../../guide/lines.rst:17
+msgid ""
+"There are two notations used to refer to these transitions. Siegbahn "
+"notation has historically been used in the area of X-ray spectroscopy. "
+"Though still widely used, it has been replaced by a newer nomenclature "
+"recommended by the International Union of Pure and Applied Chemistry "
+"(IUPAC). It is referred to here as IUPAC notation. The correspondence "
+"between these two nomenclatures is shown in the table below."
+msgstr ""
+"Deux notations sont utilisées pour désigner ces transitions. La notation "
+"Siegbahn a été historiquement utilisée dans le domaine de la spectroscopie "
+"X. Bien qu'encore largement utilisée, elle a été remplacée par une "
+"nomenclature plus récente recommandée par l'Union internationale de chimie "
+"pure et appliquée (IUPAC). Elle est ici désignée par notation IUPAC. La "
+"correspondance entre ces deux nomenclatures est présentée dans le tableau "
+"ci-dessous."
+
+#: ../../guide/lines.rst:24
+msgid "Emission line translation"
+msgstr "Correspondance des raies d'émission"
+
+#: ../../../roentgen/data/siegbahn_to_iupac.csv:1
+msgid "siegbahn"
+msgstr "Siegbahn"
+
+#: ../../../roentgen/data/siegbahn_to_iupac.csv:1
+msgid "iupac"
+msgstr "IUPAC"
+
+#: ../../../roentgen/data/siegbahn_to_iupac.csv:1
+msgid "Kα1"
+msgstr ""
+
+#: ../../../roentgen/data/siegbahn_to_iupac.csv:1
+msgid "K-L3"
+msgstr ""
+
+#: ../../../roentgen/data/siegbahn_to_iupac.csv:1
+msgid "Kα2"
+msgstr ""
+
+#: ../../../roentgen/data/siegbahn_to_iupac.csv:1
+msgid "K-L2"
+msgstr ""
+
+#: ../../../roentgen/data/siegbahn_to_iupac.csv:1
+msgid "Kβ1"
+msgstr ""
+
+#: ../../../roentgen/data/siegbahn_to_iupac.csv:1
+msgid "K-M3"
+msgstr ""
+
+#: ../../../roentgen/data/siegbahn_to_iupac.csv:1
+msgid "Kβ3"
+msgstr ""
+
+#: ../../../roentgen/data/siegbahn_to_iupac.csv:1
+msgid "K-M2"
+msgstr ""
+
+#: ../../../roentgen/data/siegbahn_to_iupac.csv:1
+msgid "Lα1"
+msgstr ""
+
+#: ../../../roentgen/data/siegbahn_to_iupac.csv:1
+msgid "L3-M5"
+msgstr ""
+
+#: ../../../roentgen/data/siegbahn_to_iupac.csv:1
+msgid "Lα2"
+msgstr ""
+
+#: ../../../roentgen/data/siegbahn_to_iupac.csv:1
+msgid "L3-M4"
+msgstr ""
+
+#: ../../../roentgen/data/siegbahn_to_iupac.csv:1
+msgid "Lβ1"
+msgstr ""
+
+#: ../../../roentgen/data/siegbahn_to_iupac.csv:1
+msgid "L2-M4"
+msgstr ""
+
+#: ../../../roentgen/data/siegbahn_to_iupac.csv:1
+msgid "Lβ2"
+msgstr ""
+
+#: ../../../roentgen/data/siegbahn_to_iupac.csv:1
+msgid "L3-N5"
+msgstr ""
+
+#: ../../../roentgen/data/siegbahn_to_iupac.csv:1
+msgid "Lβ3"
+msgstr ""
+
+#: ../../../roentgen/data/siegbahn_to_iupac.csv:1
+msgid "L1-M3"
+msgstr ""
+
+#: ../../../roentgen/data/siegbahn_to_iupac.csv:1
+msgid "Lβ4"
+msgstr ""
+
+#: ../../../roentgen/data/siegbahn_to_iupac.csv:1
+msgid "L1-M2"
+msgstr ""
+
+#: ../../../roentgen/data/siegbahn_to_iupac.csv:1
+msgid "Lβ5"
+msgstr ""
+
+#: ../../../roentgen/data/siegbahn_to_iupac.csv:1
+msgid "L3-O4,5"
+msgstr ""
+
+#: ../../../roentgen/data/siegbahn_to_iupac.csv:1
+msgid "Lβ6"
+msgstr ""
+
+#: ../../../roentgen/data/siegbahn_to_iupac.csv:1
+msgid "L3-N1"
+msgstr ""
+
+#: ../../../roentgen/data/siegbahn_to_iupac.csv:1
+msgid "Lβ7"
+msgstr ""
+
+#: ../../../roentgen/data/siegbahn_to_iupac.csv:1
+msgid "L1-O1"
+msgstr ""
+
+#: ../../../roentgen/data/siegbahn_to_iupac.csv:1
+msgid "Lβ9"
+msgstr ""
+
+#: ../../../roentgen/data/siegbahn_to_iupac.csv:1
+msgid "L1-M5"
+msgstr ""
+
+#: ../../../roentgen/data/siegbahn_to_iupac.csv:1
+msgid "Ll"
+msgstr ""
+
+#: ../../../roentgen/data/siegbahn_to_iupac.csv:1
+msgid "L3-M1"
+msgstr ""
+
+#: ../../../roentgen/data/siegbahn_to_iupac.csv:1
+msgid "Mα1"
+msgstr ""
+
+#: ../../../roentgen/data/siegbahn_to_iupac.csv:1
+msgid "M5-N7"
+msgstr ""
+
+#: ../../guide/lines.rst:29
+msgid ""
+"For a more full listing see Table VIII.2 in `IUPAC Report "
+"<http://old.iupac.org/reports/V/spectro/partVIII.pdf>`_."
+msgstr ""
+"Pour une liste plus complète, voir le Tableau VIII.2 dans le `Rapport IUPAC "
+"<http://old.iupac.org/reports/V/spectro/partVIII.pdf>`_."
+
+#: ../../guide/lines.rst:31
+msgid ""
+"The energies of the x-rays from these transitions are unique to each element"
+" and are provided by a number of sources. This package makes use of those "
+"provided by the `X-ray Data Booklet (October 2009) <https://xdb.lbl.gov>`_. "
+"It provides energies in `Table 1-3 "
+"<https://xdb.lbl.gov/Section1/Table_1-3.pdf>`_ as well as relative "
+"intensities. More precise transition energies can be found at the `NIST "
+"X-ray transition energies database "
+"<https://physics.nist.gov/PhysRefData/XrayTrans/Html/search.html>`_."
+msgstr ""
+"Les énergies des rayons X provenant de ces transitions sont propres à chaque"
+" élément et sont fournies par plusieurs sources. Ce paquet utilise celles "
+"fournies par le `X-ray Data Booklet (octobre 2009) <https://xdb.lbl.gov>`_. "
+"Il fournit des énergies dans le `Tableau 1-3 "
+"<https://xdb.lbl.gov/Section1/Table_1-3.pdf>`_ ainsi que des intensités "
+"relatives. Des énergies de transition plus précises peuvent être trouvées "
+"dans la `base de données NIST des énergies de transition X "
+"<https://physics.nist.gov/PhysRefData/XrayTrans/Html/search.html>`_."
+
+#: ../../guide/lines.rst:38
+msgid "The full table of energies is provided in::"
+msgstr "Le tableau complet des énergies est fourni dans ::"
+
+#: ../../guide/lines.rst:42
+msgid ""
+"It is possible to search for all known characteristic lines in an energy "
+"range with::"
+msgstr ""
+"Il est possible de rechercher toutes les raies caractéristiques connues dans"
+" une plage d'énergie avec ::"
+
+#: ../../guide/lines.rst:59
+msgid ""
+"If you are only interested in lines from a particular element, the search "
+"can be limited with::"
+msgstr ""
+"Si vous n'êtes intéressé que par les raies d'un élément particulier, la "
+"recherche peut être limitée avec ::"

@@ -1,0 +1,100 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) US Government (not copyrighted) 2023-2026
+# This file is distributed under the same license as the roentgen package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: roentgen \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-03-16 22:16+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: fr\n"
+"Language-Team: fr <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../_autosummary/roentgen.lines.lines.rst:2
+msgid "roentgen.lines.lines"
+msgstr ""
+
+#: of roentgen.lines.lines:1
+msgid ""
+"A module to access atomic line emission, binding energies, and "
+"transmission edges."
+msgstr ""
+
+#: ../../_autosummary/roentgen.lines.lines.rst:8
+msgid "Functions"
+msgstr ""
+
+#: ../../_autosummary/roentgen.lines.lines.rst:12:<autosummary>:1
+msgid ""
+":py:obj:`get_lines <roentgen.lines.lines.get_lines>`\\ \\(energy\\_low\\,"
+" energy\\_high\\[\\, ...\\]\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.lines.lines.rst:12:<autosummary>:1 of
+#: roentgen.lines.lines.get_lines:1
+msgid "Retrieve all emission lines in an energy range."
+msgstr ""
+
+#: ../../_autosummary/roentgen.lines.lines.rst:12:<autosummary>:1
+msgid ":py:obj:`get_edges <roentgen.lines.lines.get_edges>`\\ \\(element\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.lines.lines.rst:12:<autosummary>:1
+msgid "Retrieve the absorption edges for a given element."
+msgstr ""
+
+#: of roentgen.lines.lines.get_edges:1
+msgid ""
+"Retrieve the absorption edges for a given element. Edges occur at the "
+"electron binding energies of the element."
+msgstr ""
+
+#: ../../_autosummary/roentgen.lines.lines.rst
+msgid "Parameters"
+msgstr ""
+
+#: ../../_autosummary/roentgen.lines.lines.rst
+msgid "Returns"
+msgstr ""
+
+#: of roentgen.lines.lines.get_edges:7
+msgid "**edge_list**"
+msgstr ""
+
+#: ../../_autosummary/roentgen.lines.lines.rst
+msgid "Return type"
+msgstr ""
+
+#: of roentgen.lines.lines.get_edges:8 roentgen.lines.lines.get_lines:13
+msgid "`astropy.table.QTable`"
+msgstr ""
+
+#: of roentgen.lines.lines.get_lines:3
+msgid "The low end of the energy range"
+msgstr ""
+
+#: of roentgen.lines.lines.get_lines:5
+msgid "The high end of the energy range"
+msgstr ""
+
+#: of roentgen.lines.lines.get_lines:7
+msgid "Select only lines from a specific element"
+msgstr ""
+
+#: of roentgen.lines.lines.get_lines:9
+msgid "Select only lines above or equal to a given intensity"
+msgstr ""
+
+#: of roentgen.lines.lines.get_lines:12
+msgid "**line_list**"
+msgstr ""
+

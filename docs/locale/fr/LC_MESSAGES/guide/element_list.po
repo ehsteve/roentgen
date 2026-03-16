@@ -1,0 +1,2716 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) US Government (not copyrighted) 2023-2026
+# This file is distributed under the same license as the roentgen package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: roentgen\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-03-16 22:16+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: fr <LL@li.org>\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../guide/element_list.rst:2
+msgid "List of Elements"
+msgstr "Liste des éléments"
+
+#: ../../guide/element_list.rst:4
+msgid "List of available elements"
+msgstr "Liste des éléments disponibles"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "z"
+msgstr "z"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "symbol"
+msgstr "symbole"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "name"
+msgstr "nom"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "zovera"
+msgstr "zovera"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "i"
+msgstr "i"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "density"
+msgstr "densité"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "ionization energy"
+msgstr "énergie d'ionisation"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "1"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "H"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Hydrogen"
+msgstr "Hydrogène"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.99212"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "19.2"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "8.38E-05"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "13.59843449"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "2"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "He"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Helium"
+msgstr "Hélium"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.49968"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "41.8"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "1.66E-04"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "24.5873888"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "3"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Li"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Lithium"
+msgstr "Lithium"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.43221"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "40"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "5.34E-01"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "5.39171495"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "4"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Be"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Beryllium"
+msgstr "Béryllium"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.44384"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "63.7"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "1.85E+00"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "9.322699"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "5"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "B"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Boron"
+msgstr "Bore"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.46245"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "76"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "2.37E+00"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "8.298019"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "6"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "C"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Carbon"
+msgstr "Carbone"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.49954"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "78"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "1.70E+00"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "11.260288"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "7"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "N"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Nitrogen"
+msgstr "Azote"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.49976"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "82"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "1.17E-03"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "14.534"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "8"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "O"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Oxygen"
+msgstr "Oxygène"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.50002"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "95"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "1.33E-03"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "13.618"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "9"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "F"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Fluorine"
+msgstr "Fluor"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.47372"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "115"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "1.58E-03"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "17.423"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "10"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Ne"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Neon"
+msgstr "Néon"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.49555"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "137"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "8.39E-04"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "21.565"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "11"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Na"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Sodium"
+msgstr "Sodium"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.47847"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "149"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "9.71E-01"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "5.139"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "12"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Mg"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Magnesium"
+msgstr "Magnésium"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.49373"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "156"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "1.74E+00"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "7.646"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "13"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Al"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Aluminum"
+msgstr "Aluminium"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.48181"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "166"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "2.70E+00"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "5.986"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "14"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Si"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Silicon"
+msgstr "Silicium"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.49848"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "173"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "2.33E+00"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "8.152"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "15"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "P"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Phosphorus"
+msgstr "Phosphore"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.48428"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "2.20E+00"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "10.487"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "16"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "S"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Sulfur"
+msgstr "Soufre"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.49897"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "180"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "2.00E+00"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "10.36"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "17"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Cl"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Chlorine"
+msgstr "Chlore"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.47951"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "174"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "3.00E-03"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "12.968"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "18"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Ar"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Argon"
+msgstr "Argon"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.45059"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "188"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "1.66E-03"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "15.76"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "19"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "K"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Potassium"
+msgstr "Potassium"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.48595"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "190"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "8.62E-01"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "4.341"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "20"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Ca"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Calcium"
+msgstr "Calcium"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.49903"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "191"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "1.55E+00"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "6.113"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "21"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Sc"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Scandium"
+msgstr "Scandium"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.46712"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "216"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "2.99E+00"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "6.562"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "22"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Ti"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Titanium"
+msgstr "Titane"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.45948"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "233"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "4.54E+00"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "6.828"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "23"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "V"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Vanadium"
+msgstr "Vanadium"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.4515"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "245"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "6.11E+00"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "6.746"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "24"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Cr"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Chromium"
+msgstr "Chrome"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.46157"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "257"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "7.18E+00"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "6.766"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "25"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Mn"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Manganese"
+msgstr "Manganèse"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.45506"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "272"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "7.44E+00"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "7.434"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "26"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Fe"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Iron"
+msgstr "Fer"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.46556"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "286"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "7.87E+00"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "7.902"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "27"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Co"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Cobalt"
+msgstr "Cobalt"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.45815"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "297"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "8.90E+00"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "7.881"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "28"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Ni"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Nickel"
+msgstr "Nickel"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.47708"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "311"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "7.64"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "29"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Cu"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Copper"
+msgstr "Cuivre"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.45636"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "322"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "8.96E+00"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "7.726"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "30"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Zn"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Zinc"
+msgstr "Zinc"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.45879"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "330"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "7.13E+00"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "9.394"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "31"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Ga"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Gallium"
+msgstr "Gallium"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.44462"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "334"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "5.90E+00"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "5.999"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "32"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Ge"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Germanium"
+msgstr "Germanium"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.44071"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "350"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "5.32E+00"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "7.899"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "33"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "As"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Arsenic"
+msgstr "Arsenic"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.44046"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "347"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "5.73E+00"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "9.789"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "34"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Se"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Selenium"
+msgstr "Sélénium"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.4306"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "348"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "4.50E+00"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "9.752"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "35"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Br"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Bromine"
+msgstr "Brome"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.43803"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "343"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "7.07E-03"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "11.814"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "36"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Kr"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Krypton"
+msgstr "Krypton"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.42959"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "352"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "3.48E-03"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "37"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Rb"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Rubidium"
+msgstr "Rubidium"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.43291"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "363"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "1.53E+00"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "4.177"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "38"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Sr"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Strontium"
+msgstr "Strontium"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.43369"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "366"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "2.54E+00"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "5.695"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "39"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Y"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Yttrium"
+msgstr "Yttrium"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.43867"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "379"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "4.47E+00"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "6.217"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Zr"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Zirconium"
+msgstr "Zirconium"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.43848"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "393"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "6.51E+00"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "6.634"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "41"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Nb"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Niobium"
+msgstr "Niobium"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.4413"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "417"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "8.57E+00"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "6.759"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "42"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Mo"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Molybdenum"
+msgstr "Molybdène"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.43777"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "424"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "1.02E+01"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "7.092"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "43"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Tc"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Technetium"
+msgstr "Technétium"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.43919"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "428"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "1.15E+01"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "7.28"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "44"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Ru"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Ruthenium"
+msgstr "Ruthénium"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.43534"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "441"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "1.24E+01"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "7.36"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "45"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Rh"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Rhodium"
+msgstr "Rhodium"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.43729"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "449"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "7.459"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "46"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Pd"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Palladium"
+msgstr "Palladium"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.43225"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "470"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "1.20E+01"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "8.337"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "47"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Ag"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Silver"
+msgstr "Argent"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.43572"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "1.05E+01"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "7.576"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "48"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Cd"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Cadmium"
+msgstr "Cadmium"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.427"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "469"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "8.65E+00"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "8.994"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "49"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "In"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Indium"
+msgstr "Indium"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.42676"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "488"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "7.31E+00"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "5.786"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "50"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Sn"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Tin"
+msgstr "Étain"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.4212"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "7.344"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "51"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Sb"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Antimony"
+msgstr "Antimoine"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.41889"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "487"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "6.69E+00"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "8.608"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "52"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Te"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Tellurium"
+msgstr "Tellure"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.40752"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "485"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "6.24E+00"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "9.01"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "53"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "I"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Iodine"
+msgstr "Iode"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.41764"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "491"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "4.93E+00"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "10.451"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "54"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Xe"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Xenon"
+msgstr "Xénon"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.4113"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "482"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "5.49E-03"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "12.13"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "55"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Cs"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Cesium"
+msgstr "Césium"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.41383"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "1.87E+00"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "3.894"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "56"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Ba"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Barium"
+msgstr "Baryum"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.40779"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "3.50E+00"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "5.212"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "57"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "La"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Lanthanum"
+msgstr "Lanthane"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.41035"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "501"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "6.15E+00"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "5.577"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "58"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Ce"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Cerium"
+msgstr "Cérium"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.41395"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "523"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "6.66E+00"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "5.539"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "59"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Pr"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Praseodymium"
+msgstr "Praséodyme"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.41871"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "535"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "6.71E+00"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "5.473"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "60"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Nd"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Neodymium"
+msgstr "Néodyme"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.41597"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "546"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "6.90E+00"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "5.525"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "61"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Pm"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Promethium"
+msgstr "Prométhium"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.42094"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "560"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "7.22E+00"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "5.582"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "62"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Sm"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Samarium"
+msgstr "Samarium"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.41234"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "574"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "7.46E+00"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "5.644"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "63"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Eu"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Europium"
+msgstr "Europium"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.41457"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "580"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "5.24E+00"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "5.67"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "64"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Gd"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Gadolinium"
+msgstr "Gadolinium"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.40699"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "591"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "7.90E+00"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "6.15"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "65"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Tb"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Terbium"
+msgstr "Terbium"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.409"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "614"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "8.23E+00"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "5.864"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "66"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Dy"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Dysprosium"
+msgstr "Dysprosium"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.40615"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "628"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "8.55E+00"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "5.939"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "67"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Ho"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Holmium"
+msgstr "Holmium"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.40623"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "650"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "8.80E+00"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "6.022"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "68"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Er"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Erbium"
+msgstr "Erbium"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.40655"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "658"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "9.07E+00"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "6.108"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "69"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Tm"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Thulium"
+msgstr "Thulium"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.40844"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "674"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "9.32E+00"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "6.184"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "70"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Yb"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Ytterbium"
+msgstr "Ytterbium"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.40453"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "684"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "6.73E+00"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "6.254"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "71"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Lu"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Lutetium"
+msgstr "Lutétium"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.40579"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "694"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "9.84E+00"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "5.426"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "72"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Hf"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Hafnium"
+msgstr "Hafnium"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.40338"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "705"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "1.33E+01"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "6.825"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "73"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Ta"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Tantalum"
+msgstr "Tantale"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.40343"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "718"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "1.67E+01"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "7.55"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "74"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "W"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Tungsten"
+msgstr "Tungstène"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.4025"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "727"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "1.93E+01"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "7.864"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "75"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Re"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Rhenium"
+msgstr "Rhénium"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.40278"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "736"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "2.10E+01"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "7.834"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Os"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Osmium"
+msgstr "Osmium"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.39958"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "746"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "2.26E+01"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "8.438"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "77"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Ir"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Iridium"
+msgstr "Iridium"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.40058"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "757"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "2.24E+01"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "8.967"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Pt"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Platinum"
+msgstr "Platine"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.39984"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "790"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "2.15E+01"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "8.959"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "79"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Au"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Gold"
+msgstr "Or"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.40108"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "9.226"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "80"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Hg"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Mercury"
+msgstr "Mercure"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.39882"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "800"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "1.36E+01"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "10.438"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "81"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Tl"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Thallium"
+msgstr "Thallium"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.39631"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "810"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "1.17E+01"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Pb"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Lead"
+msgstr "Plomb"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.39575"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "823"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "1.14E+01"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "7.417"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "83"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Bi"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Bismuth"
+msgstr "Bismuth"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.39717"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "9.75E+00"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "7.286"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "84"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Po"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Polonium"
+msgstr "Polonium"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.40195"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "830"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "8.417"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "85"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "At"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Astatine"
+msgstr "Astate"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.40479"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "825"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "1.00E+01"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "9.31751"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "86"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Rn"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Radon"
+msgstr "Radon"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.38736"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "794"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "9.07E-03"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "10.748"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "87"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Fr"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Francium"
+msgstr "Francium"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.3901"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "827"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "4.073"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "88"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Ra"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Radium"
+msgstr "Radium"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.38934"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "826"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "5.00E+00"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "5.278"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "89"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Ac"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Actinium"
+msgstr "Actinium"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.39202"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "841"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "1.01E+01"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "5.17"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "90"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Th"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Thorium"
+msgstr "Thorium"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.38787"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "847"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "6.307"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "91"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Pa"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Protactinium"
+msgstr "Protactinium"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.39388"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "878"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "1.54E+01"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "5.89"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "92"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "U"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Uranium"
+msgstr "Uranium"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.38651"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "890"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "1.90E+01"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "6.194"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "93"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Np"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Neptunium"
+msgstr "Neptunium"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.3924050632911392"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "902"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "2.02500E+01"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "6.265608"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "94"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Pu"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Plutonium"
+msgstr "Plutonium"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.38524590163934425"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "921"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "1.98400E+01"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "6.02576"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Am"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Americium"
+msgstr "Américium"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.3877551020408163"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "934"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "1.36700E+01"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "5.97381"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "96"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Cm"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Curium"
+msgstr "Curium"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.38866396761133604"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "939"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "1.35100E+01"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "5.992241"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "97"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Bk"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Berkelium"
+msgstr "Berkélium"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.39271255060728744"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "952"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "1.40000E+01"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "6.19785"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "98"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Cf"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "Californium"
+msgstr "Californium"
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "0.3904382470119522"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "966"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "1.00000E+01"
+msgstr ""
+
+#: ../../../roentgen/data/elements.csv:1
+msgid "6.281878"
+msgstr ""

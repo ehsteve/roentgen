@@ -1,0 +1,212 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) US Government (not copyrighted) 2023-2026
+# This file is distributed under the same license as the roentgen package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: roentgen\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-03-16 22:31+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: fr <LL@li.org>\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../../dev-guide/docs.rst:5
+msgid "Documentation Rules"
+msgstr "Règles de documentation"
+
+#: ../../../dev-guide/docs.rst:8
+msgid "Overview"
+msgstr "Vue d'ensemble"
+
+#: ../../../dev-guide/docs.rst:10
+msgid ""
+"All code must be documented and we follow the style conventions described "
+"here:"
+msgstr ""
+"Tout le code doit être documenté et nous suivons les conventions de style "
+"décrites ici :"
+
+#: ../../../dev-guide/docs.rst:12
+msgid ""
+"`numpydoc <https://numpydoc.readthedocs.io/en/latest/format.html#docstring-"
+"standard>`_"
+msgstr ""
+"`numpydoc <https://numpydoc.readthedocs.io/en/latest/format.html#docstring-"
+"standard>`_"
+
+#: ../../../dev-guide/docs.rst:15
+msgid "Referring to other code"
+msgstr "Référencer d'autre code"
+
+#: ../../../dev-guide/docs.rst:17
+msgid ""
+"To link to methods, classes, or modules in your repo you have to use "
+"backticks, for example:"
+msgstr ""
+"Pour créer des liens vers des méthodes, classes ou modules dans votre dépôt,"
+" vous devez utiliser des guillemets obliques, par exemple :"
+
+#: ../../../dev-guide/docs.rst:23
+msgid "generates a link like this: `roentgen.util.util.get_atomic_number()`."
+msgstr ""
+"génère un lien comme celui-ci : `roentgen.util.util.get_atomic_number()`."
+
+#: ../../../dev-guide/docs.rst:25
+msgid ""
+"Links can also be generated to external packages via `intersphinx "
+"<http://www.sphinx-doc.org/en/master/ext/intersphinx.html>`_:"
+msgstr ""
+"Des liens peuvent également être générés vers des paquets externes via "
+"`intersphinx <http://www.sphinx-doc.org/en/master/ext/intersphinx.html>`_ :"
+
+#: ../../../dev-guide/docs.rst:32
+msgid ""
+"will return this link: `numpy.mean`. This works for Python, Numpy and "
+"Astropy (full list is in :file:`docs/conf.py`)."
+msgstr ""
+"retournera ce lien : `numpy.mean`. Cela fonctionne pour Python, Numpy et "
+"Astropy (liste complète dans :file:`docs/conf.py`)."
+
+#: ../../../dev-guide/docs.rst:35
+msgid ""
+"With Sphinx, if you use ``:func:`` or ``:meth:``, it will add closing "
+"brackets to the link. If you get the wrong pre-qualifier, it will break the "
+"link, so we suggest that you double check if what you are linking is a "
+"method or a function."
+msgstr ""
+"Avec Sphinx, si vous utilisez ``:func:`` ou ``:meth:``, des parenthèses "
+"fermantes seront ajoutées au lien. Si vous utilisez le mauvais qualificatif,"
+" le lien sera cassé, donc nous vous suggérons de vérifier si ce que vous "
+"liez est une méthode ou une fonction."
+
+#: ../../../dev-guide/docs.rst:44
+msgid "will return two broken links (\"class\" and \"meth\") but \"func\" will work."
+msgstr ""
+"retournera deux liens cassés (« class » et « meth ») mais « func » "
+"fonctionnera."
+
+#: ../../../dev-guide/docs.rst:47
+msgid "Project-specific Rules"
+msgstr "Règles spécifiques au projet"
+
+#: ../../../dev-guide/docs.rst:49
+msgid ""
+"For **all** RST files, we enforce a one sentence per line rule and ignore "
+"the line length."
+msgstr ""
+"Pour **tous** les fichiers RST, nous appliquons une règle d'une phrase par "
+"ligne et ignorons la longueur de ligne."
+
+#: ../../../dev-guide/docs.rst:53
+msgid "Sphinx"
+msgstr "Sphinx"
+
+#: ../../../dev-guide/docs.rst:55
+msgid ""
+"All of the documentation (like this page) is built by `Sphinx "
+"<https://www.sphinx-doc.org/en/stable/>`_, which is a tool especially well-"
+"suited for documenting Python projects. Sphinx works by parsing files "
+"written using a `a Mediawiki-like syntax "
+"<http://docutils.sourceforge.net/docs/user/rst/quickstart.html>`_ called "
+"`reStructuredText <http://docutils.sourceforge.net/rst.html>`_. In addition "
+"to parsing static files of reStructuredText, Sphinx can also be told to "
+"parse code comments. In fact, in addition to what you are reading right now,"
+" the `Python documentation <https://www.python.org/doc/>`_ was also created "
+"using Sphinx."
+msgstr ""
+"Toute la documentation (comme cette page) est construite par `Sphinx "
+"<https://www.sphinx-doc.org/en/stable/>`_, un outil particulièrement adapté "
+"à la documentation des projets Python. Sphinx fonctionne en analysant des "
+"fichiers écrits avec une `syntaxe de type Mediawiki "
+"<http://docutils.sourceforge.net/docs/user/rst/quickstart.html>`_ appelée "
+"`reStructuredText <http://docutils.sourceforge.net/rst.html>`_. En plus "
+"d'analyser les fichiers statiques de reStructuredText, Sphinx peut également"
+" analyser les commentaires de code. En fait, en plus de ce que vous lisez en"
+" ce moment, la `documentation Python <https://www.python.org/doc/>`_ a "
+"également été créée avec Sphinx."
+
+#: ../../../dev-guide/docs.rst:61
+msgid "Usage and Building the documentation"
+msgstr "Utilisation et construction de la documentation"
+
+#: ../../../dev-guide/docs.rst:63
+msgid ""
+"All of the documentation is contained in the \"docs\" folder and code "
+"documentation strings. Sphinx builds documentation iteratively, only adding "
+"things that have changed. For more information on how to use Sphinx, consult"
+" the `Sphinx documentation <http://www.sphinx-"
+"doc.org/en/stable/contents.html>`_."
+msgstr ""
+"Toute la documentation se trouve dans le dossier « docs » et dans les "
+"chaînes de documentation du code. Sphinx construit la documentation de "
+"manière itérative, n'ajoutant que ce qui a changé. Pour plus d'informations "
+"sur l'utilisation de Sphinx, consultez la `documentation Sphinx "
+"<http://www.sphinx-doc.org/en/stable/contents.html>`_."
+
+#: ../../../dev-guide/docs.rst:68
+msgid "HTML"
+msgstr "HTML"
+
+#: ../../../dev-guide/docs.rst:70
+msgid ""
+"To build the html documentation locally use the following command, in the "
+"docs directory run::"
+msgstr ""
+"Pour construire la documentation HTML localement, utilisez la commande "
+"suivante dans le répertoire docs ::"
+
+#: ../../../dev-guide/docs.rst:74
+msgid ""
+"This will generate HTML documentation in the \"docs/_build/html\" directory."
+" You can open the \"index.html\" file to browse the final product."
+msgstr ""
+"Cela générera la documentation HTML dans le répertoire « docs/_build/html »."
+" Vous pouvez ouvrir le fichier « index.html » pour parcourir le résultat "
+"final."
+
+#: ../../../dev-guide/docs.rst:77
+msgid "To build the French translation of the documentation, run::"
+msgstr ""
+"Pour construire la traduction française de la documentation, exécutez ::"
+
+#: ../../../dev-guide/docs.rst:81
+msgid ""
+"This will generate French HTML documentation in the \"docs/_build/fr/html\" "
+"directory."
+msgstr ""
+"Cela générera la documentation HTML en français dans le répertoire « "
+"docs/_build/fr/html »."
+
+#: ../../../dev-guide/docs.rst:83
+msgid ""
+"If you'd like to rebuild the documentation from scratch. This is normally "
+"not necessary since Sphinx will detect and only build the required changes. "
+"But if you are running into strange errors you may want to try this. The "
+"following command will wipe all generated files."
+msgstr ""
+"Si vous souhaitez reconstruire la documentation depuis le début. Cela n'est "
+"normalement pas nécessaire car Sphinx détectera et ne construira que les "
+"modifications requises. Mais si vous rencontrez des erreurs étranges, vous "
+"pouvez essayer ceci. La commande suivante supprimera tous les fichiers "
+"générés."
+
+#: ../../../dev-guide/docs.rst:88
+msgid "$ make clean"
+msgstr "$ make clean"
+
+#: ../../../dev-guide/docs.rst:90
+msgid ""
+"Sphinx can also build documentation as a PDF but this requires latex to be "
+"installed."
+msgstr ""
+"Sphinx peut également construire la documentation en PDF mais cela nécessite"
+" que latex soit installé."

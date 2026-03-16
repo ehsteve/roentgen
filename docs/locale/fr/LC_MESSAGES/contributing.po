@@ -1,0 +1,47 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) US Government (not copyrighted) 2023-2026
+# This file is distributed under the same license as the roentgen package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: roentgen\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-03-16 22:15+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: fr <LL@li.org>\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../../CONTRIBUTING.rst:3
+msgid "Contributing"
+msgstr "Contribuer"
+
+#: ../../../CONTRIBUTING.rst:5
+msgid ""
+"Contributions are welcome, and they are greatly appreciated! Every little "
+"bit helps, and credit will always be given. Have a look at the `great guide "
+"<https://docs.sunpy.org/en/latest/dev_guide/contents/newcomers.html>`_ from "
+"the `sunpy project <https://sunpy.org>`_ which provides advice for new "
+"contributors."
+msgstr ""
+"Les contributions sont les bienvenues et très appréciées ! Chaque petite "
+"contribution compte, et les crédits seront toujours accordés. Consultez le "
+"`excellent guide "
+"<https://docs.sunpy.org/en/latest/dev_guide/contents/newcomers.html>`_ du "
+"`projet sunpy <https://sunpy.org>`_ qui fournit des conseils aux nouveaux "
+"contributeurs."
+
+#: ../../../CONTRIBUTING.rst:9
+msgid ""
+"All contributors will be treated with respect and everyone is expected to "
+"comply with the SunPy `Code of Conduct <https://sunpy.org/coc>`_."
+msgstr ""
+"Tous les contributeurs seront traités avec respect et chacun est tenu de "
+"respecter le `Code de conduite <https://sunpy.org/coc>`_ de SunPy."

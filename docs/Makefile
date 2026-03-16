@@ -18,6 +18,12 @@ clean:
 	rm -rf $(BUILDDIR)
 	rm -rf ./_autosummary
 
+# Build French (fr) translation of the HTML documentation
+html-fr:
+	@$(SPHINXBUILD) -M html "$(SOURCEDIR)" "$(BUILDDIR)/fr" -D language=fr $(SPHINXOPTS) $(O)
+
+.PHONY: html-fr
+
 # Catch-all target: route all unknown targets to Sphinx using the new
 # "make mode" option.  $(O) is meant as a shortcut for $(SPHINXOPTS).
 %: Makefile

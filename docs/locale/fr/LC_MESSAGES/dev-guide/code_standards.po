@@ -1,0 +1,260 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) US Government (not copyrighted) 2023-2026
+# This file is distributed under the same license as the roentgen package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: roentgen\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-03-16 22:16+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: fr <LL@li.org>\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../dev-guide/code_standards.rst:5
+msgid "Coding Standards"
+msgstr "Normes de codage"
+
+#: ../../dev-guide/code_standards.rst:7
+msgid ""
+"The purpose of the page is to describe the standards that are expected of "
+"all the code in this repository. All developers should read and abide by the"
+" following standards. Code which does not follow these standards closely "
+"will generally not be accepted."
+msgstr ""
+"L'objectif de cette page est de décrire les normes attendues pour tout le "
+"code de ce dépôt. Tous les développeurs doivent lire et respecter les normes"
+" suivantes. Le code qui ne respecte pas étroitement ces normes ne sera "
+"généralement pas accepté."
+
+#: ../../dev-guide/code_standards.rst:11
+msgid ""
+"We try to closely follow the coding style and conventions proposed by "
+"`Astropy "
+"<https://docs.astropy.org/en/stable/development/codeguide.html#coding-style-"
+"conventions>`_ and `Sunpy "
+"<https://docs.sunpy.org/en/latest/dev_guide/contents/code_standards.html>`_."
+msgstr ""
+"Nous essayons de suivre étroitement le style de codage et les conventions "
+"proposés par `Astropy "
+"<https://docs.astropy.org/en/stable/development/codeguide.html#coding-style-"
+"conventions>`_ et `Sunpy "
+"<https://docs.sunpy.org/en/latest/dev_guide/contents/code_standards.html>`_."
+
+#: ../../dev-guide/code_standards.rst:13
+msgid "The following text is mostly cribbed from Sunpy."
+msgstr "Le texte suivant est principalement tiré de Sunpy."
+
+#: ../../dev-guide/code_standards.rst:16
+msgid "Language Standard"
+msgstr "Standard de langage"
+
+#: ../../dev-guide/code_standards.rst:18
+msgid "All code must be compatible with Python 3.11 and later."
+msgstr ""
+"Tout le code doit être compatible avec Python 3.11 et versions ultérieures."
+
+#: ../../dev-guide/code_standards.rst:20
+#, python-brace-format, python-format
+msgid ""
+"The new Python 3 formatting style should be used (i.e. ``f\"{spam:s}\"`` "
+"instead of ``\"%s\" % \"spam\"``)."
+msgstr ""
+"Le nouveau style de formatage Python 3 doit être utilisé (c'est-à-dire "
+"``f\"{spam:s}\"`` au lieu de ``\"%s\" % \"spam\"``)."
+
+#: ../../dev-guide/code_standards.rst:23
+msgid ""
+"The addition of new dependencies will be considered but is discouraged."
+msgstr "L'ajout de nouvelles dépendances sera envisagé mais est déconseillé."
+
+#: ../../dev-guide/code_standards.rst:26
+msgid "Coding Style/Conventions"
+msgstr "Style de codage/Conventions"
+
+#: ../../dev-guide/code_standards.rst:28
+msgid ""
+"The code will follow the standard `PEP8 Style Guide for Python Code "
+"<https://www.python.org/dev/peps/pep-0008/>`_. In particular, this includes "
+"using only 4 spaces for indentation, and never tabs."
+msgstr ""
+"Le code suivra le `Guide de style PEP8 pour le code Python "
+"<https://www.python.org/dev/peps/pep-0008/>`_. En particulier, cela inclut "
+"l'utilisation de seulement 4 espaces pour l'indentation, et jamais de "
+"tabulations."
+
+#: ../../dev-guide/code_standards.rst:31
+msgid ""
+"**Follow the existing coding style** within a file and avoid making changes "
+"that are purely stylistic. Please try to maintain the style when adding or "
+"modifying code."
+msgstr ""
+"**Suivez le style de codage existant** dans un fichier et évitez les "
+"modifications purement stylistiques. Veuillez essayer de maintenir le style "
+"lors de l'ajout ou de la modification du code."
+
+#: ../../dev-guide/code_standards.rst:34
+msgid ""
+"Following PEP8's recommendation, absolute imports are to be used in general."
+" We allow relative imports within a module to avoid circular import chains."
+msgstr ""
+"Conformément aux recommandations de PEP8, les importations absolues doivent "
+"être utilisées en général. Nous autorisons les importations relatives dans "
+"un module pour éviter les chaînes d'importation circulaires."
+
+#: ../../dev-guide/code_standards.rst:37
+msgid ""
+"The ``import numpy as np``, ``import matplotlib as mpl``, and ``import "
+"matplotlib.pyplot as plt`` naming conventions should be used wherever "
+"relevant. ``from packagename import *`` should never be used (except in "
+"``__init__.py``)"
+msgstr ""
+"Les conventions de nommage ``import numpy as np``, ``import matplotlib as "
+"mpl`` et ``import matplotlib.pyplot as plt`` doivent être utilisées partout "
+"où c'est pertinent. ``from packagename import *`` ne doit jamais être "
+"utilisé (sauf dans ``__init__.py``)"
+
+#: ../../dev-guide/code_standards.rst:40
+msgid ""
+"Classes should either use direct variable access, or Python's property "
+"mechanism for setting object instance variables."
+msgstr ""
+"Les classes doivent utiliser soit l'accès direct aux variables, soit le "
+"mécanisme de propriété Python pour définir les variables d'instance d'objet."
+
+#: ../../dev-guide/code_standards.rst:42
+msgid ""
+"Classes should use the builtin `super` function when making calls to methods"
+" in their super-class(es) unless there are specific reasons not to. `super` "
+"should be used consistently in all subclasses since it does not work "
+"otherwise."
+msgstr ""
+"Les classes doivent utiliser la fonction intégrée `super` lors des appels "
+"aux méthodes de leur(s) super-classe(s) sauf s'il y a des raisons "
+"spécifiques de ne pas le faire. `super` doit être utilisé de manière "
+"cohérente dans toutes les sous-classes car sinon cela ne fonctionne pas."
+
+#: ../../dev-guide/code_standards.rst:45
+msgid "Multiple inheritance should be avoided in general without good reason."
+msgstr "L'héritage multiple doit être évité en général sans bonne raison."
+
+#: ../../dev-guide/code_standards.rst:47
+msgid ""
+"``__init__.py`` files for modules should not contain any significant "
+"implementation code. ``__init__.py`` can contain docstrings and code for "
+"organizing the module layout."
+msgstr ""
+"Les fichiers ``__init__.py`` des modules ne doivent pas contenir de code "
+"d'implémentation significatif. ``__init__.py`` peut contenir des docstrings "
+"et du code pour organiser la structure du module."
+
+#: ../../dev-guide/code_standards.rst:49
+msgid ""
+"We make use of Ruff for managing code formating and import sorting. Run "
+"`ruff check --fix` and `ruff format`."
+msgstr ""
+"Nous utilisons Ruff pour gérer le formatage du code et le tri des "
+"importations. Exécutez `ruff check --fix` et `ruff format`."
+
+#: ../../dev-guide/code_standards.rst:52
+msgid "Private code"
+msgstr "Code privé"
+
+#: ../../dev-guide/code_standards.rst:54
+msgid ""
+"It is often useful to designate code as private, which means it is not part "
+"of the user facing API, only used internally by HERMES, and can be modified "
+"without a deprecation period. Any classes, functions, or variables that are "
+"private should either:"
+msgstr ""
+"Il est souvent utile de désigner du code comme privé, ce qui signifie qu'il "
+"ne fait pas partie de l'API publique, est utilisé uniquement en interne et "
+"peut être modifié sans période de dépréciation. Toutes les classes, "
+"fonctions ou variables privées doivent soit :"
+
+#: ../../dev-guide/code_standards.rst:57
+msgid ""
+"Have an underscore as the first character of their name, e.g., "
+"``_my_private_function``."
+msgstr ""
+"Avoir un trait de soulignement comme premier caractère de leur nom, par ex. "
+"``_my_private_function``."
+
+#: ../../dev-guide/code_standards.rst:58
+msgid ""
+"If you want to do that to entire set of functions in a file, name the file "
+"with a underscore as the first character, e.g., ``_my_private_file.py``."
+msgstr ""
+"Si vous souhaitez l'appliquer à l'ensemble des fonctions d'un fichier, "
+"nommez le fichier avec un trait de soulignement comme premier caractère, par"
+" ex. ``_my_private_file.py``."
+
+#: ../../dev-guide/code_standards.rst:61
+msgid "Documentation and Testing"
+msgstr "Documentation et tests"
+
+#: ../../dev-guide/code_standards.rst:63
+msgid ""
+"American English is the default language for all documentation strings and "
+"inline commands. Variables names should also be based on English words."
+msgstr ""
+"L'anglais américain est la langue par défaut pour toutes les chaînes de "
+"documentation et les commandes en ligne. Les noms de variables doivent "
+"également être basés sur des mots anglais."
+
+#: ../../dev-guide/code_standards.rst:66
+msgid ""
+"Documentation strings must be present for all public "
+"classes/methods/functions, and must follow the form outlined in the "
+":ref:`docs_guidelines` page. Additionally, examples or tutorials in the "
+"package documentation are strongly recommended."
+msgstr ""
+"Les chaînes de documentation doivent être présentes pour toutes les "
+"classes/méthodes/fonctions publiques, et doivent suivre le format décrit "
+"dans la page :ref:`docs_guidelines`. De plus, des exemples ou des tutoriels "
+"dans la documentation du paquet sont fortement recommandés."
+
+#: ../../dev-guide/code_standards.rst:69
+msgid ""
+"Write usage examples in the docstrings of all classes and functions whenever"
+" possible. These examples should be short and simple to reproduce–users "
+"should be able to copy them verbatim and run them. These examples should, "
+"whenever possible, be in the :ref:`doctests` format and will be executed as "
+"part of the test suite."
+msgstr ""
+"Rédigez des exemples d'utilisation dans les docstrings de toutes les classes"
+" et fonctions chaque fois que possible. Ces exemples doivent être courts et "
+"simples à reproduire – les utilisateurs doivent pouvoir les copier tels "
+"quels et les exécuter. Ces exemples doivent, dans la mesure du possible, "
+"être au format :ref:`doctests` et seront exécutés dans le cadre de la suite "
+"de tests."
+
+#: ../../dev-guide/code_standards.rst:73
+msgid ""
+"Unit tests should be provided for as many public methods and functions as "
+"possible, and should adhere to the standards set in the :ref:`testing` "
+"document."
+msgstr ""
+"Des tests unitaires doivent être fournis pour autant de méthodes et "
+"fonctions publiques que possible, et doivent respecter les normes définies "
+"dans le document :ref:`testing`."
+
+#: ../../dev-guide/code_standards.rst:76
+msgid "Data and Configuration"
+msgstr "Données et configuration"
+
+#: ../../dev-guide/code_standards.rst:78
+msgid ""
+"We store test data in ``./data/test`` as long as it is less than about 100 "
+"kB."
+msgstr ""
+"Nous stockons les données de test dans ``./data/test`` tant qu'elles font "
+"moins d'environ 100 kB."

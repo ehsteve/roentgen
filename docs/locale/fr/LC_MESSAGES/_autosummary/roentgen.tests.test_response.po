@@ -1,0 +1,79 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) US Government (not copyrighted) 2023-2026
+# This file is distributed under the same license as the roentgen package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: roentgen \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-03-16 22:16+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: fr\n"
+"Language-Team: fr <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../_autosummary/roentgen.tests.test_response.rst:2
+msgid "roentgen.tests.test\\_response"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_response.rst:8
+msgid "Functions"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_response.rst:17:<autosummary>:1
+msgid ""
+":py:obj:`test_bad_optical_path "
+"<roentgen.tests.test_response.test_bad_optical_path>`\\ \\(\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_response.rst:17:<autosummary>:1
+msgid ""
+":py:obj:`test_optical_path_stack_input "
+"<roentgen.tests.test_response.test_optical_path_stack_input>`\\ \\(\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_response.rst:17:<autosummary>:1
+msgid ""
+":py:obj:`test_raise_outside_of_data_range "
+"<roentgen.tests.test_response.test_raise_outside_of_data_range>`\\ \\(\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_response.rst:17:<autosummary>:1 of
+#: roentgen.tests.test_response.test_raise_outside_of_data_range:1
+msgid ""
+"Test that ValueError is raised is trying to get values outside of data "
+"range 1 keV to 20 MeV."
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_response.rst:17:<autosummary>:1
+msgid ""
+":py:obj:`test_repr_str <roentgen.tests.test_response.test_repr_str>`\\ "
+"\\(\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_response.rst:17:<autosummary>:1
+msgid ""
+":py:obj:`test_response_detector_is_none_error "
+"<roentgen.tests.test_response.test_response_detector_is_none_error>`\\ "
+"\\(wrong\\_type\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_response.rst:17:<autosummary>:1
+msgid ""
+":py:obj:`test_thick_optical_path "
+"<roentgen.tests.test_response.test_thick_optical_path>`\\ \\(\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.tests.test_response.rst:17:<autosummary>:1
+msgid ""
+":py:obj:`test_thin_detector "
+"<roentgen.tests.test_response.test_thin_detector>`\\ \\(\\)"
+msgstr ""
+

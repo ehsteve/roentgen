@@ -1,0 +1,12 @@
+[
+  {
+    "name": "English",
+    "version": "en",
+    "url": "https://ehsteve.github.io/roentgen/en/"
+  },
+  {
+    "name": "Français",
+    "version": "fr",
+    "url": "https://ehsteve.github.io/roentgen/fr/"
+  }
+]

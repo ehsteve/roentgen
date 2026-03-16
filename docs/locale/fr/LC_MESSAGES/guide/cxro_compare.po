@@ -1,0 +1,97 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) US Government (not copyrighted) 2023-2026
+# This file is distributed under the same license as the roentgen package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version:  roentgen\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-03-16 22:31+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: fr\n"
+"Language-Team: fr <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../../guide/cxro_compare.rst:2
+msgid "Comparison with CXRO"
+msgstr "Comparaison avec le CXRO"
+
+#: ../../../guide/cxro_compare.rst:4
+msgid ""
+"The `Center for X-ray Optics (CXRO) at LBL <http://www.cxro.lbl.gov/>`_ "
+"provides an online tool to calculate the X-ray transmission through "
+"materials called the `X-ray Interactions with Matter "
+"<http://henke.lbl.gov/optical_constants/>`_. This section compares the "
+"results of this package with those of CXRO. The primary difference "
+"between results from this package and those from CXRO are that we make "
+"use of the `NIST-provided Mass Attenuation coefficients "
+"<https://www.nist.gov/pml/x-ray-mass-attenuation-coefficients>`_ while "
+"the CXRO makes use of optical constants from the following"
+msgstr ""
+"Le `Centre pour l'Optique des rayons X (CXRO) à LBL "
+"<http://www.cxro.lbl.gov/>`_ fournit un outil en ligne pour calculer la "
+"transmission des rayons X à travers des matériaux, appelé `X-ray "
+"Interactions with Matter <http://henke.lbl.gov/optical_constants/>`_. "
+"Cette section compare les résultats de ce paquet avec ceux du CXRO. La "
+"principale différence entre les résultats de ce paquet et ceux du CXRO "
+"est que nous utilisons les `coefficients d'atténuation massique fournis "
+"par le NIST <https://www.nist.gov/pml/x-ray-mass-attenuation-"
+"coefficients>`_ tandis que le CXRO utilise des constantes optiques des "
+"sources suivantes"
+
+#: ../../../guide/cxro_compare.rst:8
+msgid ""
+"`B.L. Henke, E.M. Gullikson, and J.C. Davis. X-ray interactions: "
+"photoabsorption, scattering, transmission, and reflection at E=50-30000 "
+"eV, Z=1-92, Atomic Data and Nuclear Data Tables Vol. 54 (no.2), 181-342 "
+"(July 1993) "
+"<https://ned.ipac.caltech.edu/level5/Sept16/Henke/Henke.pdf>`_"
+msgstr ""
+"`B.L. Henke, E.M. Gullikson, et J.C. Davis. X-ray interactions: "
+"photoabsorption, scattering, transmission, and reflection at E=50-30000 "
+"eV, Z=1-92, Atomic Data and Nuclear Data Tables Vol. 54 (no.2), 181-342 "
+"(juillet 1993) "
+"<https://ned.ipac.caltech.edu/level5/Sept16/Henke/Henke.pdf>`_"
+
+#: ../../../guide/cxro_compare.rst:10
+msgid ""
+"These data only extend up to 30 keV while the NIST-provided data extend "
+"to 20 MeV. For more information on data sources see the README in the "
+"data directory. The comparison here shows that the data agree with each "
+"other."
+msgstr ""
+"Ces données ne s'étendent que jusqu'à 30 keV tandis que les données "
+"fournies par le NIST s'étendent jusqu'à 20 MeV. Pour plus d'informations "
+"sur les sources de données, voir le README dans le répertoire de données."
+" La comparaison ici montre que les données sont en accord."
+
+#: ../../../guide/cxro_compare.rst:58
+msgid ""
+"(:download:`Source code "
+"<../_build/gettext/gettext/plot_directive/guide/cxro_compare-1.py>`, "
+":download:`png "
+"<../_build/gettext/gettext/plot_directive/guide/cxro_compare-1.png>`, "
+":download:`hires.png "
+"<../_build/gettext/gettext/plot_directive/guide/cxro_compare-1.hires.png>`,"
+" :download:`pdf "
+"<../_build/gettext/gettext/plot_directive/guide/cxro_compare-1.pdf>`)"
+msgstr ""
+
+#~ msgid ""
+#~ "(:download:`Source code "
+#~ "<../_build/gettext/plot_directive/guide/cxro_compare-1.py>`, "
+#~ ":download:`png "
+#~ "<../_build/gettext/plot_directive/guide/cxro_compare-1.png>`, "
+#~ ":download:`hires.png "
+#~ "<../_build/gettext/plot_directive/guide/cxro_compare-1.hires.png>`,"
+#~ " :download:`pdf "
+#~ "<../_build/gettext/plot_directive/guide/cxro_compare-1.pdf>`)"
+#~ msgstr ""
+

@@ -1,0 +1,635 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) US Government (not copyrighted) 2023-2026
+# This file is distributed under the same license as the roentgen package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: roentgen\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-03-16 22:15+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: fr <LL@li.org>\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../dev-guide/code_standards.rst:5
+msgid "Coding Standards"
+msgstr "Normes de codage"
+
+#: ../../dev-guide/code_standards.rst:7
+msgid ""
+"The purpose of the page is to describe the standards that are expected of "
+"all the code in this repository. All developers should read and abide by the"
+" following standards. Code which does not follow these standards closely "
+"will generally not be accepted."
+msgstr ""
+"L'objectif de cette page est de décrire les normes attendues pour tout le "
+"code de ce dépôt. Tous les développeurs doivent lire et respecter les normes"
+" suivantes. Le code qui ne respecte pas étroitement ces normes ne sera "
+"généralement pas accepté."
+
+#: ../../dev-guide/code_standards.rst:11
+msgid ""
+"We try to closely follow the coding style and conventions proposed by "
+"`Astropy "
+"<https://docs.astropy.org/en/stable/development/codeguide.html#coding-style-"
+"conventions>`_ and `Sunpy "
+"<https://docs.sunpy.org/en/latest/dev_guide/contents/code_standards.html>`_."
+msgstr ""
+"Nous essayons de suivre étroitement le style de codage et les conventions "
+"proposés par `Astropy "
+"<https://docs.astropy.org/en/stable/development/codeguide.html#coding-style-"
+"conventions>`_ et `Sunpy "
+"<https://docs.sunpy.org/en/latest/dev_guide/contents/code_standards.html>`_."
+
+#: ../../dev-guide/code_standards.rst:13
+msgid "The following text is mostly cribbed from Sunpy."
+msgstr "Le texte suivant est principalement tiré de Sunpy."
+
+#: ../../dev-guide/code_standards.rst:16
+msgid "Language Standard"
+msgstr "Standard de langage"
+
+#: ../../dev-guide/code_standards.rst:18
+msgid "All code must be compatible with Python 3.11 and later."
+msgstr ""
+"Tout le code doit être compatible avec Python 3.11 et versions ultérieures."
+
+#: ../../dev-guide/code_standards.rst:20
+#, python-brace-format, python-format
+msgid ""
+"The new Python 3 formatting style should be used (i.e. ``f\"{spam:s}\"`` "
+"instead of ``\"%s\" % \"spam\"``)."
+msgstr ""
+"Le nouveau style de formatage Python 3 doit être utilisé (c'est-à-dire "
+"``f\"{spam:s}\"`` au lieu de ``\"%s\" % \"spam\"``)."
+
+#: ../../dev-guide/code_standards.rst:23
+msgid ""
+"The addition of new dependencies will be considered but is discouraged."
+msgstr "L'ajout de nouvelles dépendances sera envisagé mais est déconseillé."
+
+#: ../../dev-guide/code_standards.rst:26
+msgid "Coding Style/Conventions"
+msgstr "Style de codage/Conventions"
+
+#: ../../dev-guide/code_standards.rst:28
+msgid ""
+"The code will follow the standard `PEP8 Style Guide for Python Code "
+"<https://www.python.org/dev/peps/pep-0008/>`_. In particular, this includes "
+"using only 4 spaces for indentation, and never tabs."
+msgstr ""
+"Le code suivra le `Guide de style PEP8 pour le code Python "
+"<https://www.python.org/dev/peps/pep-0008/>`_. En particulier, cela inclut "
+"l'utilisation de seulement 4 espaces pour l'indentation, et jamais de "
+"tabulations."
+
+#: ../../dev-guide/code_standards.rst:31
+msgid ""
+"**Follow the existing coding style** within a file and avoid making changes "
+"that are purely stylistic. Please try to maintain the style when adding or "
+"modifying code."
+msgstr ""
+"**Suivez le style de codage existant** dans un fichier et évitez les "
+"modifications purement stylistiques. Veuillez essayer de maintenir le style "
+"lors de l'ajout ou de la modification du code."
+
+#: ../../dev-guide/code_standards.rst:34
+msgid ""
+"Following PEP8's recommendation, absolute imports are to be used in general."
+" We allow relative imports within a module to avoid circular import chains."
+msgstr ""
+"Conformément aux recommandations de PEP8, les importations absolues doivent "
+"être utilisées en général. Nous autorisons les importations relatives dans "
+"un module pour éviter les chaînes d'importation circulaires."
+
+#: ../../dev-guide/code_standards.rst:37
+msgid ""
+"The ``import numpy as np``, ``import matplotlib as mpl``, and ``import "
+"matplotlib.pyplot as plt`` naming conventions should be used wherever "
+"relevant. ``from packagename import *`` should never be used (except in "
+"``__init__.py``)"
+msgstr ""
+"Les conventions de nommage ``import numpy as np``, ``import matplotlib as "
+"mpl`` et ``import matplotlib.pyplot as plt`` doivent être utilisées partout "
+"où c'est pertinent. ``from packagename import *`` ne doit jamais être "
+"utilisé (sauf dans ``__init__.py``)"
+
+#: ../../dev-guide/code_standards.rst:40
+msgid ""
+"Classes should either use direct variable access, or Python's property "
+"mechanism for setting object instance variables."
+msgstr ""
+"Les classes doivent utiliser soit l'accès direct aux variables, soit le "
+"mécanisme de propriété Python pour définir les variables d'instance d'objet."
+
+#: ../../dev-guide/code_standards.rst:42
+msgid ""
+"Classes should use the builtin `super` function when making calls to methods"
+" in their super-class(es) unless there are specific reasons not to. `super` "
+"should be used consistently in all subclasses since it does not work "
+"otherwise."
+msgstr ""
+"Les classes doivent utiliser la fonction intégrée `super` lors des appels "
+"aux méthodes de leur(s) super-classe(s) sauf s'il y a des raisons "
+"spécifiques de ne pas le faire. `super` doit être utilisé de manière "
+"cohérente dans toutes les sous-classes car sinon cela ne fonctionne pas."
+
+#: ../../dev-guide/code_standards.rst:45
+msgid "Multiple inheritance should be avoided in general without good reason."
+msgstr "L'héritage multiple doit être évité en général sans bonne raison."
+
+#: ../../dev-guide/code_standards.rst:47
+msgid ""
+"``__init__.py`` files for modules should not contain any significant "
+"implementation code. ``__init__.py`` can contain docstrings and code for "
+"organizing the module layout."
+msgstr ""
+"Les fichiers ``__init__.py`` des modules ne doivent pas contenir de code "
+"d'implémentation significatif. ``__init__.py`` peut contenir des docstrings "
+"et du code pour organiser la structure du module."
+
+#: ../../dev-guide/code_standards.rst:49
+msgid ""
+"We make use of Ruff for managing code formating and import sorting. Run "
+"`ruff check --fix` and `ruff format`."
+msgstr ""
+"Nous utilisons Ruff pour gérer le formatage du code et le tri des "
+"importations. Exécutez `ruff check --fix` et `ruff format`."
+
+#: ../../dev-guide/code_standards.rst:52
+msgid "Private code"
+msgstr "Code privé"
+
+#: ../../dev-guide/code_standards.rst:54
+msgid ""
+"It is often useful to designate code as private, which means it is not part "
+"of the user facing API, only used internally by HERMES, and can be modified "
+"without a deprecation period. Any classes, functions, or variables that are "
+"private should either:"
+msgstr ""
+"Il est souvent utile de désigner du code comme privé, ce qui signifie qu'il "
+"ne fait pas partie de l'API publique, est utilisé uniquement en interne et "
+"peut être modifié sans période de dépréciation. Toutes les classes, "
+"fonctions ou variables privées doivent soit :"
+
+#: ../../dev-guide/code_standards.rst:57
+msgid ""
+"Have an underscore as the first character of their name, e.g., "
+"``_my_private_function``."
+msgstr ""
+"Avoir un trait de soulignement comme premier caractère de leur nom, par ex. "
+"``_my_private_function``."
+
+#: ../../dev-guide/code_standards.rst:58
+msgid ""
+"If you want to do that to entire set of functions in a file, name the file "
+"with a underscore as the first character, e.g., ``_my_private_file.py``."
+msgstr ""
+"Si vous souhaitez l'appliquer à l'ensemble des fonctions d'un fichier, "
+"nommez le fichier avec un trait de soulignement comme premier caractère, par"
+" ex. ``_my_private_file.py``."
+
+#: ../../dev-guide/code_standards.rst:61
+msgid "Documentation and Testing"
+msgstr "Documentation et tests"
+
+#: ../../dev-guide/code_standards.rst:63
+msgid ""
+"American English is the default language for all documentation strings and "
+"inline commands. Variables names should also be based on English words."
+msgstr ""
+"L'anglais américain est la langue par défaut pour toutes les chaînes de "
+"documentation et les commandes en ligne. Les noms de variables doivent "
+"également être basés sur des mots anglais."
+
+#: ../../dev-guide/code_standards.rst:66
+msgid ""
+"Documentation strings must be present for all public "
+"classes/methods/functions, and must follow the form outlined in the "
+":ref:`docs_guidelines` page. Additionally, examples or tutorials in the "
+"package documentation are strongly recommended."
+msgstr ""
+"Les chaînes de documentation doivent être présentes pour toutes les "
+"classes/méthodes/fonctions publiques, et doivent suivre le format décrit "
+"dans la page :ref:`docs_guidelines`. De plus, des exemples ou des tutoriels "
+"dans la documentation du paquet sont fortement recommandés."
+
+#: ../../dev-guide/code_standards.rst:69
+msgid ""
+"Write usage examples in the docstrings of all classes and functions whenever"
+" possible. These examples should be short and simple to reproduce–users "
+"should be able to copy them verbatim and run them. These examples should, "
+"whenever possible, be in the :ref:`doctests` format and will be executed as "
+"part of the test suite."
+msgstr ""
+"Rédigez des exemples d'utilisation dans les docstrings de toutes les classes"
+" et fonctions chaque fois que possible. Ces exemples doivent être courts et "
+"simples à reproduire – les utilisateurs doivent pouvoir les copier tels "
+"quels et les exécuter. Ces exemples doivent, dans la mesure du possible, "
+"être au format :ref:`doctests` et seront exécutés dans le cadre de la suite "
+"de tests."
+
+#: ../../dev-guide/code_standards.rst:73
+msgid ""
+"Unit tests should be provided for as many public methods and functions as "
+"possible, and should adhere to the standards set in the :ref:`testing` "
+"document."
+msgstr ""
+"Des tests unitaires doivent être fournis pour autant de méthodes et "
+"fonctions publiques que possible, et doivent respecter les normes définies "
+"dans le document :ref:`testing`."
+
+#: ../../dev-guide/code_standards.rst:76
+msgid "Data and Configuration"
+msgstr "Données et configuration"
+
+#: ../../dev-guide/code_standards.rst:78
+msgid ""
+"We store test data in ``./data/test`` as long as it is less than about 100 "
+"kB."
+msgstr ""
+"Nous stockons les données de test dans ``./data/test`` tant qu'elles font "
+"moins d'environ 100 kB."
+
+#: ../../dev-guide/dev_env.rst:5
+msgid "Developer Environment"
+msgstr "Environnement de développement"
+
+#: ../../dev-guide/dev_env.rst:7
+msgid ""
+"This package uses `uv <https://uv.readthedocs.io/en/latest/>`_ to manage the"
+" development environment. Uv is a tool to manage virtual environments and "
+"dependencies for Python projects. The following instructions assume you have"
+" `uv` installed."
+msgstr ""
+"Ce paquet utilise `uv <https://uv.readthedocs.io/en/latest/>`_ pour gérer "
+"l'environnement de développement. Uv est un outil de gestion des "
+"environnements virtuels et des dépendances pour les projets Python. Les "
+"instructions suivantes supposent que vous avez `uv` installé."
+
+#: ../../dev-guide/dev_env.rst:11
+msgid ""
+"After you've cloned the repository, navigate to the root of the repository "
+"and run::"
+msgstr ""
+"Après avoir cloné le dépôt, naviguez vers la racine du dépôt et exécutez ::"
+
+#: ../../dev-guide/dev_env.rst:15
+msgid ""
+"This will create a virtual environment and install all the dependencies "
+"needed for development, including testing and building the documentation."
+msgstr ""
+"Cela créera un environnement virtuel et installera toutes les dépendances "
+"nécessaires au développement, y compris les tests et la construction de la "
+"documentation."
+
+#: ../../dev-guide/dev_env.rst:17
+msgid "You can then activate the virtual environment with::"
+msgstr "Vous pouvez ensuite activer l'environnement virtuel avec ::"
+
+#: ../../dev-guide/dev_env.rst:21
+msgid "To deactivate the virtual environment, simply run::"
+msgstr "Pour désactiver l'environnement virtuel, exécutez simplement ::"
+
+#: ../../dev-guide/dev_env.rst:25
+msgid ""
+"Once the virtual environment is activated, you can run various commands "
+"within it using `uv run <command>`."
+msgstr ""
+"Une fois l'environnement virtuel activé, vous pouvez exécuter diverses "
+"commandes en utilisant `uv run <commande>`."
+
+#: ../../dev-guide/dev_env.rst:27
+msgid "For example, to run the test suite, you would use::"
+msgstr "Par exemple, pour exécuter la suite de tests, vous utiliseriez ::"
+
+#: ../../dev-guide/dev_env.rst:31
+msgid "To build the documentation, you would use::"
+msgstr "Pour construire la documentation, vous utiliseriez ::"
+
+#: ../../dev-guide/docs.rst:5
+msgid "Documentation Rules"
+msgstr "Règles de documentation"
+
+#: ../../dev-guide/docs.rst:8
+msgid "Overview"
+msgstr "Vue d'ensemble"
+
+#: ../../dev-guide/docs.rst:10
+msgid ""
+"All code must be documented and we follow the style conventions described "
+"here:"
+msgstr ""
+"Tout le code doit être documenté et nous suivons les conventions de style "
+"décrites ici :"
+
+#: ../../dev-guide/docs.rst:12
+msgid ""
+"`numpydoc <https://numpydoc.readthedocs.io/en/latest/format.html#docstring-"
+"standard>`_"
+msgstr ""
+"`numpydoc <https://numpydoc.readthedocs.io/en/latest/format.html#docstring-"
+"standard>`_"
+
+#: ../../dev-guide/docs.rst:15
+msgid "Referring to other code"
+msgstr "Référencer d'autre code"
+
+#: ../../dev-guide/docs.rst:17
+msgid ""
+"To link to methods, classes, or modules in your repo you have to use "
+"backticks, for example:"
+msgstr ""
+"Pour créer des liens vers des méthodes, classes ou modules dans votre dépôt,"
+" vous devez utiliser des guillemets obliques, par exemple :"
+
+#: ../../dev-guide/docs.rst:23
+msgid "generates a link like this: `roentgen.util.util.get_atomic_number()`."
+msgstr ""
+"génère un lien comme celui-ci : `roentgen.util.util.get_atomic_number()`."
+
+#: ../../dev-guide/docs.rst:25
+msgid ""
+"Links can also be generated to external packages via `intersphinx "
+"<http://www.sphinx-doc.org/en/master/ext/intersphinx.html>`_:"
+msgstr ""
+"Des liens peuvent également être générés vers des paquets externes via "
+"`intersphinx <http://www.sphinx-doc.org/en/master/ext/intersphinx.html>`_ :"
+
+#: ../../dev-guide/docs.rst:32
+msgid ""
+"will return this link: `numpy.mean`. This works for Python, Numpy and "
+"Astropy (full list is in :file:`docs/conf.py`)."
+msgstr ""
+"retournera ce lien : `numpy.mean`. Cela fonctionne pour Python, Numpy et "
+"Astropy (liste complète dans :file:`docs/conf.py`)."
+
+#: ../../dev-guide/docs.rst:35
+msgid ""
+"With Sphinx, if you use ``:func:`` or ``:meth:``, it will add closing "
+"brackets to the link. If you get the wrong pre-qualifier, it will break the "
+"link, so we suggest that you double check if what you are linking is a "
+"method or a function."
+msgstr ""
+"Avec Sphinx, si vous utilisez ``:func:`` ou ``:meth:``, des parenthèses "
+"fermantes seront ajoutées au lien. Si vous utilisez le mauvais qualificatif,"
+" le lien sera cassé, donc nous vous suggérons de vérifier si ce que vous "
+"liez est une méthode ou une fonction."
+
+#: ../../dev-guide/docs.rst:44
+msgid "will return two broken links (\"class\" and \"meth\") but \"func\" will work."
+msgstr ""
+"retournera deux liens cassés (« class » et « meth ») mais « func » "
+"fonctionnera."
+
+#: ../../dev-guide/docs.rst:47
+msgid "Project-specific Rules"
+msgstr "Règles spécifiques au projet"
+
+#: ../../dev-guide/docs.rst:49
+msgid ""
+"For **all** RST files, we enforce a one sentence per line rule and ignore "
+"the line length."
+msgstr ""
+"Pour **tous** les fichiers RST, nous appliquons une règle d'une phrase par "
+"ligne et ignorons la longueur de ligne."
+
+#: ../../dev-guide/docs.rst:53
+msgid "Sphinx"
+msgstr "Sphinx"
+
+#: ../../dev-guide/docs.rst:55
+msgid ""
+"All of the documentation (like this page) is built by `Sphinx "
+"<https://www.sphinx-doc.org/en/stable/>`_, which is a tool especially well-"
+"suited for documenting Python projects. Sphinx works by parsing files "
+"written using a `a Mediawiki-like syntax "
+"<http://docutils.sourceforge.net/docs/user/rst/quickstart.html>`_ called "
+"`reStructuredText <http://docutils.sourceforge.net/rst.html>`_. In addition "
+"to parsing static files of reStructuredText, Sphinx can also be told to "
+"parse code comments. In fact, in addition to what you are reading right now,"
+" the `Python documentation <https://www.python.org/doc/>`_ was also created "
+"using Sphinx."
+msgstr ""
+"Toute la documentation (comme cette page) est construite par `Sphinx "
+"<https://www.sphinx-doc.org/en/stable/>`_, un outil particulièrement adapté "
+"à la documentation des projets Python. Sphinx fonctionne en analysant des "
+"fichiers écrits avec une `syntaxe de type Mediawiki "
+"<http://docutils.sourceforge.net/docs/user/rst/quickstart.html>`_ appelée "
+"`reStructuredText <http://docutils.sourceforge.net/rst.html>`_. En plus "
+"d'analyser les fichiers statiques de reStructuredText, Sphinx peut également"
+" analyser les commentaires de code. En fait, en plus de ce que vous lisez en"
+" ce moment, la `documentation Python <https://www.python.org/doc/>`_ a "
+"également été créée avec Sphinx."
+
+#: ../../dev-guide/docs.rst:61
+msgid "Usage and Building the documentation"
+msgstr "Utilisation et construction de la documentation"
+
+#: ../../dev-guide/docs.rst:63
+msgid ""
+"All of the documentation is contained in the \"docs\" folder and code "
+"documentation strings. Sphinx builds documentation iteratively, only adding "
+"things that have changed. For more information on how to use Sphinx, consult"
+" the `Sphinx documentation <http://www.sphinx-"
+"doc.org/en/stable/contents.html>`_."
+msgstr ""
+"Toute la documentation se trouve dans le dossier « docs » et dans les "
+"chaînes de documentation du code. Sphinx construit la documentation de "
+"manière itérative, n'ajoutant que ce qui a changé. Pour plus d'informations "
+"sur l'utilisation de Sphinx, consultez la `documentation Sphinx "
+"<http://www.sphinx-doc.org/en/stable/contents.html>`_."
+
+#: ../../dev-guide/docs.rst:68
+msgid "HTML"
+msgstr "HTML"
+
+#: ../../dev-guide/docs.rst:70
+msgid ""
+"To build the html documentation locally use the following command, in the "
+"docs directory run::"
+msgstr ""
+"Pour construire la documentation HTML localement, utilisez la commande "
+"suivante dans le répertoire docs ::"
+
+#: ../../dev-guide/docs.rst:74
+msgid ""
+"This will generate HTML documentation in the \"docs/_build/html\" directory."
+" You can open the \"index.html\" file to browse the final product."
+msgstr ""
+"Cela générera la documentation HTML dans le répertoire « docs/_build/html »."
+" Vous pouvez ouvrir le fichier « index.html » pour parcourir le résultat "
+"final."
+
+#: ../../dev-guide/docs.rst:77
+msgid ""
+"If you'd like to rebuild the documentation from scratch. This is normally "
+"not necessary since Sphinx will detect and only build the required changes. "
+"But if you are running into strange errors you may want to try this. The "
+"following command will wipe all generated files."
+msgstr ""
+"Si vous souhaitez reconstruire la documentation depuis le début. Cela n'est "
+"normalement pas nécessaire car Sphinx détectera et ne construira que les "
+"modifications requises. Mais si vous rencontrez des erreurs étranges, vous "
+"pouvez essayer ceci. La commande suivante supprimera tous les fichiers "
+"générés."
+
+#: ../../dev-guide/docs.rst:82
+msgid "$ make clean"
+msgstr "$ make clean"
+
+#: ../../dev-guide/docs.rst:84
+msgid ""
+"Sphinx can also build documentation as a PDF but this requires latex to be "
+"installed."
+msgstr ""
+"Sphinx peut également construire la documentation en PDF mais cela nécessite"
+" que latex soit installé."
+
+#: ../../dev-guide/index.rst:3
+msgid "Developer's Guide"
+msgstr "Guide du développeur"
+
+#: ../../dev-guide/index.rst:5
+msgid ""
+"This article describes the guidelines to be followed by developers working "
+"on this repository. If you are planning on contributing to this repository "
+"please read the following carefully. This guide borrows heavily from the one"
+" developed by the SunPy Project. It is consistent with the `standards "
+"<https://github.com/heliophysicsPy/standards/blob/main/standards.md>`_ "
+"recommended by the `Python in Heliophysics (PyHC) "
+"<https://heliopython.org/>`_."
+msgstr ""
+"Cet article décrit les lignes directrices à suivre par les développeurs "
+"travaillant sur ce dépôt. Si vous envisagez de contribuer à ce dépôt, "
+"veuillez lire attentivement ce qui suit. Ce guide s'inspire fortement de "
+"celui développé par le Projet SunPy. Il est conforme aux `normes "
+"<https://github.com/heliophysicsPy/standards/blob/main/standards.md>`_ "
+"recommandées par `Python en Héliophysique (PyHC) "
+"<https://heliopython.org/>`_."
+
+#: ../../dev-guide/index.rst:10
+msgid "The guidelines are"
+msgstr "Les directives sont"
+
+#: ../../dev-guide/release.rst:5
+msgid "Release Process"
+msgstr "Processus de publication"
+
+#: ../../dev-guide/release.rst:8
+msgid "The release process for Roentgen is as follows:"
+msgstr "Le processus de publication pour Roentgen est le suivant :"
+
+#: ../../dev-guide/release.rst:10
+msgid ""
+"Update the `CHANGELOG.rst` file with the new version number and a summary of"
+" changes."
+msgstr ""
+"Mettez à jour le fichier `CHANGELOG.rst` avec le nouveau numéro de version "
+"et un résumé des modifications."
+
+#: ../../dev-guide/release.rst:11
+msgid ""
+"Commit the changes to the `CHANGELOG.rst` file and make sure that there are "
+"no other uncommitted changes."
+msgstr ""
+"Committez les modifications dans le fichier `CHANGELOG.rst` et assurez-vous "
+"qu'il n'y a pas d'autres modifications non committées."
+
+#: ../../dev-guide/release.rst:12
+msgid ""
+"Determine the new version number according to `semantic versioning "
+"<https://semver.org>`."
+msgstr ""
+"Déterminez le nouveau numéro de version selon le `versionnage sémantique "
+"<https://semver.org>`."
+
+#: ../../dev-guide/release.rst:13
+msgid ""
+"Create a new local git tag for the release using the format `vX.Y.Z`, where "
+"`X.Y.Z` is the new version number."
+msgstr ""
+"Créez un nouveau tag git local pour la version en utilisant le format "
+"`vX.Y.Z`, où `X.Y.Z` est le nouveau numéro de version."
+
+#: ../../dev-guide/release.rst:14
+msgid "`git tag vX.Y.Z`"
+msgstr "`git tag vX.Y.Z`"
+
+#: ../../dev-guide/release.rst:15
+msgid ""
+"Clean out the `dist/` directory to remove any previous build artifacts."
+msgstr ""
+"Nettoyez le répertoire `dist/` pour supprimer tous les artefacts de "
+"construction précédents."
+
+#: ../../dev-guide/release.rst:17
+msgid "Build the distribution packages using `uv build`."
+msgstr "Construisez les paquets de distribution avec `uv build`."
+
+#: ../../dev-guide/release.rst:18
+msgid ""
+"Test the distribution packages by installing them in a clean virtual "
+"environment and running the test suite."
+msgstr ""
+"Testez les paquets de distribution en les installant dans un environnement "
+"virtuel propre et en exécutant la suite de tests."
+
+#: ../../dev-guide/release.rst:19
+msgid "`uv run --isolated --no-project --with dist/*.whl pytest`"
+msgstr "`uv run --isolated --no-project --with dist/*.whl pytest`"
+
+#: ../../dev-guide/release.rst:20
+msgid ""
+"Test that the distribution package can be installed and imported and that "
+"the version number is correct."
+msgstr ""
+"Vérifiez que le paquet de distribution peut être installé et importé et que "
+"le numéro de version est correct."
+
+#: ../../dev-guide/release.rst:21
+msgid ""
+"`uv run --isolated --no-project --with dist/*.whl python -c \"import "
+"roentgen; print(roentgen.__version__)\"`"
+msgstr ""
+"`uv run --isolated --no-project --with dist/*.whl python -c \"import "
+"roentgen; print(roentgen.__version__)\"`"
+
+#: ../../dev-guide/release.rst:22
+msgid ""
+"Upload the distribution packages to TestPyPI using `uv publish --index "
+"testpypi --token <TESTPYPI_TOKEN> `."
+msgstr ""
+"Téléversez les paquets de distribution sur TestPyPI avec `uv publish --index"
+" testpypi --token <TESTPYPI_TOKEN>`."
+
+#: ../../dev-guide/release.rst:23
+msgid ""
+"Verify the release on TestPyPI (https://test.pypi.org/project/roentgen/)"
+msgstr ""
+"Vérifiez la version sur TestPyPI (https://test.pypi.org/project/roentgen/)"
+
+#: ../../dev-guide/release.rst:24
+msgid ""
+"If you need to make changes, delete the local git tag using `git tag -d "
+"vX.Y.Z`, make the necessary changes, and repeat steps above."
+msgstr ""
+"Si vous devez apporter des modifications, supprimez le tag git local avec "
+"`git tag -d vX.Y.Z`, effectuez les modifications nécessaires et répétez les "
+"étapes ci-dessus."
+
+#: ../../dev-guide/release.rst:25
+msgid ""
+"Push the git tag to the remote repository. This will trigger the GitHub "
+"Actions workflow to build and upload the package to PyPI."
+msgstr ""
+"Poussez le tag git vers le dépôt distant. Cela déclenchera le workflow "
+"GitHub Actions pour construire et téléverser le paquet sur PyPI."

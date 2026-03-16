@@ -1,0 +1,172 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) US Government (not copyrighted) 2023-2026
+# This file is distributed under the same license as the roentgen package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: roentgen \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-03-16 22:16+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: fr\n"
+"Language-Team: fr <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../_autosummary/roentgen.nuclides.nuclides.rst:2
+msgid "roentgen.nuclides.nuclides"
+msgstr ""
+
+#: of roentgen.nuclides.nuclides:1
+msgid ""
+"A module to provide access to x-ray and gamma-ray radiation from "
+"radionuclides"
+msgstr ""
+
+#: ../../_autosummary/roentgen.nuclides.nuclides.rst:8
+msgid "Functions"
+msgstr ""
+
+#: ../../_autosummary/roentgen.nuclides.nuclides.rst:15:<autosummary>:1
+msgid ""
+":py:obj:`get_nuclide_mass_numbers "
+"<roentgen.nuclides.nuclides.get_nuclide_mass_numbers>`\\ \\(element\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.nuclides.nuclides.rst:15:<autosummary>:1 of
+#: roentgen.nuclides.nuclides.get_nuclide_mass_numbers:1
+msgid "Return all available nuclide mass numbers for a given element."
+msgstr ""
+
+#: ../../_autosummary/roentgen.nuclides.nuclides.rst:15:<autosummary>:1
+msgid ""
+":py:obj:`get_lara_file <roentgen.nuclides.nuclides.get_lara_file>`\\ "
+"\\(element\\, mass\\_number\\[\\, metastable\\]\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.nuclides.nuclides.rst:15:<autosummary>:1 of
+#: roentgen.nuclides.nuclides.get_lara_file:1
+msgid "Return path to the specified lara data file."
+msgstr ""
+
+#: ../../_autosummary/roentgen.nuclides.nuclides.rst:15:<autosummary>:1
+msgid ""
+":py:obj:`read_lara_tables "
+"<roentgen.nuclides.nuclides.read_lara_tables>`\\ \\(file\\_path\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.nuclides.nuclides.rst:15:<autosummary>:1 of
+#: roentgen.nuclides.nuclides.read_lara_header:1
+#: roentgen.nuclides.nuclides.read_lara_tables:1
+msgid "Return a table of all emissions from all origins."
+msgstr ""
+
+#: ../../_autosummary/roentgen.nuclides.nuclides.rst:15:<autosummary>:1
+msgid ""
+":py:obj:`read_lara_header "
+"<roentgen.nuclides.nuclides.read_lara_header>`\\ \\(file\\_path\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.nuclides.nuclides.rst:17
+msgid "Classes"
+msgstr ""
+
+#: ../../_autosummary/roentgen.nuclides.nuclides.rst:20:<autosummary>:1
+msgid ""
+":py:obj:`Nuclide <roentgen.nuclides.nuclides.Nuclide>`\\ \\(element\\, "
+"mass\\_number\\[\\, metastable\\]\\)"
+msgstr ""
+
+#: ../../_autosummary/roentgen.nuclides.nuclides.rst:20:<autosummary>:1 of
+#: roentgen.nuclides.nuclides.Nuclide:1
+msgid "An object to support radionuclides that emit x-ray radiation."
+msgstr ""
+
+#: ../../_autosummary/roentgen.nuclides.nuclides.rst
+msgid "Parameters"
+msgstr ""
+
+#: of roentgen.nuclides.nuclides.Nuclide:3
+msgid ""
+"A string representation of the material which includes an element symbol "
+"(e.g. Si), an element name (e.g. Silicon). For all supported "
+"radionuclides see :download:`lara "
+"<../../roentgen/data/nuclides_list.csv/>`."
+msgstr ""
+
+#: of roentgen.nuclides.nuclides.Nuclide:7
+msgid "The mass number of the radionuclide (e.g. 55 for Fe-55)"
+msgstr ""
+
+#: of roentgen.nuclides.nuclides.Nuclide:12
+msgid "A list of material symbol"
+msgstr ""
+
+#: of roentgen.nuclides.nuclides.Nuclide
+msgid "type"
+msgstr ""
+
+#: of roentgen.nuclides.nuclides.Nuclide:14
+#: roentgen.nuclides.nuclides.Nuclide:20
+msgid "`list`"
+msgstr ""
+
+#: of roentgen.nuclides.nuclides.Nuclide:18
+msgid "A list of material names"
+msgstr ""
+
+#: of roentgen.nuclides.nuclides.Nuclide:24
+msgid "A name for the material"
+msgstr ""
+
+#: of roentgen.nuclides.nuclides.Nuclide:26
+msgid "`str`"
+msgstr ""
+
+#: of roentgen.nuclides.nuclides.Nuclide:30
+msgid "X-ray lines in the energy range."
+msgstr ""
+
+#: of roentgen.nuclides.nuclides.Nuclide:34
+msgid "Examples"
+msgstr ""
+
+#: of roentgen.nuclides.nuclides.Nuclide.get_lines:1
+msgid "Returns a list of all emission lines in the energy range."
+msgstr ""
+
+#: of roentgen.nuclides.nuclides.get_lara_file:3
+msgid "The element or symbol name for the nuclide"
+msgstr ""
+
+#: of roentgen.nuclides.nuclides.get_lara_file:5
+msgid "The mass number of the nuclide"
+msgstr ""
+
+#: of roentgen.nuclides.nuclides.get_lara_file:7
+msgid "Whether the nuclide is metastable"
+msgstr ""
+
+#: ../../_autosummary/roentgen.nuclides.nuclides.rst
+msgid "Returns"
+msgstr ""
+
+#: of roentgen.nuclides.nuclides.get_lara_file:10
+msgid "**file_path**"
+msgstr ""
+
+#: ../../_autosummary/roentgen.nuclides.nuclides.rst
+msgid "Return type"
+msgstr ""
+
+#: of roentgen.nuclides.nuclides.read_lara_header:3
+#: roentgen.nuclides.nuclides.read_lara_tables:3
+msgid "**result**"
+msgstr ""
+

@@ -1,0 +1,3540 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) US Government (not copyrighted) 2023-2026
+# This file is distributed under the same license as the roentgen package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: roentgen\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-03-16 22:16+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: fr <LL@li.org>\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../guide/emission_line_list.rst:2
+msgid "List of Emission Lines"
+msgstr "Liste des raies d'émission"
+
+#: ../../guide/emission_line_list.rst:4
+msgid "List of available emission lines"
+msgstr "Liste des raies d'émission disponibles"
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "energy [eV]"
+msgstr "énergie [eV]"
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "z"
+msgstr "z"
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "transition"
+msgstr "transition"
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "intensity"
+msgstr "intensité"
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "width [eV]"
+msgstr "largeur [eV]"
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "54.3"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "3"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "Kα1,2"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "150"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "108.5"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "4"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "5"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "183.3"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "151"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "277.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "6"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "147"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "7.8"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "348.3"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "21"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "Ll"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "395.3"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "7"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "395.4"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "22"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "46"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "Lα1,2"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "111"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "399.6"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "Lβ1"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "77"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "446.5"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "23"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "28"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "452.2"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "458.4"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "79"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "500.3"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "24"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "17"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "511.3"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "519.2"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "80"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "524.9"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "8"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "556.3"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "25"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "15"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "572.8"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "582.8"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "615.2"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "26"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "10"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "637.4"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "648.8"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "676.8"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "9"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "148"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "677.8"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "27"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "705.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "3.5"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "718.5"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "66"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "742.7"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "776.2"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "4.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "791.4"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "76"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "811.1"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "29"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "833.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "57"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "Mα1"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "100"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "848.6"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "851.5"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "2.7"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "868.8"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "68"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "883.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "58"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "884.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "30"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "929.2"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "59"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "929.7"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "3.7"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "949.8"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "65"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "957.2"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "31"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "978.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "60"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "1011.7"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "1.3"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "1034.7"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "2.15"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "1036.2"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "32"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "1041.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "11"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "1081.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "62"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "1097.9"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "1120.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "33"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "1124.8"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "1131.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "63"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "1185.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "64"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "1188.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "1204.4"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "34"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "1218.5"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "1240.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "1253.6"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "12"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "1.1"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "1282.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "1293.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "1293.5"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "35"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "1317.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "1348.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "67"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "1379.1"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "1386.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "36"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "1406.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "1419.2"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "1462.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "69"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "1480.4"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "1482.4"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "37"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "1486.3"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "13"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "Kα2"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "50"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "0.85"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "1486.7"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "Kα1"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "1521.4"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "70"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "1525.9"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "1557.4"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "Kβ1"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "1"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "1581.3"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "71"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "1582.2"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "38"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "1586.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "1636.6"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "1644.6"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "72"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "1685.4"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "39"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "1692.6"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "Lα2"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "1694.1"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "Lα1"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "1709.6"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "73"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "1739.4"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "14"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "1740.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "1752.2"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "1775.4"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "74"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "1792.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "40"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "8.6"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "1804.7"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "1806.6"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "1835.9"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "2"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "1842.5"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "75"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "1871.7"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "1902.2"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "41"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "1910.2"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "1920.5"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "1922.6"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "1979.9"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "1995.8"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "2012.7"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "2013.7"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "2015.7"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "42"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "2039.9"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "2042.4"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "2050.5"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "78"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "2122.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "43"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "2122.9"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "2124.4"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "54"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "2.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "2139.1"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "2163.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "2165.9"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "2195.3"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "2219.4"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "Lβ2,15"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "6.5"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "2252.8"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "44"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "2257.4"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "52"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "2270.6"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "81"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "2289.8"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "2293.2"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "2302.7"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "Lγ1"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "2306.6"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "16"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "2307.8"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "2345.5"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "82"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "2367.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "2376.5"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "45"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "2394.8"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "53"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "2420.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "2422.6"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "83"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "2424.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "2461.8"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "2464.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "2503.4"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "2518.3"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "2538.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "2554.3"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "2558.6"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "2620.8"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "2622.4"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "2623.5"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "2633.7"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "47"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "10.7"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "2674.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "2683.2"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "2692.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "2696.7"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "2767.4"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "48"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "2792.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "2815.6"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "2833.3"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "2834.4"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "2836.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "2838.6"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "2904.4"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "49"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "2955.6"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "18"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "2957.7"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "2964.5"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "2978.2"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "2.2"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "2984.3"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "2.34"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "2990.2"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "2996.1"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "90"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "3001.3"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "3045.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "12.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "3126.9"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "3133.7"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "3143.8"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "3150.9"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "56"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "2.4"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "3170.8"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "92"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "3171.8"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "3188.6"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "51"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "3190.5"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "Kβ1,3"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "3279.3"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "3286.9"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "3311.1"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "19"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "3313.8"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "3316.6"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "3328.7"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "3335.6"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "3347.8"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "3.9"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "3435.4"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "3444.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "3485.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "3487.2"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "3519.6"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "4.3"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "3528.1"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "3589.6"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "3595.3"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "3604.7"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "3636.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "3662.8"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "3688.1"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "20"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "3691.7"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "3713.8"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "3716.9"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "3758.8"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "3769.3"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "3795.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "55"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "3843.6"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "61"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "3904.9"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "3.2"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "3920.8"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "3926.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "3937.6"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "3954.1"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "4012.7"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "4029.6"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "4086.1"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "4090.6"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "4093.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "4100.8"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "4109.9"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "4124.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "4131.1"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "4220.7"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "4272.2"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "4286.5"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "4287.5"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "4301.7"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "4347.8"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "4414.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "4450.9"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "4453.2"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "4460.5"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "4466.3"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "4504.9"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "4507.5"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "4510.8"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "1.87"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "4570.9"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "4619.8"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "4633.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "4634.2"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "4651.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "4714.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "4800.9"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "4809.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "4823.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "4827.5"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "4840.2"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "4931.8"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "2.87"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "4935.9"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "4944.6"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "4952.2"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "4994.5"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "5013.5"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "5033.7"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "5034.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "5042.1"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "5156.5"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "5177.2"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "5207.7"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "5230.4"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "5262.2"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "5280.4"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "5362.1"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "5383.5"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "5405.5"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "2.39"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "5408.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "5414.7"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "1.97"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "5427.3"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "5432.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "5488.9"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "5531.1"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "5546.7"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "5609.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "5613.4"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "5636.1"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "5721.6"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "5743.1"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "5788.5"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "5816.6"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "5845.7"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "5850.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "5887.6"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "5898.8"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "5943.4"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "5946.7"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "2.52"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "5961.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "6025.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "6052.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "6057.2"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "6089.4"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "6152.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "6205.1"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "6238.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "6272.8"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "6322.1"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "6339.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "Lβ2"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "6341.9"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "6390.8"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "3.00"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "6403.8"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "2.55"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "6456.4"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "6457.7"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "6490.4"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "6495.2"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "6545.5"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "6587.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "6602.1"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "6679.5"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "6713.2"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "6719.8"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "6752.8"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "6843.2"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "6892.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "6905.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "6915.3"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "3.08"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "6930.3"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "2.26"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "6948.7"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "6959.6"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "6978.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "7058.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "3.59"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "7102.8"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "7133.1"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "7173.1"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "7178.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "7179.9"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "7247.7"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "7366.7"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "7367.3"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "7387.8"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "13.9"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "7415.6"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "7460.9"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "3.15"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "7478.2"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "2.25"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "7480.3"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "7525.3"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "7603.6"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "7604.9"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "7635.7"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "7649.4"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "4.36"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "7655.5"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "7785.8"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "7810.9"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "7822.2"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "7844.6"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "7899.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "7911.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "8027.8"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "2.98"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "8045.8"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "8047.8"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "2.40"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "8087.9"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "8101.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "8102.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "8146.1"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "8189.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "8264.7"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "5.44"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "8268.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "8335.2"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "6.68"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "8397.6"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "6.61"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "8401.8"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "8418.8"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "8468.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "8493.9"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "19.8"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "8586.2"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "8615.8"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "2.99"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "8638.9"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "8652.5"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "8709.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "8721.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "8747.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "8758.8"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "8841.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "8905.3"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "5.84"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "8911.7"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "8953.2"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "9022.7"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "9048.9"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "9089.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "9099.5"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "9175.1"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "9184.5"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "9224.8"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "9251.7"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "9343.1"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "9347.3"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "9361.8"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "9420.4"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "9426.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "9442.3"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "9572.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "6.38"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "9628.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "8.08"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "9651.8"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "9672.4"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "7.33"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "9713.3"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "7.78"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "9780.1"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "9855.3"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "9886.4"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "9897.6"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "9961.5"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "9.26"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "9988.8"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "10010.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "10143.4"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "10172.8"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "10260.3"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "Kβ3"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "10264.2"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "10268.5"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "10275.2"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "10355.3"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "10449.5"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "10508.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "10515.8"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "10543.7"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "10551.5"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "10598.5"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "10708.3"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "10730.9"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "10838.8"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "10895.2"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "10920.3"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "10978.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "10982.1"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "11070.7"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "11118.6"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "11181.4"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "11222.4"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "11250.5"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "11285.9"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "13.28"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "11442.3"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "8.20"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "11584.7"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "10.12"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "11618.3"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "11685.4"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "11720.3"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "11726.2"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "11822.6"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "11864.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "Kβ2"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "11877.6"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "11924.1"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "11924.2"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "12095.3"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "12213.3"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "12271.5"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "12489.6"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "12495.9"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "12512.6"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "12598.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "12613.7"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "12622.6"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "12649.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "12652.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "12809.6"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "12942.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "12968.7"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "12979.9"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "13023.5"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "13284.5"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "13291.4"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "13335.8"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "13381.7"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "10.1"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "13395.3"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "13438.8"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "13469.5"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "13614.7"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "13830.1"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "14097.9"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "14104.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "14112.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "14165.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "14291.5"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "14315.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "14764.4"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "14882.9"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "14951.7"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "14958.4"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "14961.3"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "15185.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "15247.7"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "15623.7"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "15690.9"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "5.93"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "15775.1"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "5.49"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "15824.9"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "15835.7"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "16084.6"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "16202.2"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "16428.3"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "16521.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "16615.1"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "16725.8"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "16737.8"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "17015.4"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "17220.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "17374.3"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "6.66"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "17479.3"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "6.42"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "17654.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "17667.8"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "17970.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "18250.8"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "18367.1"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "18606.3"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "18622.5"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "18953.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "18982.5"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "19150.4"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "19279.2"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "19590.3"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "19608.3"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "19965.2"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "20073.7"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "20167.1"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "20216.1"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "20599.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "20619.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "21005.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "21020.1"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "21177.1"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "21634.6"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "21656.8"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "21990.3"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "8.9"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "22074.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "22162.9"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "22698.9"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "22723.6"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "22984.1"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "23172.8"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "23173.6"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "23791.1"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "23818.7"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "24002.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "24209.7"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "24299.1"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "24911.5"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "24942.4"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "25044.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "12.27"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "25271.3"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "11.15"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "25456.4"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "26061.2"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "26095.5"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "26110.8"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "26359.1"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "26643.8"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "27201.7"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "27237.7"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "27275.9"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "27472.3"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "27860.8"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "28317.2"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "28444.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "11.5"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "28486.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "11.7"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "28612.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "29109.3"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "29458.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "29679.2"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "29725.6"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "29779.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "30389.5"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "30625.1"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "30944.3"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "30972.8"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "30995.7"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "31700.4"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "31817.1"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "32193.6"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "32239.4"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "32294.7"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "33034.1"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "33042.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "33441.8"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "33562.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "33624.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "34278.9"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "34415.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "34719.7"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "34919.4"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "34986.9"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "35550.2"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "35822.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "36026.3"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "36304.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "36378.2"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "36847.4"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "37257.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "37361.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "37720.2"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "37801.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "38171.2"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "38724.7"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "38729.9"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "39170.1"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "39257.3"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "39522.4"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "40118.1"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "40233.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "40652.9"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "40748.2"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "40901.9"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "41542.2"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "41773.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "42166.5"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "42271.3"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "42308.9"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "42996.2"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "43335.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "43713.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "43744.1"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "43826.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "44481.6"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "44942.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "45207.8"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "45289.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "45413.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "45998.4"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "46578.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "46699.7"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "46903.6"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "47037.9"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "47546.7"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "48221.1"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "48256.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "48555.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "48697.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "49127.7"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "49772.6"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "49959.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "50229.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "50382.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "50741.6"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "51354.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "51698.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "51957.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "52119.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "52388.9"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "52965.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "53476.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "53711.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "53877.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "54069.8"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "54611.4"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "55293.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "55494.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "55681.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "55790.2"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "56277.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "57210.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "57304.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "57517.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "57532.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "57981.7"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "37.4"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "59090.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "59140.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "59318.2"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "43.2"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "59370.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "59717.9"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "60980.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "61050.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "61140.3"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "61283.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "61486.7"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "62970.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "62980.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "63000.5"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "63234.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "63286.7"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "64895.6"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "64948.8"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "64980.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "65112.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "65223.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "66832.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "66951.4"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "50.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "66989.5"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "56.7"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "66990.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "67244.3"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "48.6"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "68803.7"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "55.5"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "68895.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "68994.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "69067.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "69310.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "70819.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "70831.9"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "71077.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "71232.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "71413.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "72804.2"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "72871.5"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "73202.7"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "73363.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "73560.8"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "74814.8"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "74969.4"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "75368.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "75575.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "75748.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "77107.9"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "77580.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "77850.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "77984.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "79822.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "80150.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "80253.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "82118.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "82515.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "82576.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "84450.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "84910.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "84936.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "86834.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "87320.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "87343.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "89830.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "89953.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "93350.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "94665.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "98439.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "104831.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "105609.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "108640.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "110406.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "111300.0"
+msgstr ""
+
+#: ../../../roentgen/data/emission_lines.csv:1
+msgid "114530.0"
+msgstr ""

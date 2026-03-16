@@ -1,0 +1,4012 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) US Government (not copyrighted) 2023-2026
+# This file is distributed under the same license as the roentgen package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: roentgen\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-03-16 22:16+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: fr <LL@li.org>\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../guide/nuclides_list.rst:2
+msgid "List of Nuclides"
+msgstr "Liste des nucléides"
+
+#: ../../guide/nuclides_list.rst:4
+msgid "List of available Nuclides"
+msgstr "Liste des nucléides disponibles"
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "symbol"
+msgstr "symbole"
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "name"
+msgstr "nom"
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "mass_number"
+msgstr "nombre de masse"
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "half_life [year]"
+msgstr "demi-vie [an]"
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "metastable"
+msgstr "métastable"
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "filename"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "decay_chain"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "H"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Hydrogen"
+msgstr "Hydrogène"
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "3"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "12.310822115750247"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "False"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "H-3.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;He;3;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "He"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Helium"
+msgstr "Hélium"
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "6"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "2.5575772555580905e-08"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "He-6.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;Li;6;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Be"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Beryllium"
+msgstr "Béryllium"
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "7"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.1457018277689051"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Be-7.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(EC;Li;7;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "C"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Carbon"
+msgstr "Carbone"
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "11"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "3.871333688239917e-05"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "C-11.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B+, EC;B;11;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "N"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Nitrogen"
+msgstr "Azote"
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "13"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "1.895011027454559e-05"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "N-13.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B+, EC;C;13;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "14"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "5700.686997743807"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "C-14.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;N;14;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "O"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Oxygen"
+msgstr "Oxygène"
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "15"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "3.8805232337059844e-06"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "O-15.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B+, EC;N;15;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "F"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Fluorine"
+msgstr "Fluor"
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "18"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.0002086343701675666"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "F-18.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B+, EC;O;18;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Na"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Sodium"
+msgstr "Sodium"
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "22"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "2.6028595330443376"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Na-22.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B+, EC;Ne;22;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "24"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.0017063718406976447"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Na-24.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;Mg;24;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Al"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Aluminum"
+msgstr "Aluminium"
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "26"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "716150.7845970542"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Al-26.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B+, EC;Mg;26;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "P"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Phosphorus"
+msgstr "Phosphore"
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "32"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.039106269171293125"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "P-32.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;S;32;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "33"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.06949514538494689"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "P-33.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;S;33;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "S"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Sulfur"
+msgstr "Soufre"
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "35"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.2388648059421502"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "S-35.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;Cl;35;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Cl"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Chlorine"
+msgstr "Chlore"
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "36"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "301987.47686769586"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Cl-36.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B+, EC;S;36;1.9)(B-;Ar;36;98.1)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Ar"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Argon"
+msgstr "Argon"
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "37"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.09585329682865616"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Ar-37.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(EC;Cl;37;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "K"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Potassium"
+msgstr "Potassium"
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "40"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "1252313230.410424"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "K-40.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B+, EC;Ar;40;10.44)(B-;Ca;40;89.56)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "41"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.00020839670950896136"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Ar-41.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;K;41;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Ca"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Calcium"
+msgstr "Calcium"
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "100134.35749233147"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Ca-41.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(EC;K;41;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Sc"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Scandium"
+msgstr "Scandium"
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "44"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.00045282277486247363"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Sc-44.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B+, EC;Ca;44;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Ti"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Titanium"
+msgstr "Titane"
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "59.9855502319568"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Ti-44.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(EC;Sc;44;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "45"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.4452810099627348"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Ca-45.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;Sc;45;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.0003518011509113494"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Ti-45.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B+, EC;Sc;45;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "46"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.22939640530331837"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Sc-46.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;Ti;46;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "47"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.009167680685476715"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Sc-47.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;Ti;47;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Cr"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Chromium"
+msgstr "Chrome"
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "51"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.07584955763429412"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Cr-51.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(EC;V;51;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Fe"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Iron"
+msgstr "Fer"
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "52"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.0009437663193652241"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Fe-52.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B+, EC;Mn;52;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Mn"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Manganese"
+msgstr "Manganèse"
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.015310099627348086"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Mn-52.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B+, EC;Cr;52;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "4.011711917256065e-05"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "True"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Mn-52m.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B+, EC;Cr;52;98.295)(I.T.;Mn;52;1.705)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "54"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.8547291302253656"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Mn-54.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B+, EC;Cr;54;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Co"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Cobalt"
+msgstr "Cobalt"
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "55"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.0020007858645777876"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Co-55.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B+, EC;Fe;55;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "2.7560714376251676"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Fe-55.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(EC;Mn;55;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "56"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.21146094760057796"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Co-56.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B+, EC;Fe;56;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.00029417953203031915"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Mn-56.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;Fe;56;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "57"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.7441757294597814"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Co-57.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(EC;Fe;57;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Ni"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Nickel"
+msgstr "Nickel"
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.004097269754353943"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Ni-57.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B+, EC;Co;57;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "58"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.1939754607447968"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Co-58.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B+, EC;Fe;58;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "59"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "76051.41075366948"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Ni-59.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B+, EC;Co;59;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.12181851598347149"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Fe-59.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;Co;59;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "60"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "5.270996526985575"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Co-60.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;Ni;60;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Cu"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Copper"
+msgstr "Cuivre"
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "61"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.0003840596243060308"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Cu-61.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B+, EC;Ni;61;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Zn"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Zinc"
+msgstr "Zinc"
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "63"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "7.288260197226657e-05"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Zn-63.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B+, EC;Cu;63;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "98.54995310163002"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Ni-63.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;Cu;63;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "64"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.0014488110629452176"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Cu-64.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B+, EC;Ni;64;61.52)(B-;Zn;64;38.48)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "65"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.6680482672953583"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Zn-65.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B+, EC;Cu;65;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Ga"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Gallium"
+msgstr "Gallium"
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "66"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.0010824650797272288"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Ga-66.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B+, EC;Zn;66;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "67"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.00892894263188582"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Ga-67.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(EC;Zn;67;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Ge"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Germanium"
+msgstr "Germanium"
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "68"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.7418181357264176"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Ge-68.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(EC;Ga;68;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.0001289705174030978"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Ga-68.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B+, EC;Zn;68;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Se"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Selenium"
+msgstr "Sélénium"
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "73"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.0008099475245265799"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Se-73.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B+, EC;As;73;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "75"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.327943189596167"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Se-75.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(EC;As;75;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Br"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Bromine"
+msgstr "Brome"
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "76"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.001837909093213679"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Br-76.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B+, EC;Se;76;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "79"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "354906.58351712424"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Se-79.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;Br;79;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Rb"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Rubidium"
+msgstr "Rubidium"
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "82"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "2.4054427459629374e-06"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Rb-82.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B+, EC;Kr;82;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Sr"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Strontium"
+msgstr "Strontium"
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.0693969123127234"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Sr-82.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(EC;Rb;82;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "85"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.1775483560220042"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Sr-85.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(EC;Rb;85;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Kr"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Krypton"
+msgstr "Krypton"
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "10.751768195300022"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Kr-85.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;Rb;85;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "87"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "49648895987.02055"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Rb-87.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;Sr;87;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Y"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Yttrium"
+msgstr "Yttrium"
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "88"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.2919360154130859"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Y-88.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B+, EC;Sr;88;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Zr"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Zirconium"
+msgstr "Zirconium"
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "89"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.008945864070778513"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Zr-89.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B+, EC;Y;89;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.13845159327705528"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Sr-89.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;Y;89;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "90"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.007305688645524374"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Y-90.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;Zr;90;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "28.798134205389506"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Sr-90.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;Y;90;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.0003637792481050523"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Y-90m.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(I.T.;Y;90;99.9981)(B-;Zr;90;0.0019)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "93"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "1609754.8609526705"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Zr-93.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;Nb;93;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Nb"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Niobium"
+msgstr "Niobium"
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "16.119730270996527"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Nb-93m.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(I.T.;Nb;93;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Tc"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Technetium"
+msgstr "Technétium"
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "94"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "9.854995310163003e-05"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Tc-94m.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B+, EC;Mo;94;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "95"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.17531117702233376"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Zr-95.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;Nb;95;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.00988351458919563"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Nb-95m.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(I.T.;Nb;95;97.5)(B-;Mo;95;2.5)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.0957994270793723"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Nb-95.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;Mo;95;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "99"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "211486.2980708292"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Tc-99.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;Ru;99;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Mo"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Molybdenum"
+msgstr "Molybdène"
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.007523385808806753"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Mo-99.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;Tc;99;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.0006852263796993433"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Tc-99m.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(I.T.;Tc;99;100.0)(B-;Ru;99;0.004)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Ru"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Ruthenium"
+msgstr "Ruthénium"
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "106"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "1.0171876188303293"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Ru-106.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;Rh;106;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Rh"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Rhodium"
+msgstr "Rhodium"
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "9.538114432022715e-07"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Rh-106.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;Pd;106;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Ag"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Silver"
+msgstr "Argent"
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "108"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "4.528227748624736e-06"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Ag-108.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B+, EC;Pd;108;2.47)(B-;Cd;108;97.53)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "437.9293735898801"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Ag-108m.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(EC;Pd;108;90.9)(I.T.;Ag;108;9.1)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Cd"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Cadmium"
+msgstr "Cadmium"
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "109"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "1.2646082084822672"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Cd-109.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(EC;Ag;109;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Pd"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Palladium"
+msgstr "Palladium"
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.0015492306132278751"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Pd-109.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;Ag;109;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "110"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.6838606231145588"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Ag-110m.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(I.T.;Ag;110;1.36)(B-;Cd;110;98.64)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "7.78259436712551e-07"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Ag-110.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(EC;Pd;110;0.3)(B-;Cd;110;99.7)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "In"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Indium"
+msgstr "Indium"
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "111"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.007679386265115217"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "In-111.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(EC;Cd;111;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Sn"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Tin"
+msgstr "Étain"
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "113"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.31510000760514106"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Sn-113.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(EC;In;113;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "I"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Iodine"
+msgstr "Iode"
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "123"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.001508479732299034"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "I-123.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(EC;Te;123;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Te"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Tellurium"
+msgstr "Tellure"
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.3266408091870104"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Te-123m.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(I.T.;Te;123;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Sb"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Antimony"
+msgstr "Antimoine"
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "124"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.16484143280857858"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Sb-124.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;Te;124;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.011433252211828528"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "I-124.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B+, EC;Te;124;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "125"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.16259474738256394"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "I-125.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(EC;Te;125;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "2.7584797322990338"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Sb-125.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;Te;125;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "127"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.29057976525464546"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Te-127m.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(I.T.;Te;127;97.27)(B-;I;127;2.73)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.0010666210358202144"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Te-127.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;I;127;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Xe"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Xenon"
+msgstr "Xénon"
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.09954179025020914"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Xe-127.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(EC;I;127;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.010552133242071639"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Sb-127.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;Te;127;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "129"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "16097548.609526705"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "I-129.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;Xe;129;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "1.32456207062641e-05"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Sn-129m.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;Sb;129;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "131"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.032749638755798914"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Xe-131m.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(I.T.;Xe;131;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.021966499353563006"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "I-131.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;Xe;131;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "132"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.00884414530889548"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Te-132.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;I;132;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Ba"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Barium"
+msgstr "Baryum"
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "133"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "10.538824245189748"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Ba-133.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(EC;Cs;133;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.002380726037467995"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "I-133.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;Xe;133;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.014366586812685374"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Xe-133.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;Cs;133;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.006017567875884097"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Xe-133m.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(I.T.;Xe;133;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Cs"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Cesium"
+msgstr "Césium"
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "134"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "2.06435216873273"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Cs-134.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(EC;Xe;134;0.0003)(B-;Ba;134;99.9997)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "135"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "2.9089664613278575e-05"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Xe-135m.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(I.T.;Xe;135;99.996)(B-;Cs;135;0.004)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "137"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "4.8568332192562174e-06"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Ba-137m.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(I.T.;Ba;137;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "30.018125586229623"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Cs-137.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;Ba;137;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "La"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Lanthanum"
+msgstr "Lanthane"
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "138"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "103620047151.87466"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "La-138.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(EC;Ba;138;65.2)(B-;Ce;138;34.8)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Ce"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Cerium"
+msgstr "Cérium"
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "139"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.37684107790199506"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Ce-139.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(EC;La;139;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "140"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.03491583643876594"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Ba-140.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;La;140;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.004595691687580804"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "La-140.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;Ce;140;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "141"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.08898965700813749"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Ce-141.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;Pr;141;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Pr"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Praseodymium"
+msgstr "Praséodyme"
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "142"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.0021833092503865943"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Pr-142.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(EC;Ce;142;0.0164)(B-;Nd;142;99.9836)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "144"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "1.3689253935660506e-05"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Pr-144m.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(I.T.;Pr;144;99.94)(B-;Nd;144;0.06)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "3.2873222298273636e-05"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Pr-144.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;Nd;144;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.7799705934545085"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Ce-144.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;Pr;144;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Nd"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Neodymium"
+msgstr "Néodyme"
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "147"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.03008150176185768"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Nd-147.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;Pm;147;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Pm"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Promethium"
+msgstr "Prométhium"
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "2.6233300377722006"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Pm-147.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;Sm;147;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "148"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.11303140923264125"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Pm-148m.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(I.T.;Pm;148;5.6)(B-;Sm;148;94.4)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.014703272745709432"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Pm-148.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;Sm;148;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Sm"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Samarium"
+msgstr "Samarium"
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "151"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "94.6840063883185"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Sm-151.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;Eu;151;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Eu"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Europium"
+msgstr "Europium"
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "152"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "13.521307070246152"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Eu-152.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B+, EC;Sm;152;72.1)(B-;Gd;152;27.9)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Gd"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Gadolinium"
+msgstr "Gadolinium"
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "153"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.6581615838973812"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Gd-153.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(EC;Eu;153;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.005280081501761858"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Sm-153.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;Eu;153;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "154"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "8.600780794483736"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Eu-154.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(EC;Sm;154;0.018)(B-;Gd;154;99.982)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "155"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "4.752896291226202"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Eu-155.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;Gd;155;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "159"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.0021080183537404615"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Gd-159.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;Tb;159;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Ho"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Holmium"
+msgstr "Holmium"
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "166"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.003058217354931934"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Ho-166.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;Er;166;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "1132.8491393515349"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Ho-166m.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Yb"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Ytterbium"
+msgstr "Ytterbium"
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "169"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.08766065860521711"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Yb-169.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(EC;Tm;169;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Er"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Erbium"
+msgstr "Erbium"
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.02568002636448906"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Er-169.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;Tm;169;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Tm"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Thulium"
+msgstr "Thulium"
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "170"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.34983648946687956"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Tm-170.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(EC;Er;170;0.147)(B-;Yb;170;99.9)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Lu"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Lutetium"
+msgstr "Lutétium"
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "177"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.018198468831596825"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Lu-177.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;Hf;177;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Ta"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Tantalum"
+msgstr "Tantale"
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "182"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.31377544553451464"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Ta-182.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;W;182;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Re"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Rhenium"
+msgstr "Rhénium"
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "186"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.01018106573376936"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Re-186.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(EC;W;186;7.53)(B-;Os;186;92.47)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "188"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.0019398813597992241"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Re-188.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;Os;188;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Ir"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Iridium"
+msgstr "Iridium"
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "192"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.20212880573934644"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Ir-192.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(EC;Os;192;4.87)(B-;Pt;192;95.13)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "194"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.0022016883413187313"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Ir-194.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;Pt;194;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Au"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Gold"
+msgstr "Or"
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "195"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.505741881511902"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Au-195.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(EC;Pt;195;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "198"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.00737660658605217"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Au-198.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;Hg;198;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Tl"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Thallium"
+msgstr "Thallium"
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "201"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.008328897001039368"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Tl-201.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(EC;Hg;201;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Pb"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Lead"
+msgstr "Plomb"
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "203"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.005923897888305827"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Pb-203.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(EC;Tl;203;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Hg"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Mercury"
+msgstr "Mercure"
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.12756673511293634"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Hg-203.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;Tl;203;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "204"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "3.7879940172890203"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Tl-204.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(EC;Hg;204;2.92)(B-;Pb;204;97.08)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "206"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "1.581869343676325e-05"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Hg-206.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;Tl;206;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "7.988566937916698e-06"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Tl-206.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;Pb;206;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Bi"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Bismuth"
+msgstr "Bismuth"
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "207"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "32.892235150962044"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Bi-207.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B+, EC;Pb;207;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "9.07546834993789e-06"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Tl-207.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;Pb;207;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "208"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "5.814130352118031e-06"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Tl-208.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;Pb;208;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "209"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.0003739194362055416"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Pb-209.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;Bi;209;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Po"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Polonium"
+msgstr "Polonium"
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "115.02775876492508"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Po-209.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(EC;Bi;209;0.454)(alpha;Pb;205;99.546)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "4.108677465966993e-06"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Tl-209.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;Pb;209;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "210"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "2.4716708494942577e-06"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Tl-210.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;Pb;210;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "22.229193601541308"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Pb-210.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;Bi;210;100.0)(alpha;Hg;206;1.9e-06)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.378853588359064"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Po-210.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(alpha;Pb;206;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.013719357619083833"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Bi-210.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;Po;210;99.99986)(alpha;Tl;206;0.00014)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "211"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "6.86363982051867e-05"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Pb-211.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;Bi;211;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "1.6351053312038936e-08"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Po-211.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(alpha;Pb;207;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "4.087763328009734e-06"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Bi-211.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;Po;211;0.276)(alpha;Tl;207;99.724)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "At"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Astatine"
+msgstr "Astate"
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.000823193145232844"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "At-211.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(EC;Po;211;58.22)(alpha;Bi;207;41.78)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "212"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.0012137805156285648"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Pb-212.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;Bi;212;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "9.506426344208683e-15"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Po-212.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(alpha;Pb;208;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.00011510381017567875"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Bi-212.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;Po;212;64.07)(alpha;Tl;208;35.93)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "213"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "8.667959540649478e-05"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Bi-213.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;Po;213;97.91)(alpha;Tl;209;2.09)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "1.172459249119071e-13"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Po-213.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(alpha;Pb;209;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "214"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "5.117626181965675e-05"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Pb-214.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;Bi;214;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "5.142976652216898e-12"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Po-214.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(alpha;Pb;210;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "3.764544832306639e-05"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Bi-214.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;Po;214;99.979)(alpha;Tl;210;0.021)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "215"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "5.643648439678556e-11"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Po-215.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;At;215;0.00023)(alpha;Pb;211;99.99977)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "3.1688087814028947e-12"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "At-215.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(alpha;Bi;211;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "1.44497680431972e-05"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Bi-215.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;Po;215;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "216"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "4.689836996476284e-09"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Po-216.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(alpha;Pb;212;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Rn"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Radon"
+msgstr "Radon"
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "217"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "1.7111567419575633e-11"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Rn-217.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(alpha;Po;213;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "1.0235252363931352e-09"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "At-217.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;Rn;217;0.0067)(alpha;Bi;213;99.9933)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "218"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "1.140771161305042e-09"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Rn-218.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(alpha;Po;214;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "5.840114584125535e-06"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Po-218.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;At;218;0.022)(alpha;Pb;214;99.978)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "4.4363322939640523e-08"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "At-218.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;Rn;218;0.1)(alpha;Bi;214;99.9)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "219"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "1.774532917585621e-06"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "At-219.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "1.261185894998352e-07"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Rn-219.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(alpha;Po;215;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "220"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "1.7681953000228152e-06"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Rn-220.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(alpha;Po;216;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Fr"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Francium"
+msgstr "Francium"
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "221"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "9.107156437751919e-06"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Fr-221.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;Ra;221;0.0048)(alpha;At;217;99.9952)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "222"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.010467209166730041"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Rn-222.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(alpha;Po;218;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Ra"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Radium"
+msgstr "Radium"
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "223"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.03129515552513499"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Ra-223.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(alpha;Rn;219;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "4.182827591451821e-05"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Fr-223.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;Ra;223;99.98)(alpha;At;219;0.02)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "224"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.009941186909017161"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Ra-224.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(alpha;Rn;220;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "225"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.04056075240195705"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Ra-225.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;Ac;225;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Ac"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Actinium"
+msgstr "Actinium"
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.027151938043450702"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Ac-225.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(alpha;Fr;221;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "226"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "1599.9315537303216"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Ra-226.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(alpha;Rn;222;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Ra-226D.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "227"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "21.771617613506727"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Ac-227.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;Th;227;98.62)(alpha;Fr;223;1.38)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Th"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Thorium"
+msgstr "Thorium"
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "228"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "1.9125662281035312"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Th-228.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(alpha;Ra;224;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.0007015742642026009"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Ac-228.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;Th;228;100.0)(alpha;Fr;224;5.5e-06)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "5.751387938246254"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Ra-228.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;Ac;228;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "231"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.0029114698202651655"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Th-231.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;Pa;231;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Pa"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Protactinium"
+msgstr "Protactinium"
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "32670.418536263845"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Pa-231.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(alpha;Ac;227;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "U"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Uranium"
+msgstr "Uranium"
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "232"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "70.60105964965649"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "U-232.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(alpha;Th;228;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "14018810048.926407"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Th-232.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(alpha;Ra;228;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "233"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.07386810150328288"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Pa-233.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;U;233;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "4.211346870484447e-05"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Th-233.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;Pa;233;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "234"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "2.202322103075012e-06"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Pa-234m.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(I.T.;Pa;234;0.15)(B-;U;234;99.85)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "245487.61629528226"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "U-234.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(alpha;Th;230;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.06598093644637107"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Th-234.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;Pa;234;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.0007643166780743782"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Pa-234.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;U;234;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "235"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "703982558.8764671"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "U-235.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(alpha;Th;231;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Np"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Neptunium"
+msgstr "Neptunium"
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "236"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "154954.74941060157"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Np-236.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(EC;U;236;87.8)(B-) ; Pu-236 ; 12 ; (alpha;Pa;232;0.16)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "23430172.129693005"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "U-236.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(alpha;Th;232;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.002566735112936345"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Np-236m.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "237"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.01847732400436028"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "U-237.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;Np;237;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "2144016.0214971984"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Np-237.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(alpha;Pa;233;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Pu"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Plutonium"
+msgstr "Plutonium"
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "238"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "87.73797753948335"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Pu-238.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(alpha;U;234;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.005754873627905797"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Np-238.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;Pu;238;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "4468020381.778082"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "U-238.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(alpha;Th;234;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "239"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "24099.424544325295"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Pu-239.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(alpha;U;235;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "4.4604152407027145e-05"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "U-239.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;Np;239;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.006450427155423733"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Np-239.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;Pu;239;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "240"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "6560.701701016554"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Pu-240.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(alpha;U;236;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Am"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Americium"
+msgstr "Américium"
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "241"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "432.6057748371232"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Am-241.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(alpha;Np;237;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "14.32935330950389"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Pu-241.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;Am;241;99.99756)(alpha;U;237;0.00244)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "242"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "372968.7935711207"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Pu-242.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(alpha;U;238;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.0018265013816006286"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Am-242.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(EC;Pu;242;17.1)(B-;Cm;242;82.9)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Cm"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Curium"
+msgstr "Curium"
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.4458830836312013"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Cm-242.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(alpha;Pu;238;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "142.91327604127056"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Am-242m.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(I.T.;Am;242;99.54)(alpha;Np;238;0.46)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "243"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "28.8995360863944"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Cm-243.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(EC;Am;243;0.29)(alpha;Pu;239;99.71)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "7367.48041676173"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Am-243.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(alpha;Np;239;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "244"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "18.109742185717543"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Cm-244.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(alpha;Pu;240;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "4.943341698988516e-05"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Am-244m.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(EC;Pu;244;0.036)(B-;Cm;244;99.964)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "0.0011521788729180924"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Am-244.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(B-;Cm;244;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "245"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "8248.409257991734"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Cm-245.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(alpha;Pu;241;100.0)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "246"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "4721.525084290313"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Cm-246.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(alpha;Pu;242;99.97385)"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Cf"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Californium"
+msgstr "Californium"
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "252"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "2.646905975105838"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "Cf-252.lara.txt"
+msgstr ""
+
+#: ../../../roentgen/data/nuclides_list.csv:1
+msgid "(alpha;Cm;248;96.914)"
+msgstr ""

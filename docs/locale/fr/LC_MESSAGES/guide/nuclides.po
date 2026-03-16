@@ -1,0 +1,180 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) US Government (not copyrighted) 2023-2026
+# This file is distributed under the same license as the roentgen package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version:  roentgen\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-03-16 22:31+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: fr\n"
+"Language-Team: fr <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../../guide/nuclides.rst:2
+msgid "X-ray emission from radionuclides"
+msgstr "Émission de rayons X par les radionucléides"
+
+#: ../../../guide/nuclides.rst:6
+msgid ""
+"This module is in beta and its API may change in future releases. It does"
+" not yet calculate the full decay chain or account for possible emissions"
+" from decay products. The emission from radionuclides which decay "
+"straight into stable nuclides should be accurate."
+msgstr ""
+"Ce module est en version bêta et son API peut changer dans les versions "
+"futures. Il ne calcule pas encore la chaîne de désintégration complète ni"
+" ne tient compte des émissions possibles des produits de désintégration. "
+"L'émission des radionucléides qui se désintègrent directement en "
+"nucléides stables devrait être précise."
+
+#: ../../../guide/nuclides.rst:10
+msgid ""
+"The purpose of this guide is to present an overview of the "
+"`roentgen.nuclides` module which provides access to tables of emission "
+"lines from radioactive sources (e.g. Am-241, Ba-133). Radionuclides are "
+"unstable atoms that spontaneously and randomly decay into a different "
+"nuclide over time, emitting ionizing radiation in the process. Those new "
+"nuclide may undergo a similar process leading to a chain of decay of "
+"different elements. The radiation emitted may take the form of x-rays or "
+"gamma-rays with characteristic energies. Because these characteristic "
+"energies are well-known and sealed sources of radiation are readily "
+"available, these sources are frequently used in laboratories to calibrate"
+" x-ray and gamma-ray detectors."
+msgstr ""
+"L'objectif de ce guide est de présenter un aperçu du module "
+"`roentgen.nuclides` qui donne accès aux tableaux de raies d'émission de "
+"sources radioactives (par ex. Am-241, Ba-133). Les radionucléides sont "
+"des atomes instables qui se désintègrent spontanément et aléatoirement en"
+" un nuclide différent au fil du temps, en émettant des rayonnements "
+"ionisants. Ces nouveaux nucléides peuvent subir un processus similaire "
+"conduisant à une chaîne de désintégration de différents éléments. Le "
+"rayonnement émis peut prendre la forme de rayons X ou gamma avec des "
+"énergies caractéristiques. Ces énergies caractéristiques étant bien "
+"connues et des sources scellées de rayonnement étant facilement "
+"disponibles, ces sources sont fréquemment utilisées en laboratoire pour "
+"calibrer les détecteurs de rayons X et gamma."
+
+#: ../../../guide/nuclides.rst:16
+msgid ""
+"This module provides access to data from the Library for gamma and alpha "
+"emissions (`Lara <http://www.lnhb.fr/accueil/donnees-nucleaires/module-"
+"lara/>`_) provided by the `Laboratoire National Henri Becquerel "
+"<http://www.lnhb.fr>`_."
+msgstr ""
+"Ce module donne accès aux données de la Bibliothèque pour les émissions "
+"gamma et alpha (`Lara <http://www.lnhb.fr/accueil/donnees-nucleaires"
+"/module-lara/>`_) fournie par le `Laboratoire National Henri Becquerel "
+"<http://www.lnhb.fr>`_."
+
+#: ../../../guide/nuclides.rst:18
+msgid "The list of available nuclides is available through::"
+msgstr "La liste des nucléides disponibles est accessible via ::"
+
+#: ../../../guide/nuclides.rst:41
+msgid ""
+"To download the entire list :download:`nuclides_list.csv "
+"<../../roentgen/data/nuclides_list.csv>` or view it online"
+msgstr ""
+"Pour télécharger la liste complète :download:`nuclides_list.csv "
+"<../../roentgen/data/nuclides_list.csv>` ou la consulter en ligne"
+
+#: ../../../guide/nuclides.rst:43
+msgid "To access a particular nuclide first initialize it::"
+msgstr "Pour accéder à un nucléide particulier, commencez par l'initialiser ::"
+
+#: ../../../guide/nuclides.rst:58
+msgid ""
+"For nuclides with complicated decay chains this may be too much "
+"information. This module therefore provides a convenience function to "
+"filter the list. For example, Am-241 has a long decay chain generating "
+"873 different lines some of them very weak. We can there filter the list "
+"to only the strongest lines within a particular energy range:::"
+msgstr ""
+"Pour les nucléides avec des chaînes de désintégration compliquées, cela "
+"peut représenter trop d'informations. Ce module fournit donc une fonction"
+" pratique pour filtrer la liste. Par exemple, Am-241 a une longue chaîne "
+"de désintégration générant 873 raies différentes, dont certaines très "
+"faibles. Nous pouvons donc filtrer la liste pour n'obtenir que les raies "
+"les plus fortes dans une plage d'énergie particulière :::"
+
+#: ../../../guide/nuclides.rst:86
+msgid ""
+"The Nuclide class also provides access to some additional information "
+"such as the half life"
+msgstr ""
+"La classe Nuclide fournit également accès à des informations "
+"supplémentaires telles que la demi-vie"
+
+#: ../../../guide/nuclides.rst:91
+msgid "and the url for the data sheet"
+msgstr "et l'URL de la fiche de données"
+
+#: ../../../guide/nuclides.rst:96
+msgid "All other metadata is available in meta attribute"
+msgstr "Toutes les autres métadonnées sont disponibles dans l'attribut meta"
+
+#: ../../../guide/nuclides.rst:102
+msgid "Ba-133 Example Spectrum"
+msgstr "Spectre exemple du Ba-133"
+
+#: ../../../guide/nuclides.rst:104
+msgid ""
+"As an example, let's consider the nuclide Ba-133. This nuclide decays "
+"through electron capture into Cs-133, emitting a number of gamma-rays and"
+" x-rays in the process. The strongest emissions are at 31 keV, 81 keV, "
+"and 356 keV."
+msgstr ""
+"À titre d'exemple, considérons le nucléide Ba-133. Ce nucléide se "
+"désintègre par capture électronique en Cs-133, émettant plusieurs rayons "
+"gamma et rayons X dans le processus. Les émissions les plus intenses sont"
+" à 31 keV, 81 keV et 356 keV."
+
+#: ../../../guide/nuclides.rst:132
+msgid ""
+"With this information, it is possible to simulate the emission from a "
+"radionuclide as it would be seen by a detector with a finite energy "
+"resolution. In the following example, we will simulate the emission from "
+"a Ba-133 source as it would be seen by a detector with a 0.5 keV energy "
+"resolution up to 80 keV. Given this energy resolution, the individual "
+"lines will be broadened and will overlap."
+msgstr ""
+"Avec ces informations, il est possible de simuler l'émission d'un "
+"radionucléide telle qu'elle serait vue par un détecteur avec une "
+"résolution en énergie finie. Dans l'exemple suivant, nous simulerons "
+"l'émission d'une source Ba-133 telle qu'elle serait vue par un détecteur "
+"avec une résolution en énergie de 0,5 keV jusqu'à 80 keV. Avec cette "
+"résolution en énergie, les raies individuelles seront élargies et se "
+"chevaucheront."
+
+#: ../../../guide/nuclides.rst:33
+msgid ""
+"(:download:`Source code "
+"<../_build/gettext/gettext/plot_directive/guide/nuclides-1.py>`, "
+":download:`png "
+"<../_build/gettext/gettext/plot_directive/guide/nuclides-1.png>`, "
+":download:`hires.png "
+"<../_build/gettext/gettext/plot_directive/guide/nuclides-1.hires.png>`, "
+":download:`pdf "
+"<../_build/gettext/gettext/plot_directive/guide/nuclides-1.pdf>`)"
+msgstr ""
+
+#~ msgid ""
+#~ "(:download:`Source code "
+#~ "<../_build/gettext/plot_directive/guide/nuclides-1.py>`, "
+#~ ":download:`png "
+#~ "<../_build/gettext/plot_directive/guide/nuclides-1.png>`, "
+#~ ":download:`hires.png "
+#~ "<../_build/gettext/plot_directive/guide/nuclides-1.hires.png>`, "
+#~ ":download:`pdf "
+#~ "<../_build/gettext/plot_directive/guide/nuclides-1.pdf>`)"
+#~ msgstr ""
+

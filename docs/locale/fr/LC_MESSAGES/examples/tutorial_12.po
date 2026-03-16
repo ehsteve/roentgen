@@ -1,0 +1,93 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) US Government (not copyrighted) 2023-2026
+# This file is distributed under the same license as the roentgen package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version:  roentgen\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-03-16 22:31+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: fr\n"
+"Language-Team: fr <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../../examples/tutorial_12.rst:2
+msgid "Ba-133 Source Spectrum"
+msgstr "Spectre de la source Ba-133"
+
+#: ../../../examples/tutorial_12.rst:3
+msgid ""
+"In this example, we show the spectrum of a Ba-133 radiation source as "
+"measured by a detector with a finite energy resolution."
+msgstr ""
+"Dans cet exemple, nous montrons le spectre d'une source de rayonnement "
+"Ba-133 tel que mesuré par un détecteur avec une résolution en énergie "
+"finie."
+
+#: ../../../examples/tutorial_12.rst:33
+msgid ""
+"(:download:`Source code "
+"<../_build/gettext/gettext/plot_directive/examples/tutorial_12-1.py>`, "
+":download:`png "
+"<../_build/gettext/gettext/plot_directive/examples/tutorial_12-1.png>`, "
+":download:`hires.png "
+"<../_build/gettext/gettext/plot_directive/examples/tutorial_12-1.hires.png>`,"
+" :download:`pdf "
+"<../_build/gettext/gettext/plot_directive/examples/tutorial_12-1.pdf>`)"
+msgstr ""
+
+#: ../../../examples/tutorial_12.rst:37
+msgid ""
+"If this emission were detected by a CdTe detector then escape lines would"
+" also be present. These emission lines are at energies which are "
+"downshifted by the energy absorbed by the material. In this example, we "
+"will only select the strongest absorption line."
+msgstr ""
+"Si cette émission était détectée par un détecteur CdTe, des raies "
+"d'échappement seraient également présentes. Ces raies d'émission se "
+"trouvent à des énergies décalées vers le bas de l'énergie absorbée par le"
+" matériau. Dans cet exemple, nous ne sélectionnerons que la raie "
+"d'absorption la plus forte."
+
+#: ../../../examples/tutorial_12.rst:45
+msgid ""
+"(:download:`Source code "
+"<../_build/gettext/gettext/plot_directive/examples/tutorial_12-2.py>`, "
+":download:`png "
+"<../_build/gettext/gettext/plot_directive/examples/tutorial_12-2.png>`, "
+":download:`hires.png "
+"<../_build/gettext/gettext/plot_directive/examples/tutorial_12-2.hires.png>`,"
+" :download:`pdf "
+"<../_build/gettext/gettext/plot_directive/examples/tutorial_12-2.pdf>`)"
+msgstr ""
+
+#~ msgid ""
+#~ "(:download:`Source code "
+#~ "<../_build/gettext/plot_directive/examples/tutorial_12-1.py>`, "
+#~ ":download:`png "
+#~ "<../_build/gettext/plot_directive/examples/tutorial_12-1.png>`, "
+#~ ":download:`hires.png "
+#~ "<../_build/gettext/plot_directive/examples/tutorial_12-1.hires.png>`,"
+#~ " :download:`pdf "
+#~ "<../_build/gettext/plot_directive/examples/tutorial_12-1.pdf>`)"
+#~ msgstr ""
+
+#~ msgid ""
+#~ "(:download:`Source code "
+#~ "<../_build/gettext/plot_directive/examples/tutorial_12-2.py>`, "
+#~ ":download:`png "
+#~ "<../_build/gettext/plot_directive/examples/tutorial_12-2.png>`, "
+#~ ":download:`hires.png "
+#~ "<../_build/gettext/plot_directive/examples/tutorial_12-2.hires.png>`,"
+#~ " :download:`pdf "
+#~ "<../_build/gettext/plot_directive/examples/tutorial_12-2.pdf>`)"
+#~ msgstr ""
+

@@ -61,6 +61,17 @@ plot_include_source = True
 # This pattern also affects html_static_path and html_extra_path.
 exclude_patterns = ["_build", "Thumbs.db", ".DS_Store"]
 
+# -- Internationalization (i18n) ---------------------------------------------
+
+# The language the documentation is written in.
+language = "en"
+
+# Directories where locale files (translations) are stored, relative to this file.
+locale_dirs = ["locale/"]
+
+# Generate one .pot file per .rst source file (instead of per directory).
+gettext_compact = False
+
 # The suffix(es) of source filenames.
 # You can specify multiple suffix as a list of string:
 source_suffix = ".rst"
@@ -115,12 +126,17 @@ html_logo = "logo/roentgen.svg"
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-# html_static_path = ['_static']
+html_static_path = ["_static"]
 html_theme = "pydata_sphinx_theme"
 
 html_theme_options = {
-   "use_edit_page_button": True,
-   "back_to_top_button": True,
+    "use_edit_page_button": True,
+    "back_to_top_button": True,
+    "switcher": {
+        "json_url": "https://ehsteve.github.io/roentgen/_static/switcher.json",
+        "version_match": language,
+    },
+    "navbar_end": ["version-switcher", "navbar-icon-links"],
 }
 
 html_context = {

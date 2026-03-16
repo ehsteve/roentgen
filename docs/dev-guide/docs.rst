@@ -74,6 +74,12 @@ To build the html documentation locally use the following command, in the docs d
 This will generate HTML documentation in the "docs/_build/html" directory.
 You can open the "index.html" file to browse the final product.
 
+To build the French translation of the documentation, run::
+
+    $ make html-fr
+
+This will generate French HTML documentation in the "docs/_build/fr/html" directory.
+
 If you'd like to rebuild the documentation from scratch.
 This is normally not necessary since Sphinx will detect and only build the required changes.
 But if you are running into strange errors you may want to try this.

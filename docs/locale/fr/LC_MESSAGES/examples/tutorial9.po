@@ -1,0 +1,70 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) US Government (not copyrighted) 2023-2026
+# This file is distributed under the same license as the roentgen package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2026.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version:  roentgen\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-03-16 22:31+0000\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language: fr\n"
+"Language-Team: fr <LL@li.org>\n"
+"Plural-Forms: nplurals=2; plural=(n > 1);\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Generated-By: Babel 2.18.0\n"
+
+#: ../../../examples/tutorial9.rst:2
+msgid "Defining your own custom material"
+msgstr "Définition de votre propre matériau personnalisé"
+
+#: ../../../examples/tutorial9.rst:3
+msgid ""
+"Though the compounds list provided in this package is extensive it may "
+"not provide the exact material that you are interested in. It easily "
+"possible to define your own material if you know it's chemical "
+"composition. The following example, we investigate the absorption of a "
+"Gallium Arsenide (GaAs) detector in the same configuration as that in `G."
+" Lioliou & A.M. Barnett (2016) "
+"<https://doi.org/10.1016/j.nima.2016.08.047>`__. Compare our plot with "
+"their `Figure 1 "
+"<https://www.sciencedirect.com/science/article/pii/S016890021630866X#f0005>`__."
+msgstr ""
+"Bien que la liste des composés fournie dans ce paquet soit étendue, elle "
+"peut ne pas inclure le matériau exact qui vous intéresse. Il est "
+"facilement possible de définir votre propre matériau si vous connaissez "
+"sa composition chimique. Dans l'exemple suivant, nous étudions "
+"l'absorption d'un détecteur en Arséniure de Gallium (GaAs) dans la même "
+"configuration que dans `G. Lioliou & A.M. Barnett (2016) "
+"<https://doi.org/10.1016/j.nima.2016.08.047>`__. Comparez notre graphique"
+" avec leur `Figure 1 "
+"<https://www.sciencedirect.com/science/article/pii/S016890021630866X#f0005>`__."
+
+#: ../../../examples/tutorial9.rst:27
+msgid ""
+"(:download:`Source code "
+"<../_build/gettext/gettext/plot_directive/examples/tutorial9-1.py>`, "
+":download:`png "
+"<../_build/gettext/gettext/plot_directive/examples/tutorial9-1.png>`, "
+":download:`hires.png "
+"<../_build/gettext/gettext/plot_directive/examples/tutorial9-1.hires.png>`,"
+" :download:`pdf "
+"<../_build/gettext/gettext/plot_directive/examples/tutorial9-1.pdf>`)"
+msgstr ""
+
+#~ msgid ""
+#~ "(:download:`Source code "
+#~ "<../_build/gettext/plot_directive/examples/tutorial9-1.py>`, "
+#~ ":download:`png "
+#~ "<../_build/gettext/plot_directive/examples/tutorial9-1.png>`, "
+#~ ":download:`hires.png "
+#~ "<../_build/gettext/plot_directive/examples/tutorial9-1.hires.png>`,"
+#~ " :download:`pdf "
+#~ "<../_build/gettext/plot_directive/examples/tutorial9-1.pdf>`)"
+#~ msgstr ""
+
