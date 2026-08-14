@@ -1,0 +1,21 @@
+{
+  "name": "csi_al_window",
+  "detector": "CsI",
+  "area": 5.0,
+  "d": 0.5,
+  "z": [
+    13
+  ],
+  "gmcm": [
+    0.02
+  ],
+  "nflux": 12,
+  "elo": 5.0,
+  "ehi": 200.0,
+  "theta": 0.0,
+  "nosigma": false,
+  "func_par": [
+    0.3,
+    0.05
+  ]
+}

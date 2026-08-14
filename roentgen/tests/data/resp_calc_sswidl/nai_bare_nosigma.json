@@ -1,0 +1,17 @@
+{
+  "name": "nai_bare_nosigma",
+  "detector": "NaI",
+  "area": 10.0,
+  "d": 1.0,
+  "z": [
+    14
+  ],
+  "gmcm": [
+    1e-10
+  ],
+  "nflux": 12,
+  "elo": 5.0,
+  "ehi": 200.0,
+  "theta": 0.0,
+  "nosigma": true
+}
