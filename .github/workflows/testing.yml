@@ -30,14 +30,14 @@ jobs:
         run: uv sync --locked --all-extras --dev
       - name: Run tests
         # For example, using `pytest`
-        run: uv run pytest --cov=./ --cov-report=xml
+        run: uv run pytest --cov=./ --cov-report=xml:coverage/reports/coverage.xml
       - name: Upload coverage to Codecov
         uses: codecov/codecov-action@v5
         with:
           directory: ./coverage/reports/
           env_vars: OS,PYTHON
           fail_ci_if_error: true
-          files: ./coverage1.xml,./coverage2.xml,!./cache
+          files: coverage.xml
           flags: unittests
           name: codecov-umbrella
           token: ${{ secrets.CODECOV_TOKEN }}
