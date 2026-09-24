@@ -2,7 +2,7 @@ Detector Response Matrices
 ===========================
 The examples so far use ``Material.transmission()``/``Material.absorption()``,
 which give a single number per energy: the fraction of photons absorbed.
-A real detector doesn't just absorb-or-not -- a photon's energy can be
+A real detector doesn't just absorb-or-not - a photon's energy can be
 mismeasured. Some of the energy can escape as a Compton-scattered photon, or
 as K-shell fluorescence, and the electronics add their own resolution
 blurring. ``Response.response_matrix()`` models all of this: for a grid of
@@ -57,7 +57,7 @@ fluorescence escape is only tabulated for a handful of detector materials
 
 The bright diagonal ridge is the photopeak: most photons are fully absorbed
 and measured at their true energy. The fainter parallel ridges just below it
-are Cd and Te K-shell escape peaks -- CdTe has several K-alpha/K-beta lines
+are Cd and Te K-shell escape peaks - CdTe has several K-alpha/K-beta lines
 close in energy, so they show up as a cluster of ridges rather than one.
 Below all of that is the Compton-scatter continuum, bounded above by the
 Compton edge -- photons that Compton-scatter in the detector and the
@@ -87,6 +87,6 @@ common choice for CdTe). No need to recompute ``response_matrix`` -- with
 
 Besides the (resolution-broadened) photopeak at 59.5 keV and the Compton
 continuum below it, there's a cluster of escape peaks around 25-38 keV --
-59.5 keV minus Cd's and Te's K-shell fluorescence energies -- from photons
+59.5 keV minus Cd's and Te's K-shell fluorescence energies - from photons
 whose K-shell fluorescence photon escaped the detector instead of being
 reabsorbed.

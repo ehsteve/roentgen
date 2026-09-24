@@ -10,7 +10,7 @@ from roentgen.absorption.material import Material, Response
 from roentgen.response import compton
 from roentgen.util import get_element_symbol, get_material_density
 
-_SSW_TEST_DIR = Path(__file__).parent / "data" / "resp_calc_golden"
+_SSW_TEST_DIR = Path(__file__).parent / "data" / "resp_calc_sswidl"
 _SSW_CASES = sorted(p.stem for p in _SSW_TEST_DIR.glob("*.json"))
 
 # density (g/cm3) for detector materials made fo more than one element,
