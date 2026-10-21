@@ -36,9 +36,8 @@ fluorescence escape is only tabulated for a handful of detector materials
     # a simple, illustrative energy-resolution model: FWHM in keV
     fwhm = lambda energy: 0.5 + 0.02 * np.sqrt(energy)
 
-    response_matrix = resp.response_matrix(
-        512, 4 * u.keV, 150 * u.keV, fwhm=fwhm, area=3 * u.cm**2
-    )
+    edges = np.geomspace(4, 150, 513) * u.keV
+    response_matrix = resp.response_matrix(edges, fwhm=fwhm, area=3 * u.cm**2)
 
     fig, ax = plt.subplots()
     vmax = response_matrix.smatrix.max()

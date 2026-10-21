@@ -380,7 +380,7 @@ class Response(object):
 
     Parameters
     ----------
-    optical_path : Stack
+    optical_path : Stack or Material
         A list of Material objects which make up the optical path.
 
     detector : Material or None
@@ -446,25 +446,19 @@ class Response(object):
     @u.quantity_input
     def response_matrix(
         self,
-        nflux: int,
-        elo: Quantity[u.keV],
-        ehi: Quantity[u.keV],
-        fwhm=None,
-        eout: Quantity[u.keV] | None = None,
-        edges_in: Quantity[u.keV] | None = None,
+        edges_in: Quantity[u.keV],
         edges_out: Quantity[u.keV] | None = None,
+        fwhm=None,
         theta: Quantity[u.deg] = 0 * u.deg,
         area: Quantity[u.cm**2] = 1 * u.cm**2,
-        nosigma: bool = False,
-        linearpha: bool = False,
     ):
         """Compute the full detector energy-redistribution (response) matrix.
 
-        Port of SSW's ``resp_calc.pro``: for a grid of input
-        photon energies, the probability of a photon being measured in each
-        output (PHA) energy bin, including the photopeak, single
-        Compton-scatter escape, K-shell fluorescence escape peaks, and
-        (unless ``nosigma``) Gaussian resolution broadening.
+        Port of SSW's ``resp_calc.pro``: for each input photon energy bin,
+        the probability of a photon being measured in each output (PHA)
+        energy bin, including the photopeak, single Compton-scatter escape,
+        K-shell fluorescence escape peaks, and (if ``fwhm`` is given)
+        Gaussian resolution broadening.
 
         ``self.detector`` must be a `Material` built with
         ``database="mcmaster"`` or ``database="xcom"`` (a single element, or
@@ -478,50 +472,43 @@ class Response(object):
 
         Parameters
         ----------
-        nflux : `int`
-            Number of input photon energy bins (log-spaced from ``elo`` to
-            ``ehi``), unless ``edges_in`` is given.
-        elo, ehi : `astropy.units.Quantity`
-            Lower/upper energy limits of the input photon grid.
+        edges_in : `astropy.units.Quantity`
+            Input photon energy bin edges, ``n + 1`` values for ``n`` bins.
+        edges_out : `astropy.units.Quantity`, optional
+            Output (PHA channel) bin edges. Defaults to ``edges_in``.
         fwhm : callable, optional
             ``fwhm(energy_kev) -> fwhm_kev``, the detector's energy
             resolution as a function of energy (both plain arrays in keV).
-            Required unless ``nosigma=True``.
-        eout : `astropy.units.Quantity`, optional
-            Output (PHA channel) bin edges. Defaults to the input photon
-            edges (or a linear grid if ``linearpha``).
-        edges_in, edges_out : `astropy.units.Quantity`, optional
-            Explicit input/output bin edges, overriding ``nflux``/``eout``.
+            If not given, no resolution broadening is applied
+            (``pulse_height_matrix`` and ``smatrix`` will be `None`).
         theta : `astropy.units.Quantity`, optional
             Angle of incidence from the detector normal. Default 0 deg.
         area : `astropy.units.Quantity`, optional
             Detector geometric area. Default 1 cm2.
-        nosigma : `bool`, optional
-            If `True`, skip resolution broadening (``pulse_height_matrix``
-            and ``smatrix`` will be `None`).
-        linearpha : `bool`, optional
-            If `True` and ``eout`` isn't given, use a linear (rather than
-            log) output energy grid.
 
         Returns
         -------
         `~roentgen.response.response_matrix.ResponseMatrix`
         """
-        from roentgen.response.response_matrix import compute_response_matrix
+        # bin edges come straight from the user and the port silently gives wrong
+        # numbers if they are not ascending
+        for edges in (edges_in, edges_out):
+            if edges is not None and np.any(np.diff(edges.value) <= 0):
+                raise ValueError("energy bin edges must be strictly increasing")
 
-        return compute_response_matrix(
+        from roentgen.response.response_matrix import _compute_response_matrix
+
+        return _compute_response_matrix(
             self,
-            nflux,
-            elo,
-            ehi,
+            len(edges_in) - 1,
+            edges_in[0],
+            edges_in[-1],
             fwhm=fwhm,
-            eout=eout,
             edges_in=edges_in,
             edges_out=edges_out,
             theta=theta,
             area=area,
-            nosigma=nosigma,
-            linearpha=linearpha,
+            nosigma=fwhm is None,
         )
 
 

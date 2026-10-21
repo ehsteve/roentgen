@@ -37,7 +37,7 @@ from roentgen.response.fluorescence import fluorescence_escape
 from roentgen.response.pulse_spread import pulse_spread_matrix
 from roentgen.util.edges import edge_products, interp_linear_extrap
 
-__all__ = ["ResponseMatrix", "compute_response_matrix"]
+__all__ = ["ResponseMatrix"]
 
 
 @dataclass
@@ -53,13 +53,13 @@ class ResponseMatrix:
     # (n_output, n_photon) energy-loss matrix, before resolution broadening
     eloss_matrix: np.ndarray
     # (n_output, n_photon) pulse-height matrix, after resolution broadening
-    # (``None`` if ``nosigma=True``)
+    # (``None`` if no ``fwhm`` was given)
     pulse_height_matrix: np.ndarray | None
-    # pulse_height_matrix normalised to counts/keV/photon (``None`` if ``nosigma=True``)
+    # pulse_height_matrix normalised to counts/keV/photon (``None`` if no ``fwhm`` was given)
     smatrix: np.ndarray | None
     # relative photopeak efficiency per input photon energy bin
     efficiency: np.ndarray
-    # (n_output, n_output) Gaussian resolution pulse-spread matrix (``None`` if ``nosigma=True``)
+    # (n_output, n_output) Gaussian resolution pulse-spread matrix (``None`` if no ``fwhm`` was given)
     pulse_shape: np.ndarray | None
 
 
@@ -68,7 +68,7 @@ def _edges_kev(value):
 
 
 @u.quantity_input
-def compute_response_matrix(
+def _compute_response_matrix(
     response,
     nflux: int,
     elo: Quantity[u.keV],
@@ -84,11 +84,9 @@ def compute_response_matrix(
 ):
     """Compute the full detector energy-redistribution (response) matrix.
 
-    This is the the free-function from of `Response.response_matrix` the
-    method just forwards to this, passing itself as ``response``. Prefer
-    calling ``response.response_matrix(...)`` directly. This function is
-    exposed separately mainly so it can be tested/profiled/reused without
-    constructing a full `Response`.
+    Private direct port of ``resp_calc.pro``, keeping its full set of
+    options. The public entry point is `Response.response_matrix`, which
+    forwards to this.
 
     Port of SSW's ``resp_calc.pro`` for a grid of input photon
     energies, the probability of a photon beeing measured in each output

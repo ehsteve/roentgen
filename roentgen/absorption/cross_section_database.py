@@ -104,6 +104,10 @@ class NISTDatabase(CrossSectionDatabase):
         # so importing MassAttenuationCoefficient at module scope would be circular.
         from roentgen.absorption.material import MassAttenuationCoefficient
 
+        # Performace regression this re-reads the CSV and rebuilds the interpolator on every
+        # call,  extra overhead compared to a bare MassAttenuationCoefficient list Material used
+        # before it went through the database. Could fix by caching one per element, e.g.
+        # functools.lru_cache on a small helper if needs be
         return MassAttenuationCoefficient(element).func(energy)
 
 

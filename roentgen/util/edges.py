@@ -4,7 +4,7 @@ Utilities for working with contiguous channel/bin boundary arrays.
 Port of SSW's ``edge_products.pro``/``get_edges.pro``. Works on
 plain `numpy` arrays of energy values in keV (no `astropy.units.Quantity`)
 since it's an internal building block for
-`~roentgen.response.response_matrix.compute_response_matrix` and
+`~roentgen.response.response_matrix._compute_response_matrix` and
 `~roentgen.response.compton.compton_scatter_matrix`, matching the
 reference implementation closely to ease validation.
 
