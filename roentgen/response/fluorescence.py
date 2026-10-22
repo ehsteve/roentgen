@@ -20,15 +20,18 @@ a mass fraction the way ``det_xsec.pro`` documents them — they're kept
 exactly as SSW computes them, including one apparent copy/paste quirk in the
 CsI case (see below), for numerical equivalence with ``resp_calc.pro``.
 
-.. todo::
-    Given ``roengen``'s additional line support `roentgen.lines`
-    (emission_lines.csv has energy + relative intensity per transition, e.g.
-    Kα1,2 vs Kβ) and K-edge energies already in electron_binding_energies.csv
-    The one missing piece is the absolute K-shell fluorescence yield w_K(Z)
-    (probability of X-ray emission vs. Auger electron) but could use
-    semi-empirical formula (Bambynek/Krause-type fit) that covers Z≈5–100
-    without needing a new bundled table the fluorescence code could be expanded
-    to support more elements over a wider energy range.
+Detectors that aren't one of the six above use a generic model built from the
+same formula: for each element, the K lines in `roentgen.lines` (energies and
+relative intensities) share the K-shell fluorescence yield ω_K(Z), taken from
+the Burhop fit to the Bambynek et al. data, [1]_ (ω_K/(1-ω_K))^(1/4) = 0.015 +
+0.0327 Z - 0.64e-6 Z^3 and weighted by that element's share of the
+photoelectric absorption at the incident energy. Lines below 1 keV are dropped
+(outside the range of the McMaster and XCOM tables, and of negligible yield). The
+cross-section database is whichever the detector `Material` uses, so unlike the
+fixed blocks this works with any database that provides the photoelectric
+component.
+
+.. [1] Bambynek et al., Rev. Mod. Phys. 44, 716 (1972).
 """
 
 import numpy as np
@@ -36,8 +39,10 @@ import numpy as np
 import astropy.units as u
 
 from roentgen.absorption.mcmaster import photoelectric_mass_attenuation
+from roentgen.lines.lines import binding_energies, emission_lines
+from roentgen.util import get_atomic_number
 
-__all__ = ["SUPPORTED_DETECTORS", "fluorescence_escape"]
+__all__ = ["SUPPORTED_DETECTORS", "k_fluorescence_yield", "fluorescence_escape"]
 
 SUPPORTED_DETECTORS = {
     frozenset({"Ge"}): "Ge",
@@ -254,6 +259,59 @@ _DISPATCH = {
 }
 
 
+def k_fluorescence_yield(z):
+    """K-shell fluorescence yield ω_K(Z), the Burhop fit to Bambynek et al. (1972)."""
+    y = (0.015 + 0.0327 * z - 0.64e-6 * z**3) ** 4
+    return y / (1.0 + y)
+
+
+def _k_lines(z):
+    """K emission line energies (keV) and their branching fractions for element ``z``."""
+    rows = emission_lines[
+        (emission_lines["z"] == z)
+        & np.array([str(t).startswith("K") for t in emission_lines["transition"]])
+        & (emission_lines["energy"] >= 1 * u.keV)
+    ]
+    intensity = np.asarray(rows["intensity"], dtype=float)
+    return rows["energy"].to_value(u.keV), intensity / intensity.sum()
+
+
+def _generic(energy_kev, detector, theta_deg):
+    """Same model as the detector specific blocks, from `roentgen.lines` data."""
+    energy = u.Quantity(energy_kev, u.keV)
+
+    incident_pe = detector.photoelectric_mass_attenuation_coefficient(energy).to_value("cm2/g")
+
+    line_energy, k_edge_energy, yield_weight = [], [], []
+    for symbol, mass_fraction in zip(detector.list_symbols, detector.fractional_masses):
+        z = int(get_atomic_number(symbol))
+        energies, branching = _k_lines(z)
+        if energies.size == 0:
+            continue
+        element_pe = detector._database.photoelectric(symbol, energy).to_value("cm2/g")
+        element_share = element_pe * mass_fraction / incident_pe
+        k_edge = binding_energies.loc[z]["K 1s"].to_value(u.keV)
+        for line, branch in zip(energies, branching):
+            line_energy.append(line)
+            k_edge_energy.append(k_edge)
+            yield_weight.append(k_fluorescence_yield(z) * branch * element_share)
+    if not line_energy:
+        raise ValueError(f"No K fluorescence line data for detector material {detector.symbol}.")
+
+    escape_weighted_pe = detector.photoelectric_mass_attenuation_coefficient(
+        u.Quantity(line_energy, u.keV)
+    ).to_value("cm2/g")
+    return _finalise(
+        energy_kev,
+        incident_pe,
+        escape_weighted_pe,
+        np.stack(yield_weight, axis=1),
+        k_edge_energy,
+        line_energy,
+        theta_deg,
+    )
+
+
 def fluorescence_escape(energy, detector, theta=0 * u.deg):
     """
     K-shell fluorescence escape probabilities and energies for a detector.
@@ -263,11 +321,10 @@ def fluorescence_escape(energy, detector, theta=0 * u.deg):
     energy : `astropy.units.Quantity`
         Incident photon energy.
     detector : `~roentgen.absorption.material.Material`
-        The detector material. Must be a single element or a dict-of-elements
-        `Material` matching one of `SUPPORTED_DETECTORS` (Ge, Si, NaI
-        i.e. {Na, I}, CsI i.e. {Cs, I}, CdTe i.e. {Cd, Te}, or SXS i.e.
-        {Xe, C, O}) — the same fixed set the reference implementation
-        supports, since fluorescence yield data isn't tabulated elsewhere.
+        The detector material, built with a database that provides the
+        photoelectric component. Ge, Si, NaI, CsI, CdTe and SXS ({Xe, C, O})
+        use the constants ported from ``fluorescence.pro``, anything else the
+        generic model described in the module docstring.
     theta : `astropy.units.Quantity`, optional
         Angle of incidence from the detector normal. Default 0 deg.
 
@@ -279,14 +336,9 @@ def fluorescence_escape(energy, detector, theta=0 * u.deg):
     escape_line_energy : `numpy.ndarray`
         Escape line energies, in keV.
     """
-    symbols = frozenset(s.capitalize() for s in detector.list_symbols)
-    name = SUPPORTED_DETECTORS.get(symbols)
-    if name is None:
-        supported = ", ".join(sorted(SUPPORTED_DETECTORS.values()))
-        raise ValueError(
-            f"No fluorescence escape data for detector material "
-            f"{sorted(symbols)}. Supported: {supported}."
-        )
     theta_deg = theta.to_value(u.deg)
     energy_kev = np.atleast_1d(energy.to_value(u.keV)).astype(float)
+    name = SUPPORTED_DETECTORS.get(frozenset(s.capitalize() for s in detector.list_symbols))
+    if name is None:
+        return _generic(energy_kev, detector, theta_deg)
     return _DISPATCH[name](energy_kev, theta_deg)

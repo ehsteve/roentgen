@@ -103,9 +103,9 @@ def _compute_response_matrix(
     element, or a dict of elements), the photoelectric/Compton split this
     needs isn't available from the default NIST-backed data.
 
-    Fluorescence escape further requires the detector's elements to match
-    one of `roentgen.response.fluorescence.SUPPORTED_DETECTORS`
-    (Ge, Si, NaI, CsI, CdTe, or SXS).
+    Fluorescence escape uses the constants from ``resp_calc.pro`` for Ge, Si, NaI, CsI,
+    CdTe and SXS (`roentgen.response.fluorescence.SUPPORTED_DETECTORS`) and a generic
+    model for any other detector.
 
     Parameters
     ----------
@@ -153,9 +153,7 @@ def _compute_response_matrix(
     NotImplementedError
         If ``response.detector`` wasn't built with ``database="mcmaster"``.
     ValueError
-        If ``response.detector``'s elements aren't one of the fixed set
-        `roentgen.response.fluorescence.SUPPORTED_DETECTORS`, or if
-        ``fwhm`` isn't given and ``nosigma`` isn't `True`.
+        If ``fwhm`` isn't given and ``nosigma`` isn't `True`.
     """
     detector = response.detector
     optical_path = response.optical_path

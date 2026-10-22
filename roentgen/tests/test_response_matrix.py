@@ -101,13 +101,14 @@ def test_response_matrix_requires_mcmaster_detector():
         response.response_matrix(_edges(5, 50, 10))
 
 
-def test_response_matrix_unsupported_fluorescence_material():
-    # a McMaster-capable element that isn't in the fixed fluorescence list
+def test_response_matrix_generic_fluorescence_material():
+    # not in the fixed fluorescence list, so uses the generic model
     detector = Material("Au", 100 * u.micron, database="mcmaster")
     optical_path = Material("N", 1e-30 * u.um, database="mcmaster")
     response = Response(optical_path, detector)
-    with pytest.raises(ValueError):
-        response.response_matrix(_edges(5, 50, 10))
+    rm = response.response_matrix(_edges(5, 150, 10))
+    assert np.all(np.isfinite(rm.eloss_matrix))
+    assert np.all(rm.eloss_matrix >= 0)
 
 
 @pytest.mark.parametrize("detector_name", ["Si", "Ge", "NaI", "CsI", "CdTe"])
