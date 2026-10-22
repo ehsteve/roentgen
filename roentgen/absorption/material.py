@@ -47,11 +47,11 @@ class Material(object):
         If many materials are present, calculates the weighted density.
     database : `str`, optional
         The cross-section data source to use: ``"nist"`` (default),
-        ``"mcmaster"``, or ``"xcom"``. Despite the name, ``"nist"`` isn't
+        ``"mcmaster"``, ``"xcom"``, ``"xraylib"`` or ``"xraydb"``. Despite the name, ``"nist"`` isn't
         "the" NIST source -- ``"xcom"`` is *also* NIST data, just from a
         different NIST publication (see
         `~roentgen.absorption.cross_section_database` for the distinction).
-        ``"mcmaster"`` and ``"xcom"`` additionally provide the
+        All but ``"nist"`` additionally provide the
         photoelectric/Compton/Rayleigh split (see
         `photoelectric_mass_attenuation_coefficient`,
         `compton_mass_attenuation_coefficient`) but only for materials made
@@ -59,7 +59,8 @@ class Material(object):
         the McMaster et al. 1969/1970 data (valid 1-1000 keV, matches SSW's
         ``resp_calc.pro``); ``"xcom"`` is current NIST XCOM data (valid
         1 keV-1e8 keV, one more element covered) -- see
-        `roentgen.absorption.mcmaster`/`roentgen.absorption.xcom`.
+        `roentgen.absorption.mcmaster`/`roentgen.absorption.xcom`. ``"xraylib"`` and
+        ``"xraydb"`` use the optional packages of those names.
 
     .. warning::
         Elements beyond z = 92 are not supported by this class.

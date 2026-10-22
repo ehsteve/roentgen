@@ -1,7 +1,7 @@
 """
 Pluggable cross-section data sources for `~roentgen.absorption.material.Material`.
 
-roentgen ships three data sources. Note that two of them are both NIST data, just from different NIST publications,
+roentgen ships five data sources. Note that two of them are both NIST data, just from different NIST publications,
  ``"nist"`` is *not* "the" NIST source, it's specifically the older total-only tables:
 
 - ``"nist"`` (the default) — roentgen's existing per-element/compound total
@@ -23,19 +23,33 @@ roentgen ships three data sources. Note that two of them are both NIST data, jus
   Covers one more element than ``"mcmaster"`` (z=1-92 except z=91, vs. 87
   elements for ``"mcmaster"``).
 
+- ``"xraylib"`` — the `xraylib <https://github.com/tschoonj/xraylib>`__ package
+  (optional dependency, ``pip install xraylib``); total, photoelectric,
+  coherent and incoherent components.
+- ``"xraydb"`` — the `xraydb <https://xraypy.github.io/XrayDB/>`__ package's
+  Elam tables (optional dependency, ``pip install xraydb``); total,
+  photoelectric, coherent and incoherent components. Valid 0.1-800 keV.
+
 Which source a `Material` uses is an explicit, per-`Material` choice (the
 ``database`` keyword), rather than something a function silently decides on
 your behalf. This also gives a slot for adding further sources later
 without another API change.
 """
 
+import numpy as np
+
+import astropy.units as u
+
 from roentgen.absorption import mcmaster, xcom
+from roentgen.util import get_atomic_number
 
 __all__ = [
     "CrossSectionDatabase",
     "NISTDatabase",
     "McMasterDatabase",
     "XCOMDatabase",
+    "XrayLibDatabase",
+    "XrayDBDatabase",
     "get_database",
 ]
 
@@ -71,7 +85,7 @@ class CrossSectionDatabase:
         raise NotImplementedError(
             f"The '{self.name}' database does not provide component "
             "(photoelectric/compton/rayleigh) cross-sections, only the total. "
-            "Construct the Material with database='mcmaster' or database='xcom' for component access."
+            "Construct the Material with a database that provides components (e.g. 'mcmaster', 'xcom', 'xraylib', 'xraydb')."
         )
 
     def compton(self, element, energy):
@@ -79,7 +93,7 @@ class CrossSectionDatabase:
         raise NotImplementedError(
             f"The '{self.name}' database does not provide component "
             "(photoelectric/compton/rayleigh) cross-sections, only the total. "
-            "Construct the Material with database='mcmaster' or database='xcom' for component access."
+            "Construct the Material with a database that provides components (e.g. 'mcmaster', 'xcom', 'xraylib', 'xraydb')."
         )
 
     def rayleigh(self, element, energy):
@@ -87,7 +101,7 @@ class CrossSectionDatabase:
         raise NotImplementedError(
             f"The '{self.name}' database does not provide component "
             "(photoelectric/compton/rayleigh) cross-sections, only the total. "
-            "Construct the Material with database='mcmaster' or database='xcom' for component access."
+            "Construct the Material with a database that provides components (e.g. 'mcmaster', 'xcom', 'xraylib', 'xraydb')."
         )
 
 
@@ -148,7 +162,89 @@ class XCOMDatabase(CrossSectionDatabase):
         return xcom.coherent_mass_attenuation(element, energy)
 
 
-_DATABASES = {"nist": NISTDatabase(), "mcmaster": McMasterDatabase(), "xcom": XCOMDatabase()}
+def _atomic_number(element):
+    # plain int: xraydb treats numpy integers as element names
+    return int(get_atomic_number(element)) if isinstance(element, str) else int(element)
+
+
+class XrayLibDatabase(CrossSectionDatabase):
+    """Cross-sections from the optional ``xraylib`` package."""
+
+    name = "xraylib"
+
+    def _cs(self, function_name, element, energy):
+        try:
+            import xraylib
+        except ImportError:
+            raise ImportError(
+                "database='xraylib' requires the optional xraylib package: pip install xraylib"
+            ) from None
+        z = _atomic_number(element)
+        # xraylib only accepts scalar energies
+        energy_kev = np.atleast_1d(energy.to_value(u.keV)).astype(float)
+        result = np.array([getattr(xraylib, function_name)(z, e) for e in energy_kev])
+        return u.Quantity(result[0] if energy.isscalar else result, "cm2/g")
+
+    @u.quantity_input(energy=u.keV)
+    def total(self, element, energy):
+        return self._cs("CS_Total", element, energy)
+
+    @u.quantity_input(energy=u.keV)
+    def photoelectric(self, element, energy):
+        return self._cs("CS_Photo", element, energy)
+
+    @u.quantity_input(energy=u.keV)
+    def compton(self, element, energy):
+        return self._cs("CS_Compt", element, energy)
+
+    @u.quantity_input(energy=u.keV)
+    def rayleigh(self, element, energy):
+        return self._cs("CS_Rayl", element, energy)
+
+
+class XrayDBDatabase(CrossSectionDatabase):
+    """Elam-table cross-sections from the optional ``xraydb`` package."""
+
+    name = "xraydb"
+
+    def _mu(self, kind, element, energy):
+        try:
+            import xraydb
+        except ImportError:
+            raise ImportError(
+                "database='xraydb' requires the optional xraydb package: pip install xraydb"
+            ) from None
+        energy_ev = np.atleast_1d(energy.to_value(u.eV)).astype(float)
+        # xraydb only warns and extrapolates outside its range; reject instead, like the other databases
+        if np.any((energy_ev < 100) | (energy_ev > 800e3)):
+            raise ValueError("The 'xraydb' database is only valid from 0.1 keV to 800 keV.")
+        result = xraydb.mu_elam(_atomic_number(element), energy_ev, kind=kind)
+        return u.Quantity(result[0] if energy.isscalar else result, "cm2/g")
+
+    @u.quantity_input(energy=u.keV)
+    def total(self, element, energy):
+        return self._mu("total", element, energy)
+
+    @u.quantity_input(energy=u.keV)
+    def photoelectric(self, element, energy):
+        return self._mu("photo", element, energy)
+
+    @u.quantity_input(energy=u.keV)
+    def compton(self, element, energy):
+        return self._mu("incoh", element, energy)
+
+    @u.quantity_input(energy=u.keV)
+    def rayleigh(self, element, energy):
+        return self._mu("coh", element, energy)
+
+
+_DATABASES = {
+    "nist": NISTDatabase(),
+    "mcmaster": McMasterDatabase(),
+    "xcom": XCOMDatabase(),
+    "xraylib": XrayLibDatabase(),
+    "xraydb": XrayDBDatabase(),
+}
 
 
 def get_database(database):
