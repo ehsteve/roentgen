@@ -112,7 +112,7 @@ def compton_max_electron_energy(photon_energy):
     return photon_energy / (0.5 / alpha + 1.0)
 
 
-def klein(photon_energy, mu, elements=None):
+def klein(photon_energy, mu, elements=None, exact=False):
     """
     Klein-Nishina differential Compton scattering cross-section, in
     cm2 electron-1 sr-1.
@@ -120,6 +120,11 @@ def klein(photon_energy, mu, elements=None):
     Free-electron formula, unless ``elements`` is given in which case it is
     multiplied by the incoherent scattering function S(q,Z) (see the module
     docstring).
+
+    By default this reproduces ``klein.pro``, which has ``(1/(1+alpha(1-mu)))**3``
+    where the Klein-Nishina formula has a power of 2, i.e. an extra factor of
+    E'/E that makes it integrate to less than the true total cross-section
+    (by 5% at 30 keV, 34% at 500 keV). ``exact=True`` uses the correct power.
 
     Parameters
     ----------
@@ -130,6 +135,8 @@ def klein(photon_energy, mu, elements=None):
     elements : `dict`, optional
         ``{atomic number: relative number of atoms}`` of the scatterer
         (e.g. mass fraction / atomic mass), enables the S(q,Z) correction.
+    exact : `bool`, optional
+        Use the exact Klein-Nishina formula instead of the ``klein.pro`` one. Default `False`.
     """
     alpha = photon_energy / _ELECTRON_REST_ENERGY
     one_minus_mu = 1.0 - mu
@@ -138,7 +145,7 @@ def klein(photon_energy, mu, elements=None):
     one_plus_mu2 = 1.0 + mu**2
     result = (
         _CLASSICAL_ELECTRON_RADIUS**2
-        * (1.0 / one_plus_alpha_term) ** 3
+        * (1.0 / one_plus_alpha_term) ** (2 if exact else 3)
         * (one_plus_mu2 / 2.0)
         * (1.0 + alpha_one_minus_mu**2 / one_plus_mu2 / one_plus_alpha_term)
     )
@@ -147,7 +154,7 @@ def klein(photon_energy, mu, elements=None):
     return result
 
 
-def klein_electron(photon_energy, electron_energy, elements=None):
+def klein_electron(photon_energy, electron_energy, elements=None, exact=False):
     """
     Klein-Nishina differential Compton cross-section as a function of a the kinetic energy of the scattered electron.
 
@@ -157,7 +164,7 @@ def klein_electron(photon_energy, electron_energy, elements=None):
         Incident photon energy in keV (scalar).
     electron_energy : `numpy.ndarray`
         Kinetic energy of the scattered electron, in keV.
-    elements : `dict`, optional
+    elements, exact : optional
         As for `klein`.
 
     Returns
@@ -180,7 +187,7 @@ def klein_electron(photon_energy, electron_energy, elements=None):
 
     valid = np.abs(mu) <= 1.0
     if np.any(valid):
-        dsigma_dmu = 2.0 * np.pi * klein(photon_energy, mu[valid], elements)
+        dsigma_dmu = 2.0 * np.pi * klein(photon_energy, mu[valid], elements, exact)
         differential_cross_section[valid] = (
             dsigma_dmu * (1.0 + alpha * (1.0 - mu[valid])) ** 2 / alpha / photon_energy
         )
@@ -192,7 +199,9 @@ def _value_locate(edges_1d, values):
     return np.searchsorted(edges_1d, values, side="right") - 1
 
 
-def compton_scatter_matrix(channel_edges, photon_edges, compton_probability, elements=None):
+def compton_scatter_matrix(
+    channel_edges, photon_edges, compton_probability, elements=None, exact=False
+):
     """The single-Compton-scatterer contribution to a detector response
     matrix: integrates the Klein-Nishina cross-section through the output
     channel edges for each input photon energy.
@@ -206,8 +215,8 @@ def compton_scatter_matrix(channel_edges, photon_edges, compton_probability, ele
     compton_probability : `numpy.ndarray`
         Probability of a Compton interaction in the detector, one per input
         photon energy bin.
-    elements : `dict`, optional
-        As for `klein`; enables the S(q,Z) correction to the continuum shape.
+    elements, exact : optional
+        As for `klein`.
 
     Returns
     -------
@@ -252,7 +261,7 @@ def compton_scatter_matrix(channel_edges, photon_edges, compton_probability, ele
         fine_bins = edge_products(fine_grid_edges)
         fine_width, fine_center = fine_bins.width, fine_bins.gmean
 
-        differential_cross_section = klein_electron(photon_center[i], fine_center, elements)
+        differential_cross_section = klein_electron(photon_center[i], fine_center, elements, exact)
         total_cross_section = np.sum(fine_width * differential_cross_section)
 
         n_valid_channels = max_channel_index[i] + 1

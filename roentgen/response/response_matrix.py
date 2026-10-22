@@ -84,6 +84,7 @@ def _compute_response_matrix(
     nosigma: bool = False,
     linearpha: bool = False,
     scattering_function: bool = False,
+    exact_klein_nishina: bool = False,
 ):
     """Compute the full detector energy-redistribution (response) matrix.
 
@@ -139,6 +140,9 @@ def _compute_response_matrix(
         If `True`, include the incoherent scattering function S(q,Z) in the
         Compton continuum shape (see `roentgen.response.compton`), otherwise
         plain Klein-Nishina as in ``resp_calc.pro``.
+    exact_klein_nishina : `bool`, optional
+        If `True`, use the exact Klein-Nishina formula for the Compton continuum
+        rather than the one in ``klein.pro`` (see `roentgen.response.compton.klein`).
 
     Returns
     -------
@@ -269,7 +273,7 @@ def _compute_response_matrix(
             for z, fraction in zip(zs, detector.fractional_masses)
         }
     eloss_matrix = eloss_matrix + compton_scatter_matrix(
-        eout_edges, ein_edges, compton_probability, elements
+        eout_edges, ein_edges, compton_probability, elements, exact_klein_nishina
     )
 
     # Resolution brodening

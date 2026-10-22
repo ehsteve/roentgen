@@ -51,3 +51,37 @@ def test_response_matrix_scattering_function_changes_continuum_shape_only():
     # same total interaction probability per input energy, only redistributed (away from the top
     # of the output grid, where the continuum is truncated)
     assert_allclose(plain.sum(axis=0)[:50], corrected.sum(axis=0)[:50], rtol=1e-2)
+
+
+def _klein_nishina_total(energy):
+    """Analytic total Klein-Nishina cross-section, cm2 per electron."""
+    a = energy / 510.99895
+    r2 = 7.940787e-26
+    return (
+        2
+        * np.pi
+        * r2
+        * (
+            (1 + a) / a**2 * (2 * (1 + a) / (1 + 2 * a) - np.log(1 + 2 * a) / a)
+            + np.log(1 + 2 * a) / (2 * a)
+            - (1 + 3 * a) / (1 + 2 * a) ** 2
+        )
+    )
+
+
+@pytest.mark.parametrize("energy", [30.0, 150.0, 500.0])
+def test_exact_klein_integrates_to_total_cross_section(energy):
+    mu = np.linspace(-1, 1, 20001)
+    exact = 2 * np.pi * np.trapezoid(klein(energy, mu, exact=True), mu)
+    assert_allclose(exact, _klein_nishina_total(energy), rtol=1e-4)
+    # klein.pro's version is low by a factor E'/E
+    assert 2 * np.pi * np.trapezoid(klein(energy, mu), mu) < 0.97 * exact
+
+
+def test_response_matrix_exact_klein_nishina_changes_continuum():
+    detector = Material("Ge", 0.5 * u.cm, database="mcmaster")
+    response = Response(Material("N", 1e-30 * u.um, database="mcmaster"), detector)
+    edges = np.geomspace(10, 100, 60) * u.keV
+    default = response.response_matrix(edges).eloss_matrix
+    exact = response.response_matrix(edges, exact_klein_nishina=True).eloss_matrix
+    assert not np.allclose(default, exact)
