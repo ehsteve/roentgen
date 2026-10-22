@@ -452,6 +452,7 @@ class Response(object):
         fwhm=None,
         theta: Quantity[u.deg] = 0 * u.deg,
         area: Quantity[u.cm**2] = 1 * u.cm**2,
+        scattering_function: bool = False,
     ):
         """Compute the full detector energy-redistribution (response) matrix.
 
@@ -486,6 +487,10 @@ class Response(object):
             Angle of incidence from the detector normal. Default 0 deg.
         area : `astropy.units.Quantity`, optional
             Detector geometric area. Default 1 cm2.
+        scattering_function : `bool`, optional
+            If `True`, include the incoherent scattering function S(q,Z) in the
+            shape of the Compton continuum (see `roentgen.response.compton`),
+            otherwise plain Klein-Nishina as in ``resp_calc.pro``. Default `False`.
 
         Returns
         -------
@@ -510,6 +515,7 @@ class Response(object):
             theta=theta,
             area=area,
             nosigma=fwhm is None,
+            scattering_function=scattering_function,
         )
 
 

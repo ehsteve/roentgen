@@ -63,3 +63,11 @@ lara
 ----
 Source:  `Laboratoire Nationale Henri Becquerel Library for gamma and alpha emissions <http://www.lnhb.fr/accueil/donnees-nucleaires/module-lara/>`_
 More specifically, data files are from `here <http://www.lnhb.fr/accueil/donnees-nucleaires/donnees-nucleaires-tableau/>`__
+incoherent_scattering_function.csv
+----------------------------------
+Source: J.H. Hubbell et al., J. Phys. Chem. Ref. Data 4, 471 (1975); erratum 6, 615 (1977), sampled from the
+`xraylib <https://github.com/tschoonj/xraylib>`__ ``SF_Compt`` function by ``scripts/extract_scattering_function.py``.
+The incoherent scattering function S(q,Z) for z=1-98 on a log grid of q = sin(theta/2)/wavelength (1/Angstrom).
+
+- **q**: momentum transfer variable in 1/Angstrom
+- **zNN**: S(q,Z=NN), dimensionless

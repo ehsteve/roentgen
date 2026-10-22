@@ -32,9 +32,11 @@ import numpy as np
 import astropy.units as u
 from astropy.units import Quantity
 
+import roentgen
 from roentgen.response.compton import compton_scatter_matrix
 from roentgen.response.fluorescence import fluorescence_escape
 from roentgen.response.pulse_spread import pulse_spread_matrix
+from roentgen.util import get_atomic_number
 from roentgen.util.edges import edge_products, interp_linear_extrap
 
 __all__ = ["ResponseMatrix"]
@@ -81,6 +83,7 @@ def _compute_response_matrix(
     area: Quantity[u.cm**2] = 1 * u.cm**2,
     nosigma: bool = False,
     linearpha: bool = False,
+    scattering_function: bool = False,
 ):
     """Compute the full detector energy-redistribution (response) matrix.
 
@@ -132,6 +135,10 @@ def _compute_response_matrix(
     linearpha : `bool`, optional
         If `True` and ``eout`` isn't given, use a a linear (rather than log)
         output energy grid.
+    scattering_function : `bool`, optional
+        If `True`, include the incoherent scattering function S(q,Z) in the
+        Compton continuum shape (see `roentgen.response.compton`), otherwise
+        plain Klein-Nishina as in ``resp_calc.pro``.
 
     Returns
     -------
@@ -253,7 +260,17 @@ def _compute_response_matrix(
         eloss_matrix[escape_row_hi, escape_col_hi] += escape_weight_hi * escape_contribution
 
     # Compton-scatter continuum
-    eloss_matrix = eloss_matrix + compton_scatter_matrix(eout_edges, ein_edges, compton_probability)
+    # number of atoms per gram of each element, the weights S(q,Z) is averaged with
+    elements = None
+    if scattering_function:
+        zs = [int(get_atomic_number(symbol)) for symbol in detector.list_symbols]
+        elements = {
+            z: fraction / roentgen.elements.loc[z]["atomic mass"].value
+            for z, fraction in zip(zs, detector.fractional_masses)
+        }
+    eloss_matrix = eloss_matrix + compton_scatter_matrix(
+        eout_edges, ein_edges, compton_probability, elements
+    )
 
     # Resolution brodening
     area_cm2 = area.to_value(u.cm**2)
