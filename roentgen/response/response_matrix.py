@@ -104,8 +104,8 @@ def _compute_response_matrix(
     needs isn't available from the default NIST-backed data.
 
     Fluorescence escape uses the constants from ``resp_calc.pro`` for Ge, Si, NaI, CsI,
-    CdTe and SXS (`roentgen.response.fluorescence.SUPPORTED_DETECTORS`) and a generic
-    model for any other detector.
+    CdTe and SXS (`roentgen.response.fluorescence.SUPPORTED_DETECTORS`) with ``database="mcmaster"``,
+    and otherwise a generic model using the database's own K-shell data.
 
     Parameters
     ----------
@@ -219,6 +219,7 @@ def _compute_response_matrix(
     fluorescence_probability, fluorescence_energy = fluorescence_escape(
         ein_center_quantity, detector, theta=theta
     )
+    fluorescence_energy = fluorescence_energy.to_value(u.keV)
     n_fluorescence_lines = fluorescence_energy.size
     total_fluorescence_probability = fluorescence_probability.sum(axis=1)
 

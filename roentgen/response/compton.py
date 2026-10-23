@@ -47,6 +47,7 @@ _SCATTERING_FUNCTION_FILE = roentgen._data_directory / "incoherent_scattering_fu
 _scattering_function_table = None
 
 
+@u.quantity_input(q=1 / u.angstrom)
 def incoherent_scattering_function(z, q):
     """
     The incoherent scattering function S(q,Z) of an atom.
@@ -58,8 +59,8 @@ def incoherent_scattering_function(z, q):
     ----------
     z : `int`
         Atomic number, 1-98.
-    q : `numpy.ndarray` or float
-        Momentum transfer variable sin(theta/2)/wavelength, in 1/Angstrom.
+    q : `astropy.units.Quantity`
+        Momentum transfer variable sin(theta/2)/wavelength, in units of inverse length.
 
     Returns
     -------
@@ -77,7 +78,7 @@ def incoherent_scattering_function(z, q):
     table_q = np.asarray(_scattering_function_table["q"], dtype=float)
     table_s = np.asarray(_scattering_function_table[column], dtype=float)
 
-    q = np.asarray(q, dtype=float)
+    q = np.asarray(q.to_value(1 / u.angstrom), dtype=float)
     # interpolate in log-log, the clipped q below table_q[0] is then scaled back with S ~ q**2
     clipped = np.clip(q, table_q[0], table_q[-1])
     s = np.exp(np.interp(np.log(clipped), np.log(table_q), np.log(table_s)))
@@ -88,7 +89,10 @@ def _scattering_factor(photon_energy, mu, elements):
     """S(q,Z) averaged over ``elements`` per electron, so it multiplies a per-electron
     Klein-Nishina cross-section."""
     q = photon_energy / _HC_KEV_ANGSTROM * np.sqrt((1.0 - mu) / 2.0)
-    atoms = sum(weight * incoherent_scattering_function(z, q) for z, weight in elements.items())
+    atoms = sum(
+        weight * incoherent_scattering_function(z, q << (1 / u.angstrom))
+        for z, weight in elements.items()
+    )
     electrons = sum(weight * z for z, weight in elements.items())
     return atoms / electrons
 

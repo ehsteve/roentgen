@@ -470,8 +470,8 @@ class Response(object):
         matches ``resp_calc.pro`` exactly (valid 1-1000 keV); ``"xcom"`` uses
         current NIST data over a wider range (1 keV-1e8 keV). Fluorescence
         escape uses the constants from ``resp_calc.pro`` for Ge, Si, NaI, CsI, CdTe and SXS
-        (`roentgen.response.fluorescence.SUPPORTED_DETECTORS`) and a generic model for any
-        other detector.
+        (`roentgen.response.fluorescence.SUPPORTED_DETECTORS`) with ``database="mcmaster"``, and
+        otherwise a generic model using the database's own K-shell data.
 
         Parameters
         ----------

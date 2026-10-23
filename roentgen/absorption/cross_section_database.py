@@ -36,11 +36,14 @@ your behalf. This also gives a slot for adding further sources later
 without another API change.
 """
 
+import re
+
 import numpy as np
 
 import astropy.units as u
 
 from roentgen.absorption import mcmaster, xcom
+from roentgen.lines import lines
 from roentgen.util import get_atomic_number
 
 __all__ = [
@@ -52,6 +55,11 @@ __all__ = [
     "XrayDBDatabase",
     "get_database",
 ]
+
+
+def _atomic_number(element):
+    # plain int: xraydb treats numpy integers as element names
+    return int(get_atomic_number(element)) if isinstance(element, str) else int(element)
 
 
 class CrossSectionDatabase:
@@ -103,6 +111,16 @@ class CrossSectionDatabase:
             "(photoelectric/compton/rayleigh) cross-sections, only the total. "
             "Construct the Material with a database that provides components (e.g. 'mcmaster', 'xcom', 'xraylib', 'xraydb')."
         )
+
+    def k_shell(self, element):
+        """K-shell data used for fluorescence escape: ``(k_edge, fluorescence_yield,
+        line_energies, line_intensities)``, the K edge and line energies as
+        `astropy.units.Quantity` and the yield and relative line intensities dimensionless.
+
+        Defaults to roentgen's bundled data (`roentgen.lines.k_shell`), which databases that
+        ship their own K-shell data override so that a `Material` gets all of its numbers from
+        one source."""
+        return lines.k_shell(_atomic_number(element))
 
 
 class NISTDatabase(CrossSectionDatabase):
@@ -162,11 +180,6 @@ class XCOMDatabase(CrossSectionDatabase):
         return xcom.coherent_mass_attenuation(element, energy)
 
 
-def _atomic_number(element):
-    # plain int: xraydb treats numpy integers as element names
-    return int(get_atomic_number(element)) if isinstance(element, str) else int(element)
-
-
 class XrayLibDatabase(CrossSectionDatabase):
     """Cross-sections from the optional ``xraylib`` package."""
 
@@ -200,6 +213,33 @@ class XrayLibDatabase(CrossSectionDatabase):
     @u.quantity_input(energy=u.keV)
     def rayleigh(self, element, energy):
         return self._cs("CS_Rayl", element, energy)
+
+    def k_shell(self, element):
+        try:
+            import xraylib
+        except ImportError:
+            raise ImportError(
+                "database='xraylib' requires the optional xraylib package: pip install xraylib"
+            ) from None
+        z = _atomic_number(element)
+        energies, rates = [], []
+        # individual K-X transitions only, KA_LINE/KB_LINE are sums of them
+        for name in dir(xraylib):
+            if re.fullmatch(r"K[LMNOP]\d_LINE", name):
+                try:
+                    energy = xraylib.LineEnergy(z, getattr(xraylib, name))
+                    rate = xraylib.RadRate(z, getattr(xraylib, name))
+                except ValueError:  # transition doesn't exist for this element
+                    continue
+                if rate > 0:
+                    energies.append(energy)
+                    rates.append(rate)
+        return (
+            u.Quantity(xraylib.EdgeEnergy(z, xraylib.K_SHELL), u.keV),
+            xraylib.FluorYield(z, xraylib.K_SHELL),
+            u.Quantity(energies, u.keV),
+            np.array(rates),
+        )
 
 
 class XrayDBDatabase(CrossSectionDatabase):
@@ -236,6 +276,23 @@ class XrayDBDatabase(CrossSectionDatabase):
     @u.quantity_input(energy=u.keV)
     def rayleigh(self, element, energy):
         return self._mu("coh", element, energy)
+
+    def k_shell(self, element):
+        try:
+            import xraydb
+        except ImportError:
+            raise ImportError(
+                "database='xraydb' requires the optional xraydb package: pip install xraydb"
+            ) from None
+        z = _atomic_number(element)
+        edge = xraydb.xray_edge(z, "K")
+        k_lines = list(xraydb.xray_lines(z, "K").values())
+        return (
+            u.Quantity(edge.energy, u.eV).to(u.keV),
+            edge.fyield,
+            u.Quantity([line.energy for line in k_lines], u.eV).to(u.keV),
+            np.array([line.intensity for line in k_lines]),
+        )
 
 
 _DATABASES = {
