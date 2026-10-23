@@ -12,15 +12,15 @@ MU = np.cos(np.array([0.3, 1.0, 2.5]))
 
 
 def test_limits():
-    assert_allclose(incoherent_scattering_function(26, 1e4), 26, rtol=1e-6)
+    assert_allclose(incoherent_scattering_function(26, 1e4 / u.angstrom), 26, rtol=1e-6)
     # S goes as q**2 below the table
-    s1, s2 = incoherent_scattering_function(26, np.array([1e-4, 2e-4]))
+    s1, s2 = incoherent_scattering_function(26, np.array([1e-4, 2e-4]) / u.angstrom)
     assert_allclose(s2 / s1, 4)
 
 
 def test_unsupported_z():
     with pytest.raises(ValueError, match="z=99"):
-        incoherent_scattering_function(99, 1.0)
+        incoherent_scattering_function(99, 1.0 / u.angstrom)
 
 
 def test_klein_default_unchanged_and_hydrogen_nearly_free():

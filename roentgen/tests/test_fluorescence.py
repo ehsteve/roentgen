@@ -50,7 +50,7 @@ def test_generic_zero_below_k_edge():
     probability, line_energy = fluorescence_escape(np.array([50.0, 100.0]) * u.keV, detector)
     assert np.all(probability[0] == 0)
     assert np.all(probability[1] > 0)
-    assert np.all(line_energy < 80.7)
+    assert np.all(line_energy < 80.7 * u.keV)
 
 
 def test_generic_other_database():
@@ -75,7 +75,7 @@ def test_k_shell_data_agrees_between_databases(database, element):
     pytest.importorskip("xraydb")
     k_edge, k_yield, energies, intensity = get_database(database).k_shell(element)
     ref_edge, ref_yield, _, _ = get_database("xraylib").k_shell(element)
-    assert_allclose(k_edge, ref_edge, rtol=1e-3)
+    assert_allclose(k_edge.to_value(u.keV), ref_edge.to_value(u.keV), rtol=1e-3)
     assert_allclose(k_yield, ref_yield, rtol=0.05)
     assert energies.size == intensity.size > 0
 
