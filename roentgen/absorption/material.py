@@ -477,8 +477,8 @@ class Response(object):
         edges_out : `astropy.units.Quantity`, optional
             Output (PHA channel) bin edges. Defaults to ``edges_in``.
         fwhm : callable, optional
-            ``fwhm(energy_kev) -> fwhm_kev``, the detector's energy
-            resolution as a function of energy (both plain arrays in keV).
+            ``fwhm(energy) -> fwhm``, the detector's energy resolution as a
+            function of energy, taking and returning `astropy.units.Quantity`.
             If not given, no resolution broadening is applied
             (``pulse_height_matrix`` and ``smatrix`` will be `None`).
         theta : `astropy.units.Quantity`, optional
@@ -489,6 +489,11 @@ class Response(object):
         Returns
         -------
         `~roentgen.response.response_matrix.ResponseMatrix`
+            ``eloss_matrix`` and ``pulse_height_matrix`` are in ct cm2 / ph and
+            ``smatrix`` in ct cm2 / (ph keV), so
+            ``pulse_height_matrix @ (flux * np.diff(ein) * exposure)`` is counts
+            per output bin for a flux density in ph / (keV s cm2).
+            ``efficiency`` and ``pulse_shape`` are dimensionless.
         """
         # bin edges come straight from the user and the port silently gives wrong
         # numbers if they are not ascending

@@ -33,25 +33,26 @@ fluorescence escape is only tabulated for a handful of detector materials
     window = Material('Be', 1 * u.cm, database='mcmaster')
     resp = Response(window, detector)
 
-    # a simple, illustrative energy-resolution model: FWHM in keV
-    fwhm = lambda energy: 0.5 + 0.02 * np.sqrt(energy)
+    # a simple, illustrative energy-resolution model
+    fwhm = lambda energy: (0.5 + 0.02 * np.sqrt(energy.to_value(u.keV))) * u.keV
 
     edges = np.geomspace(4, 150, 513) * u.keV
     response_matrix = resp.response_matrix(edges, fwhm=fwhm, area=3 * u.cm**2)
 
     fig, ax = plt.subplots()
-    vmax = response_matrix.smatrix.max()
+    smatrix = response_matrix.smatrix.to_value(u.ct * u.cm**2 / (u.photon * u.keV))
+    vmax = smatrix.max()
     mesh = ax.pcolormesh(
         response_matrix.ein.to_value(u.keV),
         response_matrix.eout.to_value(u.keV),
-        response_matrix.smatrix,
+        smatrix,
         norm=LogNorm(vmin=vmax * 1e-5, vmax=vmax),
         shading='auto',
     )
     ax.set_xlabel('Photon Energy [keV]')
     ax.set_ylabel('Measured Energy [keV]')
     ax.set_title('CdTe Detector Response Matrix')
-    fig.colorbar(mesh, label='Counts / keV / photon')
+    fig.colorbar(mesh, label='Counts / keV per photon cm$^{-2}$')
     plt.show()
 
 The bright diagonal ridge is the photopeak: most photons are fully absorbed
@@ -75,11 +76,12 @@ common choice for CdTe). No need to recompute ``response_matrix`` -- with
     line_energy = 59.5 * u.keV
     line_index = np.searchsorted(response_matrix.ein.to_value(u.keV), line_energy.to_value(u.keV)) - 1
     eout_center = 0.5 * (response_matrix.eout[:-1] + response_matrix.eout[1:])
+    line_cut = response_matrix.smatrix[:, line_index].to_value(u.ct * u.cm**2 / (u.photon * u.keV))
 
     fig, ax = plt.subplots()
-    ax.semilogy(eout_center, response_matrix.smatrix[:, line_index])
-    ax.set_xlabel('Measured Energy')
-    ax.set_ylabel('Counts / keV / photon')
+    ax.semilogy(eout_center.to_value(u.keV), line_cut)
+    ax.set_xlabel('Measured Energy [keV]')
+    ax.set_ylabel('Counts / keV per photon cm$^{-2}$')
     ax.set_title(f'CdTe detector response to a {line_energy} photon')
     ax.set_ylim(1e-4, 3)
     plt.show()
@@ -89,3 +91,33 @@ continuum below it, there's a cluster of escape peaks around 25-38 keV --
 59.5 keV minus Cd's and Te's K-shell fluorescence energies - from photons
 whose K-shell fluorescence photon escaped the detector instead of being
 reabsorbed.
+
+Applying the response to a source
+---------------------------------
+
+The response matrix is per unit photon fluence: it includes the detector area
+but not the width of the input energy bins, as in SSW's ``resp_calc.pro``. A
+photon flux density at the detector multiplied by the input bin widths and
+the exposure time is therefore the fluence the matrix expects, and the
+result is counts per output bin. The flux density follows from the source
+model and its distance (for a point source it falls as :math:`1/r^2`):
+
+.. plot::
+    :context: close-figs
+    :include-source:
+
+    ein_center = np.sqrt(response_matrix.ein[:-1] * response_matrix.ein[1:])
+    distance = 2 * u.au
+    flux = 40 * (ein_center / (10 * u.keV)) ** -3 * u.photon / (u.keV * u.s * u.cm**2) * (1 * u.au / distance) ** 2
+    exposure = 60 * u.s
+
+    counts = response_matrix.pulse_height_matrix @ (flux * np.diff(response_matrix.ein) * exposure)
+
+    fig, ax = plt.subplots()
+    ax.stairs(counts.to_value(u.ct), response_matrix.eout.to_value(u.keV))
+    ax.set_xscale('log')
+    ax.set_yscale('log')
+    ax.set_xlabel('Measured Energy [keV]')
+    ax.set_ylabel('Counts')
+    ax.set_title('CdTe detector counts for a 60 s exposure')
+    plt.show()

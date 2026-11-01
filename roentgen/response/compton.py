@@ -4,15 +4,17 @@ the single-Compton-scatter contribuion to a detector response matrix.
 
 Port of SSW's ``klein.pro``, ``klein_elctrn.pro``,
 ``compton_max_electron_energy.pro``, and ``resp_calc_compton_scatter.pro``.
-Works on plain `numpy` arrays of energy values in keV, matching the
-the reference implementation closely to ease validation.
+The public `compton_scatter_matrix` takes `astropy.units.Quantity` energies;
+the underscore-prefixed kernels below work on plain `numpy` arrays of energy
+values in keV, matching the reference implementation closely to ease
+validation, and are internal.
 
 ``klein.pro``'s ``tot``/``enew``/``electron_max`` keyword outputs aren't
 ported: ``resp_calc_compton_scatter.pro`` never uses them, so only
 the differential cross-section itself is needed here.
 
 .. todo::
-    `klein` uses the plain free-electron Klein-Nishina cross-section, same
+    `_klein` uses the plain free-electron Klein-Nishina cross-section, same
     as ``klein.pro``. The physically more accurate version multiplies this
     by the incoherent scattering function S(q,Z), which accounts for
     bound-electron effects (suppresses low-momentum-transfer scattering,
@@ -23,6 +25,13 @@ the differential cross-section itself is needed here.
     (1975); erratum 6, 615 (1977). Tabulated S(q,Z) data (digitised from
     that paper) is available via the ``xraylib`` package's
     ``SF.dat``.
+
+.. todo::
+    `_klein` raises the ``1 / (1 + alpha (1 - mu))`` term to the third power,
+    as ``klein.pro`` does. The standard Klein-Nishina number cross-section
+    uses the second power which under-weights large-angle scatters and so the
+    region near the Compton edge. The second-power form matches ``xraylib.DCS_KN``
+     and integrates to ``xraylib.CS_KN``
 """
 
 import numpy as np
@@ -32,18 +41,13 @@ import astropy.units as u
 
 from roentgen.util.edges import edge_products, interp_linear_extrap
 
-__all__ = [
-    "compton_max_electron_energy",
-    "klein",
-    "klein_electron",
-    "compton_scatter_matrix",
-]
+__all__ = ["compton_scatter_matrix"]
 
 _ELECTRON_REST_ENERGY = (const.m_e * const.c**2).to_value(u.keV)  # ~511 keV
 _CLASSICAL_ELECTRON_RADIUS = (const.alpha**2 * const.a0).to_value(u.cm)  # ~2.818e-13 cm
 
 
-def compton_max_electron_energy(photon_energy):
+def _compton_max_electron_energy(photon_energy):
     """
     Maximum kinetic energy of a Compton-scattered electron.
 
@@ -62,7 +66,7 @@ def compton_max_electron_energy(photon_energy):
     return photon_energy / (0.5 / alpha + 1.0)
 
 
-def klein(photon_energy, mu):
+def _klein(photon_energy, mu):
     """
     Klein-Nishina differential Compton scattering cross-section, in
     cm2 electron-1 sr-1.
@@ -91,7 +95,7 @@ def klein(photon_energy, mu):
     )
 
 
-def klein_electron(photon_energy, electron_energy):
+def _klein_electron(photon_energy, electron_energy):
     """
     Klein-Nishina differential Compton cross-section as a function of a the kinetic energy of the scattered electron.
 
@@ -111,7 +115,7 @@ def klein_electron(photon_energy, electron_energy):
     electron_energy = np.asarray(electron_energy, dtype=float)
     differential_cross_section = np.zeros_like(electron_energy)
 
-    mu = np.full_like(electron_energy, 2.0)  # out-of-range cosine sentinal, recieved from klein()
+    mu = np.full_like(electron_energy, 2.0)  # out-of-range cosine sentinal, recieved from _klein()
     kinematically_possible = photon_energy > electron_energy
     mu[kinematically_possible] = (
         1.0
@@ -122,7 +126,7 @@ def klein_electron(photon_energy, electron_energy):
 
     valid = np.abs(mu) <= 1.0
     if np.any(valid):
-        dsigma_dmu = 2.0 * np.pi * klein(photon_energy, mu[valid])
+        dsigma_dmu = 2.0 * np.pi * _klein(photon_energy, mu[valid])
         differential_cross_section[valid] = (
             dsigma_dmu * (1.0 + alpha * (1.0 - mu[valid])) ** 2 / alpha / photon_energy
         )
@@ -134,17 +138,20 @@ def _value_locate(edges_1d, values):
     return np.searchsorted(edges_1d, values, side="right") - 1
 
 
-def compton_scatter_matrix(channel_edges, photon_edges, compton_probability):
+@u.quantity_input
+def compton_scatter_matrix(
+    channel_edges: u.Quantity[u.keV], photon_edges: u.Quantity[u.keV], compton_probability
+):
     """The single-Compton-scatterer contribution to a detector response
     matrix: integrates the Klein-Nishina cross-section through the output
     channel edges for each input photon energy.
 
     Parameters
     ----------
-    channel_edges : `numpy.ndarray`
-        Output (energy-loss) bin edges, keV.
-    photon_edges : `numpy.ndarray`
-        Input photon energy bin edges, keV.
+    channel_edges : `astropy.units.Quantity`
+        Output (energy-loss) bin edges.
+    photon_edges : `astropy.units.Quantity`
+        Input photon energy bin edges.
     compton_probability : `numpy.ndarray`
         Probability of a Compton interaction in the detector, one per input
         photon energy bin.
@@ -152,9 +159,11 @@ def compton_scatter_matrix(channel_edges, photon_edges, compton_probability):
     Returns
     -------
     `numpy.ndarray`
-        ``(n_output_bins, n_photon_bins)`` matrix of the Compton-scatter
-        contribution to the response.
+        Dimensionless ``(n_output_bins, n_photon_bins)`` matrix of the
+        Compton-scatter contribution to the response (a probability).
     """
+    photon_edges = photon_edges.to_value(u.keV)
+    channel_edges = channel_edges.to_value(u.keV)
     photon_bins = edge_products(photon_edges)
     photon_center = photon_bins.gmean
 
@@ -168,7 +177,7 @@ def compton_scatter_matrix(channel_edges, photon_edges, compton_probability):
     n_channel_bins = channel_width.size
     compton_matrix = np.zeros((n_channel_bins, n_photon_bins))
 
-    max_electron_energy = compton_max_electron_energy(photon_center)
+    max_electron_energy = _compton_max_electron_energy(photon_center)
     limited_max_energy = np.minimum(max_electron_energy, channel_edges_2[1, n_channel_bins - 1])
     max_channel_index = np.minimum(
         _value_locate(channel_edges_1, max_electron_energy), n_channel_bins - 1
@@ -192,7 +201,7 @@ def compton_scatter_matrix(channel_edges, photon_edges, compton_probability):
         fine_bins = edge_products(fine_grid_edges)
         fine_width, fine_center = fine_bins.width, fine_bins.gmean
 
-        differential_cross_section = klein_electron(photon_center[i], fine_center)
+        differential_cross_section = _klein_electron(photon_center[i], fine_center)
         total_cross_section = np.sum(fine_width * differential_cross_section)
 
         n_valid_channels = max_channel_index[i] + 1

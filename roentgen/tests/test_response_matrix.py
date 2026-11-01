@@ -11,6 +11,7 @@ from roentgen.response import compton
 from roentgen.util import get_element_symbol, get_material_density
 
 _SSW_TEST_DIR = Path(__file__).parent / "data" / "resp_calc_sswidl"
+_COUNT_AREA = u.ct * u.cm**2 / u.photon  # counts per photon/cm2 of fluence
 _SSW_CASES = sorted(p.stem for p in _SSW_TEST_DIR.glob("*.json"))
 
 # density (g/cm3) for detector materials made fo more than one element,
@@ -81,16 +82,29 @@ def test_response_matrix_matches_idl(case_name, monkeypatch):
     )
     if not params["nosigma"]:
         p0, p1 = params["func_par"]
-        kwargs["fwhm"] = lambda e, p0=p0, p1=p1: p0 + p1 * np.sqrt(e)
+        kwargs["fwhm"] = lambda e, p0=p0, p1=p1: (p0 + p1 * np.sqrt(e.value)) * u.keV
 
     rm = response.response_matrix(_edges(params["elo"], params["ehi"], params["nflux"]), **kwargs)
 
-    np.testing.assert_allclose(rm.eloss_matrix, golden["eloss_matrix"], atol=1e-5, rtol=1e-3)
+    np.testing.assert_allclose(
+        rm.eloss_matrix.to_value(_COUNT_AREA),
+        golden["eloss_matrix"],
+        atol=1e-5,
+        rtol=1e-3,
+    )
     if not params["nosigma"]:
         np.testing.assert_allclose(
-            rm.pulse_height_matrix, golden["pulse_height_matrix"], atol=1e-5, rtol=1e-3
+            rm.pulse_height_matrix.to_value(_COUNT_AREA),
+            golden["pulse_height_matrix"],
+            atol=1e-5,
+            rtol=1e-3,
         )
-        np.testing.assert_allclose(rm.smatrix, golden["smatrix"], atol=1e-5, rtol=1e-3)
+        np.testing.assert_allclose(
+            rm.smatrix.to_value(_COUNT_AREA / u.keV),
+            golden["smatrix"],
+            atol=1e-5,
+            rtol=1e-3,
+        )
 
 
 def test_response_matrix_requires_mcmaster_detector():
@@ -125,7 +139,7 @@ def test_response_matrix_sanity(detector_name):
 
     assert rm.eloss_matrix.shape == (nflux, nflux)
     assert np.all(np.isfinite(rm.eloss_matrix))
-    assert np.all(rm.eloss_matrix >= 0)
+    assert np.all(rm.eloss_matrix.value >= 0)
     assert np.all(rm.efficiency >= 0) and np.all(rm.efficiency <= 1)
 
 
@@ -134,7 +148,7 @@ def test_response_matrix_with_broadening_normalises_reasonably():
     optical_path = Material("N", 1e-30 * u.um, database="mcmaster")
     response = Response(optical_path, detector)
 
-    fwhm = lambda e: 0.15 + 0.0 * e  # noqa: E731
+    fwhm = lambda e: (0.15 + 0.0 * e.value) * u.keV  # noqa: E731
 
     rm = response.response_matrix(_edges(5, 60, 12), fwhm=fwhm)
 
@@ -142,9 +156,13 @@ def test_response_matrix_with_broadening_normalises_reasonably():
     assert rm.smatrix.shape == (12, 12)
     assert np.all(np.isfinite(rm.pulse_height_matrix))
     assert np.all(np.isfinite(rm.smatrix))
+    assert rm.smatrix.unit == _COUNT_AREA / u.keV
     # broadening should conserve (approximately) the total counts per input bin
     np.testing.assert_allclose(
-        rm.pulse_height_matrix.sum(axis=0), rm.eloss_matrix.sum(axis=0), atol=1e-3, rtol=1e-2
+        rm.pulse_height_matrix.sum(axis=0).value,
+        rm.eloss_matrix.sum(axis=0).value,
+        atol=1e-3,
+        rtol=1e-2,
     )
 
 
@@ -161,7 +179,26 @@ def test_response_matrix_edges_out_differs_from_edges_in():
     # the photopeak of an input bin lands in the output bin holding its centre energy
     centre_in = np.sqrt(edges_in[10].value * edges_in[11].value)
     centre_out = 0.5 * (edges_out[:-1] + edges_out[1:]).value
-    assert abs(centre_out[np.argmax(rm.eloss_matrix[:, 10])] - centre_in) <= 1.0
+    assert abs(centre_out[np.argmax(rm.eloss_matrix[:, 10].value)] - centre_in) <= 1.0
+
+
+def test_response_matrix_gives_counts_from_flux_density():
+    """A photon fluence (flux density x bin width x exposure) through the DRM is counts."""
+    detector = Material("Si", 0.05 * u.cm, database="mcmaster")
+    response = Response(Material("N", 1e-30 * u.um, database="mcmaster"), detector)
+    edges = _edges(10, 60, 12)
+    rm = response.response_matrix(
+        edges, fwhm=lambda e: (0.15 + 0.0 * e.value) * u.keV, area=3 * u.cm**2
+    )
+
+    centre = np.sqrt(edges[:-1] * edges[1:])
+    flux = 5.0 * (centre / (10 * u.keV)) ** -2 * u.photon / (u.keV * u.s * u.cm**2)
+    counts = rm.pulse_height_matrix @ (flux * np.diff(edges) * 100 * u.s)
+
+    assert counts.unit.is_equivalent(u.ct)
+    # a detector cannot count more photons than arrive on its area
+    arriving = (flux * np.diff(edges) * 100 * u.s * 3 * u.cm**2).sum()
+    assert counts.sum().to_value(u.ct) <= arriving.to_value(u.photon)
 
 
 @pytest.mark.parametrize("bad", [np.geomspace(100, 10, 11), np.array([10, 20, 20, 40, 80])])

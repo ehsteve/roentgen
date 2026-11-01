@@ -276,8 +276,8 @@ def fluorescence_escape(energy, detector, theta=0 * u.deg):
     escape_probability : `numpy.ndarray`
         ``(n_energy, n_lines)`` probability of fluorescence escape at each
         line, per incident photon.
-    escape_line_energy : `numpy.ndarray`
-        Escape line energies, in keV.
+    escape_line_energy : `astropy.units.Quantity`
+        Escape line energies.
     """
     symbols = frozenset(s.capitalize() for s in detector.list_symbols)
     name = SUPPORTED_DETECTORS.get(symbols)
@@ -289,4 +289,5 @@ def fluorescence_escape(energy, detector, theta=0 * u.deg):
         )
     theta_deg = theta.to_value(u.deg)
     energy_kev = np.atleast_1d(energy.to_value(u.keV)).astype(float)
-    return _DISPATCH[name](energy_kev, theta_deg)
+    escape_probability, escape_line_energy = _DISPATCH[name](energy_kev, theta_deg)
+    return escape_probability, u.Quantity(escape_line_energy, u.keV)

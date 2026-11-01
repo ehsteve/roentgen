@@ -50,16 +50,19 @@ class ResponseMatrix:
     ein: u.Quantity
     # output (PHA channel) energy bin edges, shape (n_output + 1,)
     eout: u.Quantity
-    # (n_output, n_photon) energy-loss matrix, before resolution broadening
-    eloss_matrix: np.ndarray
+    # (n_output, n_photon) energy-loss matrix, before resolution broadening, in ct cm2 / ph:
+    # ``eloss_matrix @ fluence`` gives counts per output bin for the photon fluence
+    # (ph / cm2) in each input bin
+    eloss_matrix: u.Quantity
     # (n_output, n_photon) pulse-height matrix, after resolution broadening
-    # (``None`` if no ``fwhm`` was given)
-    pulse_height_matrix: np.ndarray | None
-    # pulse_height_matrix normalised to counts/keV/photon (``None`` if no ``fwhm`` was given)
-    smatrix: np.ndarray | None
-    # relative photopeak efficiency per input photon energy bin
+    # same units (``None`` if no ``fwhm`` was given)
+    pulse_height_matrix: u.Quantity | None
+    # pulse_height_matrix per unit output energy, in ct cm2 / (ph keV), i.e. counts/keV from
+    # ``smatrix @ fluence`` (``None`` if no ``fwhm`` was given)
+    smatrix: u.Quantity | None
+    # relative (dimensionless) photopeak efficiency per input photon energy bin
     efficiency: np.ndarray
-    # (n_output, n_output) Gaussian resolution pulse-spread matrix (``None`` if no ``fwhm`` was given)
+    # (n_output, n_output) dimensionless Gaussian resolution pulse-spread matrix (``None`` if no ``fwhm`` was given)
     pulse_shape: np.ndarray | None
 
 
@@ -114,9 +117,9 @@ def _compute_response_matrix(
     elo, ehi : `astropy.units.Quantity`
         Lower/upper energy limits of the input photon grid.
     fwhm : callable, optional
-        ``fwhm(energy_kev) -> fwhm_kev``, the detector's energy resolution
-        as a function of energy (both plain arrays in keV). Required unless
-        ``nosigma=True``.
+        ``fwhm(energy) -> fwhm``, the detector's energy resolution as a
+        function of energy, taking and returning `astropy.units.Quantity`.
+        Required unless ``nosigma=True``.
     eout : `astropy.units.Quantity`, optional
         Output (PHA channel) bin edges. Defaults to the input photon edges
         (or a linear grid if ``linearpha``).
@@ -136,6 +139,14 @@ def _compute_response_matrix(
     Returns
     -------
     `ResponseMatrix`
+        ``eloss_matrix`` and ``pulse_height_matrix`` are in ct cm2 / ph and
+        ``smatrix`` in ct cm2 / (ph keV), as in ``resp_calc.pro``. They include
+        the detector ``area`` but not the input bin widths, so
+        ``pulse_height_matrix @ (flux * np.diff(ein) * exposure)`` is the counts
+        per output bin for a photon flux density ``flux`` in ph / (keV s cm2)
+        at the detector and an ``exposure`` time (and ``smatrix @ ...`` the
+        counts per output keV). ``efficiency`` and ``pulse_shape`` are
+        dimensionless.
 
     Raises
     ------
@@ -172,7 +183,7 @@ def _compute_response_matrix(
         eout_edges = ein_edges
 
     eout_bins = edge_products(eout_edges)
-    eout_center, eout_width, eout_edges_2 = eout_bins.mean, eout_bins.width, eout_bins.edges_2
+    eout_center, eout_width = eout_bins.mean, eout_bins.width
     n_output_bins = eout_width.size
     output_bin_index = np.arange(n_output_bins, dtype=float)
 
@@ -210,6 +221,7 @@ def _compute_response_matrix(
     fluorescence_probability, fluorescence_energy = fluorescence_escape(
         ein_center_quantity, detector, theta=theta
     )
+    fluorescence_energy = fluorescence_energy.to_value(u.keV)
     n_fluorescence_lines = fluorescence_energy.size
     total_fluorescence_probability = fluorescence_probability.sum(axis=1)
 
@@ -253,19 +265,22 @@ def _compute_response_matrix(
         eloss_matrix[escape_row_hi, escape_col_hi] += escape_weight_hi * escape_contribution
 
     # Compton-scatter continuum
-    eloss_matrix = eloss_matrix + compton_scatter_matrix(eout_edges, ein_edges, compton_probability)
+    eloss_matrix = eloss_matrix + compton_scatter_matrix(
+        u.Quantity(eout_edges, u.keV), u.Quantity(ein_edges, u.keV), compton_probability
+    )
 
     # Resolution brodening
-    area_cm2 = area.to_value(u.cm**2)
+    # projected detector area, converting photons per cm2 to counts
+    drm_scale = area.to(u.cm**2) * cos_theta * u.ct / u.photon
     pulse_height_matrix = smatrix = pulse_shape = None
     if not nosigma:
         if fwhm is None:
             raise ValueError("fwhm must be given unless nosigma=True")
-        pulse_shape = pulse_spread_matrix(eout_edges_2, fwhm)
-        pulse_height_matrix = (pulse_shape @ eloss_matrix) * area_cm2 * cos_theta
-        smatrix = pulse_height_matrix / eout_width[:, None]
+        pulse_shape = pulse_spread_matrix(u.Quantity(eout_edges, u.keV), fwhm)
+        pulse_height_matrix = (pulse_shape @ eloss_matrix) * drm_scale
+        smatrix = pulse_height_matrix / u.Quantity(eout_width, u.keV)[:, None]
 
-    eloss_matrix = eloss_matrix * area_cm2 * cos_theta
+    eloss_matrix = eloss_matrix * drm_scale
 
     return ResponseMatrix(
         ein=u.Quantity(ein_edges, u.keV),
