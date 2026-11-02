@@ -78,6 +78,7 @@ def test_response_matrix_matches_idl(case_name, monkeypatch):
     kwargs = dict(
         theta=params["theta"] * u.deg,
         area=params["area"] * u.cm**2,
+        ssw_compatible=True,
     )
     if not params["nosigma"]:
         p0, p1 = params["func_par"]
@@ -173,3 +174,55 @@ def test_response_matrix_rejects_non_increasing_edges(bad):
         response.response_matrix(bad * u.keV)
     with pytest.raises(ValueError, match="strictly increasing"):
         response.response_matrix(_edges(10, 80, 8), bad * u.keV)
+
+
+def test_response_matrix_window_attenuates_whole_response():
+    """Every part of the response (photopeak, escape peaks and Compton continuum) scales with
+    the window transmission, but resp_calc.pro leaves the Compton continuum unattenuated."""
+    detector = Material("Ge", 0.5 * u.cm, database="mcmaster")
+    window = Material("Al", 0.2 * u.cm, database="mcmaster")
+    bare = Material("N", 1e-30 * u.um, database="mcmaster")
+    edges = _edges(20, 100, 20)
+    centers = 0.5 * (edges[:-1] + edges[1:])
+    transmission = window.transmission(centers)
+
+    def eloss(path, ssw):
+        return Response(path, detector).response_matrix(edges, ssw_compatible=ssw).eloss_matrix
+
+    np.testing.assert_allclose(
+        eloss(window, False), eloss(bare, False) * transmission, rtol=1e-6, atol=1e-12
+    )
+    assert not np.allclose(eloss(window, True), eloss(bare, True) * transmission, rtol=1e-3)
+
+
+def test_response_matrix_photons_above_output_range():
+    """The full-energy peak of a photon above the last output edge is outside the output range,
+    but its Compton continuum and escape peaks are not. resp_calc.pro spills the peak into the
+    next column instead."""
+    detector = _make_detector("CsI", 0.5)
+    response = Response(Material("N", 1e-30 * u.um, database="mcmaster"), detector)
+    edges_in, edges_out = _edges(10, 150, 30), _edges(5, 100, 60)
+    above = edges_in[:-1] > edges_out[-1]
+
+    corrected = response.response_matrix(edges_in, edges_out).eloss_matrix
+    ssw = response.response_matrix(edges_in, edges_out, ssw_compatible=True).eloss_matrix
+
+    assert np.all(corrected.sum(axis=0) <= 1.0)
+    assert np.all(corrected[:, above].sum(axis=0) > 0)
+    assert ssw.sum(axis=0).max() > 1.0
+
+
+def test_response_matrix_photons_below_output_range():
+    """Nothing a photon below the first output edge does can be recorded above it, resp_calc.pro
+    puts its peaks in the first output bin."""
+    detector = _make_detector("Ge", 0.5)
+    response = Response(Material("N", 1e-30 * u.um, database="mcmaster"), detector)
+    edges_in, edges_out = _edges(5, 100, 30), _edges(20, 100, 30)
+    below = edges_in[1:] < edges_out[0]
+
+    corrected = response.response_matrix(edges_in, edges_out).eloss_matrix
+    ssw = response.response_matrix(edges_in, edges_out, ssw_compatible=True).eloss_matrix
+
+    assert below.any()
+    assert np.all(corrected[:, below] == 0)
+    assert np.all(ssw[:, below].sum(axis=0) > 0)

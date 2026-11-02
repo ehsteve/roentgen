@@ -11,9 +11,9 @@ the reference implementation closely to ease validation.
 ported: ``resp_calc_compton_scatter.pro`` never uses them, so only
 the differential cross-section itself is needed here.
 
-By default `klein` is the plain free-electron Klein-Nishina cross-section,
-same as ``klein.pro``. Passing ``elements`` multiplies it by the incoherent
-scattering function S(q,Z) of J.H. Hubbell, Wm.J. Veigele, E.A. Briggs, R.T. Brown,
+`klein` is the plain free-electron Klein-Nishina cross-section (``klein.pro``
+has a transcription error, which ``exact=False`` reproduces). Passing ``elements``
+multiplies it by the incoherent scattering function S(q,Z) of J.H. Hubbell, Wm.J. Veigele, E.A. Briggs, R.T. Brown,
 D.T. Cromer and R.J. Howerton, J. Phys. Chem. Ref. Data 4, 471 (1975);
 erratum 6, 615 (1977), which accounts for bound-electron effects (suppresses
 low-momentum-transfer scattering, more significant at low energy / high Z).
@@ -21,6 +21,8 @@ The tabulated data (z=1-98, see :download:`scripts/extract_scattering_function.p
 <../../scripts/extract_scattering_function.py>`) is independent of the
 cross-section database used for the interaction probabilities.
 """
+
+from functools import cache
 
 import numpy as np
 
@@ -43,8 +45,18 @@ _ELECTRON_REST_ENERGY = (const.m_e * const.c**2).to_value(u.keV)  # ~511 keV
 _CLASSICAL_ELECTRON_RADIUS = (const.alpha**2 * const.a0).to_value(u.cm)  # ~2.818e-13 cm
 _HC_KEV_ANGSTROM = (const.h * const.c).to_value(u.keV * u.angstrom)  # ~12.398
 
+# Fine electron-energy grid the continuum shape is evaluated and normalised on, from
+# resp_calc_compton_scatter.pro: log spaced from 0.1 keV to 2% above the maximum electron energy
+_FINE_GRID_MIN_ENERGY = 0.1  # keV
+_FINE_GRID_MAX_MARGIN = 1.02
+_FINE_GRID_EDGES = 101
+
 _SCATTERING_FUNCTION_FILE = roentgen._data_directory / "incoherent_scattering_function.csv"
-_scattering_function_table = None
+
+
+@cache
+def _load_scattering_function_table():
+    return ascii.read(_SCATTERING_FUNCTION_FILE, format="csv", comment="#")
 
 
 @u.quantity_input(q=1 / u.angstrom)
@@ -67,16 +79,12 @@ def incoherent_scattering_function(z, q):
     `numpy.ndarray`
         S(q,Z), dimensionless.
     """
-    global _scattering_function_table
-    if _scattering_function_table is None:
-        _scattering_function_table = ascii.read(
-            _SCATTERING_FUNCTION_FILE, format="csv", comment="#"
-        )
+    table = _load_scattering_function_table()
     column = f"z{int(z):02d}"
-    if column not in _scattering_function_table.colnames:
+    if column not in table.colnames:
         raise ValueError(f"No incoherent scattering function data for z={z} (supported: 1-98).")
-    table_q = np.asarray(_scattering_function_table["q"], dtype=float)
-    table_s = np.asarray(_scattering_function_table[column], dtype=float)
+    table_q = np.asarray(table["q"], dtype=float)
+    table_s = np.asarray(table[column], dtype=float)
 
     q = np.asarray(q.to_value(1 / u.angstrom), dtype=float)
     # interpolate in log-log, the clipped q below table_q[0] is then scaled back with S ~ q**2
@@ -116,7 +124,7 @@ def compton_max_electron_energy(photon_energy):
     return photon_energy / (0.5 / alpha + 1.0)
 
 
-def klein(photon_energy, mu, elements=None, exact=False):
+def klein(photon_energy, mu, elements=None, exact=True):
     """
     Klein-Nishina differential Compton scattering cross-section, in
     cm2 electron-1 sr-1.
@@ -125,10 +133,10 @@ def klein(photon_energy, mu, elements=None, exact=False):
     multiplied by the incoherent scattering function S(q,Z) (see the module
     docstring).
 
-    By default this reproduces ``klein.pro``, which has ``(1/(1+alpha(1-mu)))**3``
-    where the Klein-Nishina formula has a power of 2, i.e. an extra factor of
-    E'/E that makes it integrate to less than the true total cross-section
-    (by 5% at 30 keV, 34% at 500 keV). ``exact=True`` uses the correct power.
+    ``klein.pro`` has ``(1/(1+alpha(1-mu)))**3`` where the Klein-Nishina formula has a
+    power of 2, i.e. an extra factor of E'/E that makes it integrate to less than the true
+    total cross-section (by 5% at 30 keV, 34% at 500 keV). The default ``exact=True`` uses the
+    correct power, ``exact=False`` reproduces ``klein.pro``.
 
     Parameters
     ----------
@@ -140,7 +148,7 @@ def klein(photon_energy, mu, elements=None, exact=False):
         ``{atomic number: relative number of atoms}`` of the scatterer
         (e.g. mass fraction / atomic mass), enables the S(q,Z) correction.
     exact : `bool`, optional
-        Use the exact Klein-Nishina formula instead of the ``klein.pro`` one. Default `False`.
+        Use the exact Klein-Nishina formula instead of the ``klein.pro`` one. Default `True`.
     """
     alpha = photon_energy / _ELECTRON_REST_ENERGY
     one_minus_mu = 1.0 - mu
@@ -158,7 +166,7 @@ def klein(photon_energy, mu, elements=None, exact=False):
     return result
 
 
-def klein_electron(photon_energy, electron_energy, elements=None, exact=False):
+def klein_electron(photon_energy, electron_energy, elements=None, exact=True):
     """
     Klein-Nishina differential Compton cross-section as a function of a the kinetic energy of the scattered electron.
 
@@ -204,7 +212,7 @@ def _value_locate(edges_1d, values):
 
 
 def compton_scatter_matrix(
-    channel_edges, photon_edges, compton_probability, elements=None, exact=False
+    channel_edges, photon_edges, compton_probability, elements=None, exact=True
 ):
     """The single-Compton-scatterer contribution to a detector response
     matrix: integrates the Klein-Nishina cross-section through the output
@@ -219,8 +227,14 @@ def compton_scatter_matrix(
     compton_probability : `numpy.ndarray`
         Probability of a Compton interaction in the detector, one per input
         photon energy bin.
-    elements, exact : optional
+    elements : optional
         As for `klein`.
+    exact : `bool`, optional
+        Use the exact Klein-Nishina formula and, for photon energies whose maximum electron
+        energy is above the last channel edge, the true width of the last output bin. `False`
+        reproduces ``resp_calc_compton_scatter.pro``, which uses the unclipped maximum
+        electron energy for that width and so overcounts there (the column can sum to more
+        than the Compton probability). Default `True`.
 
     Returns
     -------
@@ -258,10 +272,12 @@ def compton_scatter_matrix(
                 channel_edges_2[0, max_channel_index[i]] * limited_max_energy[i]
             )
             channel_width_i[max_channel_index[i]] = (
-                max_electron_energy[i] - channel_edges_2[0, max_channel_index[i]]
-            )
+                limited_max_energy[i] if exact else max_electron_energy[i]
+            ) - channel_edges_2[0, max_channel_index[i]]
 
-        fine_grid_edges = np.geomspace(0.1, max_electron_energy[i] * 1.02, 101)
+        fine_grid_edges = np.geomspace(
+            _FINE_GRID_MIN_ENERGY, max_electron_energy[i] * _FINE_GRID_MAX_MARGIN, _FINE_GRID_EDGES
+        )
         fine_bins = edge_products(fine_grid_edges)
         fine_width, fine_center = fine_bins.width, fine_bins.gmean
 

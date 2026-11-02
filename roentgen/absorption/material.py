@@ -453,7 +453,7 @@ class Response(object):
         theta: Quantity[u.deg] = 0 * u.deg,
         area: Quantity[u.cm**2] = 1 * u.cm**2,
         scattering_function: bool = False,
-        exact_klein_nishina: bool = False,
+        ssw_compatible: bool = False,
     ):
         """Compute the full detector energy-redistribution (response) matrix.
 
@@ -492,10 +492,13 @@ class Response(object):
             If `True`, include the incoherent scattering function S(q,Z) in the
             shape of the Compton continuum (see `roentgen.response.compton`),
             otherwise plain Klein-Nishina as in ``resp_calc.pro``. Default `False`.
-        exact_klein_nishina : `bool`, optional
-            If `True`, use the exact Klein-Nishina formula for the Compton continuum rather
-            than ``klein.pro``'s, which is off by a factor E'/E (see
-            `roentgen.response.compton.klein`). Default `False`.
+        ssw_compatible : `bool`, optional
+            If `True`, reproduce ``resp_calc.pro`` exactly, including three known defects:
+            the Compton continuum uses ``klein.pro``'s cross-section, which has an extra factor
+            of E'/E (see `roentgen.response.compton.klein`); the last Compton output bin is
+            oversized when the maximum electron energy is above the last channel edge; and the
+            window/filter transmission is not applied to the Compton continuum. Default `False`
+            corrects all three.
 
         Returns
         -------
@@ -521,7 +524,7 @@ class Response(object):
             area=area,
             nosigma=fwhm is None,
             scattering_function=scattering_function,
-            exact_klein_nishina=exact_klein_nishina,
+            ssw_compatible=ssw_compatible,
         )
 
 

@@ -44,6 +44,9 @@ from roentgen.absorption.mcmaster import photoelectric_mass_attenuation
 
 __all__ = ["SUPPORTED_DETECTORS", "fluorescence_escape"]
 
+# keV, lines below this are outside the range of the McMaster and XCOM tables
+_MIN_LINE_ENERGY = 1.0
+
 #: Hard coded detector support
 SUPPORTED_DETECTORS = {
     frozenset({"Ge"}): "Ge",
@@ -181,7 +184,7 @@ def _cdte(energy_kev, theta_deg):
     # energies (i.e. any real resp_calc.pro call, which always has more than
     # one photon energy bin) most of the 8 escape lines get normalised
     # against the wrong K-line's mu0. This is a latent bug in the reference
-    # implementation. Thi s port implements the clearly-intended
+    # implementation. This port implements the clearly-intended
     # per-line indexing instead , so CdTe fluorescence here will disagree with real
     # resp_calc.pro output whenever more than one photon energy is used.
 
@@ -224,6 +227,9 @@ def _cdte(energy_kev, theta_deg):
 
 
 def _sxs(energy_kev, theta_deg):
+    # Xe (K edge 34.58 keV, K-alpha escape line 29.6 keV) with a 10% C/O admixture, relative
+    # weights as in fluorescence.pro: number fraction x molar mass (Xe 131.3, C 12, O2 32), so
+    # it appears to be 90% Xe + 10% CO2
     pe_xe = _photoelectric("Xe", energy_kev) * 0.9 * 131.3
     pe_c = _photoelectric("C", energy_kev) * 0.1 * 12.0
     pe_o = _photoelectric("O", energy_kev) * 0.1 * 32.0
@@ -264,7 +270,7 @@ def _k_shell(database, symbol):
     """K edge, ω_K, and the K lines >= 1 keV with branching fractions (summing to 1)."""
     k_edge, k_yield, energies, intensity = database.k_shell(symbol)
     k_edge, energies = k_edge.to_value(u.keV), energies.to_value(u.keV)
-    keep = energies >= 1.0
+    keep = energies >= _MIN_LINE_ENERGY
     energies, intensity = energies[keep], intensity[keep]
     if energies.size:
         intensity = intensity / intensity.sum()

@@ -70,6 +70,39 @@ def _edges_kev(value):
 
 
 @u.quantity_input
+def _deposit(matrix, columns, position, amount, ssw_compatible, overwrite=False):
+    """Add ``amount`` at fractional output-bin ``position`` of each of ``columns`` of ``matrix``,
+    shared linearly between the two adjacent output bins.
+
+    ``resp_calc.pro`` does this on the flattened matrix, so a position beyond the last output bin
+    spills into the next column and one past the end of the matrix is clipped to the last
+    element. That is reproduced for ``ssw_compatible``. Otherwise positions are clipped to the
+    last output bin of their own column.
+    """
+    n_output_bins = matrix.shape[0]
+    if ssw_compatible:
+        flat_position = position + columns * n_output_bins
+        index_lo = np.floor(flat_position).astype(int)
+        weight_hi = flat_position - index_lo
+        last = matrix.size - 1
+        for index, weight in (
+            (np.minimum(index_lo, last), 1.0 - weight_hi),
+            (np.minimum(index_lo + 1, last), weight_hi),
+        ):
+            # IDL arrays are indexed with the output energy varying fastest
+            rows, cols = index % n_output_bins, index // n_output_bins
+            if overwrite:
+                matrix[rows, cols] = amount * weight
+            else:
+                matrix[rows, cols] += amount * weight
+        return
+    position = np.clip(position, 0.0, n_output_bins - 1.0)
+    row_lo = np.floor(position).astype(int)
+    weight_hi = position - row_lo
+    np.add.at(matrix, (row_lo, columns), amount * (1.0 - weight_hi))
+    np.add.at(matrix, (np.minimum(row_lo + 1, n_output_bins - 1), columns), amount * weight_hi)
+
+
 def _compute_response_matrix(
     response,
     nflux: int,
@@ -84,7 +117,7 @@ def _compute_response_matrix(
     nosigma: bool = False,
     linearpha: bool = False,
     scattering_function: bool = False,
-    exact_klein_nishina: bool = False,
+    ssw_compatible: bool = False,
 ):
     """Compute the full detector energy-redistribution (response) matrix.
 
@@ -140,9 +173,13 @@ def _compute_response_matrix(
         If `True`, include the incoherent scattering function S(q,Z) in the
         Compton continuum shape (see `roentgen.response.compton`), otherwise
         plain Klein-Nishina as in ``resp_calc.pro``.
-    exact_klein_nishina : `bool`, optional
-        If `True`, use the exact Klein-Nishina formula for the Compton continuum
-        rather than the one in ``klein.pro`` (see `roentgen.response.compton.klein`).
+    ssw_compatible : `bool`, optional
+        If `True`, reproduce ``resp_calc.pro`` exactly, including three known defects:
+        the Compton continuum uses ``klein.pro``'s cross-section, which has an extra factor
+        of E'/E (see `roentgen.response.compton.klein`); the last Compton output bin is
+        oversized when the maximum electron energy is above the last channel edge; and the
+        window/filter transmission is not applied to the Compton continuum. Default `False`
+        corrects all three.
 
     Returns
     -------
@@ -189,11 +226,19 @@ def _compute_response_matrix(
 
     # Photopeak diagonal
     peak_position = np.maximum(interp_linear_extrap(ein_center, eout_center, output_bin_index), 0.0)
-    peak_flat_index = peak_position + np.arange(nflux) * n_output_bins
-    peak_index_lo = np.floor(peak_flat_index).astype(int)
-    peak_index_hi = np.minimum(peak_index_lo + 1, nflux * n_output_bins - 1)
-    peak_weight_lo = 1.0 - (peak_flat_index - peak_index_lo)
-    peak_weight_hi = 1.0 - peak_weight_lo
+    # A peak outside the output range isn't recorded, whether above the last edge or below the
+    # first (energy can't be gained). resp_calc.pro instead spills the former into the next
+    # column and puts the latter in the first output bin.
+    bottom_edge, top_edge = eout_bins.edges_2[0, 0], eout_bins.edges_2[1, -1]
+
+    def in_output_range(energy):
+        return (
+            np.ones(np.shape(energy), dtype=bool)
+            if ssw_compatible
+            else ((energy >= bottom_edge) & (energy <= top_edge))
+        )
+
+    in_range = in_output_range(ein_center)
 
     ein_center_quantity = u.Quantity(ein_center, u.keV)
     photoelectric_coefficient = detector.photoelectric_linear_attenuation_coefficient(
@@ -204,9 +249,9 @@ def _compute_response_matrix(
     ).to_value(1 / u.cm)
     total_coefficient = photoelectric_coefficient + compton_coefficient
     detector_thickness_cm = detector.thickness.to_value(u.cm)
-    interaction_probability = 1.0 - np.exp(
-        -np.minimum(total_coefficient * detector_thickness_cm / cos_theta, 40.0)
-    )
+    # resp_calc.pro caps the optical depth at 40 to avoid float32 overflow, which makes no
+    # difference in double precision: exp(-40) is below machine epsilon
+    interaction_probability = 1.0 - np.exp(-total_coefficient * detector_thickness_cm / cos_theta)
     photoelectric_probability = (
         interaction_probability * photoelectric_coefficient / total_coefficient
     )
@@ -215,6 +260,10 @@ def _compute_response_matrix(
     # window/filter attenuation -- reuses Material/Stack.transmission() directly
     # (see module docstring for why this differs from xsec.pro's 'AB' type)
     window_transmission = optical_path.transmission(ein_center_quantity) ** (1.0 / cos_theta)
+    if not ssw_compatible:
+        # photons stopped by a window never reach the detector to Compton scatter, resp_calc.pro
+        # applies the windows to the photopeak only
+        compton_probability = compton_probability * window_transmission
 
     fluorescence_probability, fluorescence_energy = fluorescence_escape(
         ein_center_quantity, detector, theta=theta
@@ -227,10 +276,15 @@ def _compute_response_matrix(
         (1.0 - total_fluorescence_probability) * window_transmission * photoelectric_probability
     )
 
-    peak_row_lo, peak_col_lo = peak_index_lo % n_output_bins, peak_index_lo // n_output_bins
-    peak_row_hi, peak_col_hi = peak_index_hi % n_output_bins, peak_index_hi // n_output_bins
-    eloss_matrix[peak_row_lo, peak_col_lo] = efficiency * peak_weight_lo
-    eloss_matrix[peak_row_hi, peak_col_hi] = efficiency * peak_weight_hi
+    columns = np.flatnonzero(in_range)
+    _deposit(
+        eloss_matrix,
+        columns,
+        peak_position[columns],
+        efficiency[columns],
+        ssw_compatible,
+        overwrite=True,
+    )
 
     # Fluorescene escape peaks
     for line in range(n_fluorescence_lines):
@@ -238,29 +292,19 @@ def _compute_response_matrix(
         escape_position = np.maximum(
             interp_linear_extrap(escape_energy, eout_center, output_bin_index), 0.0
         )
-        escape_flat_index = escape_position + np.arange(nflux) * n_output_bins
-        valid = np.flatnonzero(escape_flat_index <= nflux * n_output_bins - 1)
+        if ssw_compatible:
+            flat_index = escape_position + np.arange(nflux) * n_output_bins
+            valid = np.flatnonzero(flat_index <= nflux * n_output_bins - 1)
+        else:
+            valid = np.flatnonzero(in_output_range(escape_energy))
         if valid.size == 0:
             continue
-        escape_index_lo = np.floor(escape_flat_index[valid]).astype(int)
-        escape_index_hi = np.minimum(escape_index_lo + 1, nflux * n_output_bins - 1)
-        escape_weight_lo = 1.0 - (escape_flat_index[valid] - escape_index_lo)
-        escape_weight_hi = 1.0 - escape_weight_lo
         escape_contribution = (
             fluorescence_probability[valid, line]
             * efficiency[valid]
             / (1.0 - total_fluorescence_probability[valid])
         )
-        escape_row_lo, escape_col_lo = (
-            escape_index_lo % n_output_bins,
-            escape_index_lo // n_output_bins,
-        )
-        escape_row_hi, escape_col_hi = (
-            escape_index_hi % n_output_bins,
-            escape_index_hi // n_output_bins,
-        )
-        eloss_matrix[escape_row_lo, escape_col_lo] += escape_weight_lo * escape_contribution
-        eloss_matrix[escape_row_hi, escape_col_hi] += escape_weight_hi * escape_contribution
+        _deposit(eloss_matrix, valid, escape_position[valid], escape_contribution, ssw_compatible)
 
     # Compton-scatter continuum
     # number of atoms per gram of each element, the weights S(q,Z) is averaged with
@@ -272,7 +316,7 @@ def _compute_response_matrix(
             for z, fraction in zip(zs, detector.fractional_masses)
         }
     eloss_matrix = eloss_matrix + compton_scatter_matrix(
-        eout_edges, ein_edges, compton_probability, elements, exact_klein_nishina
+        eout_edges, ein_edges, compton_probability, elements, not ssw_compatible
     )
 
     # Resolution brodening
