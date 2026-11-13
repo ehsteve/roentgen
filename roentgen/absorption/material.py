@@ -485,7 +485,8 @@ class Response(object):
             Must be a one-dimensional array of at least two finite, strictly increasing values.
         edges_out : `astropy.units.Quantity`, optional
             Output (PHA channel) bin edges, with the same requirements as ``edges_in``.
-            Defaults to ``edges_in``.
+            Every output edge must match an input edge (relative tolerance ``1e-12``
+            after conversion to keV). Defaults to ``edges_in``.
         fwhm : callable, optional
             ``fwhm(energy) -> fwhm``, the detector's energy resolution as a
             function of energy, taking and returning `astropy.units.Quantity`.
@@ -512,9 +513,15 @@ class Response(object):
             ``pulse_height_matrix @ (flux * np.diff(ein) * exposure)`` is counts
             per output bin for a flux density in ph / (keV s cm2).
             ``efficiency`` and ``pulse_shape`` are dimensionless.
+
+        Raises
+        ------
+        ValueError
+            If the energy edges are invalid or ``edges_out`` is not a subset of
+            ``edges_in``. The subset requirement also applies with ``ssw_compatible=True``.
         """
         for name, edges in (("edges_in", edges_in), ("edges_out", edges_out)):
-            # only endges_in given already verfiy skip
+            # The default output grid is the already validated input grid.
             if name == "edges_out" and edges is None:
                 continue
             if edges is None or edges.ndim != 1 or edges.size < 2:
@@ -524,6 +531,25 @@ class Response(object):
                 raise ValueError(f"{name} must contain only finite energy values")
             if np.any(values[1:] <= values[:-1]):
                 raise ValueError(f"{name} energy bin edges must be strictly increasing")
+
+        if edges_out is not None:
+            input_values = edges_in.to_value(u.keV)
+            output_values = edges_out.to_value(u.keV)
+            right = np.clip(np.searchsorted(input_values, output_values), 0, edges_in.size - 1)
+            left = np.maximum(right - 1, 0)
+            nearest = np.where(
+                np.abs(input_values[left] - output_values)
+                < np.abs(input_values[right] - output_values),
+                left,
+                right,
+            )
+            if not np.all(
+                np.isclose(output_values, input_values[nearest], rtol=1e-12, atol=0)
+            ) or np.any(np.diff(nearest) <= 0):
+                raise ValueError(
+                    "edges_out must be a subset of edges_in: every output bin edge "
+                    "must coincide with an input bin edge"
+                )
 
         from roentgen.response.response_matrix import _compute_response_matrix
 

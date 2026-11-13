@@ -183,14 +183,14 @@ def test_response_matrix_edges_out_differs_from_edges_in():
     response = Response(optical_path, detector)
 
     edges_in = _edges(10, 100, 20)
-    edges_out = np.linspace(10, 100, 91) * u.keV
+    edges_out = edges_in[::2]
     rm = response.response_matrix(edges_in, edges_out)
 
-    assert rm.eloss_matrix.shape == (90, 20)
+    assert rm.eloss_matrix.shape == (10, 20)
     # the photopeak of an input bin lands in the output bin holding its centre energy
     centre_in = np.sqrt(edges_in[10].value * edges_in[11].value)
-    centre_out = 0.5 * (edges_out[:-1] + edges_out[1:]).value
-    assert abs(centre_out[np.argmax(rm.eloss_matrix[:, 10].value)] - centre_in) <= 1.0
+    peak_bin = np.argmax(rm.eloss_matrix[:, 10].value)
+    assert edges_out[peak_bin].value <= centre_in <= edges_out[peak_bin + 1].value
 
 
 def test_response_matrix_gives_counts_from_flux_density():
@@ -239,7 +239,8 @@ def test_response_matrix_photons_above_output_range():
     next column instead."""
     detector = _make_detector("CsI", 0.5)
     response = Response(Material("N", 1e-30 * u.um, database="mcmaster"), detector)
-    edges_in, edges_out = _edges(10, 150, 30), _edges(5, 100, 60)
+    edges_in = _edges(10, 150, 30)
+    edges_out = edges_in[:26]
     above = edges_in[:-1] > edges_out[-1]
 
     corrected = response.response_matrix(edges_in, edges_out).eloss_matrix.value
@@ -256,7 +257,8 @@ def test_response_matrix_photons_below_output_range():
     puts its peaks in the first output bin."""
     detector = _make_detector("Ge", 0.5)
     response = Response(Material("N", 1e-30 * u.um, database="mcmaster"), detector)
-    edges_in, edges_out = _edges(5, 100, 30), _edges(20, 100, 30)
+    edges_in = _edges(5, 100, 30)
+    edges_out = edges_in[14:]
     below = edges_in[1:] < edges_out[0]
 
     corrected = response.response_matrix(edges_in, edges_out).eloss_matrix.value
@@ -288,3 +290,51 @@ def test_response_matrix_rejects_invalid_edges(bad, message):
         response.response_matrix(bad_edges)
     with pytest.raises(ValueError, match=f"edges_out.*{message}"):
         response.response_matrix(_edges(10, 80, 8), bad_edges)
+
+
+@pytest.mark.parametrize("ssw_compatible", [False, True])
+@pytest.mark.parametrize(
+    "edges_out",
+    [
+        [10, 25, 80],  # Fewer bins alone does not ensure alignment.
+        [10, 25, 40, 80],
+        [10, 20, 30, 40, 80],
+        [5, 10, 20],
+        [40, 80, 100],
+        [10, 20, 20 + 1e-12, 80],  # Two edges cannot match the same input edge.
+    ],
+)
+def test_response_matrix_rejects_unaligned_output_edges(edges_out, ssw_compatible, monkeypatch):
+    response = Response(
+        Material("Be", 1 * u.cm, database="mcmaster"),
+        Material("Si", 500 * u.micron, database="mcmaster"),
+    )
+
+    def unexpected_calculation(*args, **kwargs):
+        pytest.fail("Output edges must be validated before calculating the response")
+
+    monkeypatch.setattr(
+        response.detector, "photoelectric_linear_attenuation_coefficient", unexpected_calculation
+    )
+    with pytest.raises(ValueError, match="edges_out must be a subset of edges_in"):
+        response.response_matrix(
+            [10, 20, 40, 80] * u.keV,
+            edges_out * u.keV,
+            ssw_compatible=ssw_compatible,
+        )
+
+
+@pytest.mark.parametrize("ssw_compatible", [False, True])
+@pytest.mark.parametrize("selection", [slice(None), slice(None, None, 2), slice(2, 7)])
+def test_response_matrix_accepts_aligned_output_edges_in_other_units(selection, ssw_compatible):
+    response = Response(
+        Material("Be", 1 * u.cm, database="mcmaster"),
+        Material("Si", 500 * u.micron, database="mcmaster"),
+    )
+    edges_in = _edges(5, 100, 8)
+    edges_out = edges_in[selection].to(u.eV)
+
+    rm = response.response_matrix(edges_in, edges_out, ssw_compatible=ssw_compatible)
+
+    assert rm.eloss_matrix.shape == (edges_out.size - 1, edges_in.size - 1)
+    np.testing.assert_allclose(rm.eout.to_value(u.keV), edges_in[selection].value)

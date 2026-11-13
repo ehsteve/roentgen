@@ -23,6 +23,16 @@ sets that keyword -- its window attenuation (and everything else) is always
 McMaster-based. Only ``database="mcmaster"`` on the window actually matches
 ``resp_calc.pro``'s real numbers; ``"xcom"`` is a third, independently
 different source, not an alternate match.
+
+.. todo::
+    Support arbitrary output grids by integrating the response within each
+    input bin, using quadrature weights normalized to preserve the per-photon response.
+    At each quadrature point, broaden photopeaks and escape peaks at their true
+    deposited energies by integrating the Gaussian between output channel edges.
+    This avoids splitting peaks between output channel centers before broadening,
+    which can produce grid-dependent oscillations.
+    Retain the existing calculation for ssw_compatible=True.
+
 """
 
 from dataclasses import dataclass

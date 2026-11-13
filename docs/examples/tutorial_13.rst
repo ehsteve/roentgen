@@ -148,7 +148,9 @@ four ways (see `roentgen.absorption.Response.response_matrix`):
 
 The last two are easiest to see with a hard spectrum, a window that blocks most
 low energy photons, and an output range that ends below the highest input
-energy. Here the input grid goes up to 150 keV but the output only to 100 keV.
+energy. Here the input grid goes up to 150 keV but the output only to about 100 keV.
+Every output edge must coincide with an input edge, so we select the output
+edges from the input grid rather than generating an independent grid.
 The power law with photon index 1.5 is chosen for display purposes, it is much
 harder than most real sources, so is compared with one with an index of 4, more
 typical of a solar flare:
@@ -157,7 +159,7 @@ typical of a solar flare:
     :context: close-figs
     :include-source:
 
-    edges_out = np.geomspace(4, 100, 385) * u.keV
+    edges_out = edges[edges <= 100 * u.keV]
     rm_fixed = resp.response_matrix(edges, edges_out, fwhm=fwhm, area=area)
     rm_ssw = resp.response_matrix(edges, edges_out, fwhm=fwhm, area=area, ssw_compatible=True)
     eout_center = np.sqrt(edges_out[:-1] * edges_out[1:])
@@ -169,8 +171,7 @@ typical of a solar flare:
         counts_fixed = rm_fixed.pulse_height_matrix @ fluence
         counts_ssw = rm_ssw.pulse_height_matrix @ fluence
 
-        # photons arriving on the detector in each output bin (the input grid is finer and goes
-        # higher, so the input spectrum is binned like the output)
+        # photons arriving on the detector in each output bin (the input grid extends higher)
         incident = power_law(eout_center) * np.diff(edges_out) * exposure * area
 
         ax.stairs(incident.to_value(u.photon), edges_out.to_value(u.keV), color='gray', ls=':', label='incident photons')
@@ -192,20 +193,19 @@ typical of a solar flare:
 Over most of the range the two agree to well under a percent, since the
 photopeak dominates and is the same in both. They differ at the two ends:
 
-* In the lowest channels SSW counts more. For the hard spectrum it is an order of
-  magnitude or more than the default at 4-5 keV, for the solar-like one about
-  30% at 4.5 keV. Most of this is the photopeaks of the photons above the output
+* In the lowest channels SSW counts more. At 4.5 keV it is about ten times
+  the default for the hard spectrum, and about 35% higher for the solar-like
+  one. Most of this is the photopeaks of the photons above the output
   range, which SSW places at the bottom of the output range instead of dropping
   them (see the single photon response below), so it scales with the number of
   photons above 100 keV and is far smaller for a steep spectrum. The effect is
   large because the Be window has removed almost all the real counts at these
   energies. The unattenuated Compton continuum adds a smaller excess on top,
-  about 20% at 4.5 keV for the hard spectrum and gone by 8 keV, from low energy
-  photons that the window stops before they reach the detector.
-* In the last channel SSW counts about 20% fewer, for both spectra. The input bin
-  that straddles the top output edge has its photopeak shared between the last
-  channel and the next column in SSW, where the default keeps it in the last
-  channel.
+  from low energy photons that the window stops before they reach the detector.
+* In the last channel SSW counts about 35% more for the hard spectrum and 13%
+  more for the solar-like spectrum. The size and sign of the difference near
+  the upper boundary depend on the energy grids, since SSW redistributes
+  out-of-range peaks instead of dropping them.
 
 The spilled photopeaks are clearer in the response to a single photon above the
 output range. The default has no photopeak for a 120 keV photon, only its
