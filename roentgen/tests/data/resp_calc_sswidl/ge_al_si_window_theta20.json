@@ -1,0 +1,23 @@
+{
+  "name": "ge_al_si_window_theta20",
+  "detector": "Ge",
+  "area": 2.5,
+  "d": 0.3,
+  "z": [
+    13,
+    14
+  ],
+  "gmcm": [
+    0.01,
+    0.005
+  ],
+  "nflux": 15,
+  "elo": 4.0,
+  "ehi": 100.0,
+  "theta": 20.0,
+  "nosigma": false,
+  "func_par": [
+    0.5,
+    0.1
+  ]
+}

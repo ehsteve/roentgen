@@ -1,0 +1,340 @@
+import json
+from pathlib import Path
+
+import numpy as np
+import pytest
+
+import astropy.units as u
+
+from roentgen.absorption.material import Material, Response, Stack
+from roentgen.response import compton
+from roentgen.util import get_element_symbol, get_material_density
+
+_SSW_TEST_DIR = Path(__file__).parent / "data" / "resp_calc_sswidl"
+_COUNT_AREA = u.ct * u.cm**2 / u.photon  # counts per photon/cm2 of fluence
+_SSW_CASES = sorted(p.stem for p in _SSW_TEST_DIR.glob("*.json"))
+
+# density (g/cm3) for detector materials made fo more than one element,
+# matching the constants in in fluorescence.pro/det_xsec.pro
+_COMPOUND_DETECTORS = {
+    "NaI": ({"Na": 22.99, "I": 126.90}, 3.67),
+    "CsI": ({"Cs": 132.9, "I": 126.9}, 4.51),
+    "CdTe": ({"Cd": 112.4, "Te": 127.6}, 5.85),
+}
+
+
+def _make_detector(name, thickness_cm):
+    if name in _COMPOUND_DETECTORS:
+        composition, density = _COMPOUND_DETECTORS[name]
+        return Material(
+            composition, thickness_cm * u.cm, density=density * u.g / u.cm**3, database="mcmaster"
+        )
+    return Material(name, thickness_cm * u.cm, database="mcmaster")
+
+
+def _make_optical_path(z_list, gmcm_list):
+    materials = []
+    for z, gmcm in zip(z_list, gmcm_list):
+        symbol = get_element_symbol(int(z))
+        density = get_material_density(symbol)
+        thickness = (gmcm * u.g / u.cm**2) / density
+        materials.append(Material(symbol, thickness, density=density, database="mcmaster"))
+    optical_path = materials[0]
+    for m in materials[1:]:
+        optical_path = optical_path + m
+    return optical_path
+
+
+def _edges(elo, ehi, n):
+    return np.geomspace(elo, ehi, n + 1) * u.keV
+
+
+def _load_case(name):
+    with open(_SSW_TEST_DIR / f"{name}.json") as f:
+        params = json.load(f)
+    arrays = np.load(_SSW_TEST_DIR / f"{name}.npz")
+    return params, arrays
+
+
+@pytest.mark.parametrize("case_name", _SSW_CASES)
+def test_response_matrix_matches_idl(case_name, monkeypatch):
+    """response_matrix() output matches real resp_calc.pro output (generated
+    via hissw + local sswidl), for a representative set of detectors/windows/
+    angles. See the ``.json`` files under roentgen/tests/data/resp_calc_sswidl/
+    for parameters.
+
+    roentgen.response.compton uses precise astropy.constants values for the
+    electron rest energy and classical electron radius, but klein.pro et al.
+    hardcode rounded 3 signricant figures (511.0, 2.82e-13) so monkeypatched
+    back here so this stays a true comparison against SSW."""
+    monkeypatch.setattr(compton, "_ELECTRON_REST_ENERGY", 511.0)
+    monkeypatch.setattr(compton, "_CLASSICAL_ELECTRON_RADIUS", 2.82e-13)
+
+    params, golden = _load_case(case_name)
+
+    detector = _make_detector(params["detector"], params["d"])
+    optical_path = _make_optical_path(params["z"], params["gmcm"])
+    response = Response(optical_path, detector)
+
+    kwargs = dict(
+        theta=params["theta"] * u.deg,
+        area=params["area"] * u.cm**2,
+        ssw_compatible=True,
+    )
+    if not params["nosigma"]:
+        p0, p1 = params["func_par"]
+        kwargs["fwhm"] = lambda e, p0=p0, p1=p1: (p0 + p1 * np.sqrt(e.value)) * u.keV
+
+    rm = response.response_matrix(_edges(params["elo"], params["ehi"], params["nflux"]), **kwargs)
+
+    np.testing.assert_allclose(
+        rm.eloss_matrix.to_value(_COUNT_AREA),
+        golden["eloss_matrix"],
+        atol=1e-5,
+        rtol=1e-3,
+    )
+    if not params["nosigma"]:
+        np.testing.assert_allclose(
+            rm.pulse_height_matrix.to_value(_COUNT_AREA),
+            golden["pulse_height_matrix"],
+            atol=1e-5,
+            rtol=1e-3,
+        )
+        np.testing.assert_allclose(
+            rm.smatrix.to_value(_COUNT_AREA / u.keV),
+            golden["smatrix"],
+            atol=1e-5,
+            rtol=1e-3,
+        )
+
+
+def test_response_matrix_requires_mcmaster_detector():
+    detector = Material("Si", 500 * u.micron)  # default database="nist"
+    optical_path = Material("air", 1e-30 * u.um)
+    response = Response(optical_path, detector)
+    with pytest.raises(NotImplementedError):
+        response.response_matrix(_edges(5, 50, 10))
+
+
+def test_response_matrix_xcom_above_mcmaster_range():
+    detector = Material("Si", 1 * u.mm, database="xcom")
+    response = Response(Stack([]), detector)
+
+    matrix = response.response_matrix([1000, 1200, 1400] * u.keV)
+
+    assert np.all(np.isfinite(matrix.eloss_matrix))
+    assert np.all(matrix.efficiency > 0)
+
+
+def test_response_matrix_unsupported_fluorescence_material():
+    # a McMaster-capable element that isn't in the fixed fluorescence list
+    detector = Material("Au", 100 * u.micron, database="mcmaster")
+    optical_path = Material("N", 1e-30 * u.um, database="mcmaster")
+    response = Response(optical_path, detector)
+    with pytest.raises(ValueError):
+        response.response_matrix(_edges(5, 50, 10))
+
+
+@pytest.mark.parametrize("detector_name", ["Si", "Ge", "NaI", "CsI", "CdTe"])
+def test_response_matrix_sanity(detector_name):
+    """Basic shape/bounds sanity checks for all suported detector
+    materials including CdTe, whose fluorescence normalisation
+    deliberately diverges from resp_calc.pro see
+    roentgen/response/fluorescence.py."""
+    detector = _make_detector(detector_name, 0.1)
+    optical_path = Material("N", 1e-30 * u.um, database="mcmaster")
+    response = Response(optical_path, detector)
+
+    nflux = 8
+    rm = response.response_matrix(_edges(10, 80, nflux))
+
+    assert rm.eloss_matrix.shape == (nflux, nflux)
+    assert np.all(np.isfinite(rm.eloss_matrix))
+    assert np.all(rm.eloss_matrix.value >= 0)
+    assert np.all(rm.efficiency >= 0) and np.all(rm.efficiency <= 1)
+
+
+def test_response_matrix_with_broadening_normalises_reasonably():
+    detector = Material("Si", 0.05 * u.cm, database="mcmaster")
+    optical_path = Material("N", 1e-30 * u.um, database="mcmaster")
+    response = Response(optical_path, detector)
+
+    fwhm = lambda e: (0.15 + 0.0 * e.value) * u.keV  # noqa: E731
+
+    rm = response.response_matrix(_edges(5, 60, 12), fwhm=fwhm)
+
+    assert rm.pulse_height_matrix.shape == (12, 12)
+    assert rm.smatrix.shape == (12, 12)
+    assert np.all(np.isfinite(rm.pulse_height_matrix))
+    assert np.all(np.isfinite(rm.smatrix))
+    assert rm.smatrix.unit == _COUNT_AREA / u.keV
+    # broadening should conserve (approximately) the total counts per input bin
+    np.testing.assert_allclose(
+        rm.pulse_height_matrix.sum(axis=0).value,
+        rm.eloss_matrix.sum(axis=0).value,
+        atol=1e-3,
+        rtol=1e-2,
+    )
+
+
+def test_response_matrix_edges_out_differs_from_edges_in():
+    detector = Material("Ge", 0.5 * u.cm, database="mcmaster")
+    optical_path = Material("N", 1e-30 * u.um, database="mcmaster")
+    response = Response(optical_path, detector)
+
+    edges_in = _edges(10, 100, 20)
+    edges_out = edges_in[::2]
+    rm = response.response_matrix(edges_in, edges_out)
+
+    assert rm.eloss_matrix.shape == (10, 20)
+    # the photopeak of an input bin lands in the output bin holding its centre energy
+    centre_in = np.sqrt(edges_in[10].value * edges_in[11].value)
+    peak_bin = np.argmax(rm.eloss_matrix[:, 10].value)
+    assert edges_out[peak_bin].value <= centre_in <= edges_out[peak_bin + 1].value
+
+
+def test_response_matrix_gives_counts_from_flux_density():
+    """A photon fluence (flux density x bin width x exposure) through the DRM is counts."""
+    detector = Material("Si", 0.05 * u.cm, database="mcmaster")
+    response = Response(Material("N", 1e-30 * u.um, database="mcmaster"), detector)
+    edges = _edges(10, 60, 12)
+    rm = response.response_matrix(
+        edges, fwhm=lambda e: (0.15 + 0.0 * e.value) * u.keV, area=3 * u.cm**2
+    )
+
+    centre = np.sqrt(edges[:-1] * edges[1:])
+    flux = 5.0 * (centre / (10 * u.keV)) ** -2 * u.photon / (u.keV * u.s * u.cm**2)
+    counts = rm.pulse_height_matrix @ (flux * np.diff(edges) * 100 * u.s)
+
+    assert counts.unit.is_equivalent(u.ct)
+    # a detector cannot count more photons than arrive on its area
+    arriving = (flux * np.diff(edges) * 100 * u.s * 3 * u.cm**2).sum()
+    assert counts.sum().to_value(u.ct) <= arriving.to_value(u.photon)
+
+
+def test_response_matrix_window_attenuates_whole_response():
+    """Every part of the response (photopeak, escape peaks and Compton continuum) scales with
+    the window transmission, but resp_calc.pro leaves the Compton continuum unattenuated."""
+    detector = Material("Ge", 0.5 * u.cm, database="mcmaster")
+    window = Material("Al", 0.2 * u.cm, database="mcmaster")
+    bare = Material("N", 1e-30 * u.um, database="mcmaster")
+    edges = _edges(20, 100, 20)
+    centers = 0.5 * (edges[:-1] + edges[1:])
+    transmission = window.transmission(centers)
+
+    def eloss(path, ssw):
+        return (
+            Response(path, detector).response_matrix(edges, ssw_compatible=ssw).eloss_matrix.value
+        )
+
+    np.testing.assert_allclose(
+        eloss(window, False), eloss(bare, False) * transmission, rtol=1e-6, atol=1e-12
+    )
+    assert not np.allclose(eloss(window, True), eloss(bare, True) * transmission, rtol=1e-3)
+
+
+def test_response_matrix_photons_above_output_range():
+    """The full-energy peak of a photon above the last output edge is outside the output range,
+    but its Compton continuum and escape peaks are not. resp_calc.pro spills the peak into the
+    next column instead."""
+    detector = _make_detector("CsI", 0.5)
+    response = Response(Material("N", 1e-30 * u.um, database="mcmaster"), detector)
+    edges_in = _edges(10, 150, 30)
+    edges_out = edges_in[:26]
+    above = edges_in[:-1] > edges_out[-1]
+
+    corrected = response.response_matrix(edges_in, edges_out).eloss_matrix.value
+    ssw = response.response_matrix(edges_in, edges_out, ssw_compatible=True).eloss_matrix.value
+
+    # eloss_matrix includes the 1 cm2 area, so a column sums to a probability
+    assert np.all(corrected.sum(axis=0) <= 1.0)
+    assert np.all(corrected[:, above].sum(axis=0) > 0)
+    assert ssw.sum(axis=0).max() > 1.0
+
+
+def test_response_matrix_photons_below_output_range():
+    """Nothing a photon below the first output edge does can be recorded above it, resp_calc.pro
+    puts its peaks in the first output bin."""
+    detector = _make_detector("Ge", 0.5)
+    response = Response(Material("N", 1e-30 * u.um, database="mcmaster"), detector)
+    edges_in = _edges(5, 100, 30)
+    edges_out = edges_in[14:]
+    below = edges_in[1:] < edges_out[0]
+
+    corrected = response.response_matrix(edges_in, edges_out).eloss_matrix.value
+    ssw = response.response_matrix(edges_in, edges_out, ssw_compatible=True).eloss_matrix.value
+
+    assert below.any()
+    assert np.all(corrected[:, below] == 0)
+    assert np.all(ssw[:, below].sum(axis=0) > 0)
+
+
+@pytest.mark.parametrize(
+    ("bad", "message"),
+    [
+        (np.geomspace(100, 10, 11), "strictly increasing"),
+        ([10, 20, 20, 40, 80], "strictly increasing"),
+        (10, "one-dimensional"),
+        ([[10, 20], [20, 30]], "one-dimensional"),
+        ([], "at least two edges"),
+        ([10], "at least two edges"),
+        ([10, np.nan, 30], "finite"),
+        ([10, 20, np.inf], "finite"),
+    ],
+)
+def test_response_matrix_rejects_invalid_edges(bad, message):
+    detector = Material("Si", 500 * u.micron, database="mcmaster")
+    response = Response(Material("N", 1e-30 * u.um, database="mcmaster"), detector)
+    bad_edges = u.Quantity(bad, u.keV)
+    with pytest.raises(ValueError, match=f"edges_in.*{message}"):
+        response.response_matrix(bad_edges)
+    with pytest.raises(ValueError, match=f"edges_out.*{message}"):
+        response.response_matrix(_edges(10, 80, 8), bad_edges)
+
+
+@pytest.mark.parametrize("ssw_compatible", [False, True])
+@pytest.mark.parametrize(
+    "edges_out",
+    [
+        [10, 25, 80],  # Fewer bins alone does not ensure alignment.
+        [10, 25, 40, 80],
+        [10, 20, 30, 40, 80],
+        [5, 10, 20],
+        [40, 80, 100],
+        [10, 20, 20 + 1e-12, 80],  # Two edges cannot match the same input edge.
+    ],
+)
+def test_response_matrix_rejects_unaligned_output_edges(edges_out, ssw_compatible, monkeypatch):
+    response = Response(
+        Material("Be", 1 * u.cm, database="mcmaster"),
+        Material("Si", 500 * u.micron, database="mcmaster"),
+    )
+
+    def unexpected_calculation(*args, **kwargs):
+        pytest.fail("Output edges must be validated before calculating the response")
+
+    monkeypatch.setattr(
+        response.detector, "photoelectric_linear_attenuation_coefficient", unexpected_calculation
+    )
+    with pytest.raises(ValueError, match="edges_out must be a subset of edges_in"):
+        response.response_matrix(
+            [10, 20, 40, 80] * u.keV,
+            edges_out * u.keV,
+            ssw_compatible=ssw_compatible,
+        )
+
+
+@pytest.mark.parametrize("ssw_compatible", [False, True])
+@pytest.mark.parametrize("selection", [slice(None), slice(None, None, 2), slice(2, 7)])
+def test_response_matrix_accepts_aligned_output_edges_in_other_units(selection, ssw_compatible):
+    response = Response(
+        Material("Be", 1 * u.cm, database="mcmaster"),
+        Material("Si", 500 * u.micron, database="mcmaster"),
+    )
+    edges_in = _edges(5, 100, 8)
+    edges_out = edges_in[selection].to(u.eV)
+
+    rm = response.response_matrix(edges_in, edges_out, ssw_compatible=ssw_compatible)
+
+    assert rm.eloss_matrix.shape == (edges_out.size - 1, edges_in.size - 1)
+    np.testing.assert_allclose(rm.eout.to_value(u.keV), edges_in[selection].value)

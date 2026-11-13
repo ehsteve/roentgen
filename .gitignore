@@ -163,7 +163,6 @@ test.py
 poetry.lock
 coverage.xml
 
-test*
 
 setup_package.py
 

@@ -52,6 +52,9 @@ copybutton_prompt_text = ">>> "
 # plot_directive default to always show source when including a plot
 plot_include_source = True
 
+# include todos
+todo_include_todos = True
+
 # Add any paths that contain templates here, relative to this directory.
 # templates_path = ['_templates']
 

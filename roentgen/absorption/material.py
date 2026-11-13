@@ -1,11 +1,13 @@
 """ """
 
 import numpy as np
+from astropy.units import Quantity
 from scipy import interpolate
 
 import astropy.units as u
 
 import roentgen
+from roentgen.absorption.cross_section_database import get_database
 from roentgen.util import (
     get_atomic_number,
     get_compound_index,
@@ -43,6 +45,21 @@ class Material(object):
         If not provided, uses default values which can be found in :download:`elements.csv <../../roentgen/data/elements.csv>` for elements or
         in :download:`compounds_mixtures.csv <../../roentgen/data/compounds_mixtures.csv>` for compounds.
         If many materials are present, calculates the weighted density.
+    database : `str`, optional
+        The cross-section data source to use: ``"nist"`` (default),
+        ``"mcmaster"``, or ``"xcom"``. Despite the name, ``"nist"`` isn't
+        "the" NIST source -- ``"xcom"`` is *also* NIST data, just from a
+        different NIST publication (see
+        `~roentgen.absorption.cross_section_database` for the distinction).
+        ``"mcmaster"`` and ``"xcom"`` additionally provide the
+        photoelectric/Compton/Rayleigh split (see
+        `photoelectric_mass_attenuation_coefficient`,
+        `compton_mass_attenuation_coefficient`) but only for materials made
+        up of individual elements (not named compounds). ``"mcmaster"`` is
+        the McMaster et al. 1969/1970 data (valid 1-1000 keV, matches SSW's
+        ``resp_calc.pro``); ``"xcom"`` is current NIST XCOM data (valid
+        1 keV-1e8 keV, one more element covered) -- see
+        `roentgen.absorption.mcmaster`/`roentgen.absorption.xcom`.
 
     .. warning::
         Elements beyond z = 92 are not supported by this class.
@@ -60,11 +77,6 @@ class Material(object):
     mass_attenuation_coefficients : `list`
         A list of `MassAttenuationCoefficient`
 
-    Methods
-    -------
-    mass_attenuation_coefficient(energy)
-        The mass attenuation coefficient for the material at energy
-
     Examples
     --------
     >>> from roentgen.absorption.material import Material
@@ -75,8 +87,9 @@ class Material(object):
     """
 
     @u.quantity_input
-    def __init__(self, material_input, thickness: u.m, density=None):
+    def __init__(self, material_input, thickness: u.m, density=None, database="nist"):
         self.thickness = thickness
+        self._database = get_database(database)
         if isinstance(density, u.Quantity):
             self.density = density
         if isinstance(material_input, str):
@@ -137,13 +150,74 @@ class Material(object):
 
     @u.quantity_input(energy=u.keV)
     def mass_attenuation_coefficient(self, energy):
+        if self._database is get_database("nist"):
+            coefficients = [
+                attenuation.func(energy) for attenuation in self.mass_attenuation_coefficients
+            ]
+        else:
+            coefficients = [self._database.total(symbol, energy) for symbol in self.list_symbols]
+
         result = np.sum(
             np.vstack(
                 [
-                    atten.func(energy) * frac_mass
-                    for atten, frac_mass in zip(
-                        self.mass_attenuation_coefficients, self.fractional_masses
-                    )
+                    coefficient * frac_mass
+                    for coefficient, frac_mass in zip(coefficients, self.fractional_masses)
+                ]
+            ),
+            axis=0,
+        )
+        if energy.isscalar:
+            return result[0]
+        else:
+            return result
+
+    @u.quantity_input(energy=u.keV)
+    def photoelectric_mass_attenuation_coefficient(self, energy):
+        """The photoelectric-only mass attenuation coefficient.
+
+        Only available for materials made up of individual elements, and
+        only for databases which provide component cross-sections
+        (``database="mcmaster"``, valid 1-1000 keV, or ``database="xcom"``,
+        valid 1 keV-1e8 keV).
+
+        Parameters
+        ----------
+        energy : `astropy.units.Quantity`
+            An array of energies in keV
+        """
+        result = np.sum(
+            np.vstack(
+                [
+                    self._database.photoelectric(symbol, energy) * frac_mass
+                    for symbol, frac_mass in zip(self.list_symbols, self.fractional_masses)
+                ]
+            ),
+            axis=0,
+        )
+        if energy.isscalar:
+            return result[0]
+        else:
+            return result
+
+    @u.quantity_input(energy=u.keV)
+    def compton_mass_attenuation_coefficient(self, energy):
+        """The incoherent (Compton) scattering-only mass attenuation coefficient.
+
+        Only available for materials made up of individual elements, and
+        only for databases which provide component cross-sections
+        (``database="mcmaster"``, valid 1-1000 keV, or ``database="xcom"``,
+        valid 1 keV-1e8 keV).
+
+        Parameters
+        ----------
+        energy : `astropy.units.Quantity`
+            An array of energies in keV
+        """
+        result = np.sum(
+            np.vstack(
+                [
+                    self._database.compton(symbol, energy) * frac_mass
+                    for symbol, frac_mass in zip(self.list_symbols, self.fractional_masses)
                 ]
             ),
             axis=0,
@@ -203,6 +277,28 @@ class Material(object):
             If energy is outside of the interpolation range of 1 keV to 20 MeV.
         """
         return self.mass_attenuation_coefficient(energy) * self.density
+
+    def photoelectric_linear_attenuation_coefficient(self, energy: u.keV):
+        """Provides the photoelectric-only linear attenuation coefficient as a
+        function of energy. See `photoelectric_mass_attenuation_coefficient`.
+
+        Parameters
+        ----------
+        energy : `astropy.units.Quantity`
+            An array of energies in keV.
+        """
+        return self.photoelectric_mass_attenuation_coefficient(energy) * self.density
+
+    def compton_linear_attenuation_coefficient(self, energy: u.keV):
+        """Provides the incoherent (Compton) scattering-only linear attenuation
+        coefficient as a function of energy. See `compton_mass_attenuation_coefficient`.
+
+        Parameters
+        ----------
+        energy : `astropy.units.Quantity`
+            An array of energies in keV.
+        """
+        return self.compton_mass_attenuation_coefficient(energy) * self.density
 
 
 class Stack(object):
@@ -291,7 +387,7 @@ class Response(object):
 
     Parameters
     ----------
-    optical_path : Stack
+    optical_path : Stack or Material
         A list of Material objects which make up the optical path.
 
     detector : Material or None
@@ -353,6 +449,123 @@ class Response(object):
         detector_absorption = self.detector.absorption(energy)
 
         return transmission * detector_absorption
+
+    @u.quantity_input
+    def response_matrix(
+        self,
+        edges_in: Quantity[u.keV],
+        edges_out: Quantity[u.keV] | None = None,
+        fwhm=None,
+        theta: Quantity[u.deg] = 0 * u.deg,
+        area: Quantity[u.cm**2] = 1 * u.cm**2,
+        ssw_compatible: bool = False,
+    ):
+        """Compute the full detector energy-redistribution (response) matrix.
+
+        Port of SSW's ``resp_calc.pro``: for each input photon energy bin,
+        the probability of a photon being measured in each output (PHA)
+        energy bin, including the photopeak, single Compton-scatter escape,
+        K-shell fluorescence escape peaks, and (if ``fwhm`` is given)
+        Gaussian resolution broadening.
+
+        ``self.detector`` must be a `Material` built with
+        ``database="mcmaster"`` or ``database="xcom"`` (a single element, or
+        a dict of elements) -- the photoelectric/Compton split this needs
+        isn't available from the default NIST-backed data. ``"mcmaster"``
+        matches ``resp_calc.pro`` exactly (valid 1-1000 keV); ``"xcom"`` uses
+        current NIST data over a wider range (1 keV-1e8 keV). Fluorescence
+        escape further requires the detector's elements to match one of
+        `roentgen.response.fluorescence.SUPPORTED_DETECTORS`
+        (Ge, Si, NaI, CsI, CdTe, or SXS).
+
+        Parameters
+        ----------
+        edges_in : `astropy.units.Quantity`
+            Input photon energy bin edges, ``n + 1`` values for ``n`` bins.
+            Must be a one-dimensional array of at least two finite, strictly increasing values.
+        edges_out : `astropy.units.Quantity`, optional
+            Output (PHA channel) bin edges, with the same requirements as ``edges_in``.
+            Every output edge must match an input edge (relative tolerance ``1e-12``
+            after conversion to keV). Defaults to ``edges_in``.
+        fwhm : callable, optional
+            ``fwhm(energy) -> fwhm``, the detector's energy resolution as a
+            function of energy, taking and returning `astropy.units.Quantity`.
+            If not given, no resolution broadening is applied
+            (``pulse_height_matrix`` and ``smatrix`` will be `None`).
+        theta : `astropy.units.Quantity`, optional
+            Angle of incidence from the detector normal. Default 0 deg.
+        area : `astropy.units.Quantity`, optional
+            Detector geometric area. Default 1 cm2.
+        ssw_compatible : `bool`, optional
+            If `True`, reproduce ``resp_calc.pro`` exactly, including four known defects:
+            the Compton continuum uses ``klein.pro``'s cross-section, which has an extra factor
+            of E'/E (see `roentgen.response.compton`); the last Compton output bin is
+            oversized when the maximum electron energy is above the last channel edge; the
+            window/filter transmission is not applied to the Compton continuum; and peaks of
+            photons outside the output range spill into the neighbouring column or the first
+            output bin rather than being dropped. Default `False` corrects all four.
+
+        Returns
+        -------
+        `~roentgen.response.response_matrix.ResponseMatrix`
+            ``eloss_matrix`` and ``pulse_height_matrix`` are in ct cm2 / ph and
+            ``smatrix`` in ct cm2 / (ph keV), so
+            ``pulse_height_matrix @ (flux * np.diff(ein) * exposure)`` is counts
+            per output bin for a flux density in ph / (keV s cm2).
+            ``efficiency`` and ``pulse_shape`` are dimensionless.
+
+        Raises
+        ------
+        ValueError
+            If the energy edges are invalid or ``edges_out`` is not a subset of
+            ``edges_in``. The subset requirement also applies with ``ssw_compatible=True``.
+        """
+        for name, edges in (("edges_in", edges_in), ("edges_out", edges_out)):
+            # The default output grid is the already validated input grid.
+            if name == "edges_out" and edges is None:
+                continue
+            if edges is None or edges.ndim != 1 or edges.size < 2:
+                raise ValueError(f"{name} must be a one-dimensional array with at least two edges")
+            values = edges.to_value(u.keV)
+            if not np.all(np.isfinite(values)):
+                raise ValueError(f"{name} must contain only finite energy values")
+            if np.any(values[1:] <= values[:-1]):
+                raise ValueError(f"{name} energy bin edges must be strictly increasing")
+
+        if edges_out is not None:
+            input_values = edges_in.to_value(u.keV)
+            output_values = edges_out.to_value(u.keV)
+            right = np.clip(np.searchsorted(input_values, output_values), 0, edges_in.size - 1)
+            left = np.maximum(right - 1, 0)
+            nearest = np.where(
+                np.abs(input_values[left] - output_values)
+                < np.abs(input_values[right] - output_values),
+                left,
+                right,
+            )
+            if not np.all(
+                np.isclose(output_values, input_values[nearest], rtol=1e-12, atol=0)
+            ) or np.any(np.diff(nearest) <= 0):
+                raise ValueError(
+                    "edges_out must be a subset of edges_in: every output bin edge "
+                    "must coincide with an input bin edge"
+                )
+
+        from roentgen.response.response_matrix import _compute_response_matrix
+
+        return _compute_response_matrix(
+            self,
+            len(edges_in) - 1,
+            edges_in[0],
+            edges_in[-1],
+            fwhm=fwhm,
+            edges_in=edges_in,
+            edges_out=edges_out,
+            theta=theta,
+            area=area,
+            nosigma=fwhm is None,
+            ssw_compatible=ssw_compatible,
+        )
 
 
 class MassAttenuationCoefficient(object):

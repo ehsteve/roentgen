@@ -58,11 +58,6 @@ class Nuclide(object):
     name : `str`
         A name for the material
 
-    Methods
-    -------
-    get_lines(energy_range)
-        X-ray lines in the energy range.
-
     Examples
     --------
     >>> from roentgen.nuclides import Nuclide
