@@ -451,6 +451,7 @@ class Response(object):
         fwhm=None,
         theta: Quantity[u.deg] = 0 * u.deg,
         area: Quantity[u.cm**2] = 1 * u.cm**2,
+        ssw_compatible: bool = False,
     ):
         """Compute the full detector energy-redistribution (response) matrix.
 
@@ -485,6 +486,14 @@ class Response(object):
             Angle of incidence from the detector normal. Default 0 deg.
         area : `astropy.units.Quantity`, optional
             Detector geometric area. Default 1 cm2.
+        ssw_compatible : `bool`, optional
+            If `True`, reproduce ``resp_calc.pro`` exactly, including four known defects:
+            the Compton continuum uses ``klein.pro``'s cross-section, which has an extra factor
+            of E'/E (see `roentgen.response.compton`); the last Compton output bin is
+            oversized when the maximum electron energy is above the last channel edge; the
+            window/filter transmission is not applied to the Compton continuum; and peaks of
+            photons outside the output range spill into the neighbouring column or the first
+            output bin rather than being dropped. Default `False` corrects all four.
 
         Returns
         -------
@@ -514,6 +523,7 @@ class Response(object):
             theta=theta,
             area=area,
             nosigma=fwhm is None,
+            ssw_compatible=ssw_compatible,
         )
 
 
