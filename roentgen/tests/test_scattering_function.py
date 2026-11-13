@@ -5,7 +5,8 @@ from numpy.testing import assert_allclose
 import astropy.units as u
 
 from roentgen.absorption.material import Material, Response
-from roentgen.response.compton import compton_scatter_matrix, incoherent_scattering_function, klein
+from roentgen.response.compton import _klein as klein
+from roentgen.response.compton import compton_scatter_matrix, incoherent_scattering_function
 
 ENERGY = 30.0
 MU = np.cos(np.array([0.3, 1.0, 2.5]))
@@ -89,8 +90,8 @@ def test_response_matrix_ssw_compatible_changes_continuum():
 
 def test_compton_last_bin_width_not_oversized():
     # 300 keV photons have a maximum electron energy of 162 keV, well above the last channel edge
-    channel_edges = np.linspace(1, 50, 99)
-    photon_edges = np.array([299.0, 301.0])
+    channel_edges = np.linspace(1, 50, 99) * u.keV
+    photon_edges = np.array([299.0, 301.0]) * u.keV
     corrected = compton_scatter_matrix(channel_edges, photon_edges, np.array([1.0]))
     ssw = compton_scatter_matrix(channel_edges, photon_edges, np.array([1.0]), exact=False)
     # the part of the continuum inside the channels can't exceed the Compton probability

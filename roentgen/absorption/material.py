@@ -480,8 +480,8 @@ class Response(object):
         edges_out : `astropy.units.Quantity`, optional
             Output (PHA channel) bin edges. Defaults to ``edges_in``.
         fwhm : callable, optional
-            ``fwhm(energy_kev) -> fwhm_kev``, the detector's energy
-            resolution as a function of energy (both plain arrays in keV).
+            ``fwhm(energy) -> fwhm``, the detector's energy resolution as a
+            function of energy, taking and returning `astropy.units.Quantity`.
             If not given, no resolution broadening is applied
             (``pulse_height_matrix`` and ``smatrix`` will be `None`).
         theta : `astropy.units.Quantity`, optional
@@ -493,16 +493,22 @@ class Response(object):
             shape of the Compton continuum (see `roentgen.response.compton`),
             otherwise plain Klein-Nishina as in ``resp_calc.pro``. Default `False`.
         ssw_compatible : `bool`, optional
-            If `True`, reproduce ``resp_calc.pro`` exactly, including three known defects:
+            If `True`, reproduce ``resp_calc.pro`` exactly, including four known defects:
             the Compton continuum uses ``klein.pro``'s cross-section, which has an extra factor
-            of E'/E (see `roentgen.response.compton.klein`); the last Compton output bin is
-            oversized when the maximum electron energy is above the last channel edge; and the
-            window/filter transmission is not applied to the Compton continuum. Default `False`
-            corrects all three.
+            of E'/E (see `roentgen.response.compton`); the last Compton output bin is
+            oversized when the maximum electron energy is above the last channel edge; the
+            window/filter transmission is not applied to the Compton continuum; and peaks of
+            photons outside the output range spill into the neighbouring column or the first
+            output bin rather than being dropped. Default `False` corrects all four.
 
         Returns
         -------
         `~roentgen.response.response_matrix.ResponseMatrix`
+            ``eloss_matrix`` and ``pulse_height_matrix`` are in ct cm2 / ph and
+            ``smatrix`` in ct cm2 / (ph keV), so
+            ``pulse_height_matrix @ (flux * np.diff(ein) * exposure)`` is counts
+            per output bin for a flux density in ph / (keV s cm2).
+            ``efficiency`` and ``pulse_shape`` are dimensionless.
         """
         # bin edges come straight from the user and the port silently gives wrong
         # numbers if they are not ascending

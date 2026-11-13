@@ -52,16 +52,19 @@ class ResponseMatrix:
     ein: u.Quantity
     # output (PHA channel) energy bin edges, shape (n_output + 1,)
     eout: u.Quantity
-    # (n_output, n_photon) energy-loss matrix, before resolution broadening
-    eloss_matrix: np.ndarray
+    # (n_output, n_photon) energy-loss matrix, before resolution broadening, in ct cm2 / ph:
+    # ``eloss_matrix @ fluence`` gives counts per output bin for the photon fluence
+    # (ph / cm2) in each input bin
+    eloss_matrix: u.Quantity
     # (n_output, n_photon) pulse-height matrix, after resolution broadening
-    # (``None`` if no ``fwhm`` was given)
-    pulse_height_matrix: np.ndarray | None
-    # pulse_height_matrix normalised to counts/keV/photon (``None`` if no ``fwhm`` was given)
-    smatrix: np.ndarray | None
-    # relative photopeak efficiency per input photon energy bin
+    # same units (``None`` if no ``fwhm`` was given)
+    pulse_height_matrix: u.Quantity | None
+    # pulse_height_matrix per unit output energy, in ct cm2 / (ph keV), i.e. counts/keV from
+    # ``smatrix @ fluence`` (``None`` if no ``fwhm`` was given)
+    smatrix: u.Quantity | None
+    # relative (dimensionless) photopeak efficiency per input photon energy bin
     efficiency: np.ndarray
-    # (n_output, n_output) Gaussian resolution pulse-spread matrix (``None`` if no ``fwhm`` was given)
+    # (n_output, n_output) dimensionless Gaussian resolution pulse-spread matrix (``None`` if no ``fwhm`` was given)
     pulse_shape: np.ndarray | None
 
 
@@ -69,15 +72,14 @@ def _edges_kev(value):
     return np.atleast_1d(value.to_value(u.keV)).astype(float)
 
 
-@u.quantity_input
 def _deposit(matrix, columns, position, amount, ssw_compatible, overwrite=False):
     """Add ``amount`` at fractional output-bin ``position`` of each of ``columns`` of ``matrix``,
     shared linearly between the two adjacent output bins.
 
     ``resp_calc.pro`` does this on the flattened matrix, so a position beyond the last output bin
     spills into the next column and one past the end of the matrix is clipped to the last
-    element. That is reproduced for ``ssw_compatible``. Otherwise positions are clipped to the
-    last output bin of their own column.
+    element. That is reproduced for ``ssw_compatible``. Otherwise, positions are clipped to the
+    the last output bin of their own column.
     """
     n_output_bins = matrix.shape[0]
     if ssw_compatible:
@@ -103,6 +105,7 @@ def _deposit(matrix, columns, position, amount, ssw_compatible, overwrite=False)
     np.add.at(matrix, (np.minimum(row_lo + 1, n_output_bins - 1), columns), amount * weight_hi)
 
 
+@u.quantity_input
 def _compute_response_matrix(
     response,
     nflux: int,
@@ -151,9 +154,9 @@ def _compute_response_matrix(
     elo, ehi : `astropy.units.Quantity`
         Lower/upper energy limits of the input photon grid.
     fwhm : callable, optional
-        ``fwhm(energy_kev) -> fwhm_kev``, the detector's energy resolution
-        as a function of energy (both plain arrays in keV). Required unless
-        ``nosigma=True``.
+        ``fwhm(energy) -> fwhm``, the detector's energy resolution as a
+        function of energy, taking and returning `astropy.units.Quantity`.
+        Required unless ``nosigma=True``.
     eout : `astropy.units.Quantity`, optional
         Output (PHA channel) bin edges. Defaults to the input photon edges
         (or a linear grid if ``linearpha``).
@@ -174,16 +177,25 @@ def _compute_response_matrix(
         Compton continuum shape (see `roentgen.response.compton`), otherwise
         plain Klein-Nishina as in ``resp_calc.pro``.
     ssw_compatible : `bool`, optional
-        If `True`, reproduce ``resp_calc.pro`` exactly, including three known defects:
+        If `True`, reproduce ``resp_calc.pro`` exactly, including four potenail issues:
         the Compton continuum uses ``klein.pro``'s cross-section, which has an extra factor
-        of E'/E (see `roentgen.response.compton.klein`); the last Compton output bin is
-        oversized when the maximum electron energy is above the last channel edge; and the
-        window/filter transmission is not applied to the Compton continuum. Default `False`
-        corrects all three.
+        of E'/E (see `roentgen.response.compton`); the last Compton output bin is
+        oversized when the maximum electron energy is above the last channel edge; the
+        window/filter transmission is not applied to the Compton continuum; and peaks of
+        photons outside the output range spill into the neighbouring column or the first
+        output bin rather than being dropped. Default `False` corrects all four.
 
     Returns
     -------
     `ResponseMatrix`
+        ``eloss_matrix`` and ``pulse_height_matrix`` are in ct cm2 / ph and
+        ``smatrix`` in ct cm2 / (ph keV), as in ``resp_calc.pro``. They include
+        the detector ``area`` but not the input bin widths, so
+        ``pulse_height_matrix @ (flux * np.diff(ein) * exposure)`` is the counts
+        per output bin for a photon flux density ``flux`` in ph / (keV s cm2)
+        at the detector and an ``exposure`` time (and ``smatrix @ ...`` the
+        counts per output keV). ``efficiency`` and ``pulse_shape`` are
+        dimensionless.
 
     Raises
     ------
@@ -218,17 +230,16 @@ def _compute_response_matrix(
         eout_edges = ein_edges
 
     eout_bins = edge_products(eout_edges)
-    eout_center, eout_width, eout_edges_2 = eout_bins.mean, eout_bins.width, eout_bins.edges_2
+    eout_center, eout_width = eout_bins.mean, eout_bins.width
     n_output_bins = eout_width.size
     output_bin_index = np.arange(n_output_bins, dtype=float)
 
     eloss_matrix = np.zeros((n_output_bins, nflux))
 
-    # Photopeak diagonal
-    peak_position = np.maximum(interp_linear_extrap(ein_center, eout_center, output_bin_index), 0.0)
     # A peak outside the output range isn't recorded, whether above the last edge or below the
     # first (energy can't be gained). resp_calc.pro instead spills the former into the next
     # column and puts the latter in the first output bin.
+    peak_position = np.maximum(interp_linear_extrap(ein_center, eout_center, output_bin_index), 0.0)
     bottom_edge, top_edge = eout_bins.edges_2[0, 0], eout_bins.edges_2[1, -1]
 
     def in_output_range(energy):
@@ -316,20 +327,25 @@ def _compute_response_matrix(
             for z, fraction in zip(zs, detector.fractional_masses)
         }
     eloss_matrix = eloss_matrix + compton_scatter_matrix(
-        eout_edges, ein_edges, compton_probability, elements, not ssw_compatible
+        u.Quantity(eout_edges, u.keV),
+        u.Quantity(ein_edges, u.keV),
+        compton_probability,
+        elements,
+        exact=not ssw_compatible,
     )
 
     # Resolution brodening
-    area_cm2 = area.to_value(u.cm**2)
+    # projected detector area, converting photons per cm2 to counts
+    drm_scale = area.to(u.cm**2) * cos_theta * u.ct / u.photon
     pulse_height_matrix = smatrix = pulse_shape = None
     if not nosigma:
         if fwhm is None:
             raise ValueError("fwhm must be given unless nosigma=True")
-        pulse_shape = pulse_spread_matrix(eout_edges_2, fwhm)
-        pulse_height_matrix = (pulse_shape @ eloss_matrix) * area_cm2 * cos_theta
-        smatrix = pulse_height_matrix / eout_width[:, None]
+        pulse_shape = pulse_spread_matrix(u.Quantity(eout_edges, u.keV), fwhm)
+        pulse_height_matrix = (pulse_shape @ eloss_matrix) * drm_scale
+        smatrix = pulse_height_matrix / u.Quantity(eout_width, u.keV)[:, None]
 
-    eloss_matrix = eloss_matrix * area_cm2 * cos_theta
+    eloss_matrix = eloss_matrix * drm_scale
 
     return ResponseMatrix(
         ein=u.Quantity(ein_edges, u.keV),
