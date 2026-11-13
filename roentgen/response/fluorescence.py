@@ -35,8 +35,6 @@ import numpy as np
 
 import astropy.units as u
 
-from roentgen.absorption.mcmaster import photoelectric_mass_attenuation
-
 __all__ = ["SUPPORTED_DETECTORS", "fluorescence_escape"]
 
 SUPPORTED_DETECTORS = {
@@ -47,11 +45,6 @@ SUPPORTED_DETECTORS = {
     frozenset({"Cd", "Te"}): "CdTe",
     frozenset({"Xe", "C", "O"}): "SXS",
 }
-
-
-def _photoelectric(element, energy_kev):
-    """Photoelectric mass attenuation coefficient, plain `numpy.ndarray` in/out."""
-    return photoelectric_mass_attenuation(element, u.Quantity(energy_kev, "keV")).to_value("cm2/g")
 
 
 def _finalise(
@@ -78,11 +71,11 @@ def _finalise(
     return escape_probability, np.asarray(escape_line_energy, dtype=float)
 
 
-def _ge(energy_kev, theta_deg):
-    incident_weighted_pe = _photoelectric("Ge", energy_kev)
+def _ge(energy_kev, theta_deg, photoelectric):
+    incident_weighted_pe = photoelectric("Ge", energy_kev)
     escape_line_energy = [9.87, 10.98]
     k_edge_energy = [11.1, 11.1]
-    escape_weighted_pe = _photoelectric("Ge", escape_line_energy)
+    escape_weighted_pe = photoelectric("Ge", escape_line_energy)
     yield_weight = np.tile([0.471, 0.0691], (energy_kev.size, 1))
     return _finalise(
         energy_kev,
@@ -95,11 +88,11 @@ def _ge(energy_kev, theta_deg):
     )
 
 
-def _si(energy_kev, theta_deg):
-    incident_weighted_pe = _photoelectric("Si", energy_kev)
+def _si(energy_kev, theta_deg, photoelectric):
+    incident_weighted_pe = photoelectric("Si", energy_kev)
     escape_line_energy = [1.839 - 0.118]
     k_edge_energy = [1.839]
-    escape_weighted_pe = _photoelectric("Si", escape_line_energy)
+    escape_weighted_pe = photoelectric("Si", escape_line_energy)
     yield_weight = np.tile([0.03], (energy_kev.size, 1))
     return _finalise(
         energy_kev,
@@ -112,17 +105,17 @@ def _si(energy_kev, theta_deg):
     )
 
 
-def _nai(energy_kev, theta_deg):
-    pe_na = _photoelectric("Na", energy_kev) * 23.0
-    pe_i = _photoelectric("I", energy_kev) * 126.9
+def _nai(energy_kev, theta_deg, photoelectric):
+    pe_na = photoelectric("Na", energy_kev) * 23.0
+    pe_i = photoelectric("I", energy_kev) * 126.9
     incident_weighted_pe = pe_na + pe_i
     iodine_fraction = pe_i / incident_weighted_pe
 
     escape_line_energy = [29.0]
     k_edge_energy = [33.2]
     escape_weighted_pe = [
-        _photoelectric("Na", escape_line_energy)[0] * 23.0
-        + _photoelectric("I", escape_line_energy)[0] * 126.9
+        photoelectric("Na", escape_line_energy)[0] * 23.0
+        + photoelectric("I", escape_line_energy)[0] * 126.9
     ]
 
     yield_weight = (0.882 * iodine_fraction)[:, None]
@@ -137,9 +130,9 @@ def _nai(energy_kev, theta_deg):
     )
 
 
-def _csi(energy_kev, theta_deg):
-    pe_cs = _photoelectric("Cs", energy_kev) * 132.9
-    pe_i = _photoelectric("I", energy_kev) * 126.9
+def _csi(energy_kev, theta_deg, photoelectric):
+    pe_cs = photoelectric("Cs", energy_kev) * 132.9
+    pe_i = photoelectric("I", energy_kev) * 126.9
     incident_weighted_pe = pe_cs + pe_i
     cesium_fraction = pe_cs / incident_weighted_pe
     iodine_fraction = pe_i / incident_weighted_pe
@@ -150,7 +143,7 @@ def _csi(energy_kev, theta_deg):
     # (132.9) for *both* terms (`xsec(ke,55.,...)*132.9 + xsec(ke,53.,...)*132.9`),
     # not 126.9 for the iodine term. Kept as-is for numerical equivalence.
     escape_weighted_pe = [
-        132.9 * (_photoelectric("Cs", [e])[0] + _photoelectric("I", [e])[0])
+        132.9 * (photoelectric("Cs", [e])[0] + photoelectric("I", [e])[0])
         for e in escape_line_energy
     ]
 
@@ -166,7 +159,7 @@ def _csi(energy_kev, theta_deg):
     )
 
 
-def _cdte(energy_kev, theta_deg):
+def _cdte(energy_kev, theta_deg, photoelectric):
     # NOTE: fluorescence.pro's CdTe branch broadcasts mu0/mu1 to (num, 8)
     # arrays and then indexes them in the shared kp loop with a bare scalar
     # `mu0[i]`.
@@ -180,8 +173,8 @@ def _cdte(energy_kev, theta_deg):
     # resp_calc.pro output whenever more than one photon energy is used.
 
     # local branching fractions use one weight pair (186.6, 211.9)...
-    pe_cd_local = _photoelectric("Cd", energy_kev) * 186.6
-    pe_te_local = _photoelectric("Te", energy_kev) * 211.9
+    pe_cd_local = photoelectric("Cd", energy_kev) * 186.6
+    pe_te_local = photoelectric("Te", energy_kev) * 211.9
     local_total = pe_cd_local + pe_te_local
     cadmium_fraction = pe_cd_local / local_total
     tellurium_fraction = pe_te_local / local_total
@@ -198,7 +191,7 @@ def _cdte(energy_kev, theta_deg):
     # det_xsec.pro's own CdTe combination, a *different* weight pair
     # (112.4, 127.6). Both are ported verbatim from fluorescence.pro/det_xsec.pro.
     def cdte_mixture_pe(x):
-        return _photoelectric("Cd", x) * 112.4 + _photoelectric("Te", x) * 127.6
+        return photoelectric("Cd", x) * 112.4 + photoelectric("Te", x) * 127.6
 
     incident_weighted_pe = cdte_mixture_pe(energy_kev)
     escape_weighted_pe = cdte_mixture_pe(escape_line_energy)
@@ -217,19 +210,19 @@ def _cdte(energy_kev, theta_deg):
     )
 
 
-def _sxs(energy_kev, theta_deg):
-    pe_xe = _photoelectric("Xe", energy_kev) * 0.9 * 131.3
-    pe_c = _photoelectric("C", energy_kev) * 0.1 * 12.0
-    pe_o = _photoelectric("O", energy_kev) * 0.1 * 32.0
+def _sxs(energy_kev, theta_deg, photoelectric):
+    pe_xe = photoelectric("Xe", energy_kev) * 0.9 * 131.3
+    pe_c = photoelectric("C", energy_kev) * 0.1 * 12.0
+    pe_o = photoelectric("O", energy_kev) * 0.1 * 32.0
     incident_weighted_pe = pe_xe + pe_c + pe_o
     xenon_fraction = pe_xe / incident_weighted_pe
 
     escape_line_energy = [29.6]
     k_edge_energy = [34.58]
     escape_weighted_pe = [
-        _photoelectric("Xe", escape_line_energy)[0] * 0.9 * 131.3
-        + _photoelectric("C", escape_line_energy)[0] * 0.1 * 12.0
-        + _photoelectric("O", escape_line_energy)[0] * 0.1 * 32.0
+        photoelectric("Xe", escape_line_energy)[0] * 0.9 * 131.3
+        + photoelectric("C", escape_line_energy)[0] * 0.1 * 12.0
+        + photoelectric("O", escape_line_energy)[0] * 0.1 * 32.0
     ]
 
     yield_weight = (0.90 * xenon_fraction)[:, None]
@@ -267,7 +260,8 @@ def fluorescence_escape(energy, detector, theta=0 * u.deg):
         `Material` matching one of `SUPPORTED_DETECTORS` (Ge, Si, NaI
         i.e. {Na, I}, CsI i.e. {Cs, I}, CdTe i.e. {Cd, Te}, or SXS i.e.
         {Xe, C, O}) — the same fixed set the reference implementation
-        supports, since fluorescence yield data isn't tabulated elsewhere.
+        supports, since fluorescence yield data isn't tabulated elsewhere. The
+        detector's database supplies the photoelectric coefficients.
     theta : `astropy.units.Quantity`, optional
         Angle of incidence from the detector normal. Default 0 deg.
 
@@ -289,5 +283,10 @@ def fluorescence_escape(energy, detector, theta=0 * u.deg):
         )
     theta_deg = theta.to_value(u.deg)
     energy_kev = np.atleast_1d(energy.to_value(u.keV)).astype(float)
-    escape_probability, escape_line_energy = _DISPATCH[name](energy_kev, theta_deg)
+
+    def photoelectric(element, energy_kev):
+        energy = u.Quantity(energy_kev, u.keV)
+        return detector._database.photoelectric(element, energy).to_value("cm2/g")
+
+    escape_probability, escape_line_energy = _DISPATCH[name](energy_kev, theta_deg, photoelectric)
     return escape_probability, u.Quantity(escape_line_energy, u.keV)

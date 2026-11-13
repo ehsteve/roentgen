@@ -193,7 +193,7 @@ def _compute_response_matrix(
     Raises
     ------
     NotImplementedError
-        If ``response.detector`` wasn't built with ``database="mcmaster"``.
+        If the detector's database does not provide photoelectric and Compton coefficients.
     ValueError
         If ``response.detector``'s elements aren't one of the fixed set
         `roentgen.response.fluorescence.SUPPORTED_DETECTORS`, or if

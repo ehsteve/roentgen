@@ -6,7 +6,7 @@ import pytest
 
 import astropy.units as u
 
-from roentgen.absorption.material import Material, Response
+from roentgen.absorption.material import Material, Response, Stack
 from roentgen.response import compton
 from roentgen.util import get_element_symbol, get_material_density
 
@@ -114,6 +114,16 @@ def test_response_matrix_requires_mcmaster_detector():
     response = Response(optical_path, detector)
     with pytest.raises(NotImplementedError):
         response.response_matrix(_edges(5, 50, 10))
+
+
+def test_response_matrix_xcom_above_mcmaster_range():
+    detector = Material("Si", 1 * u.mm, database="xcom")
+    response = Response(Stack([]), detector)
+
+    matrix = response.response_matrix([1000, 1200, 1400] * u.keV)
+
+    assert np.all(np.isfinite(matrix.eloss_matrix))
+    assert np.all(matrix.efficiency > 0)
 
 
 def test_response_matrix_unsupported_fluorescence_material():
