@@ -9,7 +9,7 @@ from astropy.table import QTable
 import roentgen
 from roentgen.util import get_atomic_number, get_element_symbol
 
-__all__ = ["get_lines", "get_edges", "emission_lines"]
+__all__ = ["get_lines", "get_edges", "emission_lines", "k_fluorescence_yield", "k_shell"]
 
 emission_lines = QTable(
     ascii.read(
@@ -128,3 +128,61 @@ def get_edges(element):
     )
 
     return result
+
+
+def k_fluorescence_yield(z):
+    """
+    K-shell fluorescence yield ω_K(Z).
+
+    Semiempirical fit of Bambynek et al., Rev. Mod. Phys. 44, 716 (1972), Eq. (3-11),
+    (ω_K/(1-ω_K))^(1/4) = B0 + B1 Z + B3 Z^3 with B0 = 0.015, B1 = 0.0327 and
+    B3 = -0.64e-6 (Table III.III, "present work"), which reproduces the "fitted values" of
+    their Table III.IV. The fit is to experimental data for Z >= 13; below that it is an
+    extrapolation (ω_K < 0.04).
+
+    Parameters
+    ----------
+    z : `int` or `numpy.ndarray`
+        Atomic number.
+
+    Returns
+    -------
+    `float` or `numpy.ndarray`
+        K-shell fluorescence yield, the probability that a K-shell vacancy is filled with the
+        emission of an X-ray rather than an Auger electron.
+    """
+    # B0 + B1 Z + B3 Z^3, constants from Table III.III of Bambynek et al. (1972)
+    y = (0.015 + 0.0327 * z - 0.64e-6 * z**3) ** 4
+    return y / (1.0 + y)
+
+
+def k_shell(z):
+    """
+    K-shell data for an element from roentgen's bundled data.
+
+    Parameters
+    ----------
+    z : `int`
+        Atomic number.
+
+    Returns
+    -------
+    k_edge : `astropy.units.Quantity`
+        K edge energy.
+    fluorescence_yield : `float`
+        K-shell fluorescence yield `k_fluorescence_yield`.
+    energies : `astropy.units.Quantity`
+        Energy of each K emission line.
+    intensities : `numpy.ndarray`
+        Relative intensity of each K emission line.
+    """
+    rows = emission_lines[
+        (emission_lines["z"] == z)
+        & np.array([str(t).startswith("K") for t in emission_lines["transition"]])
+    ]
+    return (
+        binding_energies.loc[z]["K 1s"].to(u.keV),
+        k_fluorescence_yield(z),
+        rows["energy"].to(u.keV),
+        np.asarray(rows["intensity"], dtype=float),
+    )

@@ -1,0 +1,17 @@
+{
+  "name": "si_bare_nosigma",
+  "detector": "Si",
+  "area": 1.0,
+  "d": 0.05,
+  "z": [
+    14
+  ],
+  "gmcm": [
+    0.0
+  ],
+  "nflux": 10,
+  "elo": 5.0,
+  "ehi": 50.0,
+  "theta": 0.0,
+  "nosigma": true
+}

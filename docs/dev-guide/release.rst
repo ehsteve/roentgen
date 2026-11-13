@@ -19,7 +19,7 @@ The release process for Roentgen is as follows:
     `uv run --isolated --no-project --with dist/*.whl pytest`
 #. Test that the distribution package can be installed and imported and that the version number is correct.
     `uv run --isolated --no-project --with dist/*.whl python -c "import roentgen; print(roentgen.__version__)"`
-#. Upload the distribution packages to TestPyPI using `uv publish --index testpypi --token <TESTPYPI_TOKEN> `.
+#. Upload the distribution packages to TestPyPI using ``uv publish --index testpypi --token <TESTPYPI_TOKEN>``.
 #. Verify the release on TestPyPI (https://test.pypi.org/project/roentgen/)
 #. If you need to make changes, delete the local git tag using `git tag -d vX.Y.Z`, make the necessary changes, and repeat steps above.
 #. Push the git tag to the remote repository. This will trigger the GitHub Actions workflow to build and upload the package to PyPI.

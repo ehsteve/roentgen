@@ -14,6 +14,5 @@ The guidelines are
 
    dev_env
    code_standards
-   tests
    docs
    release
