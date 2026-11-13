@@ -63,9 +63,14 @@ class _XCOMTable:
         _, first, counts = np.unique(energy, return_index=True, return_counts=True)
         last = first + counts - 1
         keep = np.union1d(first, last)
-        energy[first[counts > 1]] -= 1e-6
 
-        log_energy = np.log10(energy[keep])
+        # remove repeated values and replace with the cloest but different number
+        # could use a simalr appraoch in MassAttenuationCoefficient
+        log_energy = np.log10(energy)
+        lower_side = first[counts > 1]
+        log_energy[lower_side] = np.nextafter(log_energy[lower_side], -np.inf)
+        log_energy = log_energy[keep]
+
         self._interp = {
             column: interpolate.interp1d(
                 log_energy,

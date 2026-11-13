@@ -93,8 +93,16 @@ def test_all_elements_finite_and_positive(z):
 )
 def test_xcom_triplicate_energies_preserve_both_sides_of_edge(z, edge, below, above):
     table = _XCOMTable(z)
-    assert np.all(np.diff(table._interp["photoelectric"].x) > 0)
-    assert_allclose(table.evaluate("photoelectric", [edge - 1e-6, edge]), [below, above])
+    interpolator = table._interp["photoelectric"]
+    log_edge = np.log10(edge)
+    edge_index = np.searchsorted(interpolator.x, log_edge)
+
+    assert np.all(np.diff(interpolator.x) > 0)
+    assert interpolator.x[edge_index] == log_edge
+    log_below = np.nextafter(log_edge, -np.inf)
+    assert interpolator.x[edge_index - 1] == log_below
+    assert_allclose(10 ** interpolator(log_below), below)
+    assert_allclose(photoelectric_mass_attenuation(z, edge * u.keV).to_value("cm2/g"), above)
 
 
 def test_total_is_sum_of_components():
@@ -121,3 +129,25 @@ def test_material_default_database_rejects_component_access():
     detector = Material("Ge", 500 * u.um)  # default database="nist"
     with pytest.raises(NotImplementedError):
         detector.photoelectric_mass_attenuation_coefficient(30 * u.keV)
+
+
+@pytest.mark.parametrize(
+    ("z", "edge", "below", "above"),
+    [
+        (63, 1.7999999523162842, 3970.770263671875, 4149.09912109375),
+        (89, 1.0799999237060547, 5610.24609375, 5689.826171875),
+    ],
+)
+def test_xcom_triplicate_edge(z, edge, below, above):
+    interp = _XCOMTable(z)._interp["photoelectric"]
+    log_edge = np.log10(edge)
+    index = np.searchsorted(interp.x, log_edge)
+
+    assert np.all(np.diff(interp.x) > 0)
+    assert interp.x[index] == log_edge
+    assert interp.x[index - 1] == np.nextafter(log_edge, -np.inf)
+    assert_allclose(10 ** interp.y[index - 1], below)
+    assert_allclose(
+        photoelectric_mass_attenuation(z, edge * u.keV).to_value("cm2/g"),
+        above,
+    )
