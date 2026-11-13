@@ -482,8 +482,10 @@ class Response(object):
         ----------
         edges_in : `astropy.units.Quantity`
             Input photon energy bin edges, ``n + 1`` values for ``n`` bins.
+            Must be a one-dimensional array of at least two finite, strictly increasing values.
         edges_out : `astropy.units.Quantity`, optional
-            Output (PHA channel) bin edges. Defaults to ``edges_in``.
+            Output (PHA channel) bin edges, with the same requirements as ``edges_in``.
+            Defaults to ``edges_in``.
         fwhm : callable, optional
             ``fwhm(energy) -> fwhm``, the detector's energy resolution as a
             function of energy, taking and returning `astropy.units.Quantity`.
@@ -511,11 +513,17 @@ class Response(object):
             per output bin for a flux density in ph / (keV s cm2).
             ``efficiency`` and ``pulse_shape`` are dimensionless.
         """
-        # bin edges come straight from the user and the port silently gives wrong
-        # numbers if they are not ascending
-        for edges in (edges_in, edges_out):
-            if edges is not None and np.any(np.diff(edges.value) <= 0):
-                raise ValueError("energy bin edges must be strictly increasing")
+        for name, edges in (("edges_in", edges_in), ("edges_out", edges_out)):
+            # only endges_in given already verfiy skip
+            if name == "edges_out" and edges is None:
+                continue
+            if edges is None or edges.ndim != 1 or edges.size < 2:
+                raise ValueError(f"{name} must be a one-dimensional array with at least two edges")
+            values = edges.to_value(u.keV)
+            if not np.all(np.isfinite(values)):
+                raise ValueError(f"{name} must contain only finite energy values")
+            if np.any(values[1:] <= values[:-1]):
+                raise ValueError(f"{name} energy bin edges must be strictly increasing")
 
         from roentgen.response.response_matrix import _compute_response_matrix
 

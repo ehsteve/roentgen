@@ -267,11 +267,24 @@ def test_response_matrix_photons_below_output_range():
     assert np.all(ssw[:, below].sum(axis=0) > 0)
 
 
-@pytest.mark.parametrize("bad", [np.geomspace(100, 10, 11), np.array([10, 20, 20, 40, 80])])
-def test_response_matrix_rejects_non_increasing_edges(bad):
+@pytest.mark.parametrize(
+    ("bad", "message"),
+    [
+        (np.geomspace(100, 10, 11), "strictly increasing"),
+        ([10, 20, 20, 40, 80], "strictly increasing"),
+        (10, "one-dimensional"),
+        ([[10, 20], [20, 30]], "one-dimensional"),
+        ([], "at least two edges"),
+        ([10], "at least two edges"),
+        ([10, np.nan, 30], "finite"),
+        ([10, 20, np.inf], "finite"),
+    ],
+)
+def test_response_matrix_rejects_invalid_edges(bad, message):
     detector = Material("Si", 500 * u.micron, database="mcmaster")
     response = Response(Material("N", 1e-30 * u.um, database="mcmaster"), detector)
-    with pytest.raises(ValueError, match="strictly increasing"):
-        response.response_matrix(bad * u.keV)
-    with pytest.raises(ValueError, match="strictly increasing"):
-        response.response_matrix(_edges(10, 80, 8), bad * u.keV)
+    bad_edges = u.Quantity(bad, u.keV)
+    with pytest.raises(ValueError, match=f"edges_in.*{message}"):
+        response.response_matrix(bad_edges)
+    with pytest.raises(ValueError, match=f"edges_out.*{message}"):
+        response.response_matrix(_edges(10, 80, 8), bad_edges)
