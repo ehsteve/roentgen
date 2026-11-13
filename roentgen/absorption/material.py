@@ -150,11 +150,18 @@ class Material(object):
 
     @u.quantity_input(energy=u.keV)
     def mass_attenuation_coefficient(self, energy):
+        if self._database is get_database("nist"):
+            coefficients = [
+                attenuation.func(energy) for attenuation in self.mass_attenuation_coefficients
+            ]
+        else:
+            coefficients = [self._database.total(symbol, energy) for symbol in self.list_symbols]
+
         result = np.sum(
             np.vstack(
                 [
-                    self._database.total(symbol, energy) * frac_mass
-                    for symbol, frac_mass in zip(self.list_symbols, self.fractional_masses)
+                    coefficient * frac_mass
+                    for coefficient, frac_mass in zip(coefficients, self.fractional_masses)
                 ]
             ),
             axis=0,

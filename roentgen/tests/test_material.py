@@ -65,6 +65,19 @@ def material(request):
     return Material(request.param, 500 * u.micron)
 
 
+def test_default_nist_transmission_reuses_attenuation_tables(monkeypatch):
+    material = Material({"Cu": 0.88, "Sn": 0.12}, 1 * u.mm)
+    energies = [30, 60] * u.keV
+    expected = material.transmission(energies)
+
+    def fail_on_csv_read(*args, **kwargs):
+        pytest.fail("Transmission reread an attenuation table after material construction")
+
+    monkeypatch.setattr(np, "loadtxt", fail_on_csv_read)
+    np.testing.assert_allclose(material.transmission(energies), expected)
+    assert material.transmission(energies[0]) == pytest.approx(expected[0])
+
+
 def test_material(material):
     assert isinstance(material, Material)
 
