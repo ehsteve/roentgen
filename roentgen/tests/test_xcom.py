@@ -7,6 +7,7 @@ import astropy.units as u
 from roentgen.absorption.material import Material
 from roentgen.absorption.xcom import (
     MISSING_ELEMENTS,
+    _XCOMTable,
     coherent_mass_attenuation,
     incoherent_mass_attenuation,
     photoelectric_mass_attenuation,
@@ -81,6 +82,19 @@ def test_all_elements_finite_and_positive(z):
         result = func(z, energy)
         assert np.all(np.isfinite(result))
         assert np.all(result.value > 0)
+
+
+@pytest.mark.parametrize(
+    ("z", "edge", "below", "above"),
+    [
+        (63, 1.7999999523162842, 3970.770263671875, 4149.09912109375),
+        (89, 1.0799999237060547, 5610.24609375, 5689.826171875),
+    ],
+)
+def test_xcom_triplicate_energies_preserve_both_sides_of_edge(z, edge, below, above):
+    table = _XCOMTable(z)
+    assert np.all(np.diff(table._interp["photoelectric"].x) > 0)
+    assert_allclose(table.evaluate("photoelectric", [edge - 1e-6, edge]), [below, above])
 
 
 def test_total_is_sum_of_components():

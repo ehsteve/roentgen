@@ -58,19 +58,18 @@ class _XCOMTable:
         table = QTable(ascii.read(path, format="csv", comment="#"))
         energy = np.asarray(table["energy_kev"], dtype=float)
 
-        # duplicate energies mark absorption edges nudge the low-energy
-        # side down so the grid is strictly increasing, same convention as
-        # MassAttenuationCoefficient._remove_double_vals_from_data
-        uniq, count = np.unique(energy, return_counts=True)
-        for dup in uniq[count > 1]:
-            idx = np.nonzero(energy == dup)[0]
-            energy[idx[0]] -= 1e-6
+        # Repeated energies mark absorption edges. Keep the first and last
+        # rows for the two sides of the edge, including runs of three rows.
+        _, first, counts = np.unique(energy, return_index=True, return_counts=True)
+        last = first + counts - 1
+        keep = np.union1d(first, last)
+        energy[first[counts > 1]] -= 1e-6
 
-        log_energy = np.log10(energy)
+        log_energy = np.log10(energy[keep])
         self._interp = {
             column: interpolate.interp1d(
                 log_energy,
-                np.log10(np.asarray(table[column], dtype=float)),
+                np.log10(np.asarray(table[column], dtype=float)[keep]),
                 bounds_error=True,
                 assume_sorted=True,
             )
